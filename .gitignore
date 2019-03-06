@@ -1,0 +1,23 @@
+target/
+
+# binary files
+*.class
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# IntelliJ IDEA
+**/.idea/artifacts/
+**/.idea/dictionaries/
+**/.idea/httpRequests/
+**/.idea/libraries/
+**/.idea/saveactions_settings.xml
+**/.idea/sonarlint/issuestore/
+**/.idea/tasks.xml
+**/.idea/uiDesigner.xml
+**/.idea/workspace.xml
+
+audit.log
