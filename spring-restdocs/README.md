@@ -8,4 +8,4 @@ As Spring REST docs needs a running REST server, to set up the toolchain without
 - Redeploy the WAR
 
 Now you should be able to visit http://localhost:8080/somewhere to see the docs (didn't get it to work yet, though).
-You can still load the the generated `index.html` manually in your browser, you'll find it in the WAR or in `targte/generated-docs`
+You can still load the the generated `index.html` manually in your browser, you'll find it in the WAR or in `target/generated-docs`
