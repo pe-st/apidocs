@@ -11,6 +11,7 @@
 
     <modules>
         <module>openapi</module>
+        <module>spring-restdocs</module>
     </modules>
 
     <properties>
@@ -29,6 +30,9 @@
         <!-- artifact versions -->
 
         <!-- testing artifact versions -->
+        <junit.version>4.12</junit.version>
+        <junit.jupiter.version>5.4.0</junit.jupiter.version>
+        <restassured.version>3.3.0</restassured.version>
 
         <!-- apache maven plugin versions (in alphabetical order) -->
         <maven.compiler.plugin.version>3.8.0</maven.compiler.plugin.version>
@@ -37,6 +41,7 @@
         <maven.war.plugin.version>3.2.2</maven.war.plugin.version>
 
         <!-- non-apache maven plugin versions -->
+        <asciidoctor.plugin.version>1.5.7.1</asciidoctor.plugin.version>
     </properties>
 
     <profiles>
