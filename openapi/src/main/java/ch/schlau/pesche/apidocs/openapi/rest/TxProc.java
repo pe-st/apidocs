@@ -23,7 +23,8 @@ public class TxProc {
     @Path("/pincheck")
     @POST
     @Operation(summary = "Check the pin")
-    @APIResponse(content = @Content(schema = @Schema(implementation = PinCheckResponse.class)))
+    @APIResponse(description = "PIN Check Response",
+                 content = @Content(schema = @Schema(implementation = PinCheckResponse.class)))
     public PinCheckResponse pinCheck(
             @RequestBody(description = "PIN Check Request Body",
                          content = @Content(schema = @Schema(implementation = PinCheckRequest.class))

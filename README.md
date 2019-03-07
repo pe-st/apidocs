@@ -15,6 +15,9 @@ e.g. there is no `responses` in the MicroProfile `@Operation`)
 Launch the example with OpenLiberty (`mvn install liberty:start-server`)
 and browse the interface on http://localhost:8080/openapi/ui/
 
+You can also use the [Swagger Online Editor](https://editor.swagger.io)
+and open this URL: https://raw.githubusercontent.com/pe-st/apidocs/master/openapi/doc/openapi.yaml
+
 
 ## Spring REST Docs
 

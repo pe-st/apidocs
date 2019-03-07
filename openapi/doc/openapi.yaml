@@ -17,6 +17,7 @@ paths:
               $ref: '#/components/schemas/PinCheckRequest'
       responses:
         default:
+          description: PIN Check Response
           content:
             application/json:
               schema:
