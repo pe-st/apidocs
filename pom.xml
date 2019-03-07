@@ -11,6 +11,7 @@
 
     <modules>
         <module>openapi</module>
+        <module>json-schema</module>
         <module>spring-restdocs</module>
     </modules>
 
@@ -32,6 +33,7 @@
         <!-- testing artifact versions -->
         <junit.version>4.12</junit.version>
         <junit.jupiter.version>5.4.0</junit.jupiter.version>
+        <hamcrest.version>2.0.0.0</hamcrest.version>
         <restassured.version>3.3.0</restassured.version>
 
         <!-- apache maven plugin versions (in alphabetical order) -->
