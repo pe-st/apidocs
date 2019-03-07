@@ -13,10 +13,6 @@ e.g. there is no `responses` in the MicroProfile `@Operation`)
 Launch the example with OpenLiberty (`mvn install liberty:start-server`)
 and browse the interface on http://localhost:8080/openapi/ui/
 
-Issues:
-
-- The `@RequestBody` doesn't work yet
-
 
 ## Spring REST Docs
 

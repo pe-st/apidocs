@@ -25,8 +25,9 @@ public class TxProc {
     @Operation(summary = "Check the pin")
     @APIResponse(content = @Content(schema = @Schema(implementation = PinCheckResponse.class)))
     public PinCheckResponse pinCheck(
-            @RequestBody(content = @Content(schema = @Schema(implementation = PinCheckRequest.class)))
-            PinCheckRequest request) {
+            @RequestBody(description = "PIN Check Request Body",
+                         content = @Content(schema = @Schema(implementation = PinCheckRequest.class)))
+                    PinCheckRequest request) {
 
         PinCheckResponse response = new PinCheckResponse();
         if ("magic".equals(request.getPinBlock())) {

@@ -9,6 +9,12 @@ paths:
     post:
       summary: Check the pin
       operationId: pinCheck
+      requestBody:
+        description: PIN Check Request Body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PinCheckRequest'
       responses:
         default:
           content:
