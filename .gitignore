@@ -13,6 +13,7 @@ hs_err_pid*
 **/.idea/artifacts/
 **/.idea/dictionaries/
 **/.idea/httpRequests/
+**/.idea/jarRepositories.xml
 **/.idea/libraries/
 **/.idea/saveactions_settings.xml
 **/.idea/sonarlint/issuestore/
