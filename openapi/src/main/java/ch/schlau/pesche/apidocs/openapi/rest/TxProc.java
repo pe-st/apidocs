@@ -7,6 +7,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import org.eclipse.microprofile.openapi.annotations.Operation;
+import org.eclipse.microprofile.openapi.annotations.media.Content;
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
+import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
+import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 
 import ch.schlau.pesche.apidocs.openapi.txproc.PinCheckRequest;
 import ch.schlau.pesche.apidocs.openapi.txproc.PinCheckResponse;
@@ -16,10 +20,14 @@ import ch.schlau.pesche.apidocs.openapi.txproc.PinCheckResponse;
 @Produces(MediaType.APPLICATION_JSON)
 public class TxProc {
 
-    @Operation(summary = "Check the pin")
     @Path("/pincheck")
     @POST
-    public PinCheckResponse pinCheck(PinCheckRequest request) {
+    @Operation(summary = "Check the pin")
+    @APIResponse(content = @Content(schema = @Schema(implementation = PinCheckResponse.class)))
+    public PinCheckResponse pinCheck(
+            @RequestBody(content = @Content(schema = @Schema(implementation = PinCheckRequest.class)))
+            PinCheckRequest request) {
+
         PinCheckResponse response = new PinCheckResponse();
         if ("magic".equals(request.getPinBlock())) {
             response.setResult(PinCheckResponse.Code.OK);

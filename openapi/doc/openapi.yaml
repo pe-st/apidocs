@@ -1,0 +1,42 @@
+openapi: 3.0.0
+info:
+  title: apidocs-openapi
+  version: "0.9"
+servers:
+  - url: http://localhost:8080
+paths:
+  /api/txproc/pincheck:
+    post:
+      summary: Check the pin
+      operationId: pinCheck
+      responses:
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PinCheckResponse'
+components:
+  schemas:
+    PinCheckResponse:
+      type: object
+      properties:
+        result:
+          type: string
+          description: Result of the request
+          enum:
+            - OK
+            - WRONG
+        tries:
+          type: integer
+          description: Number of remaining tries
+      description: Tells if the PIN in the request was correct
+    PinCheckRequest:
+      type: object
+      properties:
+        uuid:
+          type: string
+          description: Unique ID of the request
+        pinBlock:
+          type: string
+          description: Encrypted binary data containing a PIN
+      description: Request for checking a PIN
