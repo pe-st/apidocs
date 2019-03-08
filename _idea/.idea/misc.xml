@@ -4,6 +4,7 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/../json-schema" />
     <file type="web" url="file://$PROJECT_DIR$/../openapi" />
+    <file type="web" url="file://$PROJECT_DIR$/../openapi-lombok" />
     <file type="web" url="file://$PROJECT_DIR$/../spring-restdocs" />
   </component>
   <component name="MarkdownProjectSettings" wasCopied="true">

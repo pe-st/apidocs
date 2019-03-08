@@ -11,6 +11,7 @@
 
     <modules>
         <module>openapi</module>
+        <module>openapi-lombok</module>
         <module>json-schema</module>
         <module>spring-restdocs</module>
     </modules>

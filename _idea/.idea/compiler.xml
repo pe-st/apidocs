@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="json-schema" />
         <module name="openapi" />
+        <module name="openapi-lombok" />
         <module name="spring-restdocs" />
       </profile>
     </annotationProcessing>
