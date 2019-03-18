@@ -41,7 +41,7 @@
         <dependency>
             <groupId>org.leadpony.justify</groupId>
             <artifactId>justify</artifactId>
-            <version>0.13.0</version>
+            <version>0.14.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>

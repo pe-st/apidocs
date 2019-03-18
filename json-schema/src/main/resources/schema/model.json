@@ -1,0 +1,9 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+
+  "uuid": {
+    "type": "string",
+    "pattern": "^\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}$"
+  },
+  "pinblock": { "type": "string" }
+}

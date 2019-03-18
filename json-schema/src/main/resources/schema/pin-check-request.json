@@ -1,18 +1,10 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
 
-  "definitions": {
-    "uuid": {
-      "type": "string",
-      "pattern": "^\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}$"
-    },
-    "pinblock": { "type": "string" }
-  },
-
   "type": "object",
 
   "properties": {
-    "uuid": { "$ref": "#/definitions/uuid" },
-    "pinblock": { "$ref": "#/definitions/pinblock" }
+    "uuid": { "$ref": "model.json#/uuid" },
+    "pinblock": { "$ref": "model.json#/pinblock" }
   }
 }
