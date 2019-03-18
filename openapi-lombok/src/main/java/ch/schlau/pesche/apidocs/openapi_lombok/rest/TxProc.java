@@ -14,6 +14,8 @@ import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 
 import ch.schlau.pesche.apidocs.openapi_lombok.txproc.PinCheckRequest;
 import ch.schlau.pesche.apidocs.openapi_lombok.txproc.PinCheckResponse;
+import ch.schlau.pesche.apidocs.openapi_lombok.txproc.PurchaseAuthRequest;
+import ch.schlau.pesche.apidocs.openapi_lombok.txproc.PurchaseAuthResponse;
 
 @Path("/txproc")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -36,6 +38,26 @@ public class TxProc {
             response.setTries(3);
         } else {
             response.setResult(PinCheckResponse.Code.WRONG);
+        }
+        return response;
+    }
+
+    @Path("/purchase")
+    @POST
+    @Operation(summary = "Authorize a Purchase")
+    @APIResponse(description = "Purchase Response",
+                 content = @Content(schema = @Schema(implementation = PurchaseAuthResponse.class)))
+    public PurchaseAuthResponse purchase(
+            @RequestBody(description = "Purchase Request Body",
+                         content = @Content(schema = @Schema(implementation = PurchaseAuthRequest.class))
+            ) PurchaseAuthRequest request) {
+
+        PurchaseAuthResponse response = new PurchaseAuthResponse();
+        if ("42".equals(request.getToken().getToken())) {
+            response.setResult(PurchaseAuthResponse.Code.OK);
+            response.setApprovalCode("OK42");
+        } else {
+            response.setResult(PurchaseAuthResponse.Code.WRONG);
         }
         return response;
     }

@@ -22,8 +22,37 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PinCheckResponse'
+  /api/txproc/purchase:
+    post:
+      summary: Authorize a Purchase
+      operationId: purchase
+      requestBody:
+        description: Purchase Request Body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PurchaseAuthRequest'
+      responses:
+        default:
+          description: Purchase Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PurchaseAuthResponse'
 components:
   schemas:
+    PurchaseAuthResponse:
+      type: object
+      properties:
+        result:
+          type: string
+          description: Result of the request
+          enum:
+            - OK
+            - WRONG
+        approvalCode:
+          $ref: '#/components/schemas/ApprovalCode'
+      description: Response to PurchaseAuthRequest
     PinCheckResponse:
       type: object
       properties:
@@ -37,13 +66,32 @@ components:
           type: integer
           description: Number of remaining tries
       description: Tells if the PIN in the request was correct
+    Token:
+      type: object
+      properties:
+        token:
+          type: string
+      description: Token identifying a card, wallet, account etc
+    PurchaseAuthRequest:
+      type: object
+      properties:
+        uuid:
+          $ref: '#/components/schemas/RequestUuid'
+        token:
+          $ref: '#/components/schemas/Token'
+      description: Request for authorizing a Purchase
+    RequestUuid:
+      type: object
+      description: Unique ID of the request
     PinCheckRequest:
       type: object
       properties:
         uuid:
-          type: string
-          description: Unique ID of the request
+          $ref: '#/components/schemas/RequestUuid'
         pinBlock:
           type: string
           description: Encrypted binary data containing a PIN
       description: Request for checking a PIN
+    ApprovalCode:
+      type: object
+      description: Code referencing the successful authorization
