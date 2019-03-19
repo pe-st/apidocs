@@ -3,7 +3,26 @@
 
   "uuid": {
     "type": "string",
-    "pattern": "^\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}$"
+    "pattern": "^\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}$",
+    "description": "Unique ID of the request"
   },
-  "pinblock": { "type": "string" }
+
+  "pinblock": {
+    "type": "string",
+    "description": "Encrypted binary data containing a PIN"
+  },
+
+  "token": {
+    "type": "string",
+    "minLength" : 16,
+    "maxLength" : 19,
+    "description": "Token identifying a card, wallet, account etc"
+  },
+
+  "tries": {
+    "type": "number",
+    "minimum" : 0,
+    "maximum" : 9,
+    "description": "Number of remaining tries"
+  }
 }

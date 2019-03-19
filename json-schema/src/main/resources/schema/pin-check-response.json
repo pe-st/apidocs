@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+
+  "type": "object",
+  "title": "PinCheckResponse",
+  "description": "Tells if the PIN in the request was correct",
+
+  "properties": {
+    "result": { "$ref": "#/definitions/code" },
+    "tries": { "$ref": "model.json#/tries" }
+  },
+
+  "definitions": {
+    "code": {
+      "type": "string",
+      "enum": ["OK", "WRONG"],
+      "description": "Result of the request"
+    }
+  }
+}

@@ -1,5 +1,6 @@
 package ch.schlau.pesche.apidocs.json_schema;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.net.URI;
@@ -11,6 +12,8 @@ import javax.json.JsonReader;
 import javax.json.JsonValue;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.leadpony.justify.api.JsonSchema;
 import org.leadpony.justify.api.JsonSchemaReader;
 import org.leadpony.justify.api.JsonSchemaReaderFactory;
@@ -21,6 +24,16 @@ import org.leadpony.justify.api.ProblemHandler;
 class ValidationTest {
 
     private final JsonValidationService service = JsonValidationService.newInstance();
+
+    @ParameterizedTest
+    @ValueSource(strings = {
+            "pin-check-request.json",
+            "pin-check-response.json",
+            "purchase-auth-request.json"})
+    void schema_valid(String schema) {
+
+        assertDoesNotThrow(() -> readSchema(Paths.get(getClass().getResource("/schema/" + schema).toURI())));
+    }
 
     @Test
     void parse_valid() throws URISyntaxException {

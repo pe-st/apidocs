@@ -2,11 +2,11 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
 
   "type": "object",
-  "title": "PinCheckRequest",
-  "description": "Request for checking a PIN",
+  "title": "PurchaseAuthRequest",
+  "description": "Request for authorizing a Purchase",
 
   "properties": {
     "uuid": { "$ref": "model.json#/uuid" },
-    "pinblock": { "$ref": "model.json#/pinblock" }
+    "token": { "$ref": "model.json#/token" }
   }
 }
