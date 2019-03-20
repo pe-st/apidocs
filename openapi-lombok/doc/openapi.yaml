@@ -51,7 +51,8 @@ components:
             - OK
             - WRONG
         approvalCode:
-          $ref: '#/components/schemas/ApprovalCode'
+          type: string
+          description: Code referencing the successful authorization
       description: Response to PurchaseAuthRequest
     PinCheckResponse:
       type: object
@@ -86,6 +87,3 @@ components:
           type: string
           description: Encrypted binary data containing a PIN
       description: Request for checking a PIN
-    ApprovalCode:
-      type: object
-      description: Code referencing the successful authorization

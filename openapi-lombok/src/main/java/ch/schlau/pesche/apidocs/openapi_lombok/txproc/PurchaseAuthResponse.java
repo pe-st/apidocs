@@ -19,6 +19,5 @@ public class PurchaseAuthResponse {
     @Schema(description = "Result of the request")
     private Code result;
 
-    @Schema(implementation = ApprovalCode.class)
-    private String approvalCode;
+    private ApprovalCode approvalCode;
 }

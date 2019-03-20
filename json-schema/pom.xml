@@ -63,6 +63,7 @@
                 <configuration>
                     <sourceDirectory>${basedir}/src/main/resources/schema</sourceDirectory>
                     <targetPackage>ch.schlau.pesche.apidocs.json_schema.generated</targetPackage>
+                    <includeAdditionalProperties>false</includeAdditionalProperties>
                 </configuration>
                 <executions>
                     <execution>

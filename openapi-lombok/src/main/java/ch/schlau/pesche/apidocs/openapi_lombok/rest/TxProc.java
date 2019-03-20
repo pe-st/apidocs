@@ -16,6 +16,8 @@ import ch.schlau.pesche.apidocs.openapi_lombok.txproc.PinCheckRequest;
 import ch.schlau.pesche.apidocs.openapi_lombok.txproc.PinCheckResponse;
 import ch.schlau.pesche.apidocs.openapi_lombok.txproc.PurchaseAuthRequest;
 import ch.schlau.pesche.apidocs.openapi_lombok.txproc.PurchaseAuthResponse;
+import ch.schlau.pesche.apidocs.openapi_lombok.txproc.model.ApprovalCode;
+import ch.schlau.pesche.apidocs.openapi_lombok.txproc.model.PinTries;
 
 @Path("/txproc")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -35,7 +37,7 @@ public class TxProc {
         PinCheckResponse response = new PinCheckResponse();
         if ("magic".equals(request.getPinBlock())) {
             response.setResult(PinCheckResponse.Code.OK);
-            response.setTries(3);
+            response.setTries(new PinTries(3));
         } else {
             response.setResult(PinCheckResponse.Code.WRONG);
         }
@@ -55,7 +57,7 @@ public class TxProc {
         PurchaseAuthResponse response = new PurchaseAuthResponse();
         if ("42".equals(request.getToken().get())) {
             response.setResult(PurchaseAuthResponse.Code.OK);
-            response.setApprovalCode("OK42");
+            response.setApprovalCode(new ApprovalCode("OK42"));
         } else {
             response.setResult(PurchaseAuthResponse.Code.WRONG);
         }

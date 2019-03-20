@@ -4,23 +4,23 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public abstract class JsonStringTypedef {
+public abstract class JsonNumberTypedef<T extends Number> {
 
     @JsonValue
-    private String value;
+    private T value;
 
-    public JsonStringTypedef() {
+    public JsonNumberTypedef() {
     }
 
-    public JsonStringTypedef(String value) {
+    public JsonNumberTypedef(T value) {
         this.value = value;
     }
 
-    public String get() {
+    public T get() {
         return value;
     }
 
-    public void set(String value) {
+    public void set(T value) {
         this.value = value;
     }
 }
