@@ -53,7 +53,7 @@ public class TxProc {
             ) PurchaseAuthRequest request) {
 
         PurchaseAuthResponse response = new PurchaseAuthResponse();
-        if ("42".equals(request.getToken().getToken())) {
+        if ("42".equals(request.getToken().get())) {
             response.setResult(PurchaseAuthResponse.Code.OK);
             response.setApprovalCode("OK42");
         } else {

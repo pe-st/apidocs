@@ -66,28 +66,22 @@ components:
           type: integer
           description: Number of remaining tries
       description: Tells if the PIN in the request was correct
-    Token:
-      type: object
-      properties:
-        token:
-          type: string
-      description: Token identifying a card, wallet, account etc
     PurchaseAuthRequest:
       type: object
       properties:
         uuid:
-          $ref: '#/components/schemas/RequestUuid'
+          type: string
+          description: Unique ID of the request
         token:
-          $ref: '#/components/schemas/Token'
+          type: string
+          description: Token identifying a card, wallet, account etc
       description: Request for authorizing a Purchase
-    RequestUuid:
-      type: object
-      description: Unique ID of the request
     PinCheckRequest:
       type: object
       properties:
         uuid:
-          $ref: '#/components/schemas/RequestUuid'
+          type: string
+          description: Unique ID of the request
         pinBlock:
           type: string
           description: Encrypted binary data containing a PIN

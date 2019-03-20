@@ -1,13 +1,16 @@
 package ch.schlau.pesche.apidocs.openapi_lombok.txproc.model;
 
+import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
-import lombok.Data;
+import ch.schlau.pesche.apidocs.openapi_lombok.json.JsonStringTypedef;
 
-@Schema(description = "Token identifying a card, wallet, account etc")
-@Data
-public class Token {
+@Schema(type = SchemaType.STRING, description = "Token identifying a card, wallet, account etc")
+public class Token extends JsonStringTypedef {
+    public Token() {
+    }
 
-    // TODO rather use a generic wrapper class to avoid an additional JSON object
-    String token;
+    public Token(String value) {
+        super(value);
+    }
 }

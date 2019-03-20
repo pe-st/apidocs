@@ -3,10 +3,12 @@ package ch.schlau.pesche.apidocs.openapi_lombok.txproc;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import ch.schlau.pesche.apidocs.openapi_lombok.txproc.model.ApprovalCode;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Schema(description = "Response to PurchaseAuthRequest")
-@Data
+@Getter
+@Setter
 public class PurchaseAuthResponse {
 
     public enum Code {

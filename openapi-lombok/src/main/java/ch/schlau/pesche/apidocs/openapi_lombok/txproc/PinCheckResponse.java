@@ -2,10 +2,12 @@ package ch.schlau.pesche.apidocs.openapi_lombok.txproc;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Schema(description = "Tells if the PIN in the request was correct")
-@Data
+@Getter
+@Setter
 public class PinCheckResponse {
 
     public enum Code {

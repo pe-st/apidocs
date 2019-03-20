@@ -30,6 +30,7 @@
         <java.release>8</java.release>
 
         <!-- artifact versions -->
+        <jackson-2-version>2.9.8</jackson-2-version>
 
         <!-- testing artifact versions -->
         <junit.version>4.12</junit.version>

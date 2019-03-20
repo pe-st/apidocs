@@ -15,10 +15,6 @@
     <name>${project.groupId}.${project.artifactId}</name>
     <packaging>war</packaging>
 
-    <properties>
-        <jackson-2-version>2.9.8</jackson-2-version>
-    </properties>
-
     <dependencies>
         <!-- Java EE and MP dependencies -->
 
