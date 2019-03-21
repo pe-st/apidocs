@@ -19,6 +19,11 @@
     "description": "Token identifying a card, wallet, account etc"
   },
 
+  "approvalcode": {
+    "type": "string",
+    "description": "Code referencing the successful authorization"
+  },
+
   "tries": {
     "type": "number",
     "minimum" : 0,

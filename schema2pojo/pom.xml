@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>ch.schlau.pesche</groupId>
+        <artifactId>apidocs</artifactId>
+        <version>0.9-SNAPSHOT</version>
+    </parent>
+
+    <groupId>ch.schlau.pesche.apidocs</groupId>
+    <artifactId>schema2pojo</artifactId>
+
+    <name>${project.groupId}.${project.artifactId}</name>
+
+    <dependencies>
+        <!-- Java EE and MP dependencies -->
+
+        <!-- Application dependencies -->
+
+        <!-- dependencies needed for code generation -->
+        <dependency>
+            <groupId>org.jsonschema2pojo</groupId>
+            <artifactId>jsonschema2pojo-core</artifactId>
+            <version>${jsonschema2pojo.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.microprofile.openapi</groupId>
+            <artifactId>microprofile-openapi-api</artifactId>
+            <version>${mp.openapi.version}</version>
+        </dependency>
+
+        <!-- EE and MP dependencies needed for testing -->
+
+        <!-- Testing dependencies -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>java-hamcrest</artifactId>
+            <version>${hamcrest.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>

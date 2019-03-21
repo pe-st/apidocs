@@ -1,0 +1,86 @@
+openapi: 3.0.0
+info:
+  title: apidocs-json-schema
+  version: "0.9"
+servers:
+  - url: http://localhost:8080
+paths:
+  /api/txproc/pincheck:
+    post:
+      summary: Check the pin
+      operationId: pinCheck
+      requestBody:
+        description: PIN Check Request Body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PinCheckRequest'
+      responses:
+        default:
+          description: PIN Check Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PinCheckResponse'
+  /api/txproc/purchase:
+    post:
+      summary: Authorize a Purchase
+      operationId: purchase
+      requestBody:
+        description: Purchase Request Body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PurchaseAuthRequest'
+      responses:
+        default:
+          description: Purchase Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PurchaseAuthResponse'
+components:
+  schemas:
+    PurchaseAuthResponse:
+      type: object
+      properties:
+        result:
+          type: string
+          description: Result of the request
+          enum:
+            - OK
+            - WRONG
+        approvalCode:
+          type: string
+          description: Code referencing the successful authorization
+    PinCheckResponse:
+      type: object
+      properties:
+        result:
+          type: string
+          description: Result of the request
+          enum:
+            - OK
+            - WRONG
+        tries:
+          type: number
+          description: Number of remaining tries
+          format: double
+    PurchaseAuthRequest:
+      type: object
+      properties:
+        uuid:
+          type: string
+          description: Unique ID of the request
+        token:
+          type: string
+          description: Token identifying a card, wallet, account etc
+    PinCheckRequest:
+      type: object
+      properties:
+        uuid:
+          type: string
+          description: Unique ID of the request
+        pinblock:
+          type: string
+          description: Encrypted binary data containing a PIN

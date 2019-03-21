@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>schema2pojo</module>
         <module>json-schema</module>
         <module>openapi-lombok</module>
         <module>spring-restdocs</module>
@@ -29,6 +30,7 @@
 
         <!-- artifact versions -->
         <jackson-2-version>2.9.8</jackson-2-version>
+        <jsonschema2pojo.version>1.0.0</jsonschema2pojo.version>
 
         <!-- testing artifact versions -->
         <junit.version>4.12</junit.version>
