@@ -7,6 +7,6 @@
 
   "properties": {
     "uuid": { "$ref": "model.json#/uuid" },
-    "pinblock": { "$ref": "model.json#/pinblock" }
+    "pinBlock": { "$ref": "model.json#/pinblock" }
   }
 }

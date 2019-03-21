@@ -53,6 +53,7 @@ components:
         approvalCode:
           type: string
           description: Code referencing the successful authorization
+      description: Response to PurchaseAuthRequest
     PinCheckResponse:
       type: object
       properties:
@@ -63,9 +64,9 @@ components:
             - OK
             - WRONG
         tries:
-          type: number
+          type: integer
           description: Number of remaining tries
-          format: double
+      description: Tells if the PIN in the request was correct
     PurchaseAuthRequest:
       type: object
       properties:
@@ -75,12 +76,14 @@ components:
         token:
           type: string
           description: Token identifying a card, wallet, account etc
+      description: Request for authorizing a Purchase
     PinCheckRequest:
       type: object
       properties:
         uuid:
           type: string
           description: Unique ID of the request
-        pinblock:
+        pinBlock:
           type: string
           description: Encrypted binary data containing a PIN
+      description: Request for checking a PIN

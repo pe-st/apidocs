@@ -33,9 +33,9 @@ public class TxProc {
             ) PinCheckRequest request) {
 
         PinCheckResponse response = new PinCheckResponse();
-        if ("magic".equals(request.getPinblock())) {
+        if ("magic".equals(request.getPinBlock())) {
             response.setResult(PinCheckResponse.Code.OK);
-            response.setTries(3.0);
+            response.setTries(3);
         } else {
             response.setResult(PinCheckResponse.Code.WRONG);
         }

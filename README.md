@@ -7,9 +7,6 @@ Examples of how a REST API can be documented with different technologies.
 Example using MicroProfile OpenAPI (note that there are small differences to the Swagger OpenAPI,
 e.g. there is no `responses` in the MicroProfile `@Operation`)
 
-- Examples with and without Lombok
-- The Lombok one is more detailed (because there's less boilerplate to write)
-
 Links:
 
 - [MicroProfile OpenAPI Spec](https://github.com/eclipse/microprofile-open-api/blob/master/spec/src/main/asciidoc/microprofile-openapi-spec.adoc#operation)
@@ -21,9 +18,8 @@ Launch the example with OpenLiberty (`mvn install liberty:run-server`)
 and browse the interface on http://localhost:8080/openapi/ui/
 
 You can also use the [Swagger Online Editor](https://editor.swagger.io)
-and open these URLs:
+and open this URL:
 
-- https://raw.githubusercontent.com/pe-st/apidocs/master/openapi/doc/openapi.yaml
 - https://raw.githubusercontent.com/pe-st/apidocs/master/openapi-lombok/doc/openapi.yaml
 
 Tradeoff: using the JsonXxxTypedef is a bit more cumbersome than just a String or Number property
@@ -33,13 +29,17 @@ Tradeoff: using the JsonXxxTypedef is a bit more cumbersome than just a String o
 
 Example schemas in [json-schema/src/main/resources/schema](tree/master/json-schema/src/main/resources/schema)
 
-IMHO less duplication, it's easier to extract out the definition of a type used by several endpoints
+Links:
 
-Tradeoff: The generated classes are fine for usage in the IDE, but don't have OpenAPI annotations
+- Introduction: [Understanding JSON Schema](http://json-schema.org/understanding-json-schema/)
+- Generate Java Code from JSON Schema: [jsonschema2pojo](https://github.com/joelittlejohn/jsonschema2pojo)
 
-- OpenAPI Annotations can probably be added by a custom annotator, see `<customAnnotator>` and `<customRuleFactory>`
-  ([maven plugin](https://joelittlejohn.github.io/jsonschema2pojo/site/1.0.0/generate-mojo.html))
-- At the same time also the `@JsonIgnoreProperties(ignoreUnknown = true)` should be added
+Remarks:
+
+- OpenAPI Annotations are not supported out-of-the-box by jsonschema2pojo, but can easily
+  be added with a custom annotator configured in the
+  [maven plugin](https://joelittlejohn.github.io/jsonschema2pojo/site/1.0.0/generate-mojo.html)
+- At the same time also other annotations like `@JsonIgnoreProperties(ignoreUnknown = true)` can be added
 
 
 ## Spring REST Docs

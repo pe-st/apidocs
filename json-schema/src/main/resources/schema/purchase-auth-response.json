@@ -3,7 +3,7 @@
 
   "type": "object",
   "title": "PinCheckResponse",
-  "description": "Tells if the PIN in the request was correct",
+  "description": "Response to PurchaseAuthRequest",
 
   "properties": {
     "result": { "$ref": "#/definitions/code" },

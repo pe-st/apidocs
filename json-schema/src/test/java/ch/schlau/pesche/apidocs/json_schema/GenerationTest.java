@@ -20,11 +20,11 @@ class GenerationTest {
 
         PinCheckRequest request = new PinCheckRequest();
         request.setUuid("abcd");
-        request.setPinblock("secret");
+        request.setPinBlock("secret");
 
         String jsonString = mapper.writeValueAsString(request);
 
-        assertThat(jsonString, is("{\"uuid\":\"abcd\",\"pinblock\":\"secret\"}"));
+        assertThat(jsonString, is("{\"uuid\":\"abcd\",\"pinBlock\":\"secret\"}"));
 
         PinCheckRequest roundtrip = mapper.readerFor(PinCheckRequest.class).readValue(jsonString);
         assertThat(roundtrip.getUuid(), is("abcd"));
