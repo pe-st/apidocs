@@ -7,11 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="json-schema" />
-        <module name="openapi" />
         <module name="openapi-lombok" />
         <module name="spring-restdocs" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="1.8" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="openapi" target="8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

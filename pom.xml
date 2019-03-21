@@ -10,15 +10,13 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>openapi</module>
-        <module>openapi-lombok</module>
         <module>json-schema</module>
+        <module>openapi-lombok</module>
         <module>spring-restdocs</module>
     </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <!--<failOnMissingWebXml>false</failOnMissingWebXml>-->
 
         <javax.javaee-api.version>8.0</javax.javaee-api.version>
 
