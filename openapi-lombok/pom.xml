@@ -11,6 +11,7 @@
 
     <groupId>ch.schlau.pesche.apidocs</groupId>
     <artifactId>openapi-lombok</artifactId>
+    <packaging>war</packaging>
 
     <name>${project.groupId}.${project.artifactId}</name>
 
@@ -66,6 +67,14 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>${maven.war.plugin.version}</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -132,11 +141,6 @@
             </dependencies>
             <build>
                 <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-war-plugin</artifactId>
-                        <version>${maven.war.plugin.version}</version>
-                    </plugin>
                     <plugin>
                         <!-- Liberty plugin -->
                         <groupId>net.wasdev.wlp.maven.plugins</groupId>

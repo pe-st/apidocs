@@ -13,7 +13,15 @@ public class OpenapiAnnotator extends AbstractAnnotator {
     @Override
     public void propertyField(JFieldVar field, JDefinedClass clazz, String propertyName, JsonNode propertyNode) {
         if (propertyNode.has("description")) {
-            field.annotate(Schema.class).param("description", propertyNode.get("description").asText());
+            StringBuilder description = new StringBuilder(propertyNode.get("description").asText());
+
+            if (propertyNode.has("ch-schlau-fieldcode")) {
+                description
+                        .append("<p>Fieldcode: ")
+                        .append(propertyNode.get("ch-schlau-fieldcode").asText());
+            }
+
+            field.annotate(Schema.class).param("description", description.toString());
         }
     }
 
@@ -28,7 +36,7 @@ public class OpenapiAnnotator extends AbstractAnnotator {
     @Override
     public void propertyInclusion(JDefinedClass clazz, JsonNode schema) {
 
-        clazz.annotate(JsonIgnoreProperties.class).param("ignoreUnknown",true);
+        clazz.annotate(JsonIgnoreProperties.class).param("ignoreUnknown", true);
 
         if (schema.has("description")) {
             clazz.annotate(Schema.class).param("description", schema.get("description").asText());

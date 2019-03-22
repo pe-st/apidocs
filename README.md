@@ -1,11 +1,22 @@
 # API Docs
 
-Examples of how a REST API can be documented with different technologies. 
+Examples of how a REST API can be documented with different technologies.
+
+Goals are:
+- have a detailed documentation (e.g. not limited to a one-line string per field)
+- don't duplicate the documentation if the same field is used for different endpoints
+- appropriate documentation in the IDE (i.e. Javadoc, for programming the server and the clients)
+  as well as in tools like the Swagger Editor
+
+The examples use OpenLiberty as server just because it not only supports MicroProfile OpenAPI,
+but it comes also with an integrated UI. But the examples should run without any code changes
+in any MicroProfile compatible server.
 
 ## OpenAPI
 
-Example using MicroProfile OpenAPI (note that there are small differences to the Swagger OpenAPI,
-e.g. there is no `responses` in the MicroProfile `@Operation`)
+Example using OpenAPI 3 (The MicroProfile implementation, though Swagger would need almost no changes;
+there are only small differences to the Swagger OpenAPI, e.g. there is no `responses` in the MicroProfile `@Operation`
+or `@APIResponse` with MicroProfile vs. `@ApiResponse` with Swagger)
 
 Links:
 
@@ -22,7 +33,10 @@ and open this URL:
 
 - https://raw.githubusercontent.com/pe-st/apidocs/master/openapi-lombok/doc/openapi.yaml
 
-Tradeoff: using the JsonXxxTypedef is a bit more cumbersome than just a String or Number property
+Tradeoffs:
+
+- using subclasses of `JsonXxxTypedef` is a bit more cumbersome than just a String or Number property
+- no way to have the same information in Javadoc and in OpenAPI without duplication and double maintenance
 
 
 ## JSON Schema
@@ -34,6 +48,12 @@ Links:
 - Introduction: [Understanding JSON Schema](http://json-schema.org/understanding-json-schema/)
 - Generate Java Code from JSON Schema: [jsonschema2pojo](https://github.com/joelittlejohn/jsonschema2pojo)
 
+Tradeoffs:
+
+- Longer documentation (multiline) is cumbersome (all on one line with `\n` or `<p>` separating the lines),
+  though workarounds with proprietary keys in the schema are easily programmed (see `"model.json#/token"`
+  and the `schema2pojo` submodule).
+
 Remarks:
 
 - OpenAPI Annotations are not supported out-of-the-box by jsonschema2pojo, but can easily
@@ -44,4 +64,4 @@ Remarks:
 
 ## Spring REST Docs
 
-See [Spring REST Docs](spring-restdocs/README.md)
+Work in progress, see [Spring REST Docs](spring-restdocs/README.md)

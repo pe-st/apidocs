@@ -75,7 +75,10 @@ components:
           description: Unique ID of the request
         token:
           type: string
-          description: Token identifying a card, wallet, account etc
+          description: |-
+            Token identifying a card, wallet, account etc
+
+            May contain alphanumeric characters<p>Fieldcode: C002
       description: Request for authorizing a Purchase
     PinCheckRequest:
       type: object

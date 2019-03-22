@@ -85,6 +85,7 @@
                     <targetPackage>ch.schlau.pesche.apidocs.json_schema.generated</targetPackage>
                     <includeAdditionalProperties>false</includeAdditionalProperties>
                     <customAnnotator>ch.schlau.pesche.apidocs.schema2pojo.OpenapiAnnotator</customAnnotator>
+                    <customRuleFactory>ch.schlau.pesche.apidocs.schema2pojo.JavadocRuleFactory</customRuleFactory>
                 </configuration>
                 <executions>
                     <execution>

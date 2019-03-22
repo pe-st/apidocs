@@ -16,7 +16,8 @@
     "type": "string",
     "minLength" : 16,
     "maxLength" : 19,
-    "description": "Token identifying a card, wallet, account etc"
+    "description": "Token identifying a card, wallet, account etc\n\nMay contain alphanumeric characters",
+    "ch-schlau-fieldcode": "C002"
   },
 
   "approvalcode": {
