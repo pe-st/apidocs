@@ -21,11 +21,15 @@ public class OpenapiAnnotator extends AbstractAnnotator {
                         .append(propertyNode.get("ch-schlau-fieldcode").asText());
             }
 
-            field.annotate(Schema.class).param("description", description.toString());
+            field.annotate(Schema.class)
+                    .param("name", propertyName)
+                    .param("description", description.toString());
         }
     }
 
     /**
+     * Annotate a class with {@link Schema}
+     * <p>
      * There are two methods that are called for a class context, this one and
      * {@link #propertyOrder(JDefinedClass, JsonNode)}; but only this one gets
      * the complete schema as parameter

@@ -20,6 +20,22 @@
     "ch-schlau-fieldcode": "C002"
   },
 
+  "EmvTags": {
+    "type": "object",
+    "title": "EmvTags",
+    "properties": {
+      "x84" : {
+        "type": "string",
+        "title": "Dedicated Filename",
+        "description": "The EMV AID as reported by ICC"
+      },
+      "x9F1A" : {
+        "type": "string",
+        "description": "Terminal Country Code"
+      }
+    }
+  },
+
   "approvalcode": {
     "type": "string",
     "description": "Code referencing the successful authorization"

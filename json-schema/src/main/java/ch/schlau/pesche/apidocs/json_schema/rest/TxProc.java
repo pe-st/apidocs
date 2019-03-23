@@ -1,5 +1,7 @@
 package ch.schlau.pesche.apidocs.json_schema.rest;
 
+import java.util.Optional;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -53,7 +55,7 @@ public class TxProc {
             ) PurchaseAuthRequest request) {
 
         PurchaseAuthResponse response = new PurchaseAuthResponse();
-        if ("42".equals(request.getToken())) {
+        if (Optional.ofNullable(request.getToken()).filter(s -> s.startsWith("42")).isPresent()) {
             response.setResult(PurchaseAuthResponse.Code.OK);
             response.setApprovalCode("OK42");
         } else {

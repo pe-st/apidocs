@@ -26,7 +26,7 @@
 
         <!-- The Java release (the 'de facto' Java major version number, e.g. 8 for Java 1.8, and 9 for Java 9), -->
         <!-- supported in the compiler plugin as `<release>` for JDK 9 and later, see also JEP223 -->
-        <java.release>8</java.release>
+        <java.release>11</java.release>
 
         <!-- artifact versions -->
         <jackson-2-version>2.9.8</jackson-2-version>

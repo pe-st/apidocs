@@ -29,14 +29,15 @@ class ValidationTest {
     @ValueSource(strings = {
             "pin-check-request.json",
             "pin-check-response.json",
-            "purchase-auth-request.json"})
+            "purchase-auth-request.json",
+            "purchase-auth-response.json"})
     void schema_valid(String schema) {
 
         assertDoesNotThrow(() -> readSchema(Paths.get(getClass().getResource("/schema/" + schema).toURI())));
     }
 
     @Test
-    void parse_valid() throws URISyntaxException {
+    void parse_valid_pincheck() throws URISyntaxException {
 
         // Reads the JSON schema
         JsonSchema schema = readSchema(Paths.get(getClass().getResource("/schema/pin-check-request.json").toURI()));
@@ -45,6 +46,21 @@ class ValidationTest {
         ProblemHandler handler = service.createProblemPrinter(System.out::println);
 
         Path path = Paths.get(getClass().getResource("/valid-request.json").toURI());
+
+        try (JsonReader reader = service.createReader(path, schema, handler)) {
+            JsonValue value = reader.readValue();
+            // Do something useful here
+        }
+    }
+
+    @Test
+    void parse_valid_purchase() throws URISyntaxException {
+
+        JsonSchema schema = readSchema(Paths.get(getClass().getResource("/schema/purchase-auth-request.json").toURI()));
+
+        ProblemHandler handler = service.createProblemPrinter(System.out::println);
+
+        Path path = Paths.get(getClass().getResource("/valid-purchase-request.json").toURI());
 
         try (JsonReader reader = service.createReader(path, schema, handler)) {
             JsonValue value = reader.readValue();
