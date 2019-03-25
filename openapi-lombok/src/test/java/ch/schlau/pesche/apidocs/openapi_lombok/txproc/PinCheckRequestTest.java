@@ -9,8 +9,6 @@ import org.junit.jupiter.api.Test;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import ch.schlau.pesche.apidocs.openapi_lombok.txproc.model.RequestUuid;
-
 class PinCheckRequestTest {
 
     @Test
@@ -19,7 +17,7 @@ class PinCheckRequestTest {
         ObjectMapper mapper = new ObjectMapper();
 
         PinCheckRequest request = new PinCheckRequest();
-        request.setUuid(new RequestUuid("abcd-1234"));
+        request.setUuid("abcd-1234");
 
         // JSON serialization
         String jsonString = mapper.writeValueAsString(request);
@@ -27,6 +25,6 @@ class PinCheckRequestTest {
 
         // JSON deserialization
         PinCheckRequest roundtrip = mapper.readerFor(PinCheckRequest.class).readValue(jsonString);
-        assertThat(roundtrip.getUuid().get(), is("abcd-1234"));
+        assertThat(roundtrip.getUuid(), is("abcd-1234"));
     }
 }
