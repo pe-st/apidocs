@@ -55,16 +55,17 @@ components:
           description: Code referencing the successful authorization
       description: Response to PurchaseAuthRequest
     EmvTags:
+      title: EmvTags
       type: object
       properties:
         84:
           title: Dedicated Filename
           type: string
           description: The EMV AID as reported by ICC
-        x9F1A:
+        9F1A:
           type: string
           description: Terminal Country Code
-      description: EmvTags
+      description: Collection of EMV tags
     PinCheckResponse:
       type: object
       properties:
@@ -89,7 +90,9 @@ components:
           description: |-
             Token identifying a card, wallet, account etc
 
-            May contain alphanumeric characters<p>Fieldcode: C002
+            May contain alphanumeric characters
+
+            Fieldcode: C002
         emvTags:
           $ref: '#/components/schemas/EmvTags'
       description: Request for authorizing a Purchase
@@ -101,5 +104,8 @@ components:
           description: Unique ID of the request
         pinBlock:
           type: string
-          description: Encrypted binary data containing a PIN
+          description: |-
+            Encrypted binary data containing a PIN
+
+            Fieldcode: C003
       description: Request for checking a PIN

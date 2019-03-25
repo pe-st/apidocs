@@ -18,7 +18,7 @@ public class OpenapiAnnotator extends AbstractAnnotator {
 
             if (propertyNode.has("ch-schlau-fieldcode")) {
                 description
-                        .append("<p>Fieldcode: ")
+                        .append("\n\nFieldcode: ")
                         .append(propertyNode.get("ch-schlau-fieldcode").asText());
             }
 

@@ -91,7 +91,9 @@ components:
           description: |-
             Token identifying a card, wallet, account etc
 
-            May contain alphanumeric characters<p>Fieldcode: C002
+            May contain alphanumeric characters
+
+            Fieldcode: C002
         emvTags:
           $ref: '#/components/schemas/EmvTags'
       description: Request for authorizing a Purchase
@@ -104,5 +106,8 @@ components:
           description: Unique ID of the request
         pinBlock:
           type: string
-          description: Encrypted binary data containing a PIN
+          description: |-
+            Encrypted binary data containing a PIN
+
+            Fieldcode: C003
       description: Request for checking a PIN

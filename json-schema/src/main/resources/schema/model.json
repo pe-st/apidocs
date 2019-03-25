@@ -9,7 +9,8 @@
 
   "pinblock": {
     "type": "string",
-    "description": "Encrypted binary data containing a PIN"
+    "description": "Encrypted binary data containing a PIN",
+    "ch-schlau-fieldcode": "C003"
   },
 
   "token": {
@@ -23,6 +24,7 @@
   "EmvTags": {
     "type": "object",
     "title": "EmvTags",
+    "description": "Collection of EMV tags",
     "properties": {
       "x84" : {
         "type": "string",

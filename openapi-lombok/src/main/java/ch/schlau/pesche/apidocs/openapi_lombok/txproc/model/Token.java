@@ -9,7 +9,7 @@ import ch.schlau.pesche.apidocs.openapi_lombok.json.JsonStringTypedef;
         description = "Token identifying a card, wallet, account etc\n"
                 + "\n"
                 + "May contain alphanumeric characters"
-                + "<p>"
+                + "\n\n"
                 + "Fieldcode: C002")
 public class Token extends JsonStringTypedef {
     public Token() {
