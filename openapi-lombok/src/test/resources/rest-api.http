@@ -23,8 +23,12 @@ POST http://localhost:8080/api/txproc/purchase
 Content-Type: application/json
 
 {
-  "uuid": "abcd-ef02",
-  "token": { "token": "42" }
+  "uuid": "aaaaaaaa-bbbb-cccc-dddd-012345678901",
+  "token": "42-token-abcdefg",
+  "emvTags": {
+    "84" : "MTI=",
+    "9F1A" : "AAI="
+  }
 }
 
 ###

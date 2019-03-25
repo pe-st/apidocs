@@ -1,5 +1,7 @@
 package ch.schlau.pesche.apidocs.openapi_lombok.rest;
 
+import java.util.Optional;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -12,6 +14,7 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 
+import ch.schlau.pesche.apidocs.openapi_lombok.json.JsonStringTypedef;
 import ch.schlau.pesche.apidocs.openapi_lombok.txproc.PinCheckRequest;
 import ch.schlau.pesche.apidocs.openapi_lombok.txproc.PinCheckResponse;
 import ch.schlau.pesche.apidocs.openapi_lombok.txproc.PurchaseAuthRequest;
@@ -55,7 +58,10 @@ public class TxProc {
             ) PurchaseAuthRequest request) {
 
         PurchaseAuthResponse response = new PurchaseAuthResponse();
-        if ("42".equals(request.getToken().get())) {
+        if (Optional.ofNullable(request.getToken())
+                .map(JsonStringTypedef::get)
+                .filter(s -> s.startsWith("42"))
+                .isPresent()) {
             response.setResult(PurchaseAuthResponse.Code.OK);
             response.setApprovalCode(new ApprovalCode("OK42"));
         } else {

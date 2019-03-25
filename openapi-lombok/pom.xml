@@ -138,6 +138,22 @@
                     <type>esa</type>
                     <scope>provided</scope>
                 </dependency>
+                <!-- BYO Jackson, see https://developer.ibm.com/wasdev/docs/jax-rs-websphere-liberty-byo-jackson/ -->
+                <dependency>
+                    <groupId>com.fasterxml.jackson.jaxrs</groupId>
+                    <artifactId>jackson-jaxrs-base</artifactId>
+                    <version>${jackson-2-version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>com.fasterxml.jackson.jaxrs</groupId>
+                    <artifactId>jackson-jaxrs-json-provider</artifactId>
+                    <version>${jackson-2-version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>com.fasterxml.jackson.module</groupId>
+                    <artifactId>jackson-module-jaxb-annotations</artifactId>
+                    <version>${jackson-2-version}</version>
+                </dependency>
             </dependencies>
             <build>
                 <plugins>
