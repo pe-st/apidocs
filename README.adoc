@@ -1,9 +1,5 @@
 = API Docs
-
-:toc:
-:toc-placement!:
-
-toc::[]
+:toc: macro
 
 Examples and comparison of how a REST API can be documented with different technologies.
 
@@ -17,6 +13,8 @@ Goals are:
 The examples use OpenLiberty as server just because it not only supports MicroProfile OpenAPI,
 but it comes also with an integrated UI. But the examples should run without any code changes
 in any MicroProfile compatible server.
+
+toc::[]
 
 == Comparison
 
