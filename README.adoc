@@ -1,6 +1,9 @@
 = API Docs
 
 :toc:
+:toc-placement!:
+
+toc::[]
 
 Examples and comparison of how a REST API can be documented with different technologies.
 
