@@ -42,6 +42,7 @@ paths:
 components:
   schemas:
     PurchaseAuthResponse:
+      title: PinCheckResponse
       type: object
       properties:
         result:
@@ -55,6 +56,7 @@ components:
           description: Code referencing the successful authorization
       description: Response to PurchaseAuthRequest
     EmvTags:
+      title: EmvTags
       type: object
       properties:
         x84:
@@ -64,6 +66,7 @@ components:
           type: string
           description: Terminal Country Code
     PinCheckResponse:
+      title: PinCheckResponse
       type: object
       properties:
         result:
@@ -77,6 +80,7 @@ components:
           description: Number of remaining tries
       description: Tells if the PIN in the request was correct
     PurchaseAuthRequest:
+      title: PurchaseAuthRequest
       type: object
       properties:
         uuid:
@@ -92,6 +96,7 @@ components:
           $ref: '#/components/schemas/EmvTags'
       description: Request for authorizing a Purchase
     PinCheckRequest:
+      title: PinCheckRequest
       type: object
       properties:
         uuid:

@@ -5,6 +5,7 @@ import org.jsonschema2pojo.AbstractAnnotator;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.sun.codemodel.JAnnotationUse;
 import com.sun.codemodel.JDefinedClass;
 import com.sun.codemodel.JFieldVar;
 
@@ -42,8 +43,12 @@ public class OpenapiAnnotator extends AbstractAnnotator {
 
         clazz.annotate(JsonIgnoreProperties.class).param("ignoreUnknown", true);
 
+        JAnnotationUse schemaAnnotation = clazz.annotate(Schema.class);
+        if (schema.has("title")) {
+            schemaAnnotation.param("title", schema.get("title").asText());
+        }
         if (schema.has("description")) {
-            clazz.annotate(Schema.class).param("description", schema.get("description").asText());
+            schemaAnnotation.param("description", schema.get("description").asText());
         }
     }
 }
