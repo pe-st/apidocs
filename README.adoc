@@ -33,13 +33,15 @@ to the visual browsing of the interfaces.
 * easy introduction of user-defined keys for structured documentation
 |
 * multiline documentation is cumbersome
+* might lead to complicated code generation if you use other generators like MapStruct and/or lombok in the same project
+* no specific IDE integration for the generation yet (what works best is `mvn compile` or `mvn generate-sources`)
 
 |OpenAPI/typedefs|
-* no duplication
+* almost no duplication (just using both `SchemaType.STRING` and `JsonStringTypedef` is kind of duplication)
 * typesafe interface
 |
 * No Javadoc
-* Using the classes is less straightforward, especially with mappping libraries
+* Using the classes is less straightforward, especially with mapping libraries
 * Not everyone likes to have a separate class for every field
 
 |OpenAPI/constants|
