@@ -1,0 +1,111 @@
+openapi: 3.0.0
+info:
+  title: apidocs-openapi-lombok
+  version: "0.9"
+servers:
+  - url: http://localhost:8080
+paths:
+  /api/txproc/pincheck:
+    post:
+      summary: Check the pin
+      operationId: pinCheck
+      requestBody:
+        description: PIN Check Request Body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PinCheckRequest'
+      responses:
+        default:
+          description: PIN Check Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PinCheckResponse'
+  /api/txproc/purchase:
+    post:
+      summary: Authorize a Purchase
+      operationId: purchase
+      requestBody:
+        description: Purchase Request Body
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PurchaseAuthRequest'
+      responses:
+        default:
+          description: Purchase Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PurchaseAuthResponse'
+components:
+  schemas:
+    PurchaseAuthResponse:
+      type: object
+      properties:
+        result:
+          type: string
+          description: Result of the request
+          enum:
+            - OK
+            - WRONG
+        approvalCode:
+          type: string
+          description: Code referencing the successful authorization
+      description: Response to PurchaseAuthRequest
+    EmvTags:
+      title: EmvTags
+      type: object
+      properties:
+        84:
+          title: Dedicated Filename
+          type: string
+          description: The EMV AID as reported by ICC
+        9F1A:
+          type: string
+          description: Terminal Country Code
+      description: Collection of EMV tags
+    PinCheckResponse:
+      type: object
+      properties:
+        result:
+          type: string
+          description: Result of the request
+          enum:
+            - OK
+            - WRONG
+        tries:
+          type: integer
+          description: Number of remaining tries
+      description: Tells if the PIN in the request was correct
+    PurchaseAuthRequest:
+      type: object
+      properties:
+        uuid:
+          type: string
+          description: Unique ID of the request
+        token:
+          type: string
+          description: |-
+            Token identifying a card, wallet, account etc
+
+            May contain alphanumeric characters
+
+            Fieldcode: C002
+        emvTags:
+          $ref: '#/components/schemas/EmvTags'
+      description: Request for authorizing a Purchase
+    PinCheckRequest:
+      type: object
+      properties:
+        uuid:
+          type: string
+          description: Unique ID of the request
+        pinBlock:
+          type: string
+          description: |-
+            Encrypted binary data containing a PIN
+
+            Fieldcode: C003
+      description: Request for checking a PIN
