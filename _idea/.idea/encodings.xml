@@ -3,6 +3,7 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/.." charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../from-openapi-generator" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../from-swagger-generator" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../json-schema" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../openapi-lombok" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../schema2pojo" charset="UTF-8" />

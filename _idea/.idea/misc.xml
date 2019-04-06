@@ -3,6 +3,7 @@
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/../from-openapi-generator" />
+    <file type="web" url="file://$PROJECT_DIR$/../from-swagger-generator" />
     <file type="web" url="file://$PROJECT_DIR$/../json-schema" />
     <file type="web" url="file://$PROJECT_DIR$/../openapi" />
     <file type="web" url="file://$PROJECT_DIR$/../openapi-lombok" />

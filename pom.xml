@@ -14,6 +14,7 @@
         <module>json-schema</module>
         <module>openapi-lombok</module>
         <module>from-openapi-generator</module>
+        <module>from-swagger-generator</module>
         <module>spring-restdocs</module>
     </modules>
 

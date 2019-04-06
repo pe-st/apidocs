@@ -6,8 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="spring-restdocs" />
         <module name="schema2pojo" />
+        <module name="from-swagger-generator" />
+        <module name="spring-restdocs" />
         <module name="json-schema" />
         <module name="from-openapi-generator" />
         <module name="openapi-lombok" />
