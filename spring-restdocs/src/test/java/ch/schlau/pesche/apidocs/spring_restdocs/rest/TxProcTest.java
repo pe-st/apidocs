@@ -6,10 +6,11 @@ import static org.springframework.restdocs.operation.preprocess.Preprocessors.mo
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.preprocessRequest;
 import static org.springframework.restdocs.restassured3.RestAssuredRestDocumentation.documentationConfiguration;
 
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.springframework.restdocs.JUnitRestDocumentation;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.restdocs.RestDocumentationContextProvider;
+import org.springframework.restdocs.RestDocumentationExtension;
 import org.springframework.restdocs.operation.preprocess.OperationRequestPreprocessor;
 import org.springframework.restdocs.payload.PayloadDocumentation;
 import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation;
@@ -19,19 +20,17 @@ import ch.schlau.pesche.apidocs.spring_restdocs.util.ConstrainedFields;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.specification.RequestSpecification;
 
+@ExtendWith(RestDocumentationExtension.class)
 public class TxProcTest {
 
     private static final OperationRequestPreprocessor preprocessor =
             // Fake scheme, host and port for the docs
             preprocessRequest(modifyUris().scheme("https").host("pesche.schlau.ch").port(8080));
 
-    @Rule
-    public final JUnitRestDocumentation restDocumentation = new JUnitRestDocumentation();
-
     private RequestSpecification documentationSpec;
 
-    @Before
-    public void setUp() {
+    @BeforeEach
+    public void setUp(RestDocumentationContextProvider restDocumentation) {
         this.documentationSpec = new RequestSpecBuilder()
                 .addFilter(documentationConfiguration(restDocumentation))
                 .build();
