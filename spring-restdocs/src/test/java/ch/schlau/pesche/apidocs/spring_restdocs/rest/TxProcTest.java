@@ -17,9 +17,11 @@ import org.springframework.restdocs.restassured3.RestAssuredRestDocumentation;
 
 import ch.schlau.pesche.apidocs.spring_restdocs.txproc.PinCheckRequest;
 import ch.schlau.pesche.apidocs.spring_restdocs.util.ConstrainedFields;
+import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.specification.RequestSpecification;
 
+@QuarkusTest
 @ExtendWith(RestDocumentationExtension.class)
 public class TxProcTest {
 
@@ -44,9 +46,9 @@ public class TxProcTest {
         request.setPinBlock("secret");
 
         given(documentationSpec)
+                .log().all()
                 .accept("application/json")
                 .contentType("application/json")
-                .port(8080)
                 .body(request)
                 .filter(RestAssuredRestDocumentation.document("pincheck", preprocessor,
                         PayloadDocumentation.requestFields(
