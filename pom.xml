@@ -35,8 +35,7 @@
         <jsonschema2pojo.version>1.0.0</jsonschema2pojo.version>
 
         <!-- testing artifact versions -->
-        <junit.version>4.12</junit.version>
-        <junit.jupiter.version>5.4.0</junit.jupiter.version>
+        <junit.jupiter.version>5.4.2</junit.jupiter.version>
         <hamcrest.version>2.0.0.0</hamcrest.version>
         <restassured.version>3.3.0</restassured.version>
 
@@ -49,7 +48,6 @@
 
         <!-- non-apache maven plugin versions -->
         <asciidoctor.plugin.version>1.5.8</asciidoctor.plugin.version>
-        <build-helper.plugin.version>3.0.0</build-helper.plugin.version>
     </properties>
 
     <profiles>
