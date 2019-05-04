@@ -32,7 +32,8 @@
 
         <!-- artifact versions -->
         <jackson-2-version>2.9.8</jackson-2-version>
-        <jsonschema2pojo.version>1.0.0</jsonschema2pojo.version>
+        <jsonschema2pojo.version>1.0.1</jsonschema2pojo.version>
+        <openliberty.version>19.0.0.4</openliberty.version>
 
         <!-- testing artifact versions -->
         <junit.jupiter.version>5.4.2</junit.jupiter.version>
@@ -40,7 +41,7 @@
         <restassured.version>3.3.0</restassured.version>
 
         <!-- apache maven plugin versions (in alphabetical order) -->
-        <maven.compiler.plugin.version>3.8.0</maven.compiler.plugin.version>
+        <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
         <maven.enforcer.plugin.version>3.0.0-M2</maven.enforcer.plugin.version>
         <maven.failsafe.plugin.version>2.22.1</maven.failsafe.plugin.version>
         <maven.surefire.plugin.version>${maven.failsafe.plugin.version}</maven.surefire.plugin.version>
@@ -48,6 +49,7 @@
 
         <!-- non-apache maven plugin versions -->
         <asciidoctor.plugin.version>1.5.8</asciidoctor.plugin.version>
+        <liberty.plugin.version>2.6.4</liberty.plugin.version>
     </properties>
 
     <profiles>

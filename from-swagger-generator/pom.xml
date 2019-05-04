@@ -15,6 +15,11 @@
     <name>${project.groupId}.${project.artifactId}</name>
     <packaging>war</packaging>
 
+    <properties>
+        <swagger.version>2.0.8</swagger.version>
+        <swagger.codegen.version>3.0.8</swagger.codegen.version>
+    </properties>
+
     <dependencies>
         <!-- Java EE and MP dependencies -->
 
@@ -28,7 +33,7 @@
         <dependency>
             <groupId>io.swagger.core.v3</groupId>
             <artifactId>swagger-annotations</artifactId>
-            <version>2.0.7</version>
+            <version>${swagger.version}</version>
         </dependency>
         <dependency>
             <groupId>javax.annotation</groupId>
@@ -58,7 +63,7 @@
             <plugin>
                 <groupId>io.swagger.codegen.v3</groupId>
                 <artifactId>swagger-codegen-maven-plugin</artifactId>
-                <version>3.0.7</version>
+                <version>${swagger.codegen.version}</version>
                 <executions>
                     <execution>
                         <goals>

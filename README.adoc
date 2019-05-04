@@ -233,7 +233,9 @@ property is defined in a separate schema file, e.g. like this:
 
 === Workflow
 
-* A Maven Plugin generates POJOs from the schema
+* A Maven Plugin generates POJOs from the schema:
+  https://github.com/joelittlejohn/jsonschema2pojo[jsonschema2pojo]
+  https://github.com/joelittlejohn/jsonschema2pojo/blob/master/CHANGELOG.md[changelog]
 * The OpenAPI implementation generates YAML and/or JSON output (e.g. `openapi.yaml`) out of the POJOs
 * A GUI tool like the Swagger Editor allows to browse the interface visually
 * If desired, the service can validate the received JSON document against the schema

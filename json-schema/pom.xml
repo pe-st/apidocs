@@ -15,6 +15,10 @@
     <name>${project.groupId}.${project.artifactId}</name>
     <packaging>war</packaging>
 
+    <properties>
+        <leadpony.justify.version>0.16.0</leadpony.justify.version>
+    </properties>
+
     <dependencies>
         <!-- Java EE and MP dependencies -->
         <dependency>
@@ -50,7 +54,7 @@
         <dependency>
             <groupId>org.leadpony.justify</groupId>
             <artifactId>justify</artifactId>
-            <version>0.14.0</version>
+            <version>${leadpony.justify.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -123,10 +127,8 @@
                 <as.name>liberty</as.name>
                 <archive.name>${project.artifactId}.war</archive.name>
                 <!-- versions/values related to/provided by OpenLiberty -->
-                <openliberty.version>19.0.0.2</openliberty.version>
                 <lib.http.port>8080</lib.http.port>
                 <lib.https.port>8443</lib.https.port>
-                <liberty.plugin.version>2.6.4</liberty.plugin.version>
             </properties>
             <dependencyManagement>
                 <dependencies>

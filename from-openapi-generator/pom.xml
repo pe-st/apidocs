@@ -15,6 +15,10 @@
     <name>${project.groupId}.${project.artifactId}</name>
     <packaging>war</packaging>
 
+    <properties>
+        <openapi.generator.version>4.0.0-beta3</openapi.generator.version>
+    </properties>
+
     <dependencies>
         <!-- Java EE and MP dependencies -->
 
@@ -59,7 +63,7 @@
             <plugin>
                 <groupId>org.openapitools</groupId>
                 <artifactId>openapi-generator-maven-plugin</artifactId>
-                <version>4.0.0-beta3</version>
+                <version>${openapi.generator.version}</version>
                 <executions>
                     <execution>
                         <goals>
