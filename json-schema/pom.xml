@@ -41,6 +41,12 @@
             <version>${jackson-2-version}</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
 
         <!-- EE and MP dependencies needed for testing -->
         <dependency>
@@ -83,6 +89,11 @@
                         <artifactId>schema2pojo</artifactId>
                         <version>${project.version}</version>
                     </dependency>
+                    <dependency>
+                        <groupId>org.projectlombok</groupId>
+                        <artifactId>lombok</artifactId>
+                        <version>${lombok.version}</version>
+                    </dependency>
                 </dependencies>
                 <configuration>
                     <sourceDirectory>${basedir}/src/main/resources/schema</sourceDirectory>
@@ -93,7 +104,9 @@
                     <includeHashcodeAndEquals>false</includeHashcodeAndEquals>
                     <includeToString>false</includeToString>
                     <targetVersion>1.8</targetVersion>
-                    <!--<includeGetters>false</includeGetters>-->
+                    <!-- using the generator with lombok: no getters and setters (but there's no option to keep the fields private...) -->
+                    <includeGetters>false</includeGetters>
+                    <includeSetters>false</includeSetters>
                 </configuration>
                 <executions>
                     <execution>

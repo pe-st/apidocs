@@ -33,6 +33,7 @@
         <!-- artifact versions -->
         <jackson-2-version>2.9.8</jackson-2-version>
         <jsonschema2pojo.version>1.0.1</jsonschema2pojo.version>
+        <lombok.version>1.18.6</lombok.version>
         <openliberty.version>19.0.0.4</openliberty.version>
 
         <!-- testing artifact versions -->

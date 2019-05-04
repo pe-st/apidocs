@@ -9,12 +9,19 @@ import com.sun.codemodel.JAnnotationUse;
 import com.sun.codemodel.JDefinedClass;
 import com.sun.codemodel.JFieldVar;
 
+import lombok.Getter;
+import lombok.Setter;
+
 public class OpenapiAnnotator extends AbstractAnnotator {
+
+    private static final String DESCRIPTION = "description";
+    private static final String TITLE = "title";
+    private static final String NAME = "name";
 
     @Override
     public void propertyField(JFieldVar field, JDefinedClass clazz, String propertyName, JsonNode propertyNode) {
-        if (propertyNode.has("description")) {
-            StringBuilder description = new StringBuilder(propertyNode.get("description").asText());
+        if (propertyNode.has(DESCRIPTION)) {
+            StringBuilder description = new StringBuilder(propertyNode.get(DESCRIPTION).asText());
 
             if (propertyNode.has("ch-schlau-fieldcode")) {
                 description
@@ -23,8 +30,8 @@ public class OpenapiAnnotator extends AbstractAnnotator {
             }
 
             field.annotate(Schema.class)
-                    .param("name", propertyName)
-                    .param("description", description.toString());
+                    .param(NAME, propertyName)
+                    .param(DESCRIPTION, description.toString());
         }
     }
 
@@ -44,11 +51,16 @@ public class OpenapiAnnotator extends AbstractAnnotator {
         clazz.annotate(JsonIgnoreProperties.class).param("ignoreUnknown", true);
 
         JAnnotationUse schemaAnnotation = clazz.annotate(Schema.class);
-        if (schema.has("title")) {
-            schemaAnnotation.param("title", schema.get("title").asText());
+        if (schema.has(TITLE)) {
+            schemaAnnotation.param(TITLE, schema.get(TITLE).asText());
         }
-        if (schema.has("description")) {
-            schemaAnnotation.param("description", schema.get("description").asText());
+        if (schema.has(DESCRIPTION)) {
+            schemaAnnotation.param(DESCRIPTION, schema.get(DESCRIPTION).asText());
         }
+
+        // add also lombok annotations, permitting to use lombok to
+        // propagate the OpenAPI annotations from the fields to the getters/setters
+        clazz.annotate(Getter.class);
+        clazz.annotate(Setter.class);
     }
 }

@@ -42,7 +42,7 @@ paths:
 components:
   schemas:
     PurchaseAuthResponse:
-      title: PinCheckResponse
+      title: PurchaseAuthResponse
       type: object
       properties:
         result:
@@ -59,12 +59,13 @@ components:
       title: EmvTags
       type: object
       properties:
-        x84:
+        84:
           type: string
           description: The EMV AID as reported by ICC
-        x9F1A:
+        9F1A:
           type: string
           description: Terminal Country Code
+      description: Collection of EMV tags
     PinCheckResponse:
       title: PinCheckResponse
       type: object
@@ -95,7 +96,16 @@ components:
 
             Fieldcode: C002
         emvTags:
-          $ref: '#/components/schemas/EmvTags'
+          title: EmvTags
+          type: object
+          properties:
+            84:
+              type: string
+              description: The EMV AID as reported by ICC
+            9F1A:
+              type: string
+              description: Terminal Country Code
+          description: Collection of EMV tags
       description: Request for authorizing a Purchase
     PinCheckRequest:
       title: PinCheckRequest

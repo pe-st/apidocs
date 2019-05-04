@@ -12,6 +12,7 @@ hs_err_pid*
 
 # IntelliJ IDEA
 **/.idea/artifacts/
+**/.idea/codeStyles/
 **/.idea/dictionaries/
 **/.idea/httpRequests/
 **/.idea/jarRepositories.xml

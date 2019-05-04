@@ -104,7 +104,8 @@ components:
           description: Unique ID of the request
         pinBlock:
           type: string
-          description: |-
+          description: |2
+
             Encrypted binary data containing a PIN
 
             Fieldcode: C003

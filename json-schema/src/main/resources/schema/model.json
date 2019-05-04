@@ -26,12 +26,12 @@
     "title": "EmvTags",
     "description": "Collection of EMV tags",
     "properties": {
-      "x84" : {
+      "84" : {
         "type": "string",
         "title": "Dedicated Filename",
         "description": "The EMV AID as reported by ICC"
       },
-      "x9F1A" : {
+      "9F1A" : {
         "type": "string",
         "description": "Terminal Country Code"
       }

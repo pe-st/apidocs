@@ -235,7 +235,6 @@ property is defined in a separate schema file, e.g. like this:
 
 * A Maven Plugin generates POJOs from the schema:
   https://github.com/joelittlejohn/jsonschema2pojo[jsonschema2pojo]
-  https://github.com/joelittlejohn/jsonschema2pojo/blob/master/CHANGELOG.md[changelog]
 * The OpenAPI implementation generates YAML and/or JSON output (e.g. `openapi.yaml`) out of the POJOs
 * A GUI tool like the Swagger Editor allows to browse the interface visually
 * If desired, the service can validate the received JSON document against the schema
@@ -262,13 +261,15 @@ e.g. adding a key `ch-schlau-fieldcode` for any schema object:
 === Links
 
 * Introduction: http://json-schema.org/understanding-json-schema/[Understanding JSON Schema]
-* Generate Java Code from JSON Schema: https://github.com/joelittlejohn/jsonschema2pojo[jsonschema2pojo]
+* Generate Java Code from JSON Schema:
+** https://github.com/joelittlejohn/jsonschema2pojo[jsonschema2pojo]
+** https://github.com/joelittlejohn/jsonschema2pojo/blob/master/CHANGELOG.md[changelog]
 
 Remarks:
 
 * OpenAPI Annotations are not supported out-of-the-box by jsonschema2pojo, but can easily
   be added with a custom annotator configured in the
-  https://joelittlejohn.github.io/jsonschema2pojo/site/1.0.0/generate-mojo.html[maven plugin]
+  https://joelittlejohn.github.io/jsonschema2pojo/site/1.0.1/generate-mojo.html[maven plugin]
 * At the same time also other annotations like `@JsonIgnoreProperties(ignoreUnknown = true)` can be added
 
 === JSON Schema Tradeoffs
