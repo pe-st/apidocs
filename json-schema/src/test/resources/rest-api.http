@@ -9,6 +9,18 @@ Accept: application/json
 
 ###
 
+# valid request
+POST http://localhost:8080/api/txproc/pincheck
+Content-Type: application/json
+
+{
+  "uuid": "88888888-abcd-ef01-4444-cccccccccccc",
+  "pinBlock": "magic"
+}
+
+###
+
+# invalid request
 POST http://localhost:8080/api/txproc/pincheck
 Content-Type: application/json
 

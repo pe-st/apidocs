@@ -2,6 +2,7 @@ package ch.schlau.pesche.apidocs.json_schema.rest;
 
 import java.util.Optional;
 
+import javax.validation.Valid;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -32,7 +33,8 @@ public class TxProc {
     public PinCheckResponse pinCheck(
             @RequestBody(description = "PIN Check Request Body",
                          content = @Content(schema = @Schema(implementation = PinCheckRequest.class))
-            ) PinCheckRequest request) {
+            )
+            @Valid PinCheckRequest request) {
 
         PinCheckResponse response = new PinCheckResponse();
         if ("magic".equals(request.getPinBlock())) {
@@ -52,7 +54,8 @@ public class TxProc {
     public PurchaseAuthResponse purchase(
             @RequestBody(description = "Purchase Request Body",
                          content = @Content(schema = @Schema(implementation = PurchaseAuthRequest.class))
-            ) PurchaseAuthRequest request) {
+            )
+            @Valid PurchaseAuthRequest request) {
 
         PurchaseAuthResponse response = new PurchaseAuthResponse();
         if (Optional.ofNullable(request.getToken()).filter(s -> s.startsWith("42")).isPresent()) {

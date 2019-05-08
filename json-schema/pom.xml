@@ -100,6 +100,7 @@
                     <targetPackage>ch.schlau.pesche.apidocs.json_schema.generated</targetPackage>
                     <customAnnotator>ch.schlau.pesche.apidocs.schema2pojo.OpenapiAnnotator</customAnnotator>
                     <customRuleFactory>ch.schlau.pesche.apidocs.schema2pojo.JavadocRuleFactory</customRuleFactory>
+                    <includeJsr303Annotations>true</includeJsr303Annotations>
                     <includeAdditionalProperties>false</includeAdditionalProperties>
                     <includeHashcodeAndEquals>false</includeHashcodeAndEquals>
                     <includeToString>false</includeToString>
