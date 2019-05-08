@@ -9,9 +9,9 @@
         <module name="schema2pojo" />
         <module name="from-swagger-generator" />
         <module name="spring-restdocs" />
+        <module name="openapi-annotations" />
         <module name="json-schema" />
         <module name="from-openapi-generator" />
-        <module name="openapi-lombok" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="11" />

@@ -13,6 +13,6 @@
 
     <!-- <logging traceSpecification="com.ibm.ws.microprofile.openapi.*=all"/> -->
 
-    <webApplication location="openapi-lombok.war" contextRoot="/"/>
+    <webApplication location="openapi-annotations.war" contextRoot="/"/>
 
 </server>

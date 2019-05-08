@@ -80,7 +80,7 @@ and browse the interface on http://localhost:8080/openapi/ui/[http://localhost:8
 You can also use the https://editor.swagger.io[Swagger Online Editor]
 and open this URL:
 
-* https://raw.githubusercontent.com/pe-st/apidocs/master/openapi-lombok/doc/openapi.yaml
+* https://raw.githubusercontent.com/pe-st/apidocs/master/openapi-annotations/doc/openapi.yaml
 
 === Details
 

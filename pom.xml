@@ -12,7 +12,7 @@
     <modules>
         <module>schema2pojo</module>
         <module>json-schema</module>
-        <module>openapi-lombok</module>
+        <module>openapi-annotations</module>
         <module>from-openapi-generator</module>
         <module>from-swagger-generator</module>
         <module>spring-restdocs</module>

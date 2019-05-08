@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="openapi-lombok [install,liberty:run]" type="MavenRunConfiguration" factoryName="Maven">
+  <configuration default="false" name="openapi-annotations [install,liberty:run]" type="MavenRunConfiguration" factoryName="Maven">
     <MavenSettings>
       <option name="myGeneralSettings" />
       <option name="myRunnerSettings" />
@@ -21,7 +21,7 @@
             </map>
           </option>
           <option name="resolveToWorkspace" value="false" />
-          <option name="workingDirPath" value="$PROJECT_DIR$/../openapi-lombok" />
+          <option name="workingDirPath" value="$PROJECT_DIR$/../openapi-annotations" />
         </MavenRunnerParameters>
       </option>
     </MavenSettings>
