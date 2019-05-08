@@ -6,7 +6,7 @@
     <file type="web" url="file://$PROJECT_DIR$/../from-swagger-generator" />
     <file type="web" url="file://$PROJECT_DIR$/../json-schema" />
     <file type="web" url="file://$PROJECT_DIR$/../openapi" />
-    <file type="web" url="file://$PROJECT_DIR$/../openapi-lombok" />
+    <file type="web" url="file://$PROJECT_DIR$/../openapi-annotations" />
     <file type="web" url="file://$PROJECT_DIR$/../spring-restdocs" />
     <type id="android" />
   </component>
