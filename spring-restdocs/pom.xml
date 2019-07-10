@@ -14,8 +14,12 @@
     <name>${project.groupId}.${project.artifactId}</name>
 
     <properties>
-        <quarkus.version>0.14.0</quarkus.version>
+        <!-- newest version of quarkus that works for this project -->
+        <!-- error with later versions: TestInstanceFactory [QuarkusTestExtension] failed to instantiate test class [TxProcTest] -->
+        <quarkus.version>0.15.0</quarkus.version>
         <spring-restdocs.version>2.0.3.RELEASE</spring-restdocs.version>
+        <!-- spring-restdocs does not work yet with restassured 4.x -->
+        <restassured.version>3.3.0</restassured.version>
     </properties>
 
     <dependencyManagement>
