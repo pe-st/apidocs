@@ -93,10 +93,14 @@ components:
               type: string
         uuid:
           description: Unique ID of the request
-          type: string
+          type: object
           properties:
-            value:
-              type: string
+            leastSigBits:
+              format: int64
+              type: integer
+            mostSigBits:
+              format: int64
+              type: integer
     PurchaseAuthResponse:
       description: Response to PurchaseAuthRequest
       type: object
