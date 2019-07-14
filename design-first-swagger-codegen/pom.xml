@@ -10,7 +10,7 @@
     </parent>
 
     <groupId>ch.schlau.pesche.apidocs</groupId>
-    <artifactId>from-swagger-generator</artifactId>
+    <artifactId>design-first-swagger</artifactId>
 
     <name>${project.groupId}.${project.artifactId}</name>
     <packaging>war</packaging>
