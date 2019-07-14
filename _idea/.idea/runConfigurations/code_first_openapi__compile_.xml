@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="openapi-annotations [compile]" type="MavenRunConfiguration" factoryName="Maven">
+  <configuration default="false" name="code-first-openapi [compile]" type="MavenRunConfiguration" factoryName="Maven">
     <MavenSettings>
       <option name="myGeneralSettings" />
       <option name="myRunnerSettings" />

@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="openapi-annotations [install,liberty:run]" type="MavenRunConfiguration" factoryName="Maven">
+  <configuration default="false" name="code-first-openapi [package]" type="MavenRunConfiguration" factoryName="Maven">
     <MavenSettings>
       <option name="myGeneralSettings" />
       <option name="myRunnerSettings" />
@@ -10,15 +10,12 @@
           </option>
           <option name="goals">
             <list>
-              <option value="install" />
-              <option value="liberty:run" />
+              <option value="package" />
             </list>
           </option>
           <option name="pomFileName" />
           <option name="profilesMap">
-            <map>
-              <entry key="liberty" value="true" />
-            </map>
+            <map />
           </option>
           <option name="resolveToWorkspace" value="false" />
           <option name="workingDirPath" value="$PROJECT_DIR$/../code-first-openapi-microprofile" />
