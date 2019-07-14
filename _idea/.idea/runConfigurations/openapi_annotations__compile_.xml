@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="openapi-annotations [compile]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+  <configuration default="false" name="openapi-annotations [compile]" type="MavenRunConfiguration" factoryName="Maven">
     <MavenSettings>
       <option name="myGeneralSettings" />
       <option name="myRunnerSettings" />
@@ -18,7 +18,7 @@
             <map />
           </option>
           <option name="resolveToWorkspace" value="false" />
-          <option name="workingDirPath" value="$PROJECT_DIR$/../openapi-annotations" />
+          <option name="workingDirPath" value="$PROJECT_DIR$/../code-first-openapi-microprofile" />
         </MavenRunnerParameters>
       </option>
     </MavenSettings>
