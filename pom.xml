@@ -12,9 +12,9 @@
     <modules>
         <module>schema2pojo</module>
         <module>json-schema</module>
-        <module>openapi-annotations</module>
-        <module>from-openapi-generator</module>
-        <module>from-swagger-generator</module>
+        <module>code-first-openapi-microprofile</module>
+        <module>design-first-openapi-generator</module>
+        <module>design-first-swagger-codegen</module>
         <module>spring-restdocs</module>
     </modules>
 
