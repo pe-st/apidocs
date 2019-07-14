@@ -1,4 +1,4 @@
-package ch.schlau.pesche.apidocs.openapi_lombok.txproc;
+package ch.schlau.pesche.apidocs.openapi.codefirst.txproc;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;

@@ -81,7 +81,7 @@
                                 <library>resteasy</library>
                                 <useBeanValidation>false</useBeanValidation>
                                 <sourceFolder>src/java/main</sourceFolder>
-                                <modelPackage>ch.schlau.pesche.apidocs.from_swagger_generator.generated.model</modelPackage>
+                                <modelPackage>ch.schlau.pesche.apidocs.swagger.designfirst.generated.model</modelPackage>
                             </configOptions>
                         </configuration>
                     </execution>

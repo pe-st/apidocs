@@ -1,4 +1,4 @@
-package ch.schlau.pesche.apidocs.openapi_lombok.txproc.doc
+package ch.schlau.pesche.apidocs.openapi.codefirst.txproc.doc
 
 /**
  * Centralized strings for use with [org.eclipse.microprofile.openapi.annotations.media.Schema]

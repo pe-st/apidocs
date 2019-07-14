@@ -1,5 +1,5 @@
 
-package ch.schlau.pesche.apidocs.openapi_lombok.txproc.model;
+package ch.schlau.pesche.apidocs.openapi.codefirst.txproc.model;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 

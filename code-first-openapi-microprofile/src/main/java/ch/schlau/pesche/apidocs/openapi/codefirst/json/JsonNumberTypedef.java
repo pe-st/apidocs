@@ -1,4 +1,4 @@
-package ch.schlau.pesche.apidocs.openapi_lombok.json;
+package ch.schlau.pesche.apidocs.openapi.codefirst.json;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonValue;

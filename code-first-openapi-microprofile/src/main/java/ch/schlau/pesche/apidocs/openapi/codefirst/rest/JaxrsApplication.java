@@ -1,4 +1,4 @@
-package ch.schlau.pesche.apidocs.openapi_lombok.rest;
+package ch.schlau.pesche.apidocs.openapi.codefirst.rest;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;

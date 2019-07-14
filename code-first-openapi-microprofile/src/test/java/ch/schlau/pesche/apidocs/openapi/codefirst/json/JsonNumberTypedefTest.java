@@ -1,4 +1,4 @@
-package ch.schlau.pesche.apidocs.openapi_lombok.json;
+package ch.schlau.pesche.apidocs.openapi.codefirst.json;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -12,12 +12,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
 
-class JsonStringTypedefTest {
+class JsonNumberTypedefTest {
 
-    private static class SomeProperty extends JsonStringTypedef {
+    private static class SomeProperty extends JsonNumberTypedef<Integer> {
         public SomeProperty() {
         }
-        public SomeProperty(String value) {
+        public SomeProperty(Integer value) {
             super(value);
         }
     }
@@ -38,14 +38,14 @@ class JsonStringTypedefTest {
         ObjectMapper mapper = new ObjectMapper();
 
         Request request = new Request();
-        request.someProperty.set("xx");
+        request.someProperty.set(42);
 
         // JSON serialization
         String jsonString = mapper.writeValueAsString(request);
-        assertThat(jsonString, is("{\"someProperty\":\"xx\"}"));
+        assertThat(jsonString, is("{\"someProperty\":42}"));
 
         // JSON deserialization
         Request roundtrip = mapper.readerFor(Request.class).readValue(jsonString);
-        assertThat(roundtrip.someProperty.get(), is("xx"));
+        assertThat(roundtrip.someProperty.get(), is(42));
     }
 }

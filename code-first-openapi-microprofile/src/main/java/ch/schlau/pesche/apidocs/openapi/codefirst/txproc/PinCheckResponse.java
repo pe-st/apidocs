@@ -1,8 +1,8 @@
-package ch.schlau.pesche.apidocs.openapi_lombok.txproc;
+package ch.schlau.pesche.apidocs.openapi.codefirst.txproc;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
-import ch.schlau.pesche.apidocs.openapi_lombok.txproc.model.PinTries;
+import ch.schlau.pesche.apidocs.openapi.codefirst.txproc.model.PinTries;
 import lombok.Getter;
 import lombok.Setter;
 

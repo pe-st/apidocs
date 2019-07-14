@@ -1,4 +1,4 @@
-package ch.schlau.pesche.apidocs.openapi_lombok.rest;
+package ch.schlau.pesche.apidocs.openapi.codefirst.rest;
 
 import java.util.Optional;
 
@@ -14,13 +14,13 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 
-import ch.schlau.pesche.apidocs.openapi_lombok.json.JsonStringTypedef;
-import ch.schlau.pesche.apidocs.openapi_lombok.txproc.PinCheckRequest;
-import ch.schlau.pesche.apidocs.openapi_lombok.txproc.PinCheckResponse;
-import ch.schlau.pesche.apidocs.openapi_lombok.txproc.PurchaseAuthRequest;
-import ch.schlau.pesche.apidocs.openapi_lombok.txproc.PurchaseAuthResponse;
-import ch.schlau.pesche.apidocs.openapi_lombok.txproc.model.ApprovalCode;
-import ch.schlau.pesche.apidocs.openapi_lombok.txproc.model.PinTries;
+import ch.schlau.pesche.apidocs.openapi.codefirst.json.JsonStringTypedef;
+import ch.schlau.pesche.apidocs.openapi.codefirst.txproc.PinCheckRequest;
+import ch.schlau.pesche.apidocs.openapi.codefirst.txproc.PinCheckResponse;
+import ch.schlau.pesche.apidocs.openapi.codefirst.txproc.PurchaseAuthResponse;
+import ch.schlau.pesche.apidocs.openapi.codefirst.txproc.model.PinTries;
+import ch.schlau.pesche.apidocs.openapi.codefirst.txproc.PurchaseAuthRequest;
+import ch.schlau.pesche.apidocs.openapi.codefirst.txproc.model.ApprovalCode;
 
 @Path("/txproc")
 @Consumes(MediaType.APPLICATION_JSON)

@@ -1,4 +1,4 @@
-package ch.schlau.pesche.apidocs.openapi_lombok.txproc;
+package ch.schlau.pesche.apidocs.openapi.codefirst.txproc;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -9,9 +9,9 @@ import org.junit.jupiter.api.Test;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import ch.schlau.pesche.apidocs.openapi_lombok.txproc.model.EmvTags;
-import ch.schlau.pesche.apidocs.openapi_lombok.txproc.model.RequestUuid;
-import ch.schlau.pesche.apidocs.openapi_lombok.txproc.model.Token;
+import ch.schlau.pesche.apidocs.openapi.codefirst.txproc.model.EmvTags;
+import ch.schlau.pesche.apidocs.openapi.codefirst.txproc.model.RequestUuid;
+import ch.schlau.pesche.apidocs.openapi.codefirst.txproc.model.Token;
 
 class PurchaseAuthRequestTest {
 

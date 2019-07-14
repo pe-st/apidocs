@@ -1,7 +1,7 @@
-package ch.schlau.pesche.apidocs.openapi_lombok.txproc;
+package ch.schlau.pesche.apidocs.openapi.codefirst.txproc;
 
-import static ch.schlau.pesche.apidocs.openapi_lombok.txproc.doc.Model.PIN_BLOCK;
-import static ch.schlau.pesche.apidocs.openapi_lombok.txproc.doc.Model.UUID;
+import static ch.schlau.pesche.apidocs.openapi.codefirst.txproc.doc.Model.PIN_BLOCK;
+import static ch.schlau.pesche.apidocs.openapi.codefirst.txproc.doc.Model.UUID;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
