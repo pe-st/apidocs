@@ -37,18 +37,18 @@ paths:
                 $ref: '#/components/schemas/PurchaseAuthResponse'
 components:
   schemas:
-    PurchaseAuthResponse:
-      description: Response to PurchaseAuthRequest
+    PinCheckRequest:
+      description: Request for checking a PIN
       type: object
       properties:
-        approvalCode:
-          description: Code referencing the successful authorization
+        pinBlock:
+          description: |-
+            Encrypted binary data containing a PIN
+
+            Fieldcode: C003
           type: string
-          properties:
-            value:
-              type: string
-        result:
-          description: Result of the request
+        uuid:
+          description: Unique ID of the request
           type: string
     PinCheckResponse:
       description: Tells if the PIN in the request was correct
@@ -97,17 +97,16 @@ components:
           properties:
             value:
               type: string
-    PinCheckRequest:
-      description: Request for checking a PIN
+    PurchaseAuthResponse:
+      description: Response to PurchaseAuthRequest
       type: object
       properties:
-        pinBlock:
-          description: |-
-            Encrypted binary data containing a PIN
-
-            Fieldcode: C003
+        approvalCode:
+          description: Code referencing the successful authorization
           type: string
-        uuid:
-          description: Unique ID of the request
+          properties:
+            value:
+              type: string
+        result:
+          description: Result of the request
           type: string
-
