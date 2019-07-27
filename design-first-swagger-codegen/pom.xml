@@ -3,25 +3,28 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>ch.schlau.pesche</groupId>
-        <artifactId>apidocs</artifactId>
-        <version>0.9-SNAPSHOT</version>
-    </parent>
-
     <groupId>ch.schlau.pesche.apidocs</groupId>
     <artifactId>design-first-swagger</artifactId>
+    <version>0.9-SNAPSHOT</version>
 
     <name>${project.groupId}.${project.artifactId}</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
+        <!-- The Java release (the 'de facto' Java major version number, e.g. 8 for Java 1.8, and 9 for Java 9), -->
+        <!-- supported in the compiler plugin as `<release>` for JDK 9 and later, see also JEP223 -->
+        <java.release>11</java.release>
+
+        <!-- artifact versions -->
+        <jackson-2-version>2.9.9</jackson-2-version>
         <quarkus.version>0.19.1</quarkus.version>
         <swagger.version>2.0.8</swagger.version>
         <swagger.codegen.version>3.0.8</swagger.codegen.version>
 
-        <maven.surefire.plugin.version>2.22.1</maven.surefire.plugin.version>
+        <!-- apache maven plugin versions (in alphabetical order) -->
+        <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
+        <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
     </properties>
 
     <dependencyManagement>
@@ -54,27 +57,6 @@
             <groupId>io.swagger.core.v3</groupId>
             <artifactId>swagger-annotations</artifactId>
             <version>${swagger.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>javax.annotation</groupId>
-            <artifactId>javax.annotation-api</artifactId>
-            <version>1.3.2</version>
-        </dependency>
-
-        <!-- EE and MP dependencies needed for testing -->
-
-        <!-- Testing dependencies -->
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>${junit.jupiter.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.hamcrest</groupId>
-            <artifactId>java-hamcrest</artifactId>
-            <version>${hamcrest.version}</version>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -118,6 +100,15 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.plugin.version}</version>
+                <configuration>
+                    <!-- starting with Java 9 javac should be called with -release N -->
+                    <release>${java.release}</release>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

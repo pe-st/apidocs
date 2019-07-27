@@ -3,23 +3,26 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>ch.schlau.pesche</groupId>
-        <artifactId>apidocs</artifactId>
-        <version>0.9-SNAPSHOT</version>
-    </parent>
-
     <groupId>ch.schlau.pesche.apidocs</groupId>
     <artifactId>code-first-openapi</artifactId>
+    <version>0.9-SNAPSHOT</version>
 
     <name>${project.groupId}.${project.artifactId}</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
+        <!-- The Java release (the 'de facto' Java major version number, e.g. 8 for Java 1.8, and 9 for Java 9), -->
+        <!-- supported in the compiler plugin as `<release>` for JDK 9 and later, see also JEP223 -->
+        <java.release>11</java.release>
+
+        <!-- artifact versions -->
+        <lombok.version>1.18.8</lombok.version>
         <quarkus.version>0.19.1</quarkus.version>
 
-        <maven.surefire.plugin.version>2.22.1</maven.surefire.plugin.version>
+        <!-- apache maven plugin versions (in alphabetical order) -->
+        <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
+        <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
     </properties>
 
     <dependencyManagement>
@@ -52,18 +55,6 @@
             <version>${lombok.version}</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
-            <version>${jackson-2-version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>${jackson-2-version}</version>
-        </dependency>
-
-        <!-- EE and MP dependencies needed for testing -->
 
         <!-- Testing dependencies -->
         <dependency>
@@ -91,6 +82,15 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.plugin.version}</version>
+                <configuration>
+                    <!-- starting with Java 9 javac should be called with -release N -->
+                    <release>${java.release}</release>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
