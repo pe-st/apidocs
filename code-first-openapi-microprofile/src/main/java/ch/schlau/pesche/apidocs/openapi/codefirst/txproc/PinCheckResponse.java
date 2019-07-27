@@ -2,7 +2,6 @@ package ch.schlau.pesche.apidocs.openapi.codefirst.txproc;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
-import ch.schlau.pesche.apidocs.openapi.codefirst.txproc.model.PinTries;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,5 +18,6 @@ public class PinCheckResponse {
     @Schema(description = "Result of the request"/*, enumeration = {"OK", "WRONG"}*/)
     private Code result;
 
-    private PinTries tries;
+    @Schema(description = "Number of remaining tries")
+    private int tries;
 }

@@ -2,7 +2,6 @@ package ch.schlau.pesche.apidocs.openapi.codefirst.txproc;
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
-import ch.schlau.pesche.apidocs.openapi.codefirst.txproc.model.ApprovalCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,5 +18,6 @@ public class PurchaseAuthResponse {
     @Schema(description = "Result of the request")
     private Code result;
 
-    private ApprovalCode approvalCode;
+    @Schema(description = "Code referencing the successful authorization")
+    private String approvalCode;
 }

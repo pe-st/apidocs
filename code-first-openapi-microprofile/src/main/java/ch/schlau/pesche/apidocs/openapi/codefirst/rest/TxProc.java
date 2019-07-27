@@ -14,13 +14,10 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 
-import ch.schlau.pesche.apidocs.openapi.codefirst.json.JsonStringTypedef;
 import ch.schlau.pesche.apidocs.openapi.codefirst.txproc.PinCheckRequest;
 import ch.schlau.pesche.apidocs.openapi.codefirst.txproc.PinCheckResponse;
-import ch.schlau.pesche.apidocs.openapi.codefirst.txproc.PurchaseAuthResponse;
-import ch.schlau.pesche.apidocs.openapi.codefirst.txproc.model.PinTries;
 import ch.schlau.pesche.apidocs.openapi.codefirst.txproc.PurchaseAuthRequest;
-import ch.schlau.pesche.apidocs.openapi.codefirst.txproc.model.ApprovalCode;
+import ch.schlau.pesche.apidocs.openapi.codefirst.txproc.PurchaseAuthResponse;
 
 @Path("/txproc")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -40,7 +37,7 @@ public class TxProc {
         PinCheckResponse response = new PinCheckResponse();
         if ("magic".equals(request.getPinBlock())) {
             response.setResult(PinCheckResponse.Code.OK);
-            response.setTries(new PinTries(3));
+            response.setTries(3);
         } else {
             response.setResult(PinCheckResponse.Code.WRONG);
         }
@@ -59,11 +56,10 @@ public class TxProc {
 
         PurchaseAuthResponse response = new PurchaseAuthResponse();
         if (Optional.ofNullable(request.getToken())
-                .map(JsonStringTypedef::get)
                 .filter(s -> s.startsWith("42"))
                 .isPresent()) {
             response.setResult(PurchaseAuthResponse.Code.OK);
-            response.setApprovalCode(new ApprovalCode("OK42"));
+            response.setApprovalCode("OK42");
         } else {
             response.setResult(PurchaseAuthResponse.Code.WRONG);
         }
