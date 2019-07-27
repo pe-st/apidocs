@@ -1,3 +1,4 @@
+---
 openapi: 3.0.1
 info:
   title: apidocs-code-first-openapi
@@ -58,12 +59,9 @@ components:
           description: Result of the request
           type: string
         tries:
+          format: int32
           description: Number of remaining tries
           type: integer
-          properties:
-            value:
-              format: int32
-              type: integer
     PurchaseAuthRequest:
       description: Request for authorizing a Purchase
       type: object
@@ -88,9 +86,6 @@ components:
 
             Fieldcode: C002
           type: string
-          properties:
-            value:
-              type: string
         uuid:
           description: Unique ID of the request
           type: object
@@ -108,9 +103,6 @@ components:
         approvalCode:
           description: Code referencing the successful authorization
           type: string
-          properties:
-            value:
-              type: string
         result:
           description: Result of the request
           type: string
