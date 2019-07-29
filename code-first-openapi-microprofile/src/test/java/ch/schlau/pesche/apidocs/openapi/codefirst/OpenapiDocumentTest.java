@@ -17,7 +17,9 @@ class OpenapiDocumentTest {
     @Test
     void openapi_yaml() throws IOException {
 
-        String expected = IOUtils.toString(getClass().getClassLoader().getResourceAsStream("openapi.yaml"), "UTF-8");
+        String expected = IOUtils.toString(getClass().getClassLoader().getResourceAsStream("openapi.yaml"), "UTF-8")
+                // needed on Windows depending on the Git configuration (core.autocrlf)
+                .replace("\r\n", "\n");
 
         String document = when().get("/openapi")
                 .then()

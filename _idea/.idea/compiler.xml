@@ -17,10 +17,5 @@
         <module name="code-first-openapi-microprofile" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="11">
-      <module name="from-openapi-generator" target="11" />
-      <module name="from-swagger-generator" target="11" />
-      <module name="openapi-lombok" target="11" />
-    </bytecodeTargetLevel>
   </component>
 </project>
