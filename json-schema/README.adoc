@@ -1,0 +1,130 @@
+= API Docs / JSON Schema
+:toc: macro
+
+Generation of request and response objects from a JSON schema
+
+toc::[]
+
+== Comparison
+
+Comparison between the examples using JSON Schema and OpenAPI (using constants)
+
+[cols="1,2a,2a"]
+|===
+|Solution|Pros|Cons
+
+|JSON Schema|
+* no duplication
+* The generated POJOs have Javadoc
+* easy introduction of user-defined keys for structured documentation
+|
+* multiline documentation is cumbersome
+* might lead to complicated code generation if you use other generators like MapStruct and/or lombok in the same project
+* no specific IDE integration for the generation yet (what works best is `mvn compile` or `mvn generate-sources`)
+
+|OpenAPI/constants|
+* Easy Usage
+|
+* No Javadoc
+* The annotations are duplicated (though not the texts)
+
+|===
+
+== JSON Schema
+
+Example schemas in link:tree/master/json-schema/src/main/resources/schema[json-schema/src/main/resources/schema]
+
+Every endpoint gets its own schema, referencing a central schema file for shared definitions
+
+.pin-check-response.json
+[source,json]
+----
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+
+  "type": "object",
+  "title": "PinCheckResponse",
+  "description": "Tells if the PIN in the request was correct",
+
+  "properties": {
+    "result": { "$ref": "#/definitions/code" },
+    "tries": { "$ref": "model.json#/tries" }
+  },
+
+  "definitions": {
+    "code": {
+      "type": "string",
+      "enum": ["OK", "WRONG"],
+      "description": "Result of the request"
+    }
+  }
+}
+----
+
+This schema defines the response of the PIN Check endpoint as an object with two properties `result` and `tries`.
+
+The `result` property is defined in the same schema file under the key `definitions`, while the `tries`
+property is defined in a separate schema file, e.g. like this:
+
+.model.json
+[source,json]
+----
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+
+  "tries": {
+    "type": "integer",
+    "minimum" : 0,
+    "maximum" : 9,
+    "description": "Number of remaining tries"
+  }
+}
+----
+
+=== Workflow
+
+* A Maven Plugin generates POJOs from the schema:
+  https://github.com/joelittlejohn/jsonschema2pojo[jsonschema2pojo]
+* The OpenAPI implementation generates YAML and/or JSON output (e.g. `openapi.yaml`) out of the POJOs
+* A GUI tool like the Swagger Editor allows to browse the interface visually
+* If desired, the service can validate the received JSON document against the schema
+
+It's easily possible to add user-defined keys to the JSON schema (the Maven Plugin is programmable),
+e.g. adding a key `ch-schlau-fieldcode` for any schema object:
+
+[source,json]
+----
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+
+  "token": {
+    "type": "string",
+    "minLength" : 16,
+    "maxLength" : 19,
+    "description": "Token identifying a card, wallet, account etc\n\nMay contain alphanumeric characters",
+    "ch-schlau-fieldcode": "C002"
+  }
+}
+----
+
+
+=== Links
+
+* Introduction: http://json-schema.org/understanding-json-schema/[Understanding JSON Schema]
+* Generate Java Code from JSON Schema:
+** https://github.com/joelittlejohn/jsonschema2pojo[jsonschema2pojo]
+** https://github.com/joelittlejohn/jsonschema2pojo/blob/master/CHANGELOG.md[changelog]
+
+Remarks:
+
+* OpenAPI Annotations are not supported out-of-the-box by jsonschema2pojo, but can easily
+  be added with a custom annotator configured in the
+  https://joelittlejohn.github.io/jsonschema2pojo/site/1.0.1/generate-mojo.html[maven plugin]
+* At the same time also other annotations like `@JsonIgnoreProperties(ignoreUnknown = true)` can be added
+
+=== JSON Schema Tradeoffs
+
+* Longer documentation (multiline) is cumbersome (all on one line with `\n` or `&lt;p&gt;` separating the lines),
+  though workarounds with proprietary keys in the schema are easily programmed (see `&quot;model.json#/token&quot;`
+  and the `schema2pojo` submodule).
+

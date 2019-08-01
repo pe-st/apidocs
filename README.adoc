@@ -18,31 +18,18 @@ toc::[]
 
 == Comparison
 
-Comparison between the examples using JSON Schema, OpenAPI/typedefs and OpenAPI/constants
-
-The OpenAPI output (the openapi.yaml files) are almost identical, so no comparison needed with respect
-to the visual browsing of the interfaces.
+Comparison between the examples using Code-First and Design-First approach
 
 [cols="1,2a,2a"]
 |===
 |Solution|Pros|Cons
 
-|JSON Schema|
+|Code-First|
 * no duplication
 * The generated POJOs have Javadoc
 * easy introduction of user-defined keys for structured documentation
 |
-* multiline documentation is cumbersome
-* might lead to complicated code generation if you use other generators like MapStruct and/or lombok in the same project
 * no specific IDE integration for the generation yet (what works best is `mvn compile` or `mvn generate-sources`)
-
-|OpenAPI/typedefs|
-* almost no duplication (just using both `SchemaType.STRING` and `JsonStringTypedef` is kind of duplication)
-* typesafe interface
-|
-* No Javadoc
-* Using the classes is less straightforward, especially with mapping libraries
-* Not everyone likes to have a separate class for every field
 
 |OpenAPI/constants|
 * Easy Usage
@@ -52,7 +39,7 @@ to the visual browsing of the interfaces.
 
 |===
 
-== OpenAPI
+== Code-First
 
 Example using OpenAPI 3 (The MicroProfile implementation, though Swagger would need almost no changes;
 there are only small differences to the Swagger OpenAPI, e.g. there is no `responses` in the MicroProfile `@Operation`
@@ -87,73 +74,7 @@ and open this URL:
 To document the objects and properties of a JSON REST payload, the `@Schema` annotation is enough.
 
 To avoid duplication of the `@Schema` annotation between different endpoints,
-two variants are demonstrated: using _typedefs_ and using _constants_.
-
-==== Solution with Typedefs
-
-The _typedef_ solution uses a dedicated type to carry the annotation;
-e.g. `PurchaseAuthRequest` uses dedicated types for the properties:
-
-[source,java]
-----
-@Schema(description = "Request for authorizing a Purchase")
-public class PurchaseAuthRequest {
-
-    private RequestUuid uuid;
-
-    private Token token;
-
-    private EmvTags emvTags;
-}
-----
-
-For types that really are just primitive types or `String`s, a _typedef_ would be enough. Unfortunately Java has no _typedefs_,
-thus a small wrapper type lets define dedicated with a minimal overhead (two constructors)
-
-.`Token` is an example of a dedicated type
-[source,java]
-----
-@Schema(type = SchemaType.STRING,
-        description = "Token identifying a card, wallet, account etc\n"
-                + "\n"
-                + "May contain alphanumeric characters"
-                + "\n\n"
-                + "Fieldcode: C002")
-public class Token extends JsonStringTypedef {
-    public Token() {
-    }
-
-    public Token(String value) {
-        super(value);
-    }
-}
-----
-
-The helper class `JsonStringTypedef` basically just defines the JSON serialization and deserialization,
-avoiding a separate pair of curly brackets. `Token` is thus serialized as `"token": "42"` instead of `"token": { "token": "42" }`
-
-[source,java]
-----
-@JsonIgnoreProperties(ignoreUnknown = true)
-public abstract class JsonStringTypedef {
-
-    @JsonValue
-    private String value;
-
-    public JsonStringTypedef() {}
-    public JsonStringTypedef(String value) { this.value = value; }
-
-    public String get() { return value; }
-    public void set(String value) { this.value = value; }
-}
-----
-
-==== Typedef Tradeoffs
-
-* using subclasses of `JsonXxxTypedef` is a bit more cumbersome than just a String or Number property
-* especially when using mapping libraries like http://mapstruct.org[MapStruct] the dedicated types might not easy to be mapped
-* no way to have the same information in Javadoc and in OpenAPI without duplication and double maintenance
-
+String constants are used.
 
 ==== Solution with Constants
 
@@ -179,106 +100,3 @@ public class PinCheckRequest {
 
 This allows maintaining the documentation for a field (e.g the `pinBlock field) for any endpoint in a central location.
 
-
-== JSON Schema
-
-Example schemas in link:tree/master/json-schema/src/main/resources/schema[json-schema/src/main/resources/schema]
-
-Every endpoint gets its own schema, referencing a central schema file for shared definitions
-
-.pin-check-response.json
-[source,json]
-----
-{
-  "$schema": "http://json-schema.org/draft-07/schema#",
-
-  "type": "object",
-  "title": "PinCheckResponse",
-  "description": "Tells if the PIN in the request was correct",
-
-  "properties": {
-    "result": { "$ref": "#/definitions/code" },
-    "tries": { "$ref": "model.json#/tries" }
-  },
-
-  "definitions": {
-    "code": {
-      "type": "string",
-      "enum": ["OK", "WRONG"],
-      "description": "Result of the request"
-    }
-  }
-}
-----
-
-This schema defines the response of the PIN Check endpoint as an object with two properties `result` and `tries`.
-
-The `result` property is defined in the same schema file under the key `definitions`, while the `tries`
-property is defined in a separate schema file, e.g. like this:
-
-.model.json
-[source,json]
-----
-{
-  "$schema": "http://json-schema.org/draft-07/schema#",
-
-  "tries": {
-    "type": "integer",
-    "minimum" : 0,
-    "maximum" : 9,
-    "description": "Number of remaining tries"
-  }
-}
-----
-
-=== Workflow
-
-* A Maven Plugin generates POJOs from the schema:
-  https://github.com/joelittlejohn/jsonschema2pojo[jsonschema2pojo]
-* The OpenAPI implementation generates YAML and/or JSON output (e.g. `openapi.yaml`) out of the POJOs
-* A GUI tool like the Swagger Editor allows to browse the interface visually
-* If desired, the service can validate the received JSON document against the schema
-
-It's easily possible to add user-defined keys to the JSON schema (the Maven Plugin is programmable),
-e.g. adding a key `ch-schlau-fieldcode` for any schema object:
-
-[source,json]
-----
-{
-  "$schema": "http://json-schema.org/draft-07/schema#",
-
-  "token": {
-    "type": "string",
-    "minLength" : 16,
-    "maxLength" : 19,
-    "description": "Token identifying a card, wallet, account etc\n\nMay contain alphanumeric characters",
-    "ch-schlau-fieldcode": "C002"
-  }
-}
-----
-
-
-=== Links
-
-* Introduction: http://json-schema.org/understanding-json-schema/[Understanding JSON Schema]
-* Generate Java Code from JSON Schema:
-** https://github.com/joelittlejohn/jsonschema2pojo[jsonschema2pojo]
-** https://github.com/joelittlejohn/jsonschema2pojo/blob/master/CHANGELOG.md[changelog]
-
-Remarks:
-
-* OpenAPI Annotations are not supported out-of-the-box by jsonschema2pojo, but can easily
-  be added with a custom annotator configured in the
-  https://joelittlejohn.github.io/jsonschema2pojo/site/1.0.1/generate-mojo.html[maven plugin]
-* At the same time also other annotations like `@JsonIgnoreProperties(ignoreUnknown = true)` can be added
-
-=== JSON Schema Tradeoffs
-
-* Longer documentation (multiline) is cumbersome (all on one line with `\n` or `&lt;p&gt;` separating the lines),
-  though workarounds with proprietary keys in the schema are easily programmed (see `&quot;model.json#/token&quot;`
-  and the `schema2pojo` submodule).
-
-
-== Spring REST Docs
-
-Work in progress, see link:spring-restdocs/README.md[Spring REST Docs]

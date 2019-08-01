@@ -1,3 +1,6 @@
+# Git bundles
+*.bundle
+
 target/
 tmp/
 
