@@ -1,9 +1,0 @@
-POST http://localhost:8080/api/txproc/pincheck
-Content-Type: application/json
-
-{
-  "uuid": "abcd-ef01",
-  "pinBlock": "magic"
-}
-
-###

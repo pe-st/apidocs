@@ -1,8 +1,0 @@
-{
-  "uuid": "aaaaaaaa-bbbb-cccc-dddd-012345678901",
-  "token": "42-token-abcdefg",
-  "emvTags": {
-    "84" : "MTI=",
-    "9F1A" : "AAI="
-  }
-}

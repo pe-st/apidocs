@@ -1,9 +1,0 @@
-= Spring REST docs demo
-
-Make sure to read: https://docs.spring.io/spring-restdocs/docs/2.0.3.RELEASE/reference/html5
-
-== Single Include
-
-include::{snippets}/pincheck/curl-request.adoc[]
-
-

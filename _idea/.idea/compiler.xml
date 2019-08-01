@@ -6,14 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="design-first-swagger" />
-        <module name="schema2pojo" />
-        <module name="design-first-openapi" />
         <module name="design-first-openapi-generator" />
         <module name="design-first-swagger-codegen" />
-        <module name="spring-restdocs" />
-        <module name="code-first-openapi" />
-        <module name="json-schema" />
         <module name="code-first-openapi-microprofile" />
       </profile>
     </annotationProcessing>
