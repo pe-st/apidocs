@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ch.schlau.pesche.apidocs</groupId>
-    <artifactId>code-first-openapi-microprofile</artifactId>
+    <artifactId>code-first-swagger</artifactId>
     <version>0.9-SNAPSHOT</version>
 
     <name>apidocs.${project.artifactId}</name>
@@ -19,6 +19,7 @@
         <!-- artifact versions -->
         <lombok.version>1.18.8</lombok.version>
         <quarkus.version>0.20.0</quarkus.version>
+        <swagger.version>2.0.8</swagger.version>
 
         <!-- testing artifact versions -->
         <commons-io.version>2.6</commons-io.version>
@@ -58,6 +59,11 @@
             <version>${lombok.version}</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <version>${swagger.version}</version>
+        </dependency>
 
         <!-- Testing dependencies -->
         <dependency>
@@ -79,6 +85,29 @@
 
     <build>
         <plugins>
+            <plugin>
+                <!-- see https://github.com/swagger-api/swagger-core/tree/master/modules/swagger-maven-plugin -->
+                <groupId>io.swagger.core.v3</groupId>
+                <artifactId>swagger-maven-plugin</artifactId>
+                <version>${swagger.version}</version>
+                <configuration>
+                    <outputFileName>openapi</outputFileName>
+                    <outputPath>${project.build.directory}/classes/META-INF</outputPath>
+                    <outputFormat>JSONANDYAML</outputFormat>
+                    <resourcePackages>
+                        <package>ch.schlau.pesche.apidocs.swagger.codefirst</package>
+                    </resourcePackages>
+                    <prettyPrint>true</prettyPrint>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>resolve</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>io.quarkus</groupId>
                 <artifactId>quarkus-maven-plugin</artifactId>

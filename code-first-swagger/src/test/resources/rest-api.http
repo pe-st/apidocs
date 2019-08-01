@@ -1,0 +1,34 @@
+# Swagger/OpenAPI in YAML format
+GET http://localhost:8080/openapi
+
+###
+
+# Swagger/OpenAPI in JSON format
+GET http://localhost:8080/openapi
+Accept: application/json
+
+###
+
+POST http://localhost:8080/api/txproc/pincheck
+Content-Type: application/json
+
+{
+  "uuid": "abcd-ef01",
+  "pinBlock": "magic"
+}
+
+###
+
+POST http://localhost:8080/api/txproc/purchase
+Content-Type: application/json
+
+{
+  "uuid": "aaaaaaaa-bbbb-cccc-dddd-012345678901",
+  "token": "42-token-abcdefg",
+  "emvTags": {
+    "84" : "MTI=",
+    "9F1A" : "AAI="
+  }
+}
+
+###

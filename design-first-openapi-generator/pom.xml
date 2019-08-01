@@ -4,10 +4,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ch.schlau.pesche.apidocs</groupId>
-    <artifactId>design-first-openapi</artifactId>
+    <artifactId>design-first-openapi-generator</artifactId>
     <version>0.9-SNAPSHOT</version>
 
-    <name>${project.groupId}.${project.artifactId}</name>
+    <name>apidocs.${project.artifactId}</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -18,7 +18,7 @@
 
         <!-- artifact versions -->
         <jackson-2-version>2.9.9</jackson-2-version>
-        <quarkus.version>0.19.1</quarkus.version>
+        <quarkus.version>0.20.0</quarkus.version>
         <swagger.version>1.5.22</swagger.version>
         <openapi.generator.version>4.0.0-beta3</openapi.generator.version>
 
@@ -44,6 +44,10 @@
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-resteasy-jsonb</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-smallrye-openapi</artifactId>
         </dependency>
 
         <!-- dependencies for the generated code -->
@@ -73,11 +77,12 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <inputSpec>${project.basedir}/src/main/resources/openapi.yaml</inputSpec>
-                            <generatorName>jaxrs-resteasy</generatorName>
-                            <!-- <generatorName>java</generatorName> -->
+                            <inputSpec>${project.basedir}/src/main/resources/META-INF/openapi.yaml</inputSpec>
+                            <generatorName>java</generatorName>
                             <generateApis>false</generateApis>
                             <generateSupportingFiles>false</generateSupportingFiles>
+                            <generateModelDocumentation>false</generateModelDocumentation>
+                            <ignoreFileOverride>${project.basedir}/src/main/resources/.openapi-generator-ignore</ignoreFileOverride>
                             <!-- <configHelp>true</configHelp> -->
                             <configOptions>
                                 <java8>true</java8>

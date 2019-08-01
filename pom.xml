@@ -6,11 +6,12 @@
     <artifactId>apidocs</artifactId>
     <version>0.9-SNAPSHOT</version>
 
-    <name>${project.groupId}.${project.artifactId}</name>
+    <name>apidocs</name>
     <packaging>pom</packaging>
 
     <modules>
         <module>code-first-openapi-microprofile</module>
+        <module>code-first-swagger</module>
         <module>design-first-openapi-generator</module>
         <module>design-first-swagger-codegen</module>
     </modules>
