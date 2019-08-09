@@ -1,17 +1,15 @@
 package ch.schlau.pesche.apidocs.openapi.codefirst.txproc;
 
+import static ch.schlau.pesche.apidocs.openapi.codefirst.rest.JsonConfiguration.JSONB;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-import java.io.IOException;
 import java.util.UUID;
 
 import javax.ws.rs.core.MediaType;
 
 import org.junit.jupiter.api.Test;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import ch.schlau.pesche.apidocs.openapi.codefirst.txproc.model.EmvTags;
 import io.quarkus.test.junit.QuarkusTest;
@@ -38,10 +36,7 @@ class PurchaseAuthRequestTest {
     }
 
     @Test
-    void json_roundtrip() throws IOException {
-
-        // TODO convert this test to JSON-B
-        ObjectMapper mapper = new ObjectMapper();
+    void json_roundtrip() {
 
         PurchaseAuthRequest request = new PurchaseAuthRequest();
         request.setUuid(UUID.fromString("abcdabcd-1234-5678-aaaa-cccccccccccc"));
@@ -51,11 +46,11 @@ class PurchaseAuthRequestTest {
         request.setEmvTags(emvTags);
 
         // JSON serialization
-        String jsonString = mapper.writeValueAsString(request);
-        assertThat(jsonString, is("{\"uuid\":\"abcdabcd-1234-5678-aaaa-cccccccccccc\",\"token\":\"42\",\"emvTags\":{\"x84\":\"ABC=\"}}"));
+        String jsonString = JSONB.toJson(request);
+        assertThat(jsonString, is("{\"emvTags\":{\"x84\":\"ABC=\"},\"token\":\"42\",\"uuid\":\"abcdabcd-1234-5678-aaaa-cccccccccccc\"}"));
 
         // JSON deserialization
-        PurchaseAuthRequest roundtrip = mapper.readerFor(PurchaseAuthRequest.class).readValue(jsonString);
+        PurchaseAuthRequest roundtrip = JSONB.fromJson(jsonString, PurchaseAuthRequest.class);
         assertThat(roundtrip.getUuid().toString(), is("abcdabcd-1234-5678-aaaa-cccccccccccc"));
     }
 }

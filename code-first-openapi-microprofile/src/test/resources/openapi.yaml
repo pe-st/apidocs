@@ -42,6 +42,13 @@ components:
       description: Request for checking a PIN
       type: object
       properties:
+        pan:
+          title: PAN (Primary Account Number)
+          description: The number embossed on credit cards
+          type: string
+          properties:
+            pan:
+              type: string
         pinBlock:
           description: |-
             Encrypted binary data containing a PIN
@@ -50,7 +57,14 @@ components:
           type: string
         uuid:
           description: Unique ID of the request
-          type: string
+          type: object
+          properties:
+            leastSigBits:
+              format: int64
+              type: integer
+            mostSigBits:
+              format: int64
+              type: integer
     PinCheckResponse:
       description: Tells if the PIN in the request was correct
       type: object
@@ -77,6 +91,13 @@ components:
               type: string
             x9F1A:
               description: Terminal Country Code
+              type: string
+        pan:
+          title: PAN (Primary Account Number)
+          description: The number embossed on credit cards
+          type: string
+          properties:
+            pan:
               type: string
         token:
           description: |-

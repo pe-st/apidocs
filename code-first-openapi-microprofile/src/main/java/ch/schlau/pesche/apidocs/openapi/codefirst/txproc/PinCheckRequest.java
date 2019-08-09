@@ -1,10 +1,12 @@
 package ch.schlau.pesche.apidocs.openapi.codefirst.txproc;
 
-import static ch.schlau.pesche.apidocs.openapi.codefirst.txproc.doc.Model.PIN_BLOCK;
-import static ch.schlau.pesche.apidocs.openapi.codefirst.txproc.doc.Model.UUID;
+import java.util.UUID;
 
+import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
+import ch.schlau.pesche.apidocs.openapi.codefirst.txproc.doc.Model;
+import ch.schlau.pesche.apidocs.openapi.codefirst.txproc.model.Pan;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,9 +15,12 @@ import lombok.Setter;
 @Setter
 public class PinCheckRequest {
 
-    @Schema(description = UUID)
-    private String uuid;
+    @Schema(type = SchemaType.STRING, description = Model.UUID)
+    private UUID uuid;
 
-    @Schema(description = PIN_BLOCK)
+    // the class Pan already carries a @Schema annotation
+    private Pan pan;
+
+    @Schema(description = Model.PIN_BLOCK)
     private String pinBlock;
 }
