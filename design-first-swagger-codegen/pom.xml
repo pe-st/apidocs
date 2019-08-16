@@ -18,7 +18,7 @@
 
         <!-- artifact versions -->
         <jackson-2-version>2.9.9</jackson-2-version>
-        <quarkus.version>0.20.0</quarkus.version>
+        <quarkus.version>0.21.1</quarkus.version>
         <swagger.version>2.0.8</swagger.version>
         <swagger.codegen.version>3.0.8</swagger.codegen.version>
 

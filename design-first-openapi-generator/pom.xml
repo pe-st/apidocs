@@ -18,9 +18,9 @@
 
         <!-- artifact versions -->
         <jackson-2-version>2.9.9</jackson-2-version>
-        <quarkus.version>0.20.0</quarkus.version>
+        <quarkus.version>0.21.1</quarkus.version>
         <swagger.version>1.5.22</swagger.version>
-        <openapi.generator.version>4.0.0-beta3</openapi.generator.version>
+        <openapi.generator.version>4.1.0</openapi.generator.version>
 
         <!-- apache maven plugin versions (in alphabetical order) -->
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
@@ -51,6 +51,11 @@
         </dependency>
 
         <!-- dependencies for the generated code -->
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+            <version>3.0.2</version>
+        </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
