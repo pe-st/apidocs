@@ -1,0 +1,111 @@
+---
+openapi: 3.0.1
+info:
+  title: apidocs-code-first-swagger
+  version: 0.9
+paths:
+  /txproc/pincheck:
+    post:
+      operationId: pinCheck
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PinCheckRequest'
+        description: PIN Check Request Body
+      responses:
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PinCheckResponse'
+          description: PIN Check Response
+      summary: Check the pin
+  /txproc/purchase:
+    post:
+      operationId: purchase
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PurchaseAuthRequest'
+        description: Purchase Request Body
+      responses:
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PurchaseAuthResponse'
+          description: Purchase Response
+      summary: Authorize a Purchase
+components:
+  schemas:
+    EmvTags:
+      description: Collection of EMV tags
+      properties:
+        84:
+          description: The EMV AID as reported by ICC
+          title: Dedicated Filename
+          type: string
+        9F1A:
+          description: Terminal Country Code
+          type: string
+      title: EmvTags
+      type: object
+    PinCheckRequest:
+      description: Request for checking a PIN
+      properties:
+        pinBlock:
+          description: |-
+            Encrypted binary data containing a PIN
+
+            Fieldcode: C003
+          type: string
+        uuid:
+          description: Unique ID of the request
+          type: string
+      type: object
+    PinCheckResponse:
+      description: Tells if the PIN in the request was correct
+      properties:
+        result:
+          description: Result of the request
+          enum:
+          - OK
+          - WRONG
+          type: string
+        tries:
+          description: Number of remaining tries
+          format: int32
+          type: integer
+      type: object
+    PurchaseAuthRequest:
+      description: Request for authorizing a Purchase
+      properties:
+        emvTags:
+          $ref: '#/components/schemas/EmvTags'
+        token:
+          description: |-
+            Token identifying a card, wallet, account etc
+
+            May contain alphanumeric characters
+
+            Fieldcode: C002
+          type: string
+        uuid:
+          description: Unique ID of the request
+          type: string
+      type: object
+    PurchaseAuthResponse:
+      description: Response to PurchaseAuthRequest
+      properties:
+        approvalCode:
+          description: Code referencing the successful authorization
+          type: string
+        result:
+          description: Result of the request
+          enum:
+          - OK
+          - WRONG
+          type: string
+      type: object
