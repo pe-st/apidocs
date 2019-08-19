@@ -54,6 +54,12 @@ components:
           format: int32
           description: Number of remaining tries
           type: integer
+    Pan:
+      type: object
+      properties:
+        pan:
+          pattern: '[0-9]{12,19}'
+          type: string
     PinCheckRequest:
       description: Request for checking a PIN
       type: object
@@ -61,6 +67,8 @@ components:
         uuid:
           description: Unique ID of the request
           type: string
+        pan:
+          $ref: '#/components/schemas/Pan'
         pinBlock:
           description: |-
             Encrypted binary data containing a PIN
@@ -99,13 +107,7 @@ components:
         uuid:
           description: Unique ID of the request
           type: string
-        token:
-          description: |-
-            Token identifying a card, wallet, account etc
-
-            May contain alphanumeric characters
-
-            Fieldcode: C002
-          type: string
+        pan:
+          $ref: '#/components/schemas/Pan'
         emvTags:
           $ref: '#/components/schemas/EmvTags'

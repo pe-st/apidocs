@@ -1,4 +1,3 @@
-
 package ch.schlau.pesche.apidocs.openapi.codefirst.txproc.model;
 
 import javax.json.bind.annotation.JsonbProperty;

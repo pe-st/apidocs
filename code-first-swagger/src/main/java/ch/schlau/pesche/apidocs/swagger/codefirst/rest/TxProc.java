@@ -12,6 +12,8 @@ import ch.schlau.pesche.apidocs.swagger.codefirst.txproc.PinCheckRequest;
 import ch.schlau.pesche.apidocs.swagger.codefirst.txproc.PinCheckResponse;
 import ch.schlau.pesche.apidocs.swagger.codefirst.txproc.PurchaseAuthRequest;
 import ch.schlau.pesche.apidocs.swagger.codefirst.txproc.PurchaseAuthResponse;
+import ch.schlau.pesche.apidocs.swagger.codefirst.txproc.model.EmvTags;
+import ch.schlau.pesche.apidocs.swagger.codefirst.txproc.model.Pan;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -54,11 +56,13 @@ public class TxProc {
             ) PurchaseAuthRequest request) {
 
         PurchaseAuthResponse response = new PurchaseAuthResponse();
-        if (Optional.ofNullable(request.getToken())
+        if (Optional.ofNullable(request.getPan())
+                .map(Pan::getPan)
                 .filter(s -> s.startsWith("42"))
                 .isPresent()) {
             response.setResult(PurchaseAuthResponse.Code.OK);
-            response.setApprovalCode("OK42");
+            response.setApprovalCode("OK42." +
+                    Optional.ofNullable(request.getEmvTags()).map(EmvTags::getX9F1A).orElse("756"));
         } else {
             response.setResult(PurchaseAuthResponse.Code.WRONG);
         }

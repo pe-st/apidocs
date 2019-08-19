@@ -52,9 +52,17 @@ components:
           type: string
       title: EmvTags
       type: object
+    Pan:
+      properties:
+        pan:
+          pattern: '[0-9]{12,19}'
+          type: string
+      type: object
     PinCheckRequest:
       description: Request for checking a PIN
       properties:
+        pan:
+          $ref: '#/components/schemas/Pan'
         pinBlock:
           description: |-
             Encrypted binary data containing a PIN
@@ -84,14 +92,8 @@ components:
       properties:
         emvTags:
           $ref: '#/components/schemas/EmvTags'
-        token:
-          description: |-
-            Token identifying a card, wallet, account etc
-
-            May contain alphanumeric characters
-
-            Fieldcode: C002
-          type: string
+        pan:
+          $ref: '#/components/schemas/Pan'
         uuid:
           description: Unique ID of the request
           type: string
