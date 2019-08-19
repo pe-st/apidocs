@@ -12,6 +12,7 @@ import javax.ws.rs.core.MediaType;
 import org.junit.jupiter.api.Test;
 
 import ch.schlau.pesche.apidocs.openapi.codefirst.txproc.model.EmvTags;
+import ch.schlau.pesche.apidocs.openapi.codefirst.txproc.model.Pan;
 import io.quarkus.test.junit.QuarkusTest;
 
 @QuarkusTest
@@ -23,14 +24,14 @@ class PurchaseAuthRequestTest {
         given()
                 .header("Content-Type", MediaType.APPLICATION_JSON)
                 .body("{\"uuid\": \"aaaaaaaa-bbbb-cccc-dddd-012345678901\","
-                     +" \"token\": \"42-token-abcdefg\","
-                     +" \"emvTags\": { \"84\": \"MTI=\", \"9F1A\": \"AAI=\" } }")
+                     +" \"pan\": \"4244333322221111\","
+                     +" \"emvTags\": { \"84\": \"A0000000041010\", \"x9F1A\": \"250\" } }")
         .when()
                 .post("/api/txproc/purchase")
         .then()
                 .statusCode(200)
                 .body("result", is("OK"))
-                .body("approvalCode", is("OK42"))
+                .body("approvalCode", is("OK42.250"))
                 ;
         // @formatter:off
     }
@@ -40,14 +41,14 @@ class PurchaseAuthRequestTest {
 
         PurchaseAuthRequest request = new PurchaseAuthRequest();
         request.setUuid(UUID.fromString("abcdabcd-1234-5678-aaaa-cccccccccccc"));
-        request.setToken("42");
+        request.setPan(new Pan("42"));
         var emvTags = new EmvTags();
-        emvTags.setX84("ABC=");
+        emvTags.setX84("A0000000041010");
         request.setEmvTags(emvTags);
 
         // JSON serialization
         String jsonString = JSONB.toJson(request);
-        assertThat(jsonString, is("{\"emvTags\":{\"x84\":\"ABC=\"},\"token\":\"42\",\"uuid\":\"abcdabcd-1234-5678-aaaa-cccccccccccc\"}"));
+        assertThat(jsonString, is("{\"emvTags\":{\"84\":\"A0000000041010\"},\"pan\":\"42\",\"uuid\":\"abcdabcd-1234-5678-aaaa-cccccccccccc\"}"));
 
         // JSON deserialization
         PurchaseAuthRequest roundtrip = JSONB.fromJson(jsonString, PurchaseAuthRequest.class);

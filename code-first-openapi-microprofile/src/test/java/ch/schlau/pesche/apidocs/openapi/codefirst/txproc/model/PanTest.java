@@ -11,8 +11,6 @@ import org.junit.jupiter.api.Test;
 
 class PanTest {
 
-    // TODO Json-B roundtrip
-
     @Test
     void asMaskedPan_valid() {
 
@@ -32,9 +30,6 @@ class PanTest {
     void json_roundtrip() {
 
         Jsonb jsonb = JSONB;
-//        Jsonb jsonb = JsonbBuilder.create(new JsonbConfig()
-//                .withAdapters(new PanJsonAdapter())
-//        );
 
         Pan pan = new Pan("4444333322221111");
 

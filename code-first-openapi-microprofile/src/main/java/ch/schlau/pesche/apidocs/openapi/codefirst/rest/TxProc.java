@@ -18,6 +18,8 @@ import ch.schlau.pesche.apidocs.openapi.codefirst.txproc.PinCheckRequest;
 import ch.schlau.pesche.apidocs.openapi.codefirst.txproc.PinCheckResponse;
 import ch.schlau.pesche.apidocs.openapi.codefirst.txproc.PurchaseAuthRequest;
 import ch.schlau.pesche.apidocs.openapi.codefirst.txproc.PurchaseAuthResponse;
+import ch.schlau.pesche.apidocs.openapi.codefirst.txproc.model.EmvTags;
+import ch.schlau.pesche.apidocs.openapi.codefirst.txproc.model.Pan;
 
 @Path("/txproc")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -55,11 +57,13 @@ public class TxProc {
             ) PurchaseAuthRequest request) {
 
         PurchaseAuthResponse response = new PurchaseAuthResponse();
-        if (Optional.ofNullable(request.getToken())
+        if (Optional.ofNullable(request.getPan())
+                .map(Pan::getPan)
                 .filter(s -> s.startsWith("42"))
                 .isPresent()) {
             response.setResult(PurchaseAuthResponse.Code.OK);
-            response.setApprovalCode("OK42");
+            response.setApprovalCode("OK42." +
+                    Optional.ofNullable(request.getEmvTags()).map(EmvTags::getX9F1A).orElse("756"));
         } else {
             response.setResult(PurchaseAuthResponse.Code.WRONG);
         }

@@ -85,7 +85,7 @@ components:
           description: Collection of EMV tags
           type: object
           properties:
-            x84:
+            84:
               title: Dedicated Filename
               description: The EMV AID as reported by ICC
               type: string
