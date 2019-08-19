@@ -22,13 +22,6 @@ public class PurchaseAuthRequest {
     // the class Pan already carries a @Schema annotation
     private Pan pan;
 
-    @Schema(type = SchemaType.STRING,
-            description = "Token identifying a card, wallet, account etc\n"
-                    + "\n"
-                    + "May contain alphanumeric characters"
-                    + "\n\n"
-                    + "Fieldcode: C002")
-    private String token;
-
+    // the class EmvTags already carries a @Schema annotation
     private EmvTags emvTags;
 }

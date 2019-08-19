@@ -50,10 +50,10 @@ class OpenapiDocumentTest {
                 .statusCode(200)
                 .extract().response().asString();
 
-        assertThat(document, is(expected));
+        assertThat("unsorted", document, is(expected));
 
         String yamlSorted = sortYaml(document);
-        assertThat(yamlSorted, is(expectedSorted));
+        assertThat("sorted", yamlSorted, is(expectedSorted));
     }
 
     private String sortYaml(String yaml) throws IOException {

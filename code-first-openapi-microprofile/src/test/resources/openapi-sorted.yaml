@@ -69,7 +69,9 @@ components:
       description: Tells if the PIN in the request was correct
       properties:
         result:
-          description: Result of the request
+          enum:
+          - OK
+          - WRONG
           type: string
         tries:
           description: Number of remaining tries
@@ -97,14 +99,6 @@ components:
             pan:
               type: string
           title: PAN (Primary Account Number)
-          type: string
-        token:
-          description: |-
-            Token identifying a card, wallet, account etc
-
-            May contain alphanumeric characters
-
-            Fieldcode: C002
           type: string
         uuid:
           description: Unique ID of the request
