@@ -11,6 +11,7 @@
         <module name="code-first-openapi-microprofile" />
         <module name="code-first-swagger" />
         <module name="design-first-swagger-codegen" />
+        <module name="code-first-openapi-openliberty" />
       </profile>
     </annotationProcessing>
   </component>

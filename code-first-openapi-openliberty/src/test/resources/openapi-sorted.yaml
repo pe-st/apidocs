@@ -1,0 +1,123 @@
+---
+openapi: 3.0.1
+info:
+  title: apidocs-code-first-openapi
+  version: 0.9
+paths:
+  /api/txproc/pincheck:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PinCheckRequest'
+        description: PIN Check Request Body
+      responses:
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PinCheckResponse'
+          description: PIN Check Response
+      summary: Check the pin
+  /api/txproc/purchase:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PurchaseAuthRequest'
+        description: Purchase Request Body
+      responses:
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PurchaseAuthResponse'
+          description: Purchase Response
+      summary: Authorize a Purchase
+components:
+  schemas:
+    PinCheckRequest:
+      description: Request for checking a PIN
+      properties:
+        pan:
+          description: The number embossed on credit cards
+          properties:
+            pan:
+              type: string
+          title: PAN (Primary Account Number)
+          type: string
+        pinBlock:
+          description: |-
+            Encrypted binary data containing a PIN
+
+            Fieldcode: C003
+          type: string
+        uuid:
+          description: Unique ID of the request
+          properties:
+            leastSigBits:
+              format: int64
+              type: integer
+            mostSigBits:
+              format: int64
+              type: integer
+          type: object
+      type: object
+    PinCheckResponse:
+      description: Tells if the PIN in the request was correct
+      properties:
+        result:
+          enum:
+          - OK
+          - WRONG
+          type: string
+        tries:
+          description: Number of remaining tries
+          format: int32
+          type: integer
+      type: object
+    PurchaseAuthRequest:
+      description: Request for authorizing a Purchase
+      properties:
+        emvTags:
+          description: Collection of EMV tags
+          properties:
+            84:
+              description: The EMV AID as reported by ICC
+              title: Dedicated Filename
+              type: string
+            x9F1A:
+              description: Terminal Country Code
+              type: string
+          title: EmvTags
+          type: object
+        pan:
+          description: The number embossed on credit cards
+          properties:
+            pan:
+              type: string
+          title: PAN (Primary Account Number)
+          type: string
+        uuid:
+          description: Unique ID of the request
+          properties:
+            leastSigBits:
+              format: int64
+              type: integer
+            mostSigBits:
+              format: int64
+              type: integer
+          type: object
+      type: object
+    PurchaseAuthResponse:
+      description: Response to PurchaseAuthRequest
+      properties:
+        approvalCode:
+          description: Code referencing the successful authorization
+          type: string
+        result:
+          description: Result of the request
+          type: string
+      type: object

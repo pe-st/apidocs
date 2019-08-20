@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>code-first-openapi-openliberty</module>
         <module>code-first-openapi-microprofile</module>
         <module>code-first-swagger</module>
         <module>design-first-openapi-generator</module>

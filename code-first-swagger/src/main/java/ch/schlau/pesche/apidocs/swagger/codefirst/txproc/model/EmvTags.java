@@ -7,7 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * In the real world this would probably be an Enum with all the known tags
+ * In the real world this would probably be a Map of enum with all the known tags
  */
 @Schema(title = "EmvTags", description = "Collection of EMV tags")
 @Getter
