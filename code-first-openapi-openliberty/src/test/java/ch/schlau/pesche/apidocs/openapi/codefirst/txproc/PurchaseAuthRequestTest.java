@@ -13,9 +13,7 @@ import org.junit.jupiter.api.Test;
 
 import ch.schlau.pesche.apidocs.openapi.codefirst.txproc.model.EmvTags;
 import ch.schlau.pesche.apidocs.openapi.codefirst.txproc.model.Pan;
-import io.quarkus.test.junit.QuarkusTest;
 
-@QuarkusTest
 class PurchaseAuthRequestTest {
 
     @Test

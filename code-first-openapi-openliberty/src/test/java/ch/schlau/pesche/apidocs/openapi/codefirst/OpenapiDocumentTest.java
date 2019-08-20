@@ -15,11 +15,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 
-import io.quarkus.test.junit.QuarkusTest;
 import lombok.Getter;
 import lombok.Setter;
 
-@QuarkusTest
 class OpenapiDocumentTest {
 
     @Getter
@@ -27,7 +25,7 @@ class OpenapiDocumentTest {
     static class OpenapiSkeleton {
         String openapi;
         Object info;
-        Object server;
+        Object servers;
         Object paths;
         Object components;
         Object security;

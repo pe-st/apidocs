@@ -27,7 +27,7 @@ class OpenapiDocumentTest {
     static class OpenapiSkeleton {
         String openapi;
         Object info;
-        Object server;
+        Object servers;
         Object paths;
         Object components;
         Object security;

@@ -12,9 +12,7 @@ import javax.ws.rs.core.MediaType;
 import org.junit.jupiter.api.Test;
 
 import ch.schlau.pesche.apidocs.openapi.codefirst.txproc.model.Pan;
-import io.quarkus.test.junit.QuarkusTest;
 
-@QuarkusTest
 class PinCheckRequestTest {
 
     @Test

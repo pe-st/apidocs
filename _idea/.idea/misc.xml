@@ -3,10 +3,9 @@
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/../code-first-openapi-microprofile" />
+    <file type="web" url="file://$PROJECT_DIR$/../code-first-openapi-openliberty" />
     <file type="web" url="file://$PROJECT_DIR$/../design-first-openapi-generator" />
     <file type="web" url="file://$PROJECT_DIR$/../design-first-swagger-codegen" />
-    <file type="web" url="file://$PROJECT_DIR$/../json-schema" />
-    <file type="web" url="file://$PROJECT_DIR$/../spring-restdocs" />
     <type id="android" />
   </component>
   <component name="JavaScriptSettings">
