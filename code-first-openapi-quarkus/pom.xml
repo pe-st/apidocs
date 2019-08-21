@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ch.schlau.pesche.apidocs</groupId>
-    <artifactId>code-first-openapi-microprofile</artifactId>
+    <artifactId>code-first-openapi-quarkus</artifactId>
     <version>0.9-SNAPSHOT</version>
 
     <name>apidocs.${project.artifactId}</name>

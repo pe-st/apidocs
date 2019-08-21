@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
-    <file type="web" url="file://$PROJECT_DIR$/../code-first-openapi-microprofile" />
     <file type="web" url="file://$PROJECT_DIR$/../code-first-openapi-openliberty" />
+    <file type="web" url="file://$PROJECT_DIR$/../code-first-openapi-quarkus" />
     <file type="web" url="file://$PROJECT_DIR$/../design-first-openapi-generator" />
     <file type="web" url="file://$PROJECT_DIR$/../design-first-swagger-codegen" />
     <type id="android" />
