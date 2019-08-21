@@ -1,40 +1,17 @@
 package ch.schlau.pesche.apidocs.swagger.codefirst.txproc;
 
 import static ch.schlau.pesche.apidocs.swagger.codefirst.rest.JsonConfiguration.JSONB;
-import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 import java.util.UUID;
 
-import javax.ws.rs.core.MediaType;
-
 import org.junit.jupiter.api.Test;
 
 import ch.schlau.pesche.apidocs.swagger.codefirst.txproc.model.EmvTags;
 import ch.schlau.pesche.apidocs.swagger.codefirst.txproc.model.Pan;
-import io.quarkus.test.junit.QuarkusTest;
 
-@QuarkusTest
 class PurchaseAuthRequestTest {
-
-    @Test
-    void purchase_ok() {
-        // @formatter:off
-        given()
-                .header("Content-Type", MediaType.APPLICATION_JSON)
-                .body("{\"uuid\": \"aaaaaaaa-bbbb-cccc-dddd-012345678901\","
-                     +" \"pan\": \"4244333322221111\","
-                     +" \"emvTags\": { \"84\": \"A0000000041010\", \"x9F1A\": \"250\" } }")
-        .when()
-                .post("/api/txproc/purchase")
-        .then()
-                .statusCode(200)
-                .body("result", is("OK"))
-                .body("approvalCode", is("OK42.250"))
-                ;
-        // @formatter:off
-    }
 
     @Test
     void json_roundtrip() {

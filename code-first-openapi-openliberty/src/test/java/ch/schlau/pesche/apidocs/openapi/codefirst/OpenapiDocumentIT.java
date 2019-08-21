@@ -1,4 +1,4 @@
-package ch.schlau.pesche.apidocs.swagger.codefirst;
+package ch.schlau.pesche.apidocs.openapi.codefirst;
 
 import static com.fasterxml.jackson.dataformat.yaml.YAMLGenerator.Feature.MINIMIZE_QUOTES;
 import static io.restassured.RestAssured.when;
@@ -15,12 +15,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 
-import io.quarkus.test.junit.QuarkusTest;
 import lombok.Getter;
 import lombok.Setter;
 
-@QuarkusTest
-class OpenapiDocumentTest {
+class OpenapiDocumentIT {
 
     @Getter
     @Setter

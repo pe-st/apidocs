@@ -74,6 +74,7 @@
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>${commons-io.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -108,6 +109,11 @@
                     <systemProperties>
                         <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
                     </systemProperties>
+                    <includes>
+                        <!-- include also *IT.java; although logically Integration Tests, Quarkus can execute them with surefire -->
+                        <include>**/*Test.java</include>
+                        <include>**/*IT.java</include>
+                    </includes>
                 </configuration>
             </plugin>
         </plugins>

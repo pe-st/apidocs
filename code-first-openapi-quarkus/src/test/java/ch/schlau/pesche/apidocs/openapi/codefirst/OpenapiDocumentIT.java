@@ -20,7 +20,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @QuarkusTest
-class OpenapiDocumentTest {
+class OpenapiDocumentIT {
 
     @Getter
     @Setter

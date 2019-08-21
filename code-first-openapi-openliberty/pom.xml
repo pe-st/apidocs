@@ -19,6 +19,7 @@
 
         <!-- artifact versions -->
         <lombok.version>1.18.8</lombok.version>
+        <openliberty.version>19.0.0.8</openliberty.version>
 
         <!-- testing artifact versions -->
         <junit.jupiter.version>5.5.1</junit.jupiter.version>
@@ -30,16 +31,15 @@
         <glassfish.javax.json.version>1.1.4</glassfish.javax.json.version>
 
         <!-- apache maven plugin versions (in alphabetical order) -->
+        <liberty.plugin.version>2.7</liberty.plugin.version>
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
         <maven.failsafe.plugin.version>2.22.2</maven.failsafe.plugin.version>
         <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
         <maven.war.plugin.version>3.2.3</maven.war.plugin.version>
 
-        <!-- versions/values related to/provided by OpenLiberty -->
-        <openliberty.version>19.0.0.8</openliberty.version>
-        <liberty.plugin.version>2.7</liberty.plugin.version>
-        <lib.http.port>8080</lib.http.port>
-        <lib.https.port>8443</lib.https.port>
+        <!-- application configuration -->
+        <liberty.http.port>8080</liberty.http.port>
+        <liberty.https.port>8443</liberty.https.port>
     </properties>
 
     <dependencyManagement>
@@ -176,8 +176,8 @@
                     <configFile>src/main/liberty/config/server.xml</configFile>
                     <include>usr</include>
                     <bootstrapProperties>
-                        <default.http.port>${lib.http.port}</default.http.port>
-                        <default.https.port>${lib.https.port}</default.https.port>
+                        <default.http.port>${liberty.http.port}</default.http.port>
+                        <default.https.port>${liberty.https.port}</default.https.port>
                     </bootstrapProperties>
                 </configuration>
                 <executions>
@@ -237,21 +237,6 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven.surefire.plugin.version}</version>
-                <executions>
-                    <execution>
-                        <phase>test</phase>
-                        <id>default-test</id>
-                        <configuration>
-                            <includes>
-                                <include>**/model/**</include>
-                            </includes>
-                            <!--<excludes>-->
-                            <!--    <exclude>**/it/**</exclude>-->
-                            <!--</excludes>-->
-                            <reportsDirectory>${project.build.directory}/test-reports/unit</reportsDirectory>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -265,14 +250,8 @@
                             <goal>integration-test</goal>
                         </goals>
                         <configuration>
-                            <includes>
-                                <include>**/*Test.java</include>
-                            </includes>
-                            <excludes>
-                                <exclude>**/model/**</exclude>
-                            </excludes>
                             <systemPropertyVariables>
-                                <liberty.test.port>${lib.http.port}</liberty.test.port>
+                                <liberty.test.port>${liberty.http.port}</liberty.test.port>
                             </systemPropertyVariables>
                         </configuration>
                     </execution>
@@ -283,10 +262,6 @@
                         </goals>
                     </execution>
                 </executions>
-                <!--<configuration>-->
-                <!--    <summaryFile>${project.build.directory}/test-reports/it/failsafe-summary.xml</summaryFile>-->
-                <!--    <reportsDirectory>${project.build.directory}/test-reports/it</reportsDirectory>-->
-                <!--</configuration>-->
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
