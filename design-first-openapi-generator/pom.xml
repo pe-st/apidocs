@@ -22,9 +22,14 @@
         <swagger.version>1.5.22</swagger.version>
         <openapi.generator.version>4.1.0</openapi.generator.version>
 
+        <!-- testing artifact versions -->
+        <hamcrest.version>2.1</hamcrest.version>
+
         <!-- apache maven plugin versions (in alphabetical order) -->
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
         <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
+
+        <generated.path>${project.build.directory}/generated-sources/openapi</generated.path>
     </properties>
 
     <dependencyManagement>
@@ -68,6 +73,19 @@
             <artifactId>swagger-annotations</artifactId>
             <version>${swagger.version}</version>
         </dependency>
+
+        <!-- Testing dependencies -->
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-junit5</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest</artifactId>
+            <version>${hamcrest.version}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -86,6 +104,7 @@
                             <generatorName>java</generatorName>
                             <generateApis>false</generateApis>
                             <generateSupportingFiles>false</generateSupportingFiles>
+                            <generateModelTests>false</generateModelTests>
                             <generateModelDocumentation>false</generateModelDocumentation>
                             <ignoreFileOverride>${project.basedir}/src/main/resources/.openapi-generator-ignore</ignoreFileOverride>
                             <!-- <configHelp>true</configHelp> -->
@@ -94,9 +113,13 @@
                                 <dateLibrary>java8</dateLibrary>
                                 <library>resteasy</library>
                                 <useBeanValidation>false</useBeanValidation>
-                                <sourceFolder>src/java/main</sourceFolder>
+                                <sourceFolder>.</sourceFolder>
                                 <modelPackage>ch.schlau.pesche.apidocs.openapi.designfirst.generated.model</modelPackage>
                             </configOptions>
+                            <!-- disable the @Generated annotation (with timestamp) in generated code, it makes it difficult to compare it -->
+                            <additionalProperties>
+                                hideGenerationTimestamp=true
+                            </additionalProperties>
                         </configuration>
                     </execution>
                 </executions>
@@ -129,6 +152,7 @@
                 <configuration>
                     <systemProperties>
                         <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
+                        <generated.path>${generated.path}</generated.path>
                     </systemProperties>
                 </configuration>
             </plugin>
