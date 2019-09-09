@@ -23,6 +23,10 @@ import io.swagger.v3.oas.annotations.media.Schema;
  */
 @Schema(description = "Response to PurchaseAuthRequest")
 public class PurchaseAuthResponse {
+
+  @JsonProperty("approvalCode")
+
+  private String approvalCode = null;
   /**
    * Result of the request
    */
@@ -58,28 +62,6 @@ public class PurchaseAuthResponse {
   @JsonProperty("result")
 
   private ResultEnum result = null;
-
-  @JsonProperty("approvalCode")
-
-  private String approvalCode = null;
-  public PurchaseAuthResponse result(ResultEnum result) {
-    this.result = result;
-    return this;
-  }
-
-  
-
-  /**
-  * Result of the request
-  * @return result
-  **/
-  @Schema(description = "Result of the request")
-  public ResultEnum getResult() {
-    return result;
-  }
-  public void setResult(ResultEnum result) {
-    this.result = result;
-  }
   public PurchaseAuthResponse approvalCode(String approvalCode) {
     this.approvalCode = approvalCode;
     return this;
@@ -98,6 +80,24 @@ public class PurchaseAuthResponse {
   public void setApprovalCode(String approvalCode) {
     this.approvalCode = approvalCode;
   }
+  public PurchaseAuthResponse result(ResultEnum result) {
+    this.result = result;
+    return this;
+  }
+
+  
+
+  /**
+  * Result of the request
+  * @return result
+  **/
+  @Schema(description = "Result of the request")
+  public ResultEnum getResult() {
+    return result;
+  }
+  public void setResult(ResultEnum result) {
+    this.result = result;
+  }
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -107,13 +107,13 @@ public class PurchaseAuthResponse {
       return false;
     }
     PurchaseAuthResponse purchaseAuthResponse = (PurchaseAuthResponse) o;
-    return Objects.equals(this.result, purchaseAuthResponse.result) &&
-        Objects.equals(this.approvalCode, purchaseAuthResponse.approvalCode);
+    return Objects.equals(this.approvalCode, purchaseAuthResponse.approvalCode) &&
+        Objects.equals(this.result, purchaseAuthResponse.result);
   }
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(result, approvalCode);
+    return java.util.Objects.hash(approvalCode, result);
   }
 
   @Override
@@ -121,8 +121,8 @@ public class PurchaseAuthResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class PurchaseAuthResponse {\n");
     
-    sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("    approvalCode: ").append(toIndentedString(approvalCode)).append("\n");
+    sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("}");
     return sb.toString();
   }

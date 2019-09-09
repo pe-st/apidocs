@@ -17,6 +17,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
+import java.util.UUID;
 
 /**
  * Request for checking a PIN
@@ -24,30 +25,34 @@ import io.swagger.v3.oas.annotations.media.Schema;
 @Schema(description = "Request for checking a PIN")
 public class PinCheckRequest {
 
-  @JsonProperty("uuid")
+  @JsonProperty("pan")
 
-  private String uuid = null;
+  private ch.schlau.pesche.apidocs.swagger.designfirst.txproc.model.Pan pan = null;
 
   @JsonProperty("pinBlock")
 
   private String pinBlock = null;
-  public PinCheckRequest uuid(String uuid) {
-    this.uuid = uuid;
+
+  @JsonProperty("uuid")
+
+  private UUID uuid = null;
+  public PinCheckRequest pan(ch.schlau.pesche.apidocs.swagger.designfirst.txproc.model.Pan pan) {
+    this.pan = pan;
     return this;
   }
 
   
 
   /**
-  * Unique ID of the request
-  * @return uuid
+  * Get pan
+  * @return pan
   **/
-  @Schema(description = "Unique ID of the request")
-  public String getUuid() {
-    return uuid;
+  @Schema(description = "")
+  public ch.schlau.pesche.apidocs.swagger.designfirst.txproc.model.Pan getPan() {
+    return pan;
   }
-  public void setUuid(String uuid) {
-    this.uuid = uuid;
+  public void setPan(ch.schlau.pesche.apidocs.swagger.designfirst.txproc.model.Pan pan) {
+    this.pan = pan;
   }
   public PinCheckRequest pinBlock(String pinBlock) {
     this.pinBlock = pinBlock;
@@ -67,6 +72,24 @@ public class PinCheckRequest {
   public void setPinBlock(String pinBlock) {
     this.pinBlock = pinBlock;
   }
+  public PinCheckRequest uuid(UUID uuid) {
+    this.uuid = uuid;
+    return this;
+  }
+
+  
+
+  /**
+  * Unique ID of the request
+  * @return uuid
+  **/
+  @Schema(description = "Unique ID of the request")
+  public UUID getUuid() {
+    return uuid;
+  }
+  public void setUuid(UUID uuid) {
+    this.uuid = uuid;
+  }
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -76,13 +99,14 @@ public class PinCheckRequest {
       return false;
     }
     PinCheckRequest pinCheckRequest = (PinCheckRequest) o;
-    return Objects.equals(this.uuid, pinCheckRequest.uuid) &&
-        Objects.equals(this.pinBlock, pinCheckRequest.pinBlock);
+    return Objects.equals(this.pan, pinCheckRequest.pan) &&
+        Objects.equals(this.pinBlock, pinCheckRequest.pinBlock) &&
+        Objects.equals(this.uuid, pinCheckRequest.uuid);
   }
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(uuid, pinBlock);
+    return java.util.Objects.hash(pan, pinBlock, uuid);
   }
 
   @Override
@@ -90,8 +114,9 @@ public class PinCheckRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class PinCheckRequest {\n");
     
-    sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
+    sb.append("    pan: ").append(toIndentedString(pan)).append("\n");
     sb.append("    pinBlock: ").append(toIndentedString(pinBlock)).append("\n");
+    sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
     sb.append("}");
     return sb.toString();
   }

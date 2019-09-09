@@ -1,0 +1,20 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="GenerationTest [openapi]" type="JUnit" factoryName="JUnit">
+    <module name="design-first-openapi-generator" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="ch.schlau.pesche.apidocs.openapi.designfirst.generated.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <option name="PACKAGE_NAME" value="ch.schlau.pesche.apidocs.openapi.designfirst.generated" />
+    <option name="MAIN_CLASS_NAME" value="ch.schlau.pesche.apidocs.openapi.designfirst.generated.GenerationTest" />
+    <option name="METHOD_NAME" value="" />
+    <option name="TEST_OBJECT" value="class" />
+    <option name="VM_PARAMETERS" value="-ea -Dgenerated.path=target/generated-sources/openapi" />
+    <option name="PARAMETERS" value="" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

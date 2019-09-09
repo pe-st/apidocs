@@ -7,105 +7,108 @@ servers:
 paths:
   /api/txproc/pincheck:
     post:
-      summary: Check the pin
       operationId: pinCheck
       requestBody:
-        description: PIN Check Request Body
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/PinCheckRequest'
+        description: PIN Check Request Body
       responses:
         default:
-          description: PIN Check Response
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/PinCheckResponse'
+          description: PIN Check Response
+      summary: Check the pin
   /api/txproc/purchase:
     post:
-      summary: Authorize a Purchase
       operationId: purchase
       requestBody:
-        description: Purchase Request Body
         content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/PurchaseAuthRequest'
+        application/json:
+        schema:
+        $ref: '#/components/schemas/PurchaseAuthRequest'
+        description: Purchase Request Body
       responses:
         default:
-          description: Purchase Response
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/PurchaseAuthResponse'
+          description: Purchase Response
+      summary: Authorize a Purchase
 components:
   schemas:
-    PurchaseAuthResponse:
-      type: object
-      properties:
-        result:
-          type: string
-          description: Result of the request
-          enum:
-            - OK
-            - WRONG
-        approvalCode:
-          type: string
-          description: Code referencing the successful authorization
-      description: Response to PurchaseAuthRequest
     EmvTags:
-      title: EmvTags
-      type: object
+      description: Collection of EMV tags
       properties:
         84:
+          description: The EMV AID as reported by ICC
           title: Dedicated Filename
           type: string
-          description: The EMV AID as reported by ICC
         9F1A:
-          type: string
           description: Terminal Country Code
-      description: Collection of EMV tags
-    PinCheckResponse:
+          type: string
+      title: EmvTags
       type: object
-      properties:
-        result:
-          type: string
-          description: Result of the request
-          enum:
-            - OK
-            - WRONG
-        tries:
-          type: integer
-          description: Number of remaining tries
-      description: Tells if the PIN in the request was correct
-    PurchaseAuthRequest:
+    Pan:
+      description: The number embossed on credit cards
+      title: PAN (Primary Account Number)
       type: object
-      properties:
-        uuid:
-          type: string
-          description: Unique ID of the request
-        token:
-          type: string
-          description: |-
-            Token identifying a card, wallet, account etc
-
-            May contain alphanumeric characters
-
-            Fieldcode: C002
-        emvTags:
-          $ref: '#/components/schemas/EmvTags'
-      description: Request for authorizing a Purchase
+      format: string
     PinCheckRequest:
-      type: object
+      description: Request for checking a PIN
       properties:
-        uuid:
-          type: string
-          description: Unique ID of the request
+        pan:
+          $ref: '#/components/schemas/Pan'
         pinBlock:
-          type: string
           description: |-
             Encrypted binary data containing a PIN
 
             Fieldcode: C003
-      description: Request for checking a PIN
+          type: string
+        uuid:
+          description: Unique ID of the request
+          format: uuid
+          type: string
+      type: object
+    PinCheckResponse:
+      description: Tells if the PIN in the request was correct
+      properties:
+        result:
+          description: Result of the request
+          enum:
+          - OK
+          - WRONG
+          type: string
+        tries:
+          description: Number of remaining tries
+          type: integer
+      type: object
+    PurchaseAuthRequest:
+      description: Request for authorizing a Purchase
+      properties:
+        emvTags:
+          $ref: '#/components/schemas/EmvTags'
+        pan:
+          $ref: '#/components/schemas/Pan'
+        uuid:
+          description: Unique ID of the request
+          format: uuid
+          type: string
+      type: object
+    PurchaseAuthResponse:
+      description: Response to PurchaseAuthRequest
+      properties:
+        approvalCode:
+          description: Code referencing the successful authorization
+          type: string
+        result:
+          description: Result of the request
+          enum:
+          - OK
+          - WRONG
+          type: string
+      type: object

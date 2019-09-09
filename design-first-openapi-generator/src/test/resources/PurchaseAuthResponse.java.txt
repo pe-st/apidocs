@@ -27,6 +27,10 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Response to PurchaseAuthRequest")
 
 public class PurchaseAuthResponse {
+  public static final String JSON_PROPERTY_APPROVAL_CODE = "approvalCode";
+  @JsonProperty(JSON_PROPERTY_APPROVAL_CODE)
+  private String approvalCode;
+
   /**
    * Result of the request
    */
@@ -66,9 +70,24 @@ public class PurchaseAuthResponse {
   @JsonProperty(JSON_PROPERTY_RESULT)
   private ResultEnum result;
 
-  public static final String JSON_PROPERTY_APPROVAL_CODE = "approvalCode";
-  @JsonProperty(JSON_PROPERTY_APPROVAL_CODE)
-  private String approvalCode;
+  public PurchaseAuthResponse approvalCode(String approvalCode) {
+    this.approvalCode = approvalCode;
+    return this;
+  }
+
+   /**
+   * Code referencing the successful authorization
+   * @return approvalCode
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Code referencing the successful authorization")
+  public String getApprovalCode() {
+    return approvalCode;
+  }
+
+  public void setApprovalCode(String approvalCode) {
+    this.approvalCode = approvalCode;
+  }
 
   public PurchaseAuthResponse result(ResultEnum result) {
     this.result = result;
@@ -89,25 +108,6 @@ public class PurchaseAuthResponse {
     this.result = result;
   }
 
-  public PurchaseAuthResponse approvalCode(String approvalCode) {
-    this.approvalCode = approvalCode;
-    return this;
-  }
-
-   /**
-   * Code referencing the successful authorization
-   * @return approvalCode
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Code referencing the successful authorization")
-  public String getApprovalCode() {
-    return approvalCode;
-  }
-
-  public void setApprovalCode(String approvalCode) {
-    this.approvalCode = approvalCode;
-  }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -118,13 +118,13 @@ public class PurchaseAuthResponse {
       return false;
     }
     PurchaseAuthResponse purchaseAuthResponse = (PurchaseAuthResponse) o;
-    return Objects.equals(this.result, purchaseAuthResponse.result) &&
-        Objects.equals(this.approvalCode, purchaseAuthResponse.approvalCode);
+    return Objects.equals(this.approvalCode, purchaseAuthResponse.approvalCode) &&
+        Objects.equals(this.result, purchaseAuthResponse.result);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(result, approvalCode);
+    return Objects.hash(approvalCode, result);
   }
 
 
@@ -132,8 +132,8 @@ public class PurchaseAuthResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PurchaseAuthResponse {\n");
-    sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("    approvalCode: ").append(toIndentedString(approvalCode)).append("\n");
+    sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("}");
     return sb.toString();
   }

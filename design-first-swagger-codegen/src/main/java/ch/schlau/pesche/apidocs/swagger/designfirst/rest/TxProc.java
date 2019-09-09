@@ -12,6 +12,7 @@ import ch.schlau.pesche.apidocs.swagger.designfirst.generated.model.PinCheckRequ
 import ch.schlau.pesche.apidocs.swagger.designfirst.generated.model.PinCheckResponse;
 import ch.schlau.pesche.apidocs.swagger.designfirst.generated.model.PurchaseAuthRequest;
 import ch.schlau.pesche.apidocs.swagger.designfirst.generated.model.PurchaseAuthResponse;
+import ch.schlau.pesche.apidocs.swagger.designfirst.txproc.model.Pan;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -54,7 +55,8 @@ public class TxProc {
             ) PurchaseAuthRequest request) {
 
         PurchaseAuthResponse response = new PurchaseAuthResponse();
-        if (Optional.ofNullable(request.getToken())
+        if (Optional.ofNullable(request.getPan())
+                .map(Pan::getPan)
                 .filter(s -> s.startsWith("42"))
                 .isPresent()) {
             response.setResult(PurchaseAuthResponse.ResultEnum.OK);

@@ -21,6 +21,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.UUID;
 
 /**
  * Request for authorizing a Purchase
@@ -28,55 +29,17 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Request for authorizing a Purchase")
 
 public class PurchaseAuthRequest {
-  public static final String JSON_PROPERTY_UUID = "uuid";
-  @JsonProperty(JSON_PROPERTY_UUID)
-  private String uuid;
-
-  public static final String JSON_PROPERTY_TOKEN = "token";
-  @JsonProperty(JSON_PROPERTY_TOKEN)
-  private String token;
-
   public static final String JSON_PROPERTY_EMV_TAGS = "emvTags";
   @JsonProperty(JSON_PROPERTY_EMV_TAGS)
   private EmvTags emvTags = null;
 
-  public PurchaseAuthRequest uuid(String uuid) {
-    this.uuid = uuid;
-    return this;
-  }
+  public static final String JSON_PROPERTY_PAN = "pan";
+  @JsonProperty(JSON_PROPERTY_PAN)
+  private Object pan = null;
 
-   /**
-   * Unique ID of the request
-   * @return uuid
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique ID of the request")
-  public String getUuid() {
-    return uuid;
-  }
-
-  public void setUuid(String uuid) {
-    this.uuid = uuid;
-  }
-
-  public PurchaseAuthRequest token(String token) {
-    this.token = token;
-    return this;
-  }
-
-   /**
-   * Token identifying a card, wallet, account etc  May contain alphanumeric characters  Fieldcode: C002
-   * @return token
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Token identifying a card, wallet, account etc  May contain alphanumeric characters  Fieldcode: C002")
-  public String getToken() {
-    return token;
-  }
-
-  public void setToken(String token) {
-    this.token = token;
-  }
+  public static final String JSON_PROPERTY_UUID = "uuid";
+  @JsonProperty(JSON_PROPERTY_UUID)
+  private UUID uuid;
 
   public PurchaseAuthRequest emvTags(EmvTags emvTags) {
     this.emvTags = emvTags;
@@ -97,6 +60,44 @@ public class PurchaseAuthRequest {
     this.emvTags = emvTags;
   }
 
+  public PurchaseAuthRequest pan(Object pan) {
+    this.pan = pan;
+    return this;
+  }
+
+   /**
+   * The number embossed on credit cards
+   * @return pan
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The number embossed on credit cards")
+  public Object getPan() {
+    return pan;
+  }
+
+  public void setPan(Object pan) {
+    this.pan = pan;
+  }
+
+  public PurchaseAuthRequest uuid(UUID uuid) {
+    this.uuid = uuid;
+    return this;
+  }
+
+   /**
+   * Unique ID of the request
+   * @return uuid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Unique ID of the request")
+  public UUID getUuid() {
+    return uuid;
+  }
+
+  public void setUuid(UUID uuid) {
+    this.uuid = uuid;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -107,14 +108,14 @@ public class PurchaseAuthRequest {
       return false;
     }
     PurchaseAuthRequest purchaseAuthRequest = (PurchaseAuthRequest) o;
-    return Objects.equals(this.uuid, purchaseAuthRequest.uuid) &&
-        Objects.equals(this.token, purchaseAuthRequest.token) &&
-        Objects.equals(this.emvTags, purchaseAuthRequest.emvTags);
+    return Objects.equals(this.emvTags, purchaseAuthRequest.emvTags) &&
+        Objects.equals(this.pan, purchaseAuthRequest.pan) &&
+        Objects.equals(this.uuid, purchaseAuthRequest.uuid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uuid, token, emvTags);
+    return Objects.hash(emvTags, pan, uuid);
   }
 
 
@@ -122,9 +123,9 @@ public class PurchaseAuthRequest {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PurchaseAuthRequest {\n");
-    sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
-    sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    emvTags: ").append(toIndentedString(emvTags)).append("\n");
+    sb.append("    pan: ").append(toIndentedString(pan)).append("\n");
+    sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
     sb.append("}");
     return sb.toString();
   }

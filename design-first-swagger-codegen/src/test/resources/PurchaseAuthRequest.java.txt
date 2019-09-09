@@ -18,6 +18,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
+import java.util.UUID;
 
 /**
  * Request for authorizing a Purchase
@@ -25,53 +26,17 @@ import io.swagger.v3.oas.annotations.media.Schema;
 @Schema(description = "Request for authorizing a Purchase")
 public class PurchaseAuthRequest {
 
-  @JsonProperty("uuid")
-
-  private String uuid = null;
-
-  @JsonProperty("token")
-
-  private String token = null;
-
   @JsonProperty("emvTags")
 
   private EmvTags emvTags = null;
-  public PurchaseAuthRequest uuid(String uuid) {
-    this.uuid = uuid;
-    return this;
-  }
 
-  
+  @JsonProperty("pan")
 
-  /**
-  * Unique ID of the request
-  * @return uuid
-  **/
-  @Schema(description = "Unique ID of the request")
-  public String getUuid() {
-    return uuid;
-  }
-  public void setUuid(String uuid) {
-    this.uuid = uuid;
-  }
-  public PurchaseAuthRequest token(String token) {
-    this.token = token;
-    return this;
-  }
+  private ch.schlau.pesche.apidocs.swagger.designfirst.txproc.model.Pan pan = null;
 
-  
+  @JsonProperty("uuid")
 
-  /**
-  * Token identifying a card, wallet, account etc  May contain alphanumeric characters  Fieldcode: C002
-  * @return token
-  **/
-  @Schema(description = "Token identifying a card, wallet, account etc  May contain alphanumeric characters  Fieldcode: C002")
-  public String getToken() {
-    return token;
-  }
-  public void setToken(String token) {
-    this.token = token;
-  }
+  private UUID uuid = null;
   public PurchaseAuthRequest emvTags(EmvTags emvTags) {
     this.emvTags = emvTags;
     return this;
@@ -90,6 +55,42 @@ public class PurchaseAuthRequest {
   public void setEmvTags(EmvTags emvTags) {
     this.emvTags = emvTags;
   }
+  public PurchaseAuthRequest pan(ch.schlau.pesche.apidocs.swagger.designfirst.txproc.model.Pan pan) {
+    this.pan = pan;
+    return this;
+  }
+
+  
+
+  /**
+  * Get pan
+  * @return pan
+  **/
+  @Schema(description = "")
+  public ch.schlau.pesche.apidocs.swagger.designfirst.txproc.model.Pan getPan() {
+    return pan;
+  }
+  public void setPan(ch.schlau.pesche.apidocs.swagger.designfirst.txproc.model.Pan pan) {
+    this.pan = pan;
+  }
+  public PurchaseAuthRequest uuid(UUID uuid) {
+    this.uuid = uuid;
+    return this;
+  }
+
+  
+
+  /**
+  * Unique ID of the request
+  * @return uuid
+  **/
+  @Schema(description = "Unique ID of the request")
+  public UUID getUuid() {
+    return uuid;
+  }
+  public void setUuid(UUID uuid) {
+    this.uuid = uuid;
+  }
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -99,14 +100,14 @@ public class PurchaseAuthRequest {
       return false;
     }
     PurchaseAuthRequest purchaseAuthRequest = (PurchaseAuthRequest) o;
-    return Objects.equals(this.uuid, purchaseAuthRequest.uuid) &&
-        Objects.equals(this.token, purchaseAuthRequest.token) &&
-        Objects.equals(this.emvTags, purchaseAuthRequest.emvTags);
+    return Objects.equals(this.emvTags, purchaseAuthRequest.emvTags) &&
+        Objects.equals(this.pan, purchaseAuthRequest.pan) &&
+        Objects.equals(this.uuid, purchaseAuthRequest.uuid);
   }
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(uuid, token, emvTags);
+    return java.util.Objects.hash(emvTags, pan, uuid);
   }
 
   @Override
@@ -114,9 +115,9 @@ public class PurchaseAuthRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class PurchaseAuthRequest {\n");
     
-    sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
-    sb.append("    token: ").append(toIndentedString(token)).append("\n");
     sb.append("    emvTags: ").append(toIndentedString(emvTags)).append("\n");
+    sb.append("    pan: ").append(toIndentedString(pan)).append("\n");
+    sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
     sb.append("}");
     return sb.toString();
   }
