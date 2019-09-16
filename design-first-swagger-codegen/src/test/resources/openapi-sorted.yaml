@@ -1,50 +1,61 @@
-openapi: 3.0.0
+---
+openapi: 3.0.1
 info:
   title: apidocs-design-first-swagger
-  version: "0.9"
+  version: 0.9
 servers:
-  - url: http://localhost:8080
+- url: http://localhost:8080
 paths:
   /api/txproc/pincheck:
     post:
-      summary: Check the pin
       operationId: pinCheck
       requestBody:
-        description: PIN Check Request Body
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/PinCheckRequest'
+        description: PIN Check Request Body
       responses:
-        default:
-          description: PIN Check Response
+        200:
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/PinCheckResponse'
+          description: OK
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PinCheckResponse'
+          description: PIN Check Response
+      summary: Check the pin
   /api/txproc/purchase:
     post:
-      summary: Authorize a Purchase
       operationId: purchase
       requestBody:
-        description: Purchase Request Body
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/PurchaseAuthRequest'
+        description: Purchase Request Body
       responses:
-        default:
-          description: Purchase Response
+        200:
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/PurchaseAuthResponse'
+          description: OK
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PurchaseAuthResponse'
+          description: Purchase Response
+      summary: Authorize a Purchase
 components:
   schemas:
     EmvTags:
       description: Collection of EMV tags
-      title: EmvTags
-      type: object
       properties:
         84:
           description: The EMV AID as reported by ICC
@@ -53,16 +64,22 @@ components:
         9F1A:
           description: Terminal Country Code
           type: string
+      title: EmvTags
+      type: object
     Pan:
       description: The number embossed on credit cards
+      format: string
       title: PAN (Primary Account Number)
       type: object
-      format: string
     PinCheckRequest:
       description: Request for checking a PIN
       properties:
         pan:
           $ref: '#/components/schemas/Pan'
+          properties:
+            pan:
+              type: string
+          type: object
         pinBlock:
           description: |-
             Encrypted binary data containing a PIN
@@ -72,7 +89,14 @@ components:
         uuid:
           description: Unique ID of the request
           format: uuid
-          type: string
+          properties:
+            leastSigBits:
+              format: int64
+              type: integer
+            mostSigBits:
+              format: int64
+              type: integer
+          type: object
       type: object
     PinCheckResponse:
       description: Tells if the PIN in the request was correct
@@ -93,12 +117,29 @@ components:
       properties:
         emvTags:
           $ref: '#/components/schemas/EmvTags'
+          properties:
+            _84:
+              type: string
+            _9f1A:
+              type: string
+          type: object
         pan:
           $ref: '#/components/schemas/Pan'
+          properties:
+            pan:
+              type: string
+          type: object
         uuid:
           description: Unique ID of the request
           format: uuid
-          type: string
+          properties:
+            leastSigBits:
+              format: int64
+              type: integer
+            mostSigBits:
+              format: int64
+              type: integer
+          type: object
       type: object
     PurchaseAuthResponse:
       description: Response to PurchaseAuthRequest
