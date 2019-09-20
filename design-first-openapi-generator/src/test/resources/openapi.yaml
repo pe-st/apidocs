@@ -1,9 +1,10 @@
-openapi: 3.0.0
+---
+openapi: 3.0.1
 info:
   title: apidocs-design-first-openapi
   version: "0.9"
 servers:
-  - url: http://localhost:8080
+- url: http://localhost:8080
 paths:
   /api/txproc/pincheck:
     post:
@@ -22,16 +23,23 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PinCheckResponse'
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PinCheckResponse'
   /api/txproc/purchase:
     post:
       summary: Authorize a Purchase
       operationId: purchase
       requestBody:
+        $ref: '#/components/schemas/PurchaseAuthRequest'
         description: Purchase Request Body
         content:
-        application/json:
-        schema:
-        $ref: '#/components/schemas/PurchaseAuthRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PurchaseAuthRequest'
       responses:
         default:
           description: Purchase Response
@@ -39,30 +47,38 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PurchaseAuthResponse'
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PurchaseAuthResponse'
 components:
   schemas:
     EmvTags:
-      description: Collection of EMV tags
       title: EmvTags
+      description: Collection of EMV tags
       type: object
       properties:
         84:
-          description: The EMV AID as reported by ICC
           title: Dedicated Filename
+          description: The EMV AID as reported by ICC
           type: string
         9F1A:
           description: Terminal Country Code
           type: string
     Pan:
-      description: The number embossed on credit cards
-      title: PAN (Primary Account Number)
-      type: object
       format: string
+      title: PAN (Primary Account Number)
+      description: The number embossed on credit cards
+      type: object
     PinCheckRequest:
       description: Request for checking a PIN
+      type: object
       properties:
         pan:
           $ref: '#/components/schemas/Pan'
+          type: object
         pinBlock:
           description: |-
             Encrypted binary data containing a PIN
@@ -70,12 +86,19 @@ components:
             Fieldcode: C003
           type: string
         uuid:
-          description: Unique ID of the request
           format: uuid
-          type: string
-      type: object
+          description: Unique ID of the request
+          type: object
+          properties:
+            leastSigBits:
+              format: int64
+              type: integer
+            mostSigBits:
+              format: int64
+              type: integer
     PinCheckResponse:
       description: Tells if the PIN in the request was correct
+      type: object
       properties:
         result:
           description: Result of the request
@@ -84,24 +107,38 @@ components:
           - WRONG
           type: string
         tries:
-          description: Number of remaining tries
           format: int32
+          description: Number of remaining tries
           type: integer
-      type: object
     PurchaseAuthRequest:
       description: Request for authorizing a Purchase
+      type: object
       properties:
         emvTags:
           $ref: '#/components/schemas/EmvTags'
+          type: object
+          properties:
+            _84:
+              type: string
+            _9F1A:
+              type: string
         pan:
           $ref: '#/components/schemas/Pan'
+          type: object
         uuid:
-          description: Unique ID of the request
           format: uuid
-          type: string
-      type: object
+          description: Unique ID of the request
+          type: object
+          properties:
+            leastSigBits:
+              format: int64
+              type: integer
+            mostSigBits:
+              format: int64
+              type: integer
     PurchaseAuthResponse:
       description: Response to PurchaseAuthRequest
+      type: object
       properties:
         approvalCode:
           description: Code referencing the successful authorization
@@ -112,4 +149,3 @@ components:
           - OK
           - WRONG
           type: string
-      type: object
