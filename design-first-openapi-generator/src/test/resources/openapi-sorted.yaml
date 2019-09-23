@@ -33,7 +33,6 @@ paths:
     post:
       operationId: purchase
       requestBody:
-        $ref: '#/components/schemas/PurchaseAuthRequest'
         content:
           application/json:
             schema:

@@ -29,9 +29,9 @@ paths:
       requestBody:
         description: Purchase Request Body
         content:
-        application/json:
-        schema:
-        $ref: '#/components/schemas/PurchaseAuthRequest'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PurchaseAuthRequest'
       responses:
         default:
           description: Purchase Response

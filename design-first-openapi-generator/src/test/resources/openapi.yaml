@@ -34,7 +34,6 @@ paths:
       summary: Authorize a Purchase
       operationId: purchase
       requestBody:
-        $ref: '#/components/schemas/PurchaseAuthRequest'
         description: Purchase Request Body
         content:
           application/json:
