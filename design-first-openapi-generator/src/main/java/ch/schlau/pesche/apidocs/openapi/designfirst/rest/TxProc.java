@@ -13,7 +13,6 @@ import ch.schlau.pesche.apidocs.openapi.designfirst.generated.model.PinCheckRequ
 import ch.schlau.pesche.apidocs.openapi.designfirst.generated.model.PinCheckResponse;
 import ch.schlau.pesche.apidocs.openapi.designfirst.generated.model.PurchaseAuthRequest;
 import ch.schlau.pesche.apidocs.openapi.designfirst.generated.model.PurchaseAuthResponse;
-import ch.schlau.pesche.apidocs.openapi.designfirst.txproc.model.Pan;
 
 @Path("/txproc")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -22,8 +21,7 @@ public class TxProc {
 
     @Path("/pincheck")
     @POST
-    public PinCheckResponse pinCheck(
-            PinCheckRequest request) {
+    public PinCheckResponse pinCheck(PinCheckRequest request) {
 
         PinCheckResponse response = new PinCheckResponse();
         if ("magic".equals(request.getPinBlock())) {
@@ -37,12 +35,10 @@ public class TxProc {
 
     @Path("/purchase")
     @POST
-    public PurchaseAuthResponse purchase(
-            PurchaseAuthRequest request) {
+    public PurchaseAuthResponse purchase(PurchaseAuthRequest request) {
 
         PurchaseAuthResponse response = new PurchaseAuthResponse();
-        if (Optional.ofNullable((Pan)request.getPan())
-                .map(Pan::getPan)
+        if (Optional.ofNullable((String) request.getPan())
                 .filter(s -> s.startsWith("42"))
                 .isPresent()) {
             response.setResult(PurchaseAuthResponse.ResultEnum.OK);
@@ -53,5 +49,4 @@ public class TxProc {
         }
         return response;
     }
-
 }
