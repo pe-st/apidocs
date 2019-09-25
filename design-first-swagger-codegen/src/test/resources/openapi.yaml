@@ -1,5 +1,5 @@
 ---
-openapi: 3.0.1
+openapi: 3.0.0
 info:
   title: apidocs-design-first-swagger
   version: "0.9"
@@ -23,12 +23,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PinCheckResponse'
-        200:
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PinCheckResponse'
   /api/txproc/purchase:
     post:
       summary: Authorize a Purchase
@@ -42,12 +36,6 @@ paths:
       responses:
         default:
           description: Purchase Response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PurchaseAuthResponse'
-        200:
-          description: OK
           content:
             application/json:
               schema:
@@ -77,10 +65,6 @@ components:
       properties:
         pan:
           $ref: '#/components/schemas/Pan'
-          type: object
-          properties:
-            pan:
-              type: string
         pinBlock:
           description: |-
             Encrypted binary data containing a PIN
@@ -90,14 +74,7 @@ components:
         uuid:
           format: uuid
           description: Unique ID of the request
-          type: object
-          properties:
-            leastSigBits:
-              format: int64
-              type: integer
-            mostSigBits:
-              format: int64
-              type: integer
+          type: string
     PinCheckResponse:
       description: Tells if the PIN in the request was correct
       type: object
@@ -118,29 +95,12 @@ components:
       properties:
         emvTags:
           $ref: '#/components/schemas/EmvTags'
-          type: object
-          properties:
-            _84:
-              type: string
-            _9f1A:
-              type: string
         pan:
           $ref: '#/components/schemas/Pan'
-          type: object
-          properties:
-            pan:
-              type: string
         uuid:
           format: uuid
           description: Unique ID of the request
-          type: object
-          properties:
-            leastSigBits:
-              format: int64
-              type: integer
-            mostSigBits:
-              format: int64
-              type: integer
+          type: string
     PurchaseAuthResponse:
       description: Response to PurchaseAuthRequest
       type: object

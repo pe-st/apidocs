@@ -1,5 +1,5 @@
 ---
-openapi: 3.0.1
+openapi: 3.0.0
 info:
   title: apidocs-design-first-openapi
   version: 0.9
@@ -16,12 +16,6 @@ paths:
               $ref: '#/components/schemas/PinCheckRequest'
         description: PIN Check Request Body
       responses:
-        200:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PinCheckResponse'
-          description: OK
         default:
           content:
             application/json:
@@ -39,12 +33,6 @@ paths:
               $ref: '#/components/schemas/PurchaseAuthRequest'
         description: Purchase Request Body
       responses:
-        200:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/PurchaseAuthResponse'
-          description: OK
         default:
           content:
             application/json:
@@ -76,7 +64,6 @@ components:
       properties:
         pan:
           $ref: '#/components/schemas/Pan'
-          type: object
         pinBlock:
           description: |-
             Encrypted binary data containing a PIN
@@ -86,14 +73,7 @@ components:
         uuid:
           description: Unique ID of the request
           format: uuid
-          properties:
-            leastSigBits:
-              format: int64
-              type: integer
-            mostSigBits:
-              format: int64
-              type: integer
-          type: object
+          type: string
       type: object
     PinCheckResponse:
       description: Tells if the PIN in the request was correct
@@ -114,26 +94,12 @@ components:
       properties:
         emvTags:
           $ref: '#/components/schemas/EmvTags'
-          properties:
-            _84:
-              type: string
-            _9F1A:
-              type: string
-          type: object
         pan:
           $ref: '#/components/schemas/Pan'
-          type: object
         uuid:
           description: Unique ID of the request
           format: uuid
-          properties:
-            leastSigBits:
-              format: int64
-              type: integer
-            mostSigBits:
-              format: int64
-              type: integer
-          type: object
+          type: string
       type: object
     PurchaseAuthResponse:
       description: Response to PurchaseAuthRequest

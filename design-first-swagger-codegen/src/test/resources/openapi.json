@@ -1,5 +1,5 @@
 {
-  "openapi": "3.0.1",
+  "openapi": "3.0.0",
   "info": {
     "title": "apidocs-design-first-swagger",
     "version": "0.9"
@@ -34,16 +34,6 @@
                 }
               }
             }
-          },
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PinCheckResponse"
-                }
-              }
-            }
           }
         }
       }
@@ -65,16 +55,6 @@
         "responses": {
           "default": {
             "description": "Purchase Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PurchaseAuthResponse"
-                }
-              }
-            }
-          },
-          "200": {
-            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -116,13 +96,7 @@
         "type": "object",
         "properties": {
           "pan": {
-            "$ref": "#/components/schemas/Pan",
-            "type": "object",
-            "properties": {
-              "pan": {
-                "type": "string"
-              }
-            }
+            "$ref": "#/components/schemas/Pan"
           },
           "pinBlock": {
             "description": "Encrypted binary data containing a PIN\n\nFieldcode: C003",
@@ -131,17 +105,7 @@
           "uuid": {
             "format": "uuid",
             "description": "Unique ID of the request",
-            "type": "object",
-            "properties": {
-              "leastSigBits": {
-                "format": "int64",
-                "type": "integer"
-              },
-              "mostSigBits": {
-                "format": "int64",
-                "type": "integer"
-              }
-            }
+            "type": "string"
           }
         }
       },
@@ -169,40 +133,15 @@
         "type": "object",
         "properties": {
           "emvTags": {
-            "$ref": "#/components/schemas/EmvTags",
-            "type": "object",
-            "properties": {
-              "_84": {
-                "type": "string"
-              },
-              "_9f1A": {
-                "type": "string"
-              }
-            }
+            "$ref": "#/components/schemas/EmvTags"
           },
           "pan": {
-            "$ref": "#/components/schemas/Pan",
-            "type": "object",
-            "properties": {
-              "pan": {
-                "type": "string"
-              }
-            }
+            "$ref": "#/components/schemas/Pan"
           },
           "uuid": {
             "format": "uuid",
             "description": "Unique ID of the request",
-            "type": "object",
-            "properties": {
-              "leastSigBits": {
-                "format": "int64",
-                "type": "integer"
-              },
-              "mostSigBits": {
-                "format": "int64",
-                "type": "integer"
-              }
-            }
+            "type": "string"
           }
         }
       },
