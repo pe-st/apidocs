@@ -1,0 +1,164 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "apidocs-code-first-swagger",
+    "version": "0.9"
+  },
+  "paths": {
+    "/txproc/pincheck": {
+      "post": {
+        "summary": "Check the pin",
+        "operationId": "pinCheck",
+        "requestBody": {
+          "description": "PIN Check Request Body",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PinCheckRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "PIN Check Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PinCheckResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/txproc/purchase": {
+      "post": {
+        "summary": "Authorize a Purchase",
+        "operationId": "purchase",
+        "requestBody": {
+          "description": "Purchase Request Body",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PurchaseAuthRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "Purchase Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PurchaseAuthResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "PinCheckResponse": {
+        "description": "Tells if the PIN in the request was correct",
+        "type": "object",
+        "properties": {
+          "result": {
+            "description": "Result of the request",
+            "enum": [
+              "OK",
+              "WRONG"
+            ],
+            "type": "string"
+          },
+          "tries": {
+            "format": "int32",
+            "description": "Number of remaining tries",
+            "type": "integer"
+          }
+        }
+      },
+      "Pan": {
+        "type": "object",
+        "properties": {
+          "pan": {
+            "pattern": "[0-9]{12,19}",
+            "type": "string"
+          }
+        }
+      },
+      "PinCheckRequest": {
+        "description": "Request for checking a PIN",
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "description": "Unique ID of the request",
+            "type": "string"
+          },
+          "pan": {
+            "$ref": "#/components/schemas/Pan"
+          },
+          "pinBlock": {
+            "description": "Encrypted binary data containing a PIN\n\nFieldcode: C003",
+            "type": "string"
+          }
+        }
+      },
+      "PurchaseAuthResponse": {
+        "description": "Response to PurchaseAuthRequest",
+        "type": "object",
+        "properties": {
+          "result": {
+            "description": "Result of the request",
+            "enum": [
+              "OK",
+              "WRONG"
+            ],
+            "type": "string"
+          },
+          "approvalCode": {
+            "description": "Code referencing the successful authorization",
+            "type": "string"
+          }
+        }
+      },
+      "EmvTags": {
+        "title": "EmvTags",
+        "description": "Collection of EMV tags",
+        "type": "object",
+        "properties": {
+          "84": {
+            "title": "Dedicated Filename",
+            "description": "The EMV AID as reported by ICC",
+            "type": "string"
+          },
+          "9F1A": {
+            "description": "Terminal Country Code",
+            "type": "string"
+          }
+        }
+      },
+      "PurchaseAuthRequest": {
+        "description": "Request for authorizing a Purchase",
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "description": "Unique ID of the request",
+            "type": "string"
+          },
+          "pan": {
+            "$ref": "#/components/schemas/Pan"
+          },
+          "emvTags": {
+            "$ref": "#/components/schemas/EmvTags"
+          }
+        }
+      }
+    }
+  }
+}

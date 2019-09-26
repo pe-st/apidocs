@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="code-first-openapi-openliberty [install liberty:run]" type="MavenRunConfiguration" factoryName="Maven">
+  <configuration default="false" name="code-first-openapi-openliberty [install liberty:run w/o tests]" type="MavenRunConfiguration" factoryName="Maven">
     <MavenSettings>
       <option name="myGeneralSettings" />
       <option name="myRunnerSettings" />
@@ -12,6 +12,7 @@
             <list>
               <option value="install" />
               <option value="liberty:run" />
+              <option value="-Dmaven.test.skip=true" />
             </list>
           </option>
           <option name="pomFileName" />

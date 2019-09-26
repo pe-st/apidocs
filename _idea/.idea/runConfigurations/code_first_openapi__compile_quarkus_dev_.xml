@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="code-first-openapi [compile,quarkus:dev]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+  <configuration default="false" name="code-first-openapi [compile,quarkus:dev]" type="MavenRunConfiguration" factoryName="Maven">
     <MavenSettings>
       <option name="myGeneralSettings" />
       <option name="myRunnerSettings" />
@@ -19,7 +19,7 @@
             <map />
           </option>
           <option name="resolveToWorkspace" value="false" />
-          <option name="workingDirPath" value="$PROJECT_DIR$/../code-first-openapi-microprofile" />
+          <option name="workingDirPath" value="$PROJECT_DIR$/../code-first-openapi-quarkus" />
         </MavenRunnerParameters>
       </option>
     </MavenSettings>

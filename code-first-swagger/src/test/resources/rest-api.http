@@ -13,7 +13,8 @@ POST http://localhost:8080/api/txproc/pincheck
 Content-Type: application/json
 
 {
-  "uuid": "abcd-ef01",
+  "uuid": "aaaaaaaa-bbbb-cccc-dddd-012345678901",
+  "pan" : "100000000042",
   "pinBlock": "magic"
 }
 
@@ -24,10 +25,10 @@ Content-Type: application/json
 
 {
   "uuid": "aaaaaaaa-bbbb-cccc-dddd-012345678901",
-  "token": "42-token-abcdefg",
+  "pan": "4244333322221111",
   "emvTags": {
-    "84" : "MTI=",
-    "9F1A" : "AAI="
+    "84" : "A0000000041010",
+    "x9F1A" : "250"
   }
 }
 

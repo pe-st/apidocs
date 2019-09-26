@@ -21,7 +21,8 @@
         <quarkus.version>0.21.1</quarkus.version>
 
         <!-- testing artifact versions -->
-        <commons-io.version>2.6</commons-io.version>
+        <hamcrest.version>2.1</hamcrest.version>
+        <json.unit.version>2.8.1</json.unit.version>
 
         <!-- apache maven plugin versions (in alphabetical order) -->
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
@@ -66,14 +67,27 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>io.rest-assured</groupId>
-            <artifactId>rest-assured</artifactId>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest</artifactId>
+            <version>${hamcrest.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>${commons-io.version}</version>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <!-- rest-assured.version managed by quarkus -->
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.hamcrest</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>net.javacrumbs.json-unit</groupId>
+            <artifactId>json-unit</artifactId>
+            <version>${json.unit.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

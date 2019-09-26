@@ -28,7 +28,7 @@ Content-Type: application/json
   "pan": "4244333322221111",
   "emvTags": {
     "84" : "A0000000041010",
-    "x9F1A" : "250"
+    "9F1A" : "250"
   }
 }
 

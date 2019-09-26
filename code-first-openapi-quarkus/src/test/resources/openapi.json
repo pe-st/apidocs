@@ -1,0 +1,179 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "apidocs-code-first-openapi",
+    "version": "0.9"
+  },
+  "paths": {
+    "/api/txproc/pincheck": {
+      "post": {
+        "summary": "Check the pin",
+        "requestBody": {
+          "description": "PIN Check Request Body",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PinCheckRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "PIN Check Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PinCheckResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/txproc/purchase": {
+      "post": {
+        "summary": "Authorize a Purchase",
+        "requestBody": {
+          "description": "Purchase Request Body",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PurchaseAuthRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "Purchase Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PurchaseAuthResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "PinCheckRequest": {
+        "description": "Request for checking a PIN",
+        "type": "object",
+        "properties": {
+          "pan": {
+            "title": "PAN (Primary Account Number)",
+            "description": "The number embossed on credit cards",
+            "type": "string",
+            "properties": {
+              "pan": {
+                "type": "string"
+              }
+            }
+          },
+          "pinBlock": {
+            "description": "Encrypted binary data containing a PIN\n\nFieldcode: C003",
+            "type": "string"
+          },
+          "uuid": {
+            "description": "Unique ID of the request",
+            "type": "object",
+            "properties": {
+              "leastSigBits": {
+                "format": "int64",
+                "type": "integer"
+              },
+              "mostSigBits": {
+                "format": "int64",
+                "type": "integer"
+              }
+            }
+          }
+        }
+      },
+      "PinCheckResponse": {
+        "description": "Tells if the PIN in the request was correct",
+        "type": "object",
+        "properties": {
+          "result": {
+            "enum": [
+              "OK",
+              "WRONG"
+            ],
+            "type": "string"
+          },
+          "tries": {
+            "format": "int32",
+            "description": "Number of remaining tries",
+            "type": "integer"
+          }
+        }
+      },
+      "PurchaseAuthRequest": {
+        "description": "Request for authorizing a Purchase",
+        "type": "object",
+        "properties": {
+          "emvTags": {
+            "title": "EmvTags",
+            "description": "Collection of EMV tags",
+            "type": "object",
+            "properties": {
+              "84": {
+                "title": "Dedicated Filename",
+                "description": "The EMV AID as reported by ICC",
+                "type": "string"
+              },
+              "x9F1A": {
+                "description": "Terminal Country Code",
+                "type": "string"
+              }
+            }
+          },
+          "pan": {
+            "title": "PAN (Primary Account Number)",
+            "description": "The number embossed on credit cards",
+            "type": "string",
+            "properties": {
+              "pan": {
+                "type": "string"
+              }
+            }
+          },
+          "uuid": {
+            "description": "Unique ID of the request",
+            "type": "object",
+            "properties": {
+              "leastSigBits": {
+                "format": "int64",
+                "type": "integer"
+              },
+              "mostSigBits": {
+                "format": "int64",
+                "type": "integer"
+              }
+            }
+          }
+        }
+      },
+      "PurchaseAuthResponse": {
+        "description": "Response to PurchaseAuthRequest",
+        "type": "object",
+        "properties": {
+          "approvalCode": {
+            "description": "Code referencing the successful authorization",
+            "type": "string"
+          },
+          "result": {
+            "description": "Result of the request",
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

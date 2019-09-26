@@ -11,6 +11,8 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
+import javax.ws.rs.core.MediaType;
+
 import org.apache.commons.io.IOUtils;
 import org.junit.jupiter.api.Test;
 
@@ -20,7 +22,6 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 
 import io.quarkus.test.junit.QuarkusTest;
-import io.restassured.http.ContentType;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -64,10 +65,11 @@ class OpenapiDocumentIT {
 
         String expected = loadResourceFile("openapi.json");
 
-        String document = given().accept(ContentType.JSON)
+        String document = given().accept(MediaType.APPLICATION_JSON)
                 .when().get("/openapi")
                 .then()
                 .statusCode(200)
+                .assertThat().contentType(MediaType.APPLICATION_JSON)
                 .extract().response().asString();
 
         assertThat(document, jsonEquals(expected));

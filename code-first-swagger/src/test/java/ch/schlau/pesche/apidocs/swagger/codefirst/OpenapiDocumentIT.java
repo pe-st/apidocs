@@ -1,11 +1,17 @@
 package ch.schlau.pesche.apidocs.swagger.codefirst;
 
 import static com.fasterxml.jackson.dataformat.yaml.YAMLGenerator.Feature.MINIMIZE_QUOTES;
+import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;
+import static net.javacrumbs.jsonunit.JsonMatchers.jsonEquals;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertAll;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+
+import javax.ws.rs.core.MediaType;
 
 import org.apache.commons.io.IOUtils;
 import org.junit.jupiter.api.Test;
@@ -38,22 +44,35 @@ class OpenapiDocumentIT {
     @Test
     void openapi_yaml() throws IOException {
 
-        String expected = IOUtils.toString(getClass().getClassLoader().getResourceAsStream("openapi.yaml"), "UTF-8")
-                // needed on Windows depending on the Git configuration (core.autocrlf)
-                .replace("\r\n", "\n");
-        String expectedSorted = IOUtils.toString(getClass().getClassLoader().getResourceAsStream("openapi-sorted.yaml"), "UTF-8")
-                // needed on Windows depending on the Git configuration (core.autocrlf)
-                .replace("\r\n", "\n");
+        String expected = loadResourceFile("openapi.yaml");
+        String expectedSorted = loadResourceFile("openapi-sorted.yaml");
 
         String document = when().get("/openapi")
                 .then()
                 .statusCode(200)
                 .extract().response().asString();
 
-        assertThat("unsorted", document, is(expected));
-
         String yamlSorted = sortYaml(document);
-        assertThat("sorted", yamlSorted, is(expectedSorted));
+
+        assertAll("openapi yaml"
+                , () -> assertThat("unsorted", document, is(expected))
+                , () -> assertThat("sorted", yamlSorted, is(expectedSorted))
+        );
+    }
+
+    @Test
+    void openapi_json() throws IOException {
+
+        String expected = loadResourceFile("openapi.json");
+
+        String document = given().accept(MediaType.APPLICATION_JSON)
+                .when().get("/openapi")
+                .then()
+                .statusCode(200)
+                .assertThat().contentType(MediaType.APPLICATION_JSON)
+                .extract().response().asString();
+
+        assertThat(document, jsonEquals(expected));
     }
 
     private String sortYaml(String yaml) throws IOException {
@@ -67,5 +86,11 @@ class OpenapiDocumentIT {
         Object objFromJson = jsonMapper.readValue(jsonSorted, Object.class);
 
         return yamlMapper.writeValueAsString(objFromJson);
+    }
+
+    private String loadResourceFile(String s) throws IOException {
+        return IOUtils.toString(getClass().getClassLoader().getResourceAsStream(s), StandardCharsets.UTF_8)
+                // needed on Windows depending on the Git configuration (core.autocrlf)
+                .replace("\r\n", "\n");
     }
 }
