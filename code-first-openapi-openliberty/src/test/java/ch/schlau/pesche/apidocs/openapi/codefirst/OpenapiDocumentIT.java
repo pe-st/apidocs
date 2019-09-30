@@ -53,7 +53,8 @@ class OpenapiDocumentIT {
         String yamlSorted = sortYaml(document);
 
         assertAll("openapi yaml"
-                , () -> assertThat("unsorted", document, is(expected))
+                // the unsorted document with OpenLiberty has no deterministic order
+                // , () -> assertThat("unsorted", document, is(expected))
                 , () -> assertThat("sorted", yamlSorted, is(expectedSorted))
         );
     }

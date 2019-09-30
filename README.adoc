@@ -1,6 +1,8 @@
 = API Docs
 :toc: macro
 
+image:https://travis-ci.org/pe-st/apidocs.svg?branch=master["Build Status", link="https://travis-ci.org/pe-st/apidocs"]
+
 Examples and comparison of how a REST API can be documented with different technologies.
 
 Goals are:
