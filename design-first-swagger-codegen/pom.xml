@@ -17,15 +17,16 @@
         <java.release>11</java.release>
 
         <!-- artifact versions -->
-        <jackson-2-version>2.9.9</jackson-2-version>
-        <lombok.version>1.18.8</lombok.version>
-        <quarkus.version>0.21.1</quarkus.version>
-        <swagger.version>2.0.8</swagger.version>
-        <swagger.codegen.version>3.0.8</swagger.codegen.version>
+        <!-- Quarkus 0.23.2 doesn't work with Jackson >= 2.9.10 -->
+        <jackson-2-version>2.9.9.3</jackson-2-version>
+        <lombok.version>1.18.10</lombok.version>
+        <quarkus.version>0.23.2</quarkus.version>
+        <swagger.version>2.0.9</swagger.version>
+        <swagger.codegen.version>3.0.11</swagger.codegen.version>
 
         <!-- testing artifact versions -->
         <hamcrest.version>2.1</hamcrest.version>
-        <json.unit.version>2.8.1</json.unit.version>
+        <json.unit.version>2.9.0</json.unit.version>
 
         <!-- apache maven plugin versions (in alphabetical order) -->
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>

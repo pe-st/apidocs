@@ -15,20 +15,25 @@ package ch.schlau.pesche.apidocs.openapi.designfirst.generated.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
  * Response to PurchaseAuthRequest
  */
 @ApiModel(description = "Response to PurchaseAuthRequest")
+@JsonPropertyOrder({
+  PurchaseAuthResponse.JSON_PROPERTY_APPROVAL_CODE,
+  PurchaseAuthResponse.JSON_PROPERTY_RESULT
+})
 
 public class PurchaseAuthResponse {
   public static final String JSON_PROPERTY_APPROVAL_CODE = "approvalCode";
-  @JsonProperty(JSON_PROPERTY_APPROVAL_CODE)
   private String approvalCode;
 
   /**
@@ -67,10 +72,11 @@ public class PurchaseAuthResponse {
   }
 
   public static final String JSON_PROPERTY_RESULT = "result";
-  @JsonProperty(JSON_PROPERTY_RESULT)
   private ResultEnum result;
 
+
   public PurchaseAuthResponse approvalCode(String approvalCode) {
+    
     this.approvalCode = approvalCode;
     return this;
   }
@@ -81,15 +87,22 @@ public class PurchaseAuthResponse {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Code referencing the successful authorization")
+  @JsonProperty(JSON_PROPERTY_APPROVAL_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getApprovalCode() {
     return approvalCode;
   }
+
+
 
   public void setApprovalCode(String approvalCode) {
     this.approvalCode = approvalCode;
   }
 
+
   public PurchaseAuthResponse result(ResultEnum result) {
+    
     this.result = result;
     return this;
   }
@@ -100,9 +113,14 @@ public class PurchaseAuthResponse {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Result of the request")
+  @JsonProperty(JSON_PROPERTY_RESULT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public ResultEnum getResult() {
     return result;
   }
+
+
 
   public void setResult(ResultEnum result) {
     this.result = result;

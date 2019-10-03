@@ -13,15 +13,16 @@
 package ch.schlau.pesche.apidocs.swagger.designfirst.generated.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
-
 /**
  * Tells if the PIN in the request was correct
  */
 @Schema(description = "Tells if the PIN in the request was correct")
+
 public class PinCheckResponse {
   /**
    * Result of the request
@@ -54,50 +55,49 @@ public class PinCheckResponse {
       return null;
     }
 
-  }
-  @JsonProperty("result")
-
+  }  @JsonProperty("result")
   private ResultEnum result = null;
 
   @JsonProperty("tries")
-
   private Integer tries = null;
+
   public PinCheckResponse result(ResultEnum result) {
     this.result = result;
     return this;
   }
 
-  
-
-  /**
-  * Result of the request
-  * @return result
+   /**
+   * Result of the request
+   * @return result
   **/
   @Schema(description = "Result of the request")
   public ResultEnum getResult() {
     return result;
   }
+
   public void setResult(ResultEnum result) {
     this.result = result;
   }
+
   public PinCheckResponse tries(Integer tries) {
     this.tries = tries;
     return this;
   }
 
-  
-
-  /**
-  * Number of remaining tries
-  * @return tries
+   /**
+   * Number of remaining tries
+   * @return tries
   **/
   @Schema(description = "Number of remaining tries")
   public Integer getTries() {
     return tries;
   }
+
   public void setTries(Integer tries) {
     this.tries = tries;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -113,8 +113,9 @@ public class PinCheckResponse {
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(result, tries);
+    return Objects.hash(result, tries);
   }
+
 
   @Override
   public String toString() {

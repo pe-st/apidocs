@@ -15,32 +15,38 @@ package ch.schlau.pesche.apidocs.openapi.designfirst.generated.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.util.UUID;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
  * Request for checking a PIN
  */
 @ApiModel(description = "Request for checking a PIN")
+@JsonPropertyOrder({
+  PinCheckRequest.JSON_PROPERTY_PAN,
+  PinCheckRequest.JSON_PROPERTY_PIN_BLOCK,
+  PinCheckRequest.JSON_PROPERTY_UUID
+})
 
 public class PinCheckRequest {
   public static final String JSON_PROPERTY_PAN = "pan";
-  @JsonProperty(JSON_PROPERTY_PAN)
-  private Object pan = null;
+  private Object pan;
 
   public static final String JSON_PROPERTY_PIN_BLOCK = "pinBlock";
-  @JsonProperty(JSON_PROPERTY_PIN_BLOCK)
   private String pinBlock;
 
   public static final String JSON_PROPERTY_UUID = "uuid";
-  @JsonProperty(JSON_PROPERTY_UUID)
   private UUID uuid;
 
+
   public PinCheckRequest pan(Object pan) {
+    
     this.pan = pan;
     return this;
   }
@@ -51,15 +57,22 @@ public class PinCheckRequest {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The number embossed on credit cards")
+  @JsonProperty(JSON_PROPERTY_PAN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Object getPan() {
     return pan;
   }
+
+
 
   public void setPan(Object pan) {
     this.pan = pan;
   }
 
+
   public PinCheckRequest pinBlock(String pinBlock) {
+    
     this.pinBlock = pinBlock;
     return this;
   }
@@ -70,15 +83,22 @@ public class PinCheckRequest {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Encrypted binary data containing a PIN  Fieldcode: C003")
+  @JsonProperty(JSON_PROPERTY_PIN_BLOCK)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String getPinBlock() {
     return pinBlock;
   }
+
+
 
   public void setPinBlock(String pinBlock) {
     this.pinBlock = pinBlock;
   }
 
+
   public PinCheckRequest uuid(UUID uuid) {
+    
     this.uuid = uuid;
     return this;
   }
@@ -89,9 +109,14 @@ public class PinCheckRequest {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Unique ID of the request")
+  @JsonProperty(JSON_PROPERTY_UUID)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public UUID getUuid() {
     return uuid;
   }
+
+
 
   public void setUuid(UUID uuid) {
     this.uuid = uuid;

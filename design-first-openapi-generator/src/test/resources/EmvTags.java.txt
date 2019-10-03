@@ -15,27 +15,33 @@ package ch.schlau.pesche.apidocs.openapi.designfirst.generated.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
  * Collection of EMV tags
  */
 @ApiModel(description = "Collection of EMV tags")
+@JsonPropertyOrder({
+  EmvTags.JSON_PROPERTY_84,
+  EmvTags.JSON_PROPERTY_9_F1_A
+})
 
 public class EmvTags {
   public static final String JSON_PROPERTY_84 = "84";
-  @JsonProperty(JSON_PROPERTY_84)
   private String _84;
 
   public static final String JSON_PROPERTY_9_F1_A = "9F1A";
-  @JsonProperty(JSON_PROPERTY_9_F1_A)
   private String _9F1A;
 
+
   public EmvTags _84(String _84) {
+    
     this._84 = _84;
     return this;
   }
@@ -46,15 +52,22 @@ public class EmvTags {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The EMV AID as reported by ICC")
+  @JsonProperty(JSON_PROPERTY_84)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String get84() {
     return _84;
   }
+
+
 
   public void set84(String _84) {
     this._84 = _84;
   }
 
+
   public EmvTags _9F1A(String _9F1A) {
+    
     this._9F1A = _9F1A;
     return this;
   }
@@ -65,9 +78,14 @@ public class EmvTags {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Terminal Country Code")
+  @JsonProperty(JSON_PROPERTY_9_F1_A)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public String get9F1A() {
     return _9F1A;
   }
+
+
 
   public void set9F1A(String _9F1A) {
     this._9F1A = _9F1A;

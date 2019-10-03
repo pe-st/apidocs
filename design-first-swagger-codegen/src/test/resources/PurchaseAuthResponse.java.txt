@@ -13,20 +13,20 @@
 package ch.schlau.pesche.apidocs.swagger.designfirst.generated.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
-
 /**
  * Response to PurchaseAuthRequest
  */
 @Schema(description = "Response to PurchaseAuthRequest")
+
 public class PurchaseAuthResponse {
-
   @JsonProperty("approvalCode")
-
   private String approvalCode = null;
+
   /**
    * Result of the request
    */
@@ -58,46 +58,46 @@ public class PurchaseAuthResponse {
       return null;
     }
 
-  }
-  @JsonProperty("result")
-
+  }  @JsonProperty("result")
   private ResultEnum result = null;
+
   public PurchaseAuthResponse approvalCode(String approvalCode) {
     this.approvalCode = approvalCode;
     return this;
   }
 
-  
-
-  /**
-  * Code referencing the successful authorization
-  * @return approvalCode
+   /**
+   * Code referencing the successful authorization
+   * @return approvalCode
   **/
   @Schema(description = "Code referencing the successful authorization")
   public String getApprovalCode() {
     return approvalCode;
   }
+
   public void setApprovalCode(String approvalCode) {
     this.approvalCode = approvalCode;
   }
+
   public PurchaseAuthResponse result(ResultEnum result) {
     this.result = result;
     return this;
   }
 
-  
-
-  /**
-  * Result of the request
-  * @return result
+   /**
+   * Result of the request
+   * @return result
   **/
   @Schema(description = "Result of the request")
   public ResultEnum getResult() {
     return result;
   }
+
   public void setResult(ResultEnum result) {
     this.result = result;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -113,8 +113,9 @@ public class PurchaseAuthResponse {
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(approvalCode, result);
+    return Objects.hash(approvalCode, result);
   }
+
 
   @Override
   public String toString() {

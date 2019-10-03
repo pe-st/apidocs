@@ -91,6 +91,14 @@
               "mostSigBits": {
                 "format": "int64",
                 "type": "integer"
+              },
+              "leastSignificantBits": {
+                "format": "int64",
+                "type": "integer"
+              },
+              "mostSignificantBits": {
+                "format": "int64",
+                "type": "integer"
               }
             }
           }
@@ -128,7 +136,7 @@
                 "description": "The EMV AID as reported by ICC",
                 "type": "string"
               },
-              "x9F1A": {
+              "9F1A": {
                 "description": "Terminal Country Code",
                 "type": "string"
               }
@@ -155,6 +163,14 @@
               "mostSigBits": {
                 "format": "int64",
                 "type": "integer"
+              },
+              "leastSignificantBits": {
+                "format": "int64",
+                "type": "integer"
+              },
+              "mostSignificantBits": {
+                "format": "int64",
+                "type": "integer"
               }
             }
           }
@@ -170,6 +186,10 @@
           },
           "result": {
             "description": "Result of the request",
+            "enum": [
+              "OK",
+              "WRONG"
+            ],
             "type": "string"
           }
         }

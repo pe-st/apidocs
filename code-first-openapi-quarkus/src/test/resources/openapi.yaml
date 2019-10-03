@@ -65,6 +65,12 @@ components:
             mostSigBits:
               format: int64
               type: integer
+            leastSignificantBits:
+              format: int64
+              type: integer
+            mostSignificantBits:
+              format: int64
+              type: integer
     PinCheckResponse:
       description: Tells if the PIN in the request was correct
       type: object
@@ -91,7 +97,7 @@ components:
               title: Dedicated Filename
               description: The EMV AID as reported by ICC
               type: string
-            x9F1A:
+            9F1A:
               description: Terminal Country Code
               type: string
         pan:
@@ -111,6 +117,12 @@ components:
             mostSigBits:
               format: int64
               type: integer
+            leastSignificantBits:
+              format: int64
+              type: integer
+            mostSignificantBits:
+              format: int64
+              type: integer
     PurchaseAuthResponse:
       description: Response to PurchaseAuthRequest
       type: object
@@ -120,4 +132,7 @@ components:
           type: string
         result:
           description: Result of the request
+          enum:
+          - OK
+          - WRONG
           type: string

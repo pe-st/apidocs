@@ -15,16 +15,22 @@ package ch.schlau.pesche.apidocs.openapi.designfirst.generated.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
  * Tells if the PIN in the request was correct
  */
 @ApiModel(description = "Tells if the PIN in the request was correct")
+@JsonPropertyOrder({
+  PinCheckResponse.JSON_PROPERTY_RESULT,
+  PinCheckResponse.JSON_PROPERTY_TRIES
+})
 
 public class PinCheckResponse {
   /**
@@ -63,14 +69,14 @@ public class PinCheckResponse {
   }
 
   public static final String JSON_PROPERTY_RESULT = "result";
-  @JsonProperty(JSON_PROPERTY_RESULT)
   private ResultEnum result;
 
   public static final String JSON_PROPERTY_TRIES = "tries";
-  @JsonProperty(JSON_PROPERTY_TRIES)
   private Integer tries;
 
+
   public PinCheckResponse result(ResultEnum result) {
+    
     this.result = result;
     return this;
   }
@@ -81,15 +87,22 @@ public class PinCheckResponse {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Result of the request")
+  @JsonProperty(JSON_PROPERTY_RESULT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public ResultEnum getResult() {
     return result;
   }
+
+
 
   public void setResult(ResultEnum result) {
     this.result = result;
   }
 
+
   public PinCheckResponse tries(Integer tries) {
+    
     this.tries = tries;
     return this;
   }
@@ -100,9 +113,14 @@ public class PinCheckResponse {
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Number of remaining tries")
+  @JsonProperty(JSON_PROPERTY_TRIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
   public Integer getTries() {
     return tries;
   }
+
+
 
   public void setTries(Integer tries) {
     this.tries = tries;

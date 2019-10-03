@@ -60,7 +60,13 @@ components:
             leastSigBits:
               format: int64
               type: integer
+            leastSignificantBits:
+              format: int64
+              type: integer
             mostSigBits:
+              format: int64
+              type: integer
+            mostSignificantBits:
               format: int64
               type: integer
           type: object
@@ -88,7 +94,7 @@ components:
               description: The EMV AID as reported by ICC
               title: Dedicated Filename
               type: string
-            x9F1A:
+            9F1A:
               description: Terminal Country Code
               type: string
           title: EmvTags
@@ -106,7 +112,13 @@ components:
             leastSigBits:
               format: int64
               type: integer
+            leastSignificantBits:
+              format: int64
+              type: integer
             mostSigBits:
+              format: int64
+              type: integer
+            mostSignificantBits:
               format: int64
               type: integer
           type: object
@@ -119,5 +131,8 @@ components:
           type: string
         result:
           description: Result of the request
+          enum:
+          - OK
+          - WRONG
           type: string
       type: object

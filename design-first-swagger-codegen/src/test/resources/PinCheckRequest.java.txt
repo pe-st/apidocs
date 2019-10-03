@@ -13,83 +13,82 @@
 package ch.schlau.pesche.apidocs.swagger.designfirst.generated.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.UUID;
-
 /**
  * Request for checking a PIN
  */
 @Schema(description = "Request for checking a PIN")
+
 public class PinCheckRequest {
-
   @JsonProperty("pan")
-
   private ch.schlau.pesche.apidocs.swagger.designfirst.txproc.model.Pan pan = null;
 
   @JsonProperty("pinBlock")
-
   private String pinBlock = null;
 
   @JsonProperty("uuid")
-
   private UUID uuid = null;
+
   public PinCheckRequest pan(ch.schlau.pesche.apidocs.swagger.designfirst.txproc.model.Pan pan) {
     this.pan = pan;
     return this;
   }
 
-  
-
-  /**
-  * Get pan
-  * @return pan
+   /**
+   * Get pan
+   * @return pan
   **/
   @Schema(description = "")
   public ch.schlau.pesche.apidocs.swagger.designfirst.txproc.model.Pan getPan() {
     return pan;
   }
+
   public void setPan(ch.schlau.pesche.apidocs.swagger.designfirst.txproc.model.Pan pan) {
     this.pan = pan;
   }
+
   public PinCheckRequest pinBlock(String pinBlock) {
     this.pinBlock = pinBlock;
     return this;
   }
 
-  
-
-  /**
-  * Encrypted binary data containing a PIN  Fieldcode: C003
-  * @return pinBlock
+   /**
+   * Encrypted binary data containing a PIN  Fieldcode: C003
+   * @return pinBlock
   **/
   @Schema(description = "Encrypted binary data containing a PIN  Fieldcode: C003")
   public String getPinBlock() {
     return pinBlock;
   }
+
   public void setPinBlock(String pinBlock) {
     this.pinBlock = pinBlock;
   }
+
   public PinCheckRequest uuid(UUID uuid) {
     this.uuid = uuid;
     return this;
   }
 
-  
-
-  /**
-  * Unique ID of the request
-  * @return uuid
+   /**
+   * Unique ID of the request
+   * @return uuid
   **/
   @Schema(description = "Unique ID of the request")
   public UUID getUuid() {
     return uuid;
   }
+
   public void setUuid(UUID uuid) {
     this.uuid = uuid;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -106,8 +105,9 @@ public class PinCheckRequest {
 
   @Override
   public int hashCode() {
-    return java.util.Objects.hash(pan, pinBlock, uuid);
+    return Objects.hash(pan, pinBlock, uuid);
   }
+
 
   @Override
   public String toString() {
