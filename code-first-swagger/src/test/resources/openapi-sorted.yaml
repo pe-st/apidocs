@@ -13,6 +13,7 @@ paths:
             schema:
               $ref: '#/components/schemas/PinCheckRequest'
         description: PIN Check Request Body
+        required: true
       responses:
         default:
           content:
@@ -30,6 +31,7 @@ paths:
             schema:
               $ref: '#/components/schemas/PurchaseAuthRequest'
         description: Purchase Request Body
+        required: true
       responses:
         default:
           content:
@@ -52,17 +54,13 @@ components:
           type: string
       title: EmvTags
       type: object
-    Pan:
-      properties:
-        pan:
-          pattern: '[0-9]{12,19}'
-          type: string
-      type: object
     PinCheckRequest:
       description: Request for checking a PIN
       properties:
         pan:
-          $ref: '#/components/schemas/Pan'
+          description: The number embossed on credit cards
+          title: PAN (Primary Account Number)
+          type: string
         pinBlock:
           description: |-
             Encrypted binary data containing a PIN
@@ -72,6 +70,10 @@ components:
         uuid:
           description: Unique ID of the request
           type: string
+      required:
+      - pan
+      - pinBlock
+      - uuid
       type: object
     PinCheckResponse:
       description: Tells if the PIN in the request was correct
@@ -93,10 +95,15 @@ components:
         emvTags:
           $ref: '#/components/schemas/EmvTags'
         pan:
-          $ref: '#/components/schemas/Pan'
+          description: The number embossed on credit cards
+          title: PAN (Primary Account Number)
+          type: string
         uuid:
           description: Unique ID of the request
           type: string
+      required:
+      - pan
+      - uuid
       type: object
     PurchaseAuthResponse:
       description: Response to PurchaseAuthRequest

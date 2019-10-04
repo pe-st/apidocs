@@ -11,7 +11,8 @@ import ch.schlau.pesche.apidocs.openapi.codefirst.txproc.model.Pan;
 import lombok.Getter;
 import lombok.Setter;
 
-@Schema(description = "Request for authorizing a Purchase")
+@Schema(description = "Request for authorizing a Purchase",
+        requiredProperties = {"uuid", "pan"})
 @Getter
 @Setter
 public class PurchaseAuthRequest {

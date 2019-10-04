@@ -22,7 +22,8 @@
                 "$ref": "#/components/schemas/PinCheckRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "default": {
@@ -50,7 +51,8 @@
                 "$ref": "#/components/schemas/PurchaseAuthRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "default": {
@@ -121,6 +123,10 @@
         "description": "Tells if the PIN in the request was correct"
       },
       "PurchaseAuthRequest": {
+        "required": [
+          "pan",
+          "uuid"
+        ],
         "type": "object",
         "properties": {
           "uuid": {
@@ -140,6 +146,11 @@
         "description": "Request for authorizing a Purchase"
       },
       "PinCheckRequest": {
+        "required": [
+          "pan",
+          "pinBlock",
+          "uuid"
+        ],
         "type": "object",
         "properties": {
           "uuid": {

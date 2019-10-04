@@ -10,7 +10,8 @@ import ch.schlau.pesche.apidocs.openapi.codefirst.txproc.model.Pan;
 import lombok.Getter;
 import lombok.Setter;
 
-@Schema(description = "Request for checking a PIN")
+@Schema(description = "Request for checking a PIN",
+        requiredProperties = {"uuid", "pan", "pinBlock"})
 @Getter
 @Setter
 public class PinCheckRequest {

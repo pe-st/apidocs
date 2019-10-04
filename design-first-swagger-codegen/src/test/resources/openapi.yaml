@@ -16,6 +16,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/PinCheckRequest'
+        required: true
       responses:
         default:
           description: PIN Check Response
@@ -33,6 +34,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/PurchaseAuthRequest'
+        required: true
       responses:
         default:
           description: Purchase Response
@@ -61,6 +63,10 @@ components:
       type: object
     PinCheckRequest:
       description: Request for checking a PIN
+      required:
+      - pan
+      - pinBlock
+      - uuid
       type: object
       properties:
         pan:
@@ -91,6 +97,9 @@ components:
           type: integer
     PurchaseAuthRequest:
       description: Request for authorizing a Purchase
+      required:
+      - pan
+      - uuid
       type: object
       properties:
         emvTags:

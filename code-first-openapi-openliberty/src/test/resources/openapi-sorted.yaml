@@ -15,6 +15,7 @@ paths:
             schema:
               $ref: '#/components/schemas/PinCheckRequest'
         description: PIN Check Request Body
+        required: true
       responses:
         default:
           content:
@@ -32,6 +33,7 @@ paths:
             schema:
               $ref: '#/components/schemas/PurchaseAuthRequest'
         description: Purchase Request Body
+        required: true
       responses:
         default:
           content:
@@ -71,6 +73,10 @@ components:
           description: Unique ID of the request
           format: uuid
           type: string
+      required:
+      - pan
+      - pinBlock
+      - uuid
       type: object
     PinCheckResponse:
       description: Tells if the PIN in the request was correct
@@ -97,6 +103,9 @@ components:
           description: Unique ID of the request
           format: uuid
           type: string
+      required:
+      - pan
+      - uuid
       type: object
     PurchaseAuthResponse:
       description: Response to PurchaseAuthRequest

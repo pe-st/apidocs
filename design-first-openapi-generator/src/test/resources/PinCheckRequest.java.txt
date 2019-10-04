@@ -55,10 +55,9 @@ public class PinCheckRequest {
    * The number embossed on credit cards
    * @return pan
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The number embossed on credit cards")
+  @ApiModelProperty(required = true, value = "The number embossed on credit cards")
   @JsonProperty(JSON_PROPERTY_PAN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Object getPan() {
     return pan;
@@ -81,10 +80,9 @@ public class PinCheckRequest {
    * Encrypted binary data containing a PIN  Fieldcode: C003
    * @return pinBlock
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Encrypted binary data containing a PIN  Fieldcode: C003")
+  @ApiModelProperty(required = true, value = "Encrypted binary data containing a PIN  Fieldcode: C003")
   @JsonProperty(JSON_PROPERTY_PIN_BLOCK)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getPinBlock() {
     return pinBlock;
@@ -107,10 +105,9 @@ public class PinCheckRequest {
    * Unique ID of the request
    * @return uuid
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Unique ID of the request")
+  @ApiModelProperty(required = true, value = "Unique ID of the request")
   @JsonProperty(JSON_PROPERTY_UUID)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public UUID getUuid() {
     return uuid;

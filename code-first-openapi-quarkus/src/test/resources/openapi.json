@@ -16,7 +16,8 @@
                 "$ref": "#/components/schemas/PinCheckRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "default": {
@@ -43,7 +44,8 @@
                 "$ref": "#/components/schemas/PurchaseAuthRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "default": {
@@ -64,6 +66,11 @@
     "schemas": {
       "PinCheckRequest": {
         "description": "Request for checking a PIN",
+        "required": [
+          "uuid",
+          "pan",
+          "pinBlock"
+        ],
         "type": "object",
         "properties": {
           "pan": {
@@ -124,6 +131,10 @@
       },
       "PurchaseAuthRequest": {
         "description": "Request for authorizing a Purchase",
+        "required": [
+          "uuid",
+          "pan"
+        ],
         "type": "object",
         "properties": {
           "emvTags": {

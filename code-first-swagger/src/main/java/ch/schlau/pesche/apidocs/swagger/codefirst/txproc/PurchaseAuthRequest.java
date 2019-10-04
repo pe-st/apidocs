@@ -9,7 +9,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
 
-@Schema(description = "Request for authorizing a Purchase")
+@Schema(description = "Request for authorizing a Purchase",
+        requiredProperties = {"uuid", "pan"})
 @Getter
 @Setter
 public class PurchaseAuthRequest {

@@ -62,7 +62,7 @@ public class PurchaseAuthRequest {
    * Get pan
    * @return pan
   **/
-  @Schema(description = "")
+  @Schema(required = true, description = "")
   public ch.schlau.pesche.apidocs.swagger.designfirst.txproc.model.Pan getPan() {
     return pan;
   }
@@ -80,7 +80,7 @@ public class PurchaseAuthRequest {
    * Unique ID of the request
    * @return uuid
   **/
-  @Schema(description = "Unique ID of the request")
+  @Schema(required = true, description = "Unique ID of the request")
   public UUID getUuid() {
     return uuid;
   }

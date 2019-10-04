@@ -2,9 +2,7 @@ package ch.schlau.pesche.apidocs.swagger.codefirst.txproc.model;
 
 import javax.validation.constraints.Pattern;
 
-import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
-import org.eclipse.microprofile.openapi.annotations.media.Schema;
-
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,7 +10,7 @@ import lombok.Setter;
 
 @Schema(title = "PAN (Primary Account Number)",
         description = "The number embossed on credit cards",
-        type = SchemaType.STRING)
+        type = "string")
 @Getter
 @Setter
 @AllArgsConstructor

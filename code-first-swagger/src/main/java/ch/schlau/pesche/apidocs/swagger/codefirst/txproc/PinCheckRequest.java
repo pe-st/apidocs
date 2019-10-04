@@ -8,7 +8,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
 
-@Schema(description = "Request for checking a PIN")
+@Schema(description = "Request for checking a PIN",
+        requiredProperties = {"uuid", "pan", "pinBlock"})
 @Getter
 @Setter
 public class PinCheckRequest {

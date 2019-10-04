@@ -11,6 +11,7 @@ paths:
       operationId: pinCheck
       requestBody:
         description: PIN Check Request Body
+        required: true
         content:
           application/json:
             schema:
@@ -28,6 +29,7 @@ paths:
       operationId: purchase
       requestBody:
         description: Purchase Request Body
+        required: true
         content:
           application/json:
             schema:
@@ -56,10 +58,15 @@ components:
     Pan:
       description: The number embossed on credit cards
       title: PAN (Primary Account Number)
+      # type: string would make Swagger-UI prettier, but can't use own type
       type: object
       format: string
     PinCheckRequest:
       description: Request for checking a PIN
+      required:
+      - pan
+      - pinBlock
+      - uuid
       properties:
         pan:
           $ref: '#/components/schemas/Pan'
@@ -90,6 +97,9 @@ components:
       type: object
     PurchaseAuthRequest:
       description: Request for authorizing a Purchase
+      required:
+      - pan
+      - uuid
       properties:
         emvTags:
           $ref: '#/components/schemas/EmvTags'

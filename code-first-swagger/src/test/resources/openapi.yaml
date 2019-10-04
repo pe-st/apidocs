@@ -14,6 +14,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/PinCheckRequest'
+        required: true
       responses:
         default:
           description: PIN Check Response
@@ -31,6 +32,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/PurchaseAuthRequest'
+        required: true
       responses:
         default:
           description: Purchase Response
@@ -54,21 +56,21 @@ components:
           format: int32
           description: Number of remaining tries
           type: integer
-    Pan:
-      type: object
-      properties:
-        pan:
-          pattern: '[0-9]{12,19}'
-          type: string
     PinCheckRequest:
       description: Request for checking a PIN
+      required:
+      - pan
+      - pinBlock
+      - uuid
       type: object
       properties:
         uuid:
           description: Unique ID of the request
           type: string
         pan:
-          $ref: '#/components/schemas/Pan'
+          title: PAN (Primary Account Number)
+          description: The number embossed on credit cards
+          type: string
         pinBlock:
           description: |-
             Encrypted binary data containing a PIN
@@ -102,12 +104,17 @@ components:
           type: string
     PurchaseAuthRequest:
       description: Request for authorizing a Purchase
+      required:
+      - pan
+      - uuid
       type: object
       properties:
         uuid:
           description: Unique ID of the request
           type: string
         pan:
-          $ref: '#/components/schemas/Pan'
+          title: PAN (Primary Account Number)
+          description: The number embossed on credit cards
+          type: string
         emvTags:
           $ref: '#/components/schemas/EmvTags'

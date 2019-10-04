@@ -32,7 +32,8 @@ public class TxProc {
                  content = @Content(schema = @Schema(implementation = PinCheckResponse.class)))
     public PinCheckResponse pinCheck(
             @RequestBody(description = "PIN Check Request Body",
-                         content = @Content(schema = @Schema(implementation = PinCheckRequest.class))
+                         content = @Content(schema = @Schema(implementation = PinCheckRequest.class)),
+                         required = true
             ) PinCheckRequest request) {
 
         PinCheckResponse response = new PinCheckResponse();
@@ -52,7 +53,8 @@ public class TxProc {
                  content = @Content(schema = @Schema(implementation = PurchaseAuthResponse.class)))
     public PurchaseAuthResponse purchase(
             @RequestBody(description = "Purchase Request Body",
-                         content = @Content(schema = @Schema(implementation = PurchaseAuthRequest.class))
+                         content = @Content(schema = @Schema(implementation = PurchaseAuthRequest.class)),
+                         required = true
             ) PurchaseAuthRequest request) {
 
         PurchaseAuthResponse response = new PurchaseAuthResponse();
