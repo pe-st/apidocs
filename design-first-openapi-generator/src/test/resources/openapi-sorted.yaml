@@ -1,7 +1,7 @@
 ---
 openapi: 3.0.0
 info:
-  title: apidocs-design-first-openapi
+  title: txproc-design-first-openapi
   version: 0.9
 servers:
 - url: http://localhost:8080
