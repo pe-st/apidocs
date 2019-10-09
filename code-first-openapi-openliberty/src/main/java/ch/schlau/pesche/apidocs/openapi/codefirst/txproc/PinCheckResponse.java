@@ -10,13 +10,13 @@ import lombok.Setter;
 @Setter
 public class PinCheckResponse {
 
-    @Schema(description = "Result of the request")
+    // can't put @Schema annotation on the enum for OpenLiberty
     public enum Code {
         OK,
         WRONG
     }
 
-    // the enum Code already carries a @Schema annotation
+    @Schema(description = "Result of the request")
     private Code result;
 
     @Schema(description = "Number of remaining tries")

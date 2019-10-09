@@ -82,6 +82,7 @@ components:
       description: Tells if the PIN in the request was correct
       properties:
         result:
+          description: Result of the request
           enum:
           - OK
           - WRONG

@@ -73,6 +73,7 @@ components:
       properties:
         result:
           type: string
+          description: Result of the request
           enum:
           - OK
           - WRONG

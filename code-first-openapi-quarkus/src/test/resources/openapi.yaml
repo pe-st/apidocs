@@ -82,6 +82,7 @@ components:
       type: object
       properties:
         result:
+          description: Result of the request
           enum:
           - OK
           - WRONG
