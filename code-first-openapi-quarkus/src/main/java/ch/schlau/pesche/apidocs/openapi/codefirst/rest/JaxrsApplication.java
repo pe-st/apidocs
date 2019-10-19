@@ -7,6 +7,6 @@ import org.eclipse.microprofile.openapi.annotations.OpenAPIDefinition;
 import org.eclipse.microprofile.openapi.annotations.info.Info;
 
 @OpenAPIDefinition(info = @Info(title = "txproc-code-first-openapi", version = "0.9"))
-@ApplicationPath("api")
+@ApplicationPath("/api")
 public class JaxrsApplication extends Application {
 }

@@ -7,6 +7,6 @@ import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Info;
 
 @OpenAPIDefinition(info = @Info(title = "txproc-code-first-swagger", version = "0.9"))
-@ApplicationPath("api")
+@ApplicationPath("/api")
 public class JaxrsApplication extends Application {
 }

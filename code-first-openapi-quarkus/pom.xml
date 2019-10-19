@@ -18,11 +18,11 @@
 
         <!-- artifact versions -->
         <lombok.version>1.18.10</lombok.version>
-        <quarkus.version>0.23.2</quarkus.version>
+        <quarkus.version>0.25.0</quarkus.version>
 
         <!-- testing artifact versions -->
-        <hamcrest.version>2.1</hamcrest.version>
-        <json.unit.version>2.9.0</json.unit.version>
+        <hamcrest.version>2.2</hamcrest.version>
+        <json.unit.version>2.10.0</json.unit.version>
 
         <!-- apache maven plugin versions (in alphabetical order) -->
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
