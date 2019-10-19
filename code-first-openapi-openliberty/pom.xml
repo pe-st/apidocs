@@ -19,12 +19,12 @@
 
         <!-- artifact versions -->
         <lombok.version>1.18.10</lombok.version>
-        <openliberty.version>19.0.0.9</openliberty.version>
+        <openliberty.version>19.0.0.10</openliberty.version>
 
         <!-- testing artifact versions -->
         <junit.jupiter.version>5.5.2</junit.jupiter.version>
-        <hamcrest.version>2.1</hamcrest.version>
-        <json.unit.version>2.9.0</json.unit.version>
+        <hamcrest.version>2.2</hamcrest.version>
+        <json.unit.version>2.10.0</json.unit.version>
         <restassured.version>4.1.2</restassured.version>
         <commons-io.version>2.6</commons-io.version>
         <jackson-2-version>2.10.0</jackson-2-version>
@@ -32,7 +32,7 @@
         <glassfish.javax.json.version>1.1.4</glassfish.javax.json.version>
 
         <!-- apache maven plugin versions (in alphabetical order) -->
-        <liberty.plugin.version>3.0.1</liberty.plugin.version>
+        <liberty.plugin.version>3.1</liberty.plugin.version>
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
         <maven.failsafe.plugin.version>2.22.2</maven.failsafe.plugin.version>
         <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
@@ -78,6 +78,12 @@
         <dependency>
             <groupId>io.openliberty.features</groupId>
             <artifactId>cdi-2.0</artifactId>
+            <type>esa</type>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.openliberty.features</groupId>
+            <artifactId>beanValidation-2.0</artifactId>
             <type>esa</type>
             <scope>provided</scope>
         </dependency>
