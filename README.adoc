@@ -31,6 +31,26 @@ But the examples should run with very few code changes in any MicroProfile compa
 * link:design-first-openapi-generator/README.md[design-first with OpenAPI Generator and Quarkus server]
 * link:design-first-swagger-codegen/README.md[design-first with Swagger Codegen and Quarkus server]
 
+== Project Structure
+
+The example projects all work without the parent umbrella project, so you can easily copy just the
+example you're interested in and start modifying it.
+
+All example projects have integration tests (in `OpenapiDocumentIT.java`) that check the result of
+the `/openapi` endpoint. Not only protects this from silent changes due to a changed implementation
+when the project dependencies are updated (like it happened when I updated from Quarkus 0.21.1 to
+0.23.2), but it allows also to easily compare the differences between the example projects:
+
+* every project contains a `src/test/resources/openapi-sorted.yaml` file with a little bit normalized
+  OPenAPI document (sorting YAML files ist not trivial...)
+* the _design-first_ projects contains also the generated POJO files as `Xxx.java.txt` files
+  (the txt suffix protects them from being recognized as Java files by the IDE and being reformatted),
+  allowing to compare the result of openapi-generator and swagger-codegen.
+
+In addition all example projects have a `rest-api.http` file which allows to run some example HTTP
+request against a running service directly from within IntelliJ. And there is an `_idea` directory
+containing the IntelliJ project setup. But you can import the projects easily in any IDE with Maven
+support.
 
 
 == Comparison
