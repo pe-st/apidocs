@@ -1,104 +1,71 @@
-= API Docs
-:toc: macro
+= OpenAPI - code first or design first?
 
 image:https://travis-ci.org/pe-st/apidocs.svg?branch=master["Build Status", link="https://travis-ci.org/pe-st/apidocs"]
 
-Examples and comparison of how a REST API can be documented with different technologies.
+== Overview
 
-Goals are:
+Let's say that you're given the task of writing a microservice *AND* providing a documentation
+in OpenAPI format. You already know that there are two main approaches:
 
-* have a detailed documentation (e.g. not limited to a one-line string per field)
-* don't duplicate the documentation if the same field is used for different endpoints
-* appropriate documentation in the IDE (i.e. Javadoc, for programming the server and the clients)
-  as well as in tools like the Swagger Editor
+* design-first : write the OpenAPI document (a.k.a. the `openapi.yaml` file) and then generate the code
+* code-first : write the code, using OpenAPI annotations, and then generate the OpenAPI document
 
-The examples use Quarkus as server just because it not only supports MicroProfile OpenAPI,
-but it comes also with an integrated UI. But the examples should run without any code changes
-in any MicroProfile compatible server.
+This repository contains different implementations of a simple service to demonstrate differences
+between the design-first and code-first approach.
 
-toc::[]
+Accompanying presentation at https://www.eclipsecon.org/europe2019[eclipsecon Europe 2019] :
+https://www.eclipsecon.org/europe2019/sessions/microprofile-openapi-code-first-or-design-first[MicroProfile OpenAPI - code first or design first?]
+
+The examples use https://quarkus.io/[Quarkus] and https://openliberty.io/[OpenLiberty] as servers
+just because they not only support MicroProfile OpenAPI, but come also with an integrated UI.
+But the examples should run with very few code changes in any MicroProfile compatible server.
+
+=== Code First
+
+* link:code-first-openapi-openliberty/README.md[code-first with OpenLiberty server and MicroProfile OpenAPI]
+* link:code-first-openapi-quarkus/README.md[code-first with Quarkus server and MicroProfile OpenAPI]
+* link:code-first-swagger/README.md[code-first with Swagger scanner running with Quarkus server]
+
+=== Design First
+
+* link:design-first-openapi-generator/README.md[design-first with OpenAPI Generator and Quarkus server]
+* link:design-first-swagger-codegen/README.md[design-first with Swagger Codegen and Quarkus server]
+
+
 
 == Comparison
 
-Comparison between the examples using Code-First and Design-First approach
+Comparison between the examples using code-first and design-first approach
 
 [cols="1,2a,2a"]
 |===
 |Solution|Pros|Cons
 
-|Code-First|
-* no duplication
-* The generated POJOs have Javadoc
-* easy introduction of user-defined keys for structured documentation
+|code-first|
+* No need to learn OpenAPI Documents
+* Project can just be opened in the IDE (No need to generate code first)
 |
-* no specific IDE integration for the generation yet (what works best is `mvn compile` or `mvn generate-sources`)
+* Portability: not every scanner creates the same `openapi.yaml`
+* Portability: minor differences between Swagger and MicroProfile annotations
+* Boilerplate and code duplication
 
-|OpenAPI/constants|
-* Easy Usage
+|design-first|
+* One source of truth:
+Code, Documentation and Annotations generated from the same information
+* can generate also Bean Validation annotations and Javadoc
 |
-* No Javadoc
-* The annotations are duplicated (though not the texts)
+* Learning Effort
+* IDE integration not optimal yet
 
 |===
 
-== Code-First
+== Links
 
-Example using OpenAPI 3 (The MicroProfile implementation, though Swagger would need almost no changes;
-there are only small differences to the Swagger OpenAPI, e.g. there is no `responses` in the MicroProfile `@Operation`
-or `@APIResponse` with MicroProfile vs. `@ApiResponse` with Swagger).
-
-To avoid boilerplate code, https://projectlombok.org[Lombok] ist used
-
-=== Workflow
-
-* The OpenAPI implementation generates YAML and/or JSON output (e.g. `openapi.yaml`) out of the annotated Java classes
-* A GUI tool like the Swagger Editor allows to browse the interface visually
-
-=== Links
-
-* https://github.com/eclipse/microprofile-open-api/blob/master/spec/src/main/asciidoc/microprofile-openapi-spec.adoc#operation[MicroProfile OpenAPI Spec]
+* https://github.com/eclipse/microprofile-open-api/blob/master/spec/src/main/asciidoc/microprofile-openapi-spec.adoc#operation[MicroProfile OpenAPI Specification]
 ** https://github.com/eclipse/microprofile-open-api/wiki/Annotation-Samples[Annotation Examples]
 ** https://github.com/eclipse/microprofile-open-api/wiki/Static-File-Samples[YAML Output Examples]
-* https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md[(Swagger) OpenAPI Spec]
-
-=== Demo
-
-Launch the example with Quarkus (`mvn compile quarkus:dev`)
-and browse the interface on http://localhost:8080/swagger-ui/[http://localhost:8080/swagger-ui/]
-
-You can also use the https://editor.swagger.io[Swagger Online Editor]
-and open this URL:
-
-* https://raw.githubusercontent.com/pe-st/apidocs/master/code-first-openapi-microprofile/doc/openapi.yaml
-
-=== Details
-
-To document the objects and properties of a JSON REST payload, the `@Schema` annotation is enough.
-
-To avoid duplication of the `@Schema` annotation between different endpoints,
-String constants are used.
-
-==== Solution with Constants
-
-Many developers prefer a compromise between simplicity and duplication avoidance.
-By using constants in the OpenAPI annotations a simpler class definition is possible
-at the price of duplicating the annotations, but not their content:
-
-[source,java]
-----
-import static xxx.PIN_BLOCK;
-import static xxx.UUID;
-
-@Schema(description = "Request for checking a PIN")
-public class PinCheckRequest {
-
-    @Schema(description = UUID)
-    private String uuid;
-
-    @Schema(description = PIN_BLOCK)
-    private String pinBlock;
-}
-----
-
-This allows maintaining the documentation for a field (e.g the `pinBlock field) for any endpoint in a central location.
-
+* OpenAPI Specification
+** https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md[OpenAPI Specification (OpenAPI Initiative)]
+** https://swagger.io/specification/[OpenAPI Specification (Swagger)]
+* https://quarkus.io/guides/openapi-swaggerui-guide[Quarkus - Using OpenAPI and Swagger UI]
+* https://openliberty.io/guides/microprofile-openapi.html[OpenLiberty Guide - Documenting RESTful APIs]

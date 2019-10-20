@@ -26,5 +26,10 @@ hs_err_pid*
 **/.idea/uiDesigner.xml
 **/.idea/workspace.xml
 
+# Eclipse IDE
+**/.classpath
+**/.project
+**/.settings/
+
 audit.log
 quarkus.log
