@@ -1,5 +1,5 @@
 ---
-openapi: 3.0.0
+openapi: 3.0.1
 info:
   title: txproc-design-first-swagger
   version: 0.9
@@ -17,11 +17,17 @@ paths:
         description: PIN Check Request Body
         required: true
       responses:
-        default:
+        200:
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/PinCheckResponse'
+          description: OK
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: elements.yaml#/components/schemas/PinCheckResponse
           description: PIN Check Response
       summary: Check the pin
   /api/txproc/purchase:
@@ -35,89 +41,94 @@ paths:
         description: Purchase Request Body
         required: true
       responses:
-        default:
+        200:
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/PurchaseAuthResponse'
+          description: OK
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: elements.yaml#/components/schemas/PurchaseAuthResponse
           description: Purchase Response
       summary: Authorize a Purchase
 components:
   schemas:
-    EmvTags:
-      description: Collection of EMV tags
-      properties:
-        84:
-          description: The EMV AID as reported by ICC
-          title: Dedicated Filename
-          type: string
-        9F1A:
-          description: Terminal Country Code
-          type: string
-      title: EmvTags
-      type: object
-    Pan:
-      description: The number embossed on credit cards
-      format: string
-      title: PAN (Primary Account Number)
-      type: object
     PinCheckRequest:
-      description: Request for checking a PIN
       properties:
         pan:
-          $ref: '#/components/schemas/Pan'
+          properties:
+            pan:
+              type: string
+          type: object
         pinBlock:
-          description: |-
-            Encrypted binary data containing a PIN
-
-            Fieldcode: C003
           type: string
         uuid:
-          description: Unique ID of the request
-          format: uuid
-          type: string
-      required:
-      - pan
-      - pinBlock
-      - uuid
+          properties:
+            leastSigBits:
+              format: int64
+              type: integer
+            leastSignificantBits:
+              format: int64
+              type: integer
+            mostSigBits:
+              format: int64
+              type: integer
+            mostSignificantBits:
+              format: int64
+              type: integer
+          type: object
       type: object
     PinCheckResponse:
-      description: Tells if the PIN in the request was correct
       properties:
         result:
-          description: Result of the request
           enum:
           - OK
           - WRONG
           type: string
         tries:
-          description: Number of remaining tries
           format: int32
           type: integer
       type: object
     PurchaseAuthRequest:
-      description: Request for authorizing a Purchase
       properties:
         emvTags:
-          $ref: '#/components/schemas/EmvTags'
+          properties:
+            84:
+              type: string
+            9F1A:
+              type: string
+            9f1A:
+              type: string
+          type: object
         pan:
-          $ref: '#/components/schemas/Pan'
+          properties:
+            pan:
+              type: string
+          type: object
         uuid:
-          description: Unique ID of the request
-          format: uuid
-          type: string
-      required:
-      - pan
-      - uuid
+          properties:
+            leastSigBits:
+              format: int64
+              type: integer
+            leastSignificantBits:
+              format: int64
+              type: integer
+            mostSigBits:
+              format: int64
+              type: integer
+            mostSignificantBits:
+              format: int64
+              type: integer
+          type: object
       type: object
     PurchaseAuthResponse:
-      description: Response to PurchaseAuthRequest
       properties:
         approvalCode:
-          description: Code referencing the successful authorization
           type: string
         result:
-          description: Result of the request
           enum:
           - OK
           - WRONG
