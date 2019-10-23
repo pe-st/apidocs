@@ -1,0 +1,20 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="GenerationTest [swagger/openliberty]" type="JUnit" factoryName="JUnit">
+    <module name="dfsc-openliberty" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="ch.schlau.pesche.apidocs.swagger.designfirst.generated.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <option name="PACKAGE_NAME" value="ch.schlau.pesche.apidocs.swagger.designfirst.generated" />
+    <option name="MAIN_CLASS_NAME" value="ch.schlau.pesche.apidocs.swagger.designfirst.generated.GenerationTest" />
+    <option name="METHOD_NAME" value="" />
+    <option name="TEST_OBJECT" value="class" />
+    <option name="VM_PARAMETERS" value="-ea -Dgenerated.path=target/generated-sources/swagger" />
+    <option name="PARAMETERS" value="" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
