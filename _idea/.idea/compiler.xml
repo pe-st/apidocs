@@ -7,11 +7,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="design-first-openapi-generator" />
-        <module name="code-first-openapi-quarkus" />
-        <module name="code-first-swagger" />
-        <module name="design-first-swagger-codegen" />
         <module name="code-first-openapi-openliberty" />
+        <module name="code-first-openapi-quarkus" />
+        <module name="design-first-openapi-generator" />
+        <module name="design-first-swagger-codegen" />
+        <module name="code-first-swagger" />
+        <module name="design-first-swagger-openliberty" />
       </profile>
     </annotationProcessing>
   </component>

@@ -6,7 +6,9 @@
     <file type="web" url="file://$PROJECT_DIR$/../code-first-openapi-quarkus" />
     <file type="web" url="file://$PROJECT_DIR$/../design-first-openapi-generator" />
     <file type="web" url="file://$PROJECT_DIR$/../design-first-swagger-codegen" />
+    <file type="web" url="file://$PROJECT_DIR$/../design-first-swagger-openliberty" />
     <type id="android" />
+    <type id="Osmorc" />
   </component>
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="ES6" />
