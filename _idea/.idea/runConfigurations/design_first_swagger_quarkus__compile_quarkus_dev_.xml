@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="dfcs-openliberty [liberty:dev]" type="MavenRunConfiguration" factoryName="Maven">
+  <configuration default="false" name="design-first-swagger-quarkus [compile,quarkus:dev]" type="MavenRunConfiguration" factoryName="Maven">
     <MavenSettings>
       <option name="myGeneralSettings" />
       <option name="myRunnerSettings" />
@@ -10,9 +10,8 @@
           </option>
           <option name="goals">
             <list>
-              <option value="clean" />
-              <option value="package" />
-              <option value="liberty:dev" />
+              <option value="compile" />
+              <option value="quarkus:dev" />
             </list>
           </option>
           <option name="pomFileName" />
@@ -20,7 +19,7 @@
             <map />
           </option>
           <option name="resolveToWorkspace" value="false" />
-          <option name="workingDirPath" value="$PROJECT_DIR$/../dfsc-openliberty" />
+          <option name="workingDirPath" value="$PROJECT_DIR$/../design-first-swagger-codegen" />
         </MavenRunnerParameters>
       </option>
     </MavenSettings>

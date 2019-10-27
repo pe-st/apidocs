@@ -1,5 +1,5 @@
 {
-  "openapi": "3.0.1",
+  "openapi": "3.0.0",
   "info": {
     "title": "txproc-design-first-swagger",
     "version": "0.9"
@@ -28,16 +28,6 @@
         "responses": {
           "default": {
             "description": "PIN Check Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "elements.yaml#/components/schemas/PinCheckResponse"
-                }
-              }
-            }
-          },
-          "200": {
-            "description": "OK",
             "content": {
               "application/json": {
                 "schema": {
@@ -70,16 +60,6 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "elements.yaml#/components/schemas/PurchaseAuthResponse"
-                }
-              }
-            }
-          },
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
                   "$ref": "#/components/schemas/PurchaseAuthResponse"
                 }
               }
@@ -91,47 +71,57 @@
   },
   "components": {
     "schemas": {
+      "EmvTags": {
+        "title": "EmvTags",
+        "description": "Collection of EMV tags",
+        "type": "object",
+        "properties": {
+          "84": {
+            "title": "Dedicated Filename",
+            "description": "The EMV AID as reported by ICC",
+            "type": "string"
+          },
+          "9F1A": {
+            "description": "Terminal Country Code",
+            "type": "string"
+          }
+        }
+      },
+      "Pan": {
+        "format": "string",
+        "title": "PAN (Primary Account Number)",
+        "description": "The number embossed on credit cards",
+        "type": "object"
+      },
       "PinCheckRequest": {
+        "description": "Request for checking a PIN",
+        "required": [
+          "pan",
+          "pinBlock",
+          "uuid"
+        ],
         "type": "object",
         "properties": {
           "pan": {
-            "type": "object",
-            "properties": {
-              "pan": {
-                "type": "string"
-              }
-            }
+            "$ref": "#/components/schemas/Pan"
           },
           "pinBlock": {
+            "description": "Encrypted binary data containing a PIN\n\nFieldcode: C003",
             "type": "string"
           },
           "uuid": {
-            "type": "object",
-            "properties": {
-              "leastSigBits": {
-                "format": "int64",
-                "type": "integer"
-              },
-              "mostSigBits": {
-                "format": "int64",
-                "type": "integer"
-              },
-              "leastSignificantBits": {
-                "format": "int64",
-                "type": "integer"
-              },
-              "mostSignificantBits": {
-                "format": "int64",
-                "type": "integer"
-              }
-            }
+            "format": "uuid",
+            "description": "Unique ID of the request",
+            "type": "string"
           }
         }
       },
       "PinCheckResponse": {
+        "description": "Tells if the PIN in the request was correct",
         "type": "object",
         "properties": {
           "result": {
+            "description": "Result of the request",
             "enum": [
               "OK",
               "WRONG"
@@ -140,65 +130,42 @@
           },
           "tries": {
             "format": "int32",
+            "description": "Number of remaining tries",
             "type": "integer"
           }
         }
       },
       "PurchaseAuthRequest": {
+        "description": "Request for authorizing a Purchase",
+        "required": [
+          "pan",
+          "uuid"
+        ],
         "type": "object",
         "properties": {
           "emvTags": {
-            "type": "object",
-            "properties": {
-              "84": {
-                "type": "string"
-              },
-              "9F1A": {
-                "type": "string"
-              },
-              "9f1A": {
-                "type": "string"
-              }
-            }
+            "$ref": "#/components/schemas/EmvTags"
           },
           "pan": {
-            "type": "object",
-            "properties": {
-              "pan": {
-                "type": "string"
-              }
-            }
+            "$ref": "#/components/schemas/Pan"
           },
           "uuid": {
-            "type": "object",
-            "properties": {
-              "leastSigBits": {
-                "format": "int64",
-                "type": "integer"
-              },
-              "mostSigBits": {
-                "format": "int64",
-                "type": "integer"
-              },
-              "leastSignificantBits": {
-                "format": "int64",
-                "type": "integer"
-              },
-              "mostSignificantBits": {
-                "format": "int64",
-                "type": "integer"
-              }
-            }
+            "format": "uuid",
+            "description": "Unique ID of the request",
+            "type": "string"
           }
         }
       },
       "PurchaseAuthResponse": {
+        "description": "Response to PurchaseAuthRequest",
         "type": "object",
         "properties": {
           "approvalCode": {
+            "description": "Code referencing the successful authorization",
             "type": "string"
           },
           "result": {
+            "description": "Result of the request",
             "enum": [
               "OK",
               "WRONG"

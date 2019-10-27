@@ -29,7 +29,8 @@ But the examples should run with very few code changes in any MicroProfile compa
 === Design First
 
 * link:design-first-openapi-generator/README.md[design-first with OpenAPI Generator and Quarkus server]
-* link:design-first-swagger-codegen/README.md[design-first with Swagger Codegen and Quarkus server]
+* link:design-first-swagger-quarkus/README.md[design-first with Swagger Codegen and Quarkus server]
+* link:design-first-swagger-openliberty/README.md[design-first with Swagger Codegen and OpenLiberty server]
 
 == Project Structure
 
@@ -42,8 +43,8 @@ when the project dependencies are updated (like it happened when I updated from 
 0.23.2), but it allows also to easily compare the differences between the example projects:
 
 * every project contains a `src/test/resources/openapi-sorted.yaml` file with a little bit normalized
-  OPenAPI document (sorting YAML files ist not trivial...)
-* the _design-first_ projects contains also the generated POJO files as `Xxx.java.txt` files
+  OpenAPI document (sorting YAML files ist not trivial...)
+* the _design-first_ projects contain also the generated POJO files as `Xxx.java.txt` files
   (the txt suffix protects them from being recognized as Java files by the IDE and being reformatted),
   allowing to compare the result of openapi-generator and swagger-codegen.
 

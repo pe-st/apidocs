@@ -1,10 +1,10 @@
-# OpenAPI design-first approach with Quarkus server and Swagger Codegen
+# OpenAPI design-first approach with OpenLiberty server and Swagger Codegen
 
 This directory contains a simple service implemented
 
 - using the *design-first* approach to provide an OpenAPI document
-- running with [Quarkus](https://quarkus.io/) server (providing the
-  MicroProfile [OpenAPI](https://quarkus.io/guides/openapi-swaggerui-guide)
+- running with [OpenLiberty](https://openliberty.io/) server (providing the
+  MicroProfile [OpenAPI](https://openliberty.io/guides/microprofile-openapi.html)
   endpoints), serving the static hand-written OpenAPI document that
   is also used to generate the POJOs of the service interface
 - the POJOs are generated using [Swagger Codegen](https://swagger.io/tools/swagger-codegen/)'s
@@ -14,11 +14,11 @@ For more information consult the [README](../README.adoc) in the parent director
 
 ## How to run the service
 
-Using Quarkus's [dev mode](https://quarkus.io/guides/maven-tooling.html#development-mode):
+Using OpenLiberty's [dev mode](https://openliberty.io/blog/2019/10/17/dev-mode-developer-experience.html):
 
-    mvn compile quarkus:dev
+    mvn liberty:dev
 
 Once the service runs:
 
 - http://localhost:8080/openapi fetches the OpenAPI document
-- http://localhost:8080/swagger-ui shows an interactive view of the API (based on Swagger-UI)
+- http://localhost:8080/openapi/ui shows an interactive view of the API (based on Swagger-UI)
