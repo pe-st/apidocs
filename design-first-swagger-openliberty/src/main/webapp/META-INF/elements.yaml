@@ -1,0 +1,87 @@
+openapi: 3.0.0
+info:
+  title: An include file with reusable elements
+  version: 1.0.0
+paths: {}
+components:
+  schemas:
+    EmvTags:
+      description: Collection of EMV tags
+      title: EmvTags
+      type: object
+      properties:
+        84:
+          description: The EMV AID as reported by ICC
+          title: Dedicated Filename
+          type: string
+        9F1A:
+          description: Terminal Country Code
+          type: string
+    Pan:
+      description: The number embossed on credit cards
+      title: PAN (Primary Account Number)
+      # type: string would make Swagger-UI prettier, but can't use own type
+      type: object
+      format: string
+    PinCheckRequest:
+      description: Request for checking a PIN
+      required:
+      - pan
+      - pinBlock
+      - uuid
+      properties:
+        pan:
+          $ref: '#/components/schemas/Pan'
+        pinBlock:
+          description: |-
+            Encrypted binary data containing a PIN
+
+            Fieldcode: C003
+          type: string
+        uuid:
+          description: Unique ID of the request
+          format: uuid
+          type: string
+      type: object
+    PinCheckResponse:
+      description: Tells if the PIN in the request was correct
+      properties:
+        result:
+          description: Result of the request
+          enum:
+          - OK
+          - WRONG
+          type: string
+        tries:
+          description: Number of remaining tries
+          format: int32
+          type: integer
+      type: object
+    PurchaseAuthRequest:
+      description: Request for authorizing a Purchase
+      required:
+      - pan
+      - uuid
+      properties:
+        emvTags:
+          $ref: '#/components/schemas/EmvTags'
+        pan:
+          $ref: '#/components/schemas/Pan'
+        uuid:
+          description: Unique ID of the request
+          format: uuid
+          type: string
+      type: object
+    PurchaseAuthResponse:
+      description: Response to PurchaseAuthRequest
+      properties:
+        approvalCode:
+          description: Code referencing the successful authorization
+          type: string
+        result:
+          description: Result of the request
+          enum:
+          - OK
+          - WRONG
+          type: string
+      type: object

@@ -14,7 +14,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PinCheckRequest'
+              $ref: elements.yaml#/components/schemas/PinCheckRequest
         required: true
       responses:
         default:
@@ -22,7 +22,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PinCheckResponse'
+                $ref: elements.yaml#/components/schemas/PinCheckResponse
   /api/txproc/purchase:
     post:
       summary: Authorize a Purchase
@@ -32,7 +32,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PurchaseAuthRequest'
+              $ref: elements.yaml#/components/schemas/PurchaseAuthRequest
         required: true
       responses:
         default:
@@ -40,85 +40,4 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PurchaseAuthResponse'
-components:
-  schemas:
-    EmvTags:
-      title: EmvTags
-      type: object
-      properties:
-        84:
-          title: Dedicated Filename
-          type: string
-          description: The EMV AID as reported by ICC
-        9F1A:
-          type: string
-          description: Terminal Country Code
-      description: Collection of EMV tags
-    Pan:
-      title: PAN (Primary Account Number)
-      type: object
-      description: The number embossed on credit cards
-      format: string
-    PinCheckRequest:
-      required:
-      - pan
-      - pinBlock
-      - uuid
-      type: object
-      properties:
-        pan:
-          $ref: '#/components/schemas/Pan'
-        pinBlock:
-          type: string
-          description: |-
-            Encrypted binary data containing a PIN
-
-            Fieldcode: C003
-        uuid:
-          type: string
-          description: Unique ID of the request
-          format: uuid
-      description: Request for checking a PIN
-    PinCheckResponse:
-      type: object
-      properties:
-        result:
-          type: string
-          description: Result of the request
-          enum:
-          - OK
-          - WRONG
-        tries:
-          type: integer
-          description: Number of remaining tries
-          format: int32
-      description: Tells if the PIN in the request was correct
-    PurchaseAuthRequest:
-      required:
-      - pan
-      - uuid
-      type: object
-      properties:
-        emvTags:
-          $ref: '#/components/schemas/EmvTags'
-        pan:
-          $ref: '#/components/schemas/Pan'
-        uuid:
-          type: string
-          description: Unique ID of the request
-          format: uuid
-      description: Request for authorizing a Purchase
-    PurchaseAuthResponse:
-      type: object
-      properties:
-        approvalCode:
-          type: string
-          description: Code referencing the successful authorization
-        result:
-          type: string
-          description: Result of the request
-          enum:
-          - OK
-          - WRONG
-      description: Response to PurchaseAuthRequest
+                $ref: elements.yaml#/components/schemas/PurchaseAuthResponse
