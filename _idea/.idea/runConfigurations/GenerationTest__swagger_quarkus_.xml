@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="GenerationTest [swagger]" type="JUnit" factoryName="JUnit">
+  <configuration default="false" name="GenerationTest [swagger/quarkus]" type="JUnit" factoryName="JUnit">
     <module name="design-first-swagger-quarkus" />
     <extension name="coverage">
       <pattern>

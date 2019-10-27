@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ch.schlau.pesche.apidocs</groupId>
-    <artifactId>design-first-swagger-codegen</artifactId>
+    <artifactId>design-first-swagger-quarkus</artifactId>
     <version>0.9-SNAPSHOT</version>
 
     <name>apidocs.${project.artifactId}</name>
