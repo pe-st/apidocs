@@ -5,8 +5,8 @@
     <file type="web" url="file://$PROJECT_DIR$/../code-first-openapi-openliberty" />
     <file type="web" url="file://$PROJECT_DIR$/../code-first-openapi-quarkus" />
     <file type="web" url="file://$PROJECT_DIR$/../design-first-openapi-generator" />
-    <file type="web" url="file://$PROJECT_DIR$/../design-first-swagger-codegen" />
     <file type="web" url="file://$PROJECT_DIR$/../design-first-swagger-openliberty" />
+    <file type="web" url="file://$PROJECT_DIR$/../design-first-swagger-quarkus" />
     <type id="android" />
     <type id="Osmorc" />
   </component>

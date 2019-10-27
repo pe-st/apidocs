@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="GenerationTest [swagger]" type="JUnit" factoryName="JUnit">
-    <module name="design-first-swagger-codegen" />
+    <module name="design-first-swagger-quarkus" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="ch.schlau.pesche.apidocs.swagger.designfirst.generated.*" />
