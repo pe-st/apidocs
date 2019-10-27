@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="All in design-first-swagger-openliberty" type="JUnit" factoryName="JUnit">
-    <module name="dfsc-openliberty" />
+    <module name="design-first-swagger-openliberty" />
     <option name="PACKAGE_NAME" value="" />
     <option name="MAIN_CLASS_NAME" value="" />
     <option name="METHOD_NAME" value="" />

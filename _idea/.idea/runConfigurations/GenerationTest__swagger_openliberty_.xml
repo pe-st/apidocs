@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="GenerationTest [swagger/openliberty]" type="JUnit" factoryName="JUnit">
-    <module name="dfsc-openliberty" />
+    <module name="design-first-swagger-openliberty" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="ch.schlau.pesche.apidocs.swagger.designfirst.generated.*" />

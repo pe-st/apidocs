@@ -15,6 +15,6 @@
 
      <!--<logging traceSpecification="ch.schlau.pesche.apidocs.*=all"/>-->
 
-    <webApplication location="dfsc-openliberty.war" contextRoot="/" />
+    <webApplication location="design-first-swagger-openliberty.war" contextRoot="/" />
 
 </server>

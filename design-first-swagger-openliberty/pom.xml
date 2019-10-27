@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ch.schlau.pesche.apidocs</groupId>
-    <artifactId>dfsc-openliberty</artifactId>
+    <artifactId>design-first-swagger-openliberty</artifactId>
     <version>0.9-SNAPSHOT</version>
     <packaging>war</packaging>
 

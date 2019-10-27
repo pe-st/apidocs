@@ -15,6 +15,6 @@
         <module>code-first-swagger</module>
         <module>design-first-openapi-generator</module>
         <module>design-first-swagger-codegen</module>
-        <module>dfsc-openliberty</module>
+        <module>design-first-swagger-openliberty</module>
     </modules>
 </project>
