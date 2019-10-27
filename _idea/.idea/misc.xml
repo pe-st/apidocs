@@ -8,6 +8,7 @@
     <file type="web" url="file://$PROJECT_DIR$/../design-first-swagger-codegen" />
     <file type="web" url="file://$PROJECT_DIR$/../dfsc-openliberty" />
     <type id="android" />
+    <type id="Osmorc" />
   </component>
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="ES6" />
