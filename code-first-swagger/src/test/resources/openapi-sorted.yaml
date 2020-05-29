@@ -45,11 +45,11 @@ components:
     EmvTags:
       description: Collection of EMV tags
       properties:
-        84:
+        "84":
           description: The EMV AID as reported by ICC
           title: Dedicated Filename
           type: string
-        9F1A:
+        "9F1A":
           description: Terminal Country Code
           type: string
       title: EmvTags

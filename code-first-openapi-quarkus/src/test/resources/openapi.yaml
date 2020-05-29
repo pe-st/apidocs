@@ -49,12 +49,7 @@ components:
       type: object
       properties:
         pan:
-          title: PAN (Primary Account Number)
-          description: The number embossed on credit cards
-          type: string
-          properties:
-            pan:
-              type: string
+          $ref: '#/components/schemas/Pan'
         pinBlock:
           description: |-
             Encrypted binary data containing a PIN
@@ -62,35 +57,34 @@ components:
             Fieldcode: C003
           type: string
         uuid:
-          description: Unique ID of the request
-          type: object
-          properties:
-            leastSigBits:
-              format: int64
-              type: integer
-            mostSigBits:
-              format: int64
-              type: integer
-            leastSignificantBits:
-              format: int64
-              type: integer
-            mostSignificantBits:
-              format: int64
-              type: integer
+          allOf:
+          - $ref: '#/components/schemas/UUID'
+          - description: Unique ID of the request
+    Pan:
+      title: PAN (Primary Account Number)
+      description: The number embossed on credit cards
+      type: string
+    UUID:
+      format: uuid
+      pattern: '[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}'
+      type: string
     PinCheckResponse:
       description: Tells if the PIN in the request was correct
       type: object
       properties:
         result:
-          description: Result of the request
-          enum:
-          - OK
-          - WRONG
-          type: string
+          allOf:
+          - $ref: '#/components/schemas/Code'
+          - description: Result of the request
         tries:
           format: int32
           description: Number of remaining tries
           type: integer
+    Code:
+      enum:
+      - OK
+      - WRONG
+      type: string
     PurchaseAuthRequest:
       description: Request for authorizing a Purchase
       required:
@@ -99,40 +93,25 @@ components:
       type: object
       properties:
         emvTags:
-          title: EmvTags
-          description: Collection of EMV tags
-          type: object
-          properties:
-            84:
-              title: Dedicated Filename
-              description: The EMV AID as reported by ICC
-              type: string
-            9F1A:
-              description: Terminal Country Code
-              type: string
+          $ref: '#/components/schemas/EmvTags'
         pan:
-          title: PAN (Primary Account Number)
-          description: The number embossed on credit cards
-          type: string
-          properties:
-            pan:
-              type: string
+          $ref: '#/components/schemas/Pan'
         uuid:
-          description: Unique ID of the request
-          type: object
-          properties:
-            leastSigBits:
-              format: int64
-              type: integer
-            mostSigBits:
-              format: int64
-              type: integer
-            leastSignificantBits:
-              format: int64
-              type: integer
-            mostSignificantBits:
-              format: int64
-              type: integer
+          allOf:
+          - $ref: '#/components/schemas/UUID'
+          - description: Unique ID of the request
+    EmvTags:
+      title: EmvTags
+      description: Collection of EMV tags
+      type: object
+      properties:
+        "84":
+          title: Dedicated Filename
+          description: The EMV AID as reported by ICC
+          type: string
+        "9F1A":
+          description: Terminal Country Code
+          type: string
     PurchaseAuthResponse:
       description: Response to PurchaseAuthRequest
       type: object
@@ -141,8 +120,11 @@ components:
           description: Code referencing the successful authorization
           type: string
         result:
-          description: Result of the request
-          enum:
-          - OK
-          - WRONG
-          type: string
+          allOf:
+          - $ref: '#/components/schemas/Code1'
+          - description: Result of the request
+    Code1:
+      enum:
+      - OK
+      - WRONG
+      type: string
