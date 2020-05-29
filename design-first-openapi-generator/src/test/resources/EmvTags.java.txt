@@ -60,7 +60,6 @@ public class EmvTags {
   }
 
 
-
   public void set84(String _84) {
     this._84 = _84;
   }
@@ -84,7 +83,6 @@ public class EmvTags {
   public String get9F1A() {
     return _9F1A;
   }
-
 
 
   public void set9F1A(String _9F1A) {

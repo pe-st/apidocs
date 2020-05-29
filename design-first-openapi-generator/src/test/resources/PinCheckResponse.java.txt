@@ -95,7 +95,6 @@ public class PinCheckResponse {
   }
 
 
-
   public void setResult(ResultEnum result) {
     this.result = result;
   }
@@ -119,7 +118,6 @@ public class PinCheckResponse {
   public Integer getTries() {
     return tries;
   }
-
 
 
   public void setTries(Integer tries) {

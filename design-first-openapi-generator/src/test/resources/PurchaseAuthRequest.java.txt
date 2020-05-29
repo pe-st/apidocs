@@ -40,7 +40,7 @@ public class PurchaseAuthRequest {
   private EmvTags emvTags;
 
   public static final String JSON_PROPERTY_PAN = "pan";
-  private Object pan;
+  private ch.schlau.pesche.apidocs.openapi.designfirst.txproc.model.Pan pan;
 
   public static final String JSON_PROPERTY_UUID = "uuid";
   private UUID uuid;
@@ -66,33 +66,31 @@ public class PurchaseAuthRequest {
   }
 
 
-
   public void setEmvTags(EmvTags emvTags) {
     this.emvTags = emvTags;
   }
 
 
-  public PurchaseAuthRequest pan(Object pan) {
+  public PurchaseAuthRequest pan(ch.schlau.pesche.apidocs.openapi.designfirst.txproc.model.Pan pan) {
     
     this.pan = pan;
     return this;
   }
 
    /**
-   * The number embossed on credit cards
+   * Get pan
    * @return pan
   **/
-  @ApiModelProperty(required = true, value = "The number embossed on credit cards")
+  @ApiModelProperty(required = true, value = "")
   @JsonProperty(JSON_PROPERTY_PAN)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public Object getPan() {
+  public ch.schlau.pesche.apidocs.openapi.designfirst.txproc.model.Pan getPan() {
     return pan;
   }
 
 
-
-  public void setPan(Object pan) {
+  public void setPan(ch.schlau.pesche.apidocs.openapi.designfirst.txproc.model.Pan pan) {
     this.pan = pan;
   }
 
@@ -114,7 +112,6 @@ public class PurchaseAuthRequest {
   public UUID getUuid() {
     return uuid;
   }
-
 
 
   public void setUuid(UUID uuid) {

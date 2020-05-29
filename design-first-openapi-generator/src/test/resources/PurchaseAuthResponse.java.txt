@@ -95,7 +95,6 @@ public class PurchaseAuthResponse {
   }
 
 
-
   public void setApprovalCode(String approvalCode) {
     this.approvalCode = approvalCode;
   }
@@ -119,7 +118,6 @@ public class PurchaseAuthResponse {
   public ResultEnum getResult() {
     return result;
   }
-
 
 
   public void setResult(ResultEnum result) {
