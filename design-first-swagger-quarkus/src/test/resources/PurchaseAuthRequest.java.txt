@@ -15,6 +15,7 @@ package ch.schlau.pesche.apidocs.swagger.designfirst.generated.model;
 import java.util.Objects;
 import java.util.Arrays;
 import ch.schlau.pesche.apidocs.swagger.designfirst.generated.model.EmvTags;
+import ch.schlau.pesche.apidocs.swagger.designfirst.txproc.model.Pan;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -30,7 +31,7 @@ public class PurchaseAuthRequest {
   private EmvTags emvTags = null;
 
   @JsonProperty("pan")
-  private ch.schlau.pesche.apidocs.swagger.designfirst.txproc.model.Pan pan = null;
+  private Pan pan = null;
 
   @JsonProperty("uuid")
   private UUID uuid = null;
@@ -53,7 +54,7 @@ public class PurchaseAuthRequest {
     this.emvTags = emvTags;
   }
 
-  public PurchaseAuthRequest pan(ch.schlau.pesche.apidocs.swagger.designfirst.txproc.model.Pan pan) {
+  public PurchaseAuthRequest pan(Pan pan) {
     this.pan = pan;
     return this;
   }
@@ -63,11 +64,11 @@ public class PurchaseAuthRequest {
    * @return pan
   **/
   @Schema(required = true, description = "")
-  public ch.schlau.pesche.apidocs.swagger.designfirst.txproc.model.Pan getPan() {
+  public Pan getPan() {
     return pan;
   }
 
-  public void setPan(ch.schlau.pesche.apidocs.swagger.designfirst.txproc.model.Pan pan) {
+  public void setPan(Pan pan) {
     this.pan = pan;
   }
 

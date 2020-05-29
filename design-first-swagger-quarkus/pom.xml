@@ -21,8 +21,8 @@
         <jackson-2-version>2.9.9.3</jackson-2-version>
         <lombok.version>1.18.10</lombok.version>
         <quarkus.version>0.25.0</quarkus.version>
-        <swagger.version>2.0.10</swagger.version>
-        <swagger.codegen.version>3.0.11</swagger.codegen.version>
+        <swagger.version>2.1.2</swagger.version>
+        <swagger.codegen.version>3.0.20</swagger.codegen.version>
 
         <!-- testing artifact versions -->
         <hamcrest.version>2.2</hamcrest.version>
