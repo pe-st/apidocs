@@ -16,13 +16,12 @@ between the design-first and code-first approach.
 Accompanying presentation at https://www.eclipsecon.org/europe2019[eclipsecon Europe 2019] :
 https://www.eclipsecon.org/europe2019/sessions/microprofile-openapi-code-first-or-design-first[MicroProfile OpenAPI - code first or design first?]
 
-The examples use https://quarkus.io/[Quarkus] and https://openliberty.io/[OpenLiberty] as servers
-just because they not only support MicroProfile OpenAPI, but come also with an integrated UI.
+The examples use https://quarkus.io/[Quarkus] as server
+just because it not only support MicroProfile OpenAPI, but comes also with an integrated UI.
 But the examples should run with very few code changes in any MicroProfile compatible server.
 
 === Code First
 
-* link:code-first-openapi-openliberty/README.md[code-first with OpenLiberty server and MicroProfile OpenAPI]
 * link:code-first-openapi-quarkus/README.md[code-first with Quarkus server and MicroProfile OpenAPI]
 * link:code-first-swagger/README.md[code-first with Swagger scanner running with Quarkus server]
 
@@ -30,7 +29,6 @@ But the examples should run with very few code changes in any MicroProfile compa
 
 * link:design-first-openapi-generator/README.md[design-first with OpenAPI Generator and Quarkus server]
 * link:design-first-swagger-quarkus/README.md[design-first with Swagger Codegen and Quarkus server]
-* link:design-first-swagger-openliberty/README.md[design-first with Swagger Codegen and OpenLiberty server]
 
 == Project Structure
 
@@ -48,7 +46,7 @@ when the project dependencies are updated (like it happened when I updated from 
   (the txt suffix protects them from being recognized as Java files by the IDE and being reformatted),
   allowing to compare the result of openapi-generator and swagger-codegen.
 
-In addition all example projects have a `rest-api.http` file which allows to run some example HTTP
+In addition, all example projects have a `rest-api.http` file which allows to run some example HTTP
 request against a running service directly from within IntelliJ. And there is an `_idea` directory
 containing the IntelliJ project setup. But you can import the projects easily in any IDE with Maven
 support.
@@ -89,4 +87,3 @@ Code, Documentation and Annotations generated from the same information
 ** https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md[OpenAPI Specification (OpenAPI Initiative)]
 ** https://swagger.io/specification/[OpenAPI Specification (Swagger)]
 * https://quarkus.io/guides/openapi-swaggerui-guide[Quarkus - Using OpenAPI and Swagger UI]
-* https://openliberty.io/guides/microprofile-openapi.html[OpenLiberty Guide - Documenting RESTful APIs]
