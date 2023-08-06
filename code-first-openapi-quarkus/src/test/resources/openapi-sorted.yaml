@@ -1,5 +1,5 @@
 ---
-openapi: 3.0.1
+openapi: 3.0.3
 info:
   title: txproc-code-first-openapi
   version: 0.9
@@ -21,6 +21,8 @@ paths:
                 $ref: '#/components/schemas/PinCheckResponse'
           description: PIN Check Response
       summary: Check the pin
+      tags:
+      - Tx Proc
   /api/txproc/purchase:
     post:
       requestBody:
@@ -38,6 +40,8 @@ paths:
                 $ref: '#/components/schemas/PurchaseAuthResponse'
           description: Purchase Response
       summary: Authorize a Purchase
+      tags:
+      - Tx Proc
 components:
   schemas:
     Code:
@@ -63,9 +67,7 @@ components:
       title: EmvTags
       type: object
     Pan:
-      description: The number embossed on credit cards
-      title: PAN (Primary Account Number)
-      type: string
+      $ref: '#/components/schemas/Pan'
     PinCheckRequest:
       description: Request for checking a PIN
       properties:
@@ -80,7 +82,8 @@ components:
         uuid:
           allOf:
           - $ref: '#/components/schemas/UUID'
-          - description: Unique ID of the request
+          description: Unique ID of the request
+          type: string
       required:
       - uuid
       - pan
@@ -91,8 +94,9 @@ components:
       properties:
         result:
           allOf:
-          - $ref: '#/components/schemas/Code'
-          - description: Result of the request
+          - $ref: '#/components/schemas/Code1'
+          description: Result of the request
+          type: string
         tries:
           description: Number of remaining tries
           format: int32
@@ -108,7 +112,8 @@ components:
         uuid:
           allOf:
           - $ref: '#/components/schemas/UUID'
-          - description: Unique ID of the request
+          description: Unique ID of the request
+          type: string
       required:
       - uuid
       - pan
@@ -121,10 +126,16 @@ components:
           type: string
         result:
           allOf:
-          - $ref: '#/components/schemas/Code1'
-          - description: Result of the request
+          - $ref: '#/components/schemas/Code'
+          description: Result of the request
+          type: string
       type: object
     UUID:
       format: uuid
-      pattern: '[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}'
+      pattern: "[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}"
       type: string
+  securitySchemes:
+    SecurityScheme:
+      description: Authentication
+      scheme: basic
+      type: http

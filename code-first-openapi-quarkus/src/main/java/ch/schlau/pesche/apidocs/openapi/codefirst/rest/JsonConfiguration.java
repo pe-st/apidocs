@@ -1,8 +1,8 @@
 package ch.schlau.pesche.apidocs.openapi.codefirst.rest;
 
-import javax.json.bind.Jsonb;
-import javax.json.bind.JsonbBuilder;
-import javax.json.bind.JsonbConfig;
+import jakarta.json.bind.Jsonb;
+import jakarta.json.bind.JsonbBuilder;
+import jakarta.json.bind.JsonbConfig;
 
 import ch.schlau.pesche.apidocs.openapi.codefirst.txproc.model.PanJsonAdapter;
 import lombok.experimental.UtilityClass;

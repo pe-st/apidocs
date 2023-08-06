@@ -1,6 +1,6 @@
 package ch.schlau.pesche.apidocs.swagger.codefirst.txproc.model;
 
-import javax.validation.constraints.Pattern;
+import jakarta.validation.constraints.Pattern;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;

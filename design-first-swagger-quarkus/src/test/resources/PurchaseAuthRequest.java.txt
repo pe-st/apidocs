@@ -26,6 +26,7 @@ import java.util.UUID;
  */
 @Schema(description = "Request for authorizing a Purchase")
 
+
 public class PurchaseAuthRequest {
   @JsonProperty("emvTags")
   private EmvTags emvTags = null;

@@ -25,6 +25,7 @@ import java.util.UUID;
  */
 @Schema(description = "Request for checking a PIN")
 
+
 public class PinCheckRequest {
   @JsonProperty("pan")
   private Pan pan = null;

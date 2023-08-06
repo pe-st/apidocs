@@ -20,3 +20,7 @@ Once the service runs:
 
 - http://localhost:8080/openapi fetches the OpenAPI document
 - http://localhost:8080/swagger-ui shows an interactive view of the API (based on Swagger-UI)
+
+## Swagger Scanner
+
+Plugin source: [swagger-maven-plugin](https://github.com/swagger-api/swagger-core/tree/master/modules/swagger-maven-plugin)

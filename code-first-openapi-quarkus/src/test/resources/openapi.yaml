@@ -1,11 +1,13 @@
 ---
-openapi: 3.0.1
+openapi: 3.0.3
 info:
   title: txproc-code-first-openapi
   version: "0.9"
 paths:
   /api/txproc/pincheck:
     post:
+      tags:
+      - Tx Proc
       summary: Check the pin
       requestBody:
         description: PIN Check Request Body
@@ -23,6 +25,8 @@ paths:
                 $ref: '#/components/schemas/PinCheckResponse'
   /api/txproc/purchase:
     post:
+      tags:
+      - Tx Proc
       summary: Authorize a Purchase
       requestBody:
         description: Purchase Request Body
@@ -40,66 +44,16 @@ paths:
                 $ref: '#/components/schemas/PurchaseAuthResponse'
 components:
   schemas:
-    PinCheckRequest:
-      description: Request for checking a PIN
-      required:
-      - uuid
-      - pan
-      - pinBlock
-      type: object
-      properties:
-        pan:
-          $ref: '#/components/schemas/Pan'
-        pinBlock:
-          description: |-
-            Encrypted binary data containing a PIN
-
-            Fieldcode: C003
-          type: string
-        uuid:
-          allOf:
-          - $ref: '#/components/schemas/UUID'
-          - description: Unique ID of the request
-    Pan:
-      title: PAN (Primary Account Number)
-      description: The number embossed on credit cards
-      type: string
-    UUID:
-      format: uuid
-      pattern: '[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}'
-      type: string
-    PinCheckResponse:
-      description: Tells if the PIN in the request was correct
-      type: object
-      properties:
-        result:
-          allOf:
-          - $ref: '#/components/schemas/Code'
-          - description: Result of the request
-        tries:
-          format: int32
-          description: Number of remaining tries
-          type: integer
     Code:
       enum:
       - OK
       - WRONG
       type: string
-    PurchaseAuthRequest:
-      description: Request for authorizing a Purchase
-      required:
-      - uuid
-      - pan
-      type: object
-      properties:
-        emvTags:
-          $ref: '#/components/schemas/EmvTags'
-        pan:
-          $ref: '#/components/schemas/Pan'
-        uuid:
-          allOf:
-          - $ref: '#/components/schemas/UUID'
-          - description: Unique ID of the request
+    Code1:
+      enum:
+      - OK
+      - WRONG
+      type: string
     EmvTags:
       title: EmvTags
       description: Collection of EMV tags
@@ -112,19 +66,76 @@ components:
         "9F1A":
           description: Terminal Country Code
           type: string
+    Pan:
+      $ref: '#/components/schemas/Pan'
+    PinCheckRequest:
+      description: Request for checking a PIN
+      required:
+      - uuid
+      - pan
+      - pinBlock
+      type: object
+      properties:
+        uuid:
+          description: Unique ID of the request
+          type: string
+          allOf:
+          - $ref: '#/components/schemas/UUID'
+        pan:
+          $ref: '#/components/schemas/Pan'
+        pinBlock:
+          description: |-
+            Encrypted binary data containing a PIN
+
+            Fieldcode: C003
+          type: string
+    PinCheckResponse:
+      description: Tells if the PIN in the request was correct
+      type: object
+      properties:
+        result:
+          description: Result of the request
+          type: string
+          allOf:
+          - $ref: '#/components/schemas/Code1'
+        tries:
+          format: int32
+          description: Number of remaining tries
+          type: integer
+    PurchaseAuthRequest:
+      description: Request for authorizing a Purchase
+      required:
+      - uuid
+      - pan
+      type: object
+      properties:
+        uuid:
+          description: Unique ID of the request
+          type: string
+          allOf:
+          - $ref: '#/components/schemas/UUID'
+        pan:
+          $ref: '#/components/schemas/Pan'
+        emvTags:
+          $ref: '#/components/schemas/EmvTags'
     PurchaseAuthResponse:
       description: Response to PurchaseAuthRequest
       type: object
       properties:
+        result:
+          description: Result of the request
+          type: string
+          allOf:
+          - $ref: '#/components/schemas/Code'
         approvalCode:
           description: Code referencing the successful authorization
           type: string
-        result:
-          allOf:
-          - $ref: '#/components/schemas/Code1'
-          - description: Result of the request
-    Code1:
-      enum:
-      - OK
-      - WRONG
+    UUID:
+      format: uuid
+      pattern: "[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}"
       type: string
+  securitySchemes:
+    SecurityScheme:
+      type: http
+      description: Authentication
+      scheme: basic

@@ -15,23 +15,24 @@ package ch.schlau.pesche.apidocs.openapi.designfirst.generated.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 
 /**
  * Tells if the PIN in the request was correct
  */
-@ApiModel(description = "Tells if the PIN in the request was correct")
 @JsonPropertyOrder({
   PinCheckResponse.JSON_PROPERTY_RESULT,
   PinCheckResponse.JSON_PROPERTY_TRIES
 })
-
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class PinCheckResponse {
   /**
    * Result of the request
@@ -74,9 +75,10 @@ public class PinCheckResponse {
   public static final String JSON_PROPERTY_TRIES = "tries";
   private Integer tries;
 
+  public PinCheckResponse() { 
+  }
 
   public PinCheckResponse result(ResultEnum result) {
-    
     this.result = result;
     return this;
   }
@@ -85,8 +87,7 @@ public class PinCheckResponse {
    * Result of the request
    * @return result
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Result of the request")
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -95,13 +96,14 @@ public class PinCheckResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RESULT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResult(ResultEnum result) {
     this.result = result;
   }
 
 
   public PinCheckResponse tries(Integer tries) {
-    
     this.tries = tries;
     return this;
   }
@@ -110,8 +112,7 @@ public class PinCheckResponse {
    * Number of remaining tries
    * @return tries
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of remaining tries")
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TRIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -120,13 +121,18 @@ public class PinCheckResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_TRIES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTries(Integer tries) {
     this.tries = tries;
   }
 
 
+  /**
+   * Return true if this PinCheckResponse object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -143,7 +149,6 @@ public class PinCheckResponse {
     return Objects.hash(result, tries);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -158,12 +163,11 @@ public class PinCheckResponse {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
 

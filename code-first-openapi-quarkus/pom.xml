@@ -17,16 +17,16 @@
         <java.release>11</java.release>
 
         <!-- artifact versions -->
-        <lombok.version>1.18.10</lombok.version>
-        <quarkus.version>1.5.0.Final</quarkus.version>
+        <lombok.version>1.18.28</lombok.version>
+        <quarkus.version>3.2.3.Final</quarkus.version>
 
         <!-- testing artifact versions -->
         <hamcrest.version>2.2</hamcrest.version>
-        <json.unit.version>2.10.0</json.unit.version>
+        <json.unit.version>2.38.0</json.unit.version>
 
         <!-- apache maven plugin versions (in alphabetical order) -->
-        <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
-        <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
+        <maven.compiler.plugin.version>3.11.0</maven.compiler.plugin.version>
+        <maven.surefire.plugin.version>3.1.2</maven.surefire.plugin.version>
     </properties>
 
     <dependencyManagement>
@@ -42,7 +42,7 @@
     </dependencyManagement>
 
     <dependencies>
-        <!-- Java EE and MP dependencies -->
+        <!-- Jakarta EE and MP dependencies -->
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-resteasy-jsonb</artifactId>

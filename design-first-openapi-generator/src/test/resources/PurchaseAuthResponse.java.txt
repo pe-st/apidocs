@@ -15,23 +15,24 @@ package ch.schlau.pesche.apidocs.openapi.designfirst.generated.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 
 /**
  * Response to PurchaseAuthRequest
  */
-@ApiModel(description = "Response to PurchaseAuthRequest")
 @JsonPropertyOrder({
   PurchaseAuthResponse.JSON_PROPERTY_APPROVAL_CODE,
   PurchaseAuthResponse.JSON_PROPERTY_RESULT
 })
-
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class PurchaseAuthResponse {
   public static final String JSON_PROPERTY_APPROVAL_CODE = "approvalCode";
   private String approvalCode;
@@ -74,9 +75,10 @@ public class PurchaseAuthResponse {
   public static final String JSON_PROPERTY_RESULT = "result";
   private ResultEnum result;
 
+  public PurchaseAuthResponse() { 
+  }
 
   public PurchaseAuthResponse approvalCode(String approvalCode) {
-    
     this.approvalCode = approvalCode;
     return this;
   }
@@ -85,8 +87,7 @@ public class PurchaseAuthResponse {
    * Code referencing the successful authorization
    * @return approvalCode
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Code referencing the successful authorization")
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_APPROVAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -95,13 +96,14 @@ public class PurchaseAuthResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_APPROVAL_CODE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setApprovalCode(String approvalCode) {
     this.approvalCode = approvalCode;
   }
 
 
   public PurchaseAuthResponse result(ResultEnum result) {
-    
     this.result = result;
     return this;
   }
@@ -110,8 +112,7 @@ public class PurchaseAuthResponse {
    * Result of the request
    * @return result
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Result of the request")
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -120,13 +121,18 @@ public class PurchaseAuthResponse {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_RESULT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResult(ResultEnum result) {
     this.result = result;
   }
 
 
+  /**
+   * Return true if this PurchaseAuthResponse object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -143,7 +149,6 @@ public class PurchaseAuthResponse {
     return Objects.hash(approvalCode, result);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -158,12 +163,11 @@ public class PurchaseAuthResponse {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
 

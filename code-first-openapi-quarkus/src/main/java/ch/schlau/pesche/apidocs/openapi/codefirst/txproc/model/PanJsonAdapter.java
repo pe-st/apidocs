@@ -1,6 +1,6 @@
 package ch.schlau.pesche.apidocs.openapi.codefirst.txproc.model;
 
-import javax.json.bind.adapter.JsonbAdapter;
+import jakarta.json.bind.adapter.JsonbAdapter;
 
 public class PanJsonAdapter implements JsonbAdapter<Pan, String> {
     @Override

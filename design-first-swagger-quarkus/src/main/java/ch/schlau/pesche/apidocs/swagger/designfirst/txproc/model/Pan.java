@@ -1,6 +1,6 @@
 package ch.schlau.pesche.apidocs.swagger.designfirst.txproc.model;
 
-import javax.validation.constraints.Pattern;
+import jakarta.validation.constraints.Pattern;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

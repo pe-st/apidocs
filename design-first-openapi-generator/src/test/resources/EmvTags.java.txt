@@ -15,23 +15,24 @@ package ch.schlau.pesche.apidocs.openapi.designfirst.generated.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 
 /**
  * Collection of EMV tags
  */
-@ApiModel(description = "Collection of EMV tags")
 @JsonPropertyOrder({
   EmvTags.JSON_PROPERTY_84,
   EmvTags.JSON_PROPERTY_9_F1_A
 })
-
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class EmvTags {
   public static final String JSON_PROPERTY_84 = "84";
   private String _84;
@@ -39,9 +40,10 @@ public class EmvTags {
   public static final String JSON_PROPERTY_9_F1_A = "9F1A";
   private String _9F1A;
 
+  public EmvTags() { 
+  }
 
   public EmvTags _84(String _84) {
-    
     this._84 = _84;
     return this;
   }
@@ -50,8 +52,7 @@ public class EmvTags {
    * The EMV AID as reported by ICC
    * @return _84
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The EMV AID as reported by ICC")
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_84)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -60,13 +61,14 @@ public class EmvTags {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_84)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void set84(String _84) {
     this._84 = _84;
   }
 
 
   public EmvTags _9F1A(String _9F1A) {
-    
     this._9F1A = _9F1A;
     return this;
   }
@@ -75,8 +77,7 @@ public class EmvTags {
    * Terminal Country Code
    * @return _9F1A
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Terminal Country Code")
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_9_F1_A)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -85,13 +86,18 @@ public class EmvTags {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_9_F1_A)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void set9F1A(String _9F1A) {
     this._9F1A = _9F1A;
   }
 
 
+  /**
+   * Return true if this EmvTags object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -108,7 +114,6 @@ public class EmvTags {
     return Objects.hash(_84, _9F1A);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -123,12 +128,11 @@ public class EmvTags {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
 

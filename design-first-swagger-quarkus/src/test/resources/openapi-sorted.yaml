@@ -1,5 +1,5 @@
 ---
-openapi: 3.0.0
+openapi: 3.0.3
 info:
   title: txproc-design-first-swagger
   version: 0.9
@@ -123,3 +123,8 @@ components:
           - WRONG
           type: string
       type: object
+  securitySchemes:
+    SecurityScheme:
+      description: Authentication
+      scheme: basic
+      type: http

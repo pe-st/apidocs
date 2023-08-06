@@ -2,9 +2,9 @@ package ch.schlau.pesche.apidocs.swagger.codefirst.rest;
 
 import static ch.schlau.pesche.apidocs.swagger.codefirst.rest.JsonConfiguration.JSONB;
 
-import javax.json.bind.Jsonb;
-import javax.ws.rs.ext.ContextResolver;
-import javax.ws.rs.ext.Provider;
+import jakarta.json.bind.Jsonb;
+import jakarta.ws.rs.ext.ContextResolver;
+import jakarta.ws.rs.ext.Provider;
 
 @Provider
 public class JsonContextResolver implements ContextResolver<Jsonb> {

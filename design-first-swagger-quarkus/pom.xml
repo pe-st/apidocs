@@ -17,18 +17,18 @@
         <java.release>11</java.release>
 
         <!-- artifact versions -->
-        <lombok.version>1.18.10</lombok.version>
-        <quarkus.version>1.5.0.Final</quarkus.version>
-        <swagger.version>2.1.2</swagger.version>
-        <swagger.codegen.version>3.0.20</swagger.codegen.version>
+        <lombok.version>1.18.28</lombok.version>
+        <quarkus.version>3.2.3.Final</quarkus.version>
+        <swagger.version>2.2.15</swagger.version>
+        <swagger-codegen.plugin.version>3.0.46</swagger-codegen.plugin.version>
 
         <!-- testing artifact versions -->
         <hamcrest.version>2.2</hamcrest.version>
-        <json.unit.version>2.10.0</json.unit.version>
+        <json.unit.version>2.38.0</json.unit.version>
 
         <!-- apache maven plugin versions (in alphabetical order) -->
-        <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
-        <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
+        <maven.compiler.plugin.version>3.11.0</maven.compiler.plugin.version>
+        <maven.surefire.plugin.version>3.1.2</maven.surefire.plugin.version>
 
         <generated.path>${project.build.directory}/generated-sources/swagger</generated.path>
     </properties>
@@ -46,7 +46,7 @@
     </dependencyManagement>
 
     <dependencies>
-        <!-- Java EE and MP dependencies -->
+        <!-- Jakarta EE and MP dependencies -->
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-resteasy-jsonb</artifactId>
@@ -109,7 +109,7 @@
             <plugin>
                 <groupId>io.swagger.codegen.v3</groupId>
                 <artifactId>swagger-codegen-maven-plugin</artifactId>
-                <version>${swagger.codegen.version}</version>
+                <version>${swagger-codegen.plugin.version}</version>
                 <executions>
                     <execution>
                         <goals>
@@ -131,12 +131,13 @@
                                 <sourceFolder>.</sourceFolder>
                                 <modelPackage>ch.schlau.pesche.apidocs.swagger.designfirst.generated.model</modelPackage>
                             </configOptions>
-                            <!-- disable the @Generated annotation (with timestamp) in generated code, it makes it difficult to compare it -->
                             <additionalProperties>
-                                hideGenerationTimestamp=true
+                                <!-- disable the @Generated annotation (with timestamp) in generated code, it makes it difficult to compare it -->
+                                <additionalProperty>hideGenerationTimestamp=true</additionalProperty>
+                                <additionalProperty>jakarta=true</additionalProperty>
                             </additionalProperties>
                             <importMappings>
-                                Pan=ch.schlau.pesche.apidocs.swagger.designfirst.txproc.model.Pan
+                                <importMapping>Pan=ch.schlau.pesche.apidocs.swagger.designfirst.txproc.model.Pan</importMapping>
                             </importMappings>
                         </configuration>
                     </execution>

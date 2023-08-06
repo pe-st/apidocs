@@ -15,25 +15,26 @@ package ch.schlau.pesche.apidocs.openapi.designfirst.generated.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.UUID;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 
 /**
  * Request for checking a PIN
  */
-@ApiModel(description = "Request for checking a PIN")
 @JsonPropertyOrder({
   PinCheckRequest.JSON_PROPERTY_PAN,
   PinCheckRequest.JSON_PROPERTY_PIN_BLOCK,
   PinCheckRequest.JSON_PROPERTY_UUID
 })
-
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class PinCheckRequest {
   public static final String JSON_PROPERTY_PAN = "pan";
   private ch.schlau.pesche.apidocs.openapi.designfirst.txproc.model.Pan pan;
@@ -44,9 +45,10 @@ public class PinCheckRequest {
   public static final String JSON_PROPERTY_UUID = "uuid";
   private UUID uuid;
 
+  public PinCheckRequest() { 
+  }
 
   public PinCheckRequest pan(ch.schlau.pesche.apidocs.openapi.designfirst.txproc.model.Pan pan) {
-    
     this.pan = pan;
     return this;
   }
@@ -55,7 +57,7 @@ public class PinCheckRequest {
    * Get pan
    * @return pan
   **/
-  @ApiModelProperty(required = true, value = "")
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_PAN)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -64,13 +66,14 @@ public class PinCheckRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PAN)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPan(ch.schlau.pesche.apidocs.openapi.designfirst.txproc.model.Pan pan) {
     this.pan = pan;
   }
 
 
   public PinCheckRequest pinBlock(String pinBlock) {
-    
     this.pinBlock = pinBlock;
     return this;
   }
@@ -79,7 +82,7 @@ public class PinCheckRequest {
    * Encrypted binary data containing a PIN  Fieldcode: C003
    * @return pinBlock
   **/
-  @ApiModelProperty(required = true, value = "Encrypted binary data containing a PIN  Fieldcode: C003")
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_PIN_BLOCK)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -88,13 +91,14 @@ public class PinCheckRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PIN_BLOCK)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPinBlock(String pinBlock) {
     this.pinBlock = pinBlock;
   }
 
 
   public PinCheckRequest uuid(UUID uuid) {
-    
     this.uuid = uuid;
     return this;
   }
@@ -103,7 +107,7 @@ public class PinCheckRequest {
    * Unique ID of the request
    * @return uuid
   **/
-  @ApiModelProperty(required = true, value = "Unique ID of the request")
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_UUID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -112,13 +116,18 @@ public class PinCheckRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_UUID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUuid(UUID uuid) {
     this.uuid = uuid;
   }
 
 
+  /**
+   * Return true if this PinCheckRequest object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -136,7 +145,6 @@ public class PinCheckRequest {
     return Objects.hash(pan, pinBlock, uuid);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -152,12 +160,11 @@ public class PinCheckRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
 

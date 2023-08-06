@@ -17,18 +17,18 @@
         <java.release>11</java.release>
 
         <!-- artifact versions -->
-        <lombok.version>1.18.10</lombok.version>
-        <quarkus.version>1.5.0.Final</quarkus.version>
+        <lombok.version>1.18.28</lombok.version>
+        <quarkus.version>3.2.3.Final</quarkus.version>
         <swagger.version>1.5.22</swagger.version>
-        <openapi.generator.version>4.3.1</openapi.generator.version>
+        <openapi-generator.plugin.version>6.6.0</openapi-generator.plugin.version>
 
         <!-- testing artifact versions -->
         <hamcrest.version>2.2</hamcrest.version>
-        <json.unit.version>2.10.0</json.unit.version>
+        <json.unit.version>2.38.0</json.unit.version>
 
         <!-- apache maven plugin versions (in alphabetical order) -->
-        <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
-        <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
+        <maven.compiler.plugin.version>3.11.0</maven.compiler.plugin.version>
+        <maven.surefire.plugin.version>3.1.2</maven.surefire.plugin.version>
 
         <generated.path>${project.build.directory}/generated-sources/openapi</generated.path>
     </properties>
@@ -46,7 +46,7 @@
     </dependencyManagement>
 
     <dependencies>
-        <!-- Java EE and MP dependencies -->
+        <!-- Jakarta EE and MP dependencies -->
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-resteasy-jsonb</artifactId>
@@ -57,11 +57,6 @@
         </dependency>
 
         <!-- dependencies for the generated code -->
-        <dependency>
-            <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305</artifactId>
-            <version>3.0.2</version>
-        </dependency>
         <!-- jackson-databind already present via quarkus-smallrye-openapi -->
         <dependency>
             <!-- couldn't find an option to generate openapi3/swagger2 annotations... -->
@@ -115,7 +110,7 @@
             <plugin>
                 <groupId>org.openapitools</groupId>
                 <artifactId>openapi-generator-maven-plugin</artifactId>
-                <version>${openapi.generator.version}</version>
+                <version>${openapi-generator.plugin.version}</version>
                 <executions>
                     <execution>
                         <goals>
@@ -135,17 +130,19 @@
                                 <java8>true</java8>
                                 <dateLibrary>java8</dateLibrary>
                                 <library>native</library>
+                                <useJakartaEe>true</useJakartaEe>
                                 <useBeanValidation>false</useBeanValidation>
                                 <sourceFolder>.</sourceFolder>
                                 <modelPackage>ch.schlau.pesche.apidocs.openapi.designfirst.generated.model</modelPackage>
                             </configOptions>
-                            <!-- disable the @Generated annotation (with timestamp) in generated code, it makes it difficult to compare it -->
                             <additionalProperties>
-                                hideGenerationTimestamp=true
+                                <!-- disable the @Generated annotation (with timestamp) in generated code, it makes it difficult to compare it -->
+                                <additionalProperty>hideGenerationTimestamp=true</additionalProperty>
+                                <additionalProperty>supportUrlQuery=false</additionalProperty>
                             </additionalProperties>
-                            <importMappings>
-                                Pan=ch.schlau.pesche.apidocs.openapi.designfirst.txproc.model.Pan
-                            </importMappings>
+                            <schemaMappings>
+                                <schemaMapping>Pan=ch.schlau.pesche.apidocs.openapi.designfirst.txproc.model.Pan</schemaMapping>
+                            </schemaMappings>
                         </configuration>
                     </execution>
                 </executions>

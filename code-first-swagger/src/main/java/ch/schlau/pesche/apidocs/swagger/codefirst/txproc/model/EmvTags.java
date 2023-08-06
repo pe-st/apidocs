@@ -1,6 +1,6 @@
 package ch.schlau.pesche.apidocs.swagger.codefirst.txproc.model;
 
-import javax.json.bind.annotation.JsonbProperty;
+import jakarta.json.bind.annotation.JsonbProperty;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;

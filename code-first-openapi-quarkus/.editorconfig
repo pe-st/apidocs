@@ -1,0 +1,19 @@
+# editor configuration containing values that are different from the IntelliJ default
+
+[*]
+charset = utf-8
+indent_size = 4
+indent_style = space
+
+[*.java]
+ij_java_imports_layout = $*, |, java.**, |, jakarta.**, javax.**, |, oracle.**, |, org.**, |, com.**, |, *
+
+[{*.ant,*.fxml,*.jhm,*.jnlp,*.jrxml,*.pom,*.rng,*.tld,*.wadl,*.wsdd,*.wsdl,*.xjb,*.xml,*.xsd,*.xsl,*.xslt,*.xul}]
+ij_xml_line_comment_at_first_column = false
+
+[{*.har,*.jsb2,*.jsb3,*.json,*.ndjson,.babelrc,.eslintrc,.stylelintrc,bowerrc,jest.config}]
+indent_size = 2
+
+[{*.yaml,*.yml}]
+indent_size = 2
+ij_yaml_indent_sequence_value = false

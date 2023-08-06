@@ -1,5 +1,5 @@
 {
-  "openapi": "3.0.1",
+  "openapi": "3.0.3",
   "info": {
     "title": "txproc-code-first-swagger",
     "version": "0.9"
@@ -164,6 +164,13 @@
             "$ref": "#/components/schemas/EmvTags"
           }
         }
+      }
+    },
+    "securitySchemes": {
+      "SecurityScheme": {
+        "type": "http",
+        "description": "Authentication",
+        "scheme": "basic"
       }
     }
   }

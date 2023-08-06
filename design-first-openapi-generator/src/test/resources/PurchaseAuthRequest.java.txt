@@ -15,26 +15,27 @@ package ch.schlau.pesche.apidocs.openapi.designfirst.generated.model;
 
 import java.util.Objects;
 import java.util.Arrays;
+import java.util.Map;
+import java.util.HashMap;
 import ch.schlau.pesche.apidocs.openapi.designfirst.generated.model.EmvTags;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.UUID;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 
 /**
  * Request for authorizing a Purchase
  */
-@ApiModel(description = "Request for authorizing a Purchase")
 @JsonPropertyOrder({
   PurchaseAuthRequest.JSON_PROPERTY_EMV_TAGS,
   PurchaseAuthRequest.JSON_PROPERTY_PAN,
   PurchaseAuthRequest.JSON_PROPERTY_UUID
 })
-
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class PurchaseAuthRequest {
   public static final String JSON_PROPERTY_EMV_TAGS = "emvTags";
   private EmvTags emvTags;
@@ -45,9 +46,10 @@ public class PurchaseAuthRequest {
   public static final String JSON_PROPERTY_UUID = "uuid";
   private UUID uuid;
 
+  public PurchaseAuthRequest() { 
+  }
 
   public PurchaseAuthRequest emvTags(EmvTags emvTags) {
-    
     this.emvTags = emvTags;
     return this;
   }
@@ -56,8 +58,7 @@ public class PurchaseAuthRequest {
    * Get emvTags
    * @return emvTags
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EMV_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -66,13 +67,14 @@ public class PurchaseAuthRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_EMV_TAGS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmvTags(EmvTags emvTags) {
     this.emvTags = emvTags;
   }
 
 
   public PurchaseAuthRequest pan(ch.schlau.pesche.apidocs.openapi.designfirst.txproc.model.Pan pan) {
-    
     this.pan = pan;
     return this;
   }
@@ -81,7 +83,7 @@ public class PurchaseAuthRequest {
    * Get pan
    * @return pan
   **/
-  @ApiModelProperty(required = true, value = "")
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_PAN)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -90,13 +92,14 @@ public class PurchaseAuthRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_PAN)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPan(ch.schlau.pesche.apidocs.openapi.designfirst.txproc.model.Pan pan) {
     this.pan = pan;
   }
 
 
   public PurchaseAuthRequest uuid(UUID uuid) {
-    
     this.uuid = uuid;
     return this;
   }
@@ -105,7 +108,7 @@ public class PurchaseAuthRequest {
    * Unique ID of the request
    * @return uuid
   **/
-  @ApiModelProperty(required = true, value = "Unique ID of the request")
+  @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_UUID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -114,13 +117,18 @@ public class PurchaseAuthRequest {
   }
 
 
+  @JsonProperty(JSON_PROPERTY_UUID)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUuid(UUID uuid) {
     this.uuid = uuid;
   }
 
 
+  /**
+   * Return true if this PurchaseAuthRequest object is equal to o.
+   */
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -138,7 +146,6 @@ public class PurchaseAuthRequest {
     return Objects.hash(emvTags, pan, uuid);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -154,12 +161,11 @@ public class PurchaseAuthRequest {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
   }
-
 }
 

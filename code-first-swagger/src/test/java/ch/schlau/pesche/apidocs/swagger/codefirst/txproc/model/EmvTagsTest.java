@@ -4,7 +4,7 @@ import static ch.schlau.pesche.apidocs.swagger.codefirst.rest.JsonConfiguration.
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-import javax.json.bind.Jsonb;
+import jakarta.json.bind.Jsonb;
 
 import org.junit.jupiter.api.Test;
 

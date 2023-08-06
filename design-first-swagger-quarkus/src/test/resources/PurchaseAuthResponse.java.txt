@@ -23,6 +23,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  */
 @Schema(description = "Response to PurchaseAuthRequest")
 
+
 public class PurchaseAuthResponse {
   @JsonProperty("approvalCode")
   private String approvalCode = null;
@@ -49,9 +50,9 @@ public class PurchaseAuthResponse {
       return String.valueOf(value);
     }
     @JsonCreator
-    public static ResultEnum fromValue(String text) {
+    public static ResultEnum fromValue(String input) {
       for (ResultEnum b : ResultEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
+        if (b.value.equals(input)) {
           return b;
         }
       }

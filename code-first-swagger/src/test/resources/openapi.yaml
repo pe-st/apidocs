@@ -1,5 +1,5 @@
 ---
-openapi: 3.0.1
+openapi: 3.0.3
 info:
   title: txproc-code-first-swagger
   version: "0.9"
@@ -95,11 +95,11 @@ components:
       description: Collection of EMV tags
       type: object
       properties:
-        84:
+        "84":
           title: Dedicated Filename
           description: The EMV AID as reported by ICC
           type: string
-        9F1A:
+        "9F1A":
           description: Terminal Country Code
           type: string
     PurchaseAuthRequest:
@@ -118,3 +118,8 @@ components:
           type: string
         emvTags:
           $ref: '#/components/schemas/EmvTags'
+  securitySchemes:
+    SecurityScheme:
+      type: http
+      description: Authentication
+      scheme: basic

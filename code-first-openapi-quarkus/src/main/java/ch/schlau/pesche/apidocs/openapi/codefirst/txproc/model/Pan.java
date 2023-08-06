@@ -1,6 +1,6 @@
 package ch.schlau.pesche.apidocs.openapi.codefirst.txproc.model;
 
-import javax.validation.constraints.Pattern;
+import jakarta.validation.constraints.Pattern;
 
 import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;

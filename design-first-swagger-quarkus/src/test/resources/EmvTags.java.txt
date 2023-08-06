@@ -23,6 +23,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
  */
 @Schema(description = "Collection of EMV tags")
 
+
 public class EmvTags {
   @JsonProperty("84")
   private String _84 = null;
