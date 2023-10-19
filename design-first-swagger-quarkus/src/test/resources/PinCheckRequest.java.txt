@@ -14,7 +14,6 @@ package ch.schlau.pesche.apidocs.swagger.designfirst.generated.model;
 
 import java.util.Objects;
 import java.util.Arrays;
-import ch.schlau.pesche.apidocs.swagger.designfirst.txproc.model.Pan;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -28,7 +27,7 @@ import java.util.UUID;
 
 public class PinCheckRequest {
   @JsonProperty("pan")
-  private Pan pan = null;
+  private ch.schlau.pesche.apidocs.swagger.designfirst.txproc.model.Pan pan = null;
 
   @JsonProperty("pinBlock")
   private String pinBlock = null;
@@ -36,7 +35,7 @@ public class PinCheckRequest {
   @JsonProperty("uuid")
   private UUID uuid = null;
 
-  public PinCheckRequest pan(Pan pan) {
+  public PinCheckRequest pan(ch.schlau.pesche.apidocs.swagger.designfirst.txproc.model.Pan pan) {
     this.pan = pan;
     return this;
   }
@@ -46,11 +45,11 @@ public class PinCheckRequest {
    * @return pan
   **/
   @Schema(required = true, description = "")
-  public Pan getPan() {
+  public ch.schlau.pesche.apidocs.swagger.designfirst.txproc.model.Pan getPan() {
     return pan;
   }
 
-  public void setPan(Pan pan) {
+  public void setPan(ch.schlau.pesche.apidocs.swagger.designfirst.txproc.model.Pan pan) {
     this.pan = pan;
   }
 

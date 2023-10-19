@@ -14,17 +14,17 @@
 
         <!-- The Java release (the 'de facto' Java major version number, e.g. 8 for Java 1.8, and 9 for Java 9), -->
         <!-- supported in the compiler plugin as `<release>` for JDK 9 and later, see also JEP223 -->
-        <java.release>11</java.release>
+        <java.release>17</java.release>
 
         <!-- artifact versions -->
-        <lombok.version>1.18.28</lombok.version>
-        <quarkus.version>3.2.3.Final</quarkus.version>
-        <swagger.version>1.5.22</swagger.version>
-        <openapi-generator.plugin.version>6.6.0</openapi-generator.plugin.version>
+        <lombok.version>1.18.30</lombok.version>
+        <quarkus.version>3.4.3</quarkus.version>
+        <swagger.version>1.6.12</swagger.version>
+        <openapi-generator.plugin.version>7.0.1</openapi-generator.plugin.version>
 
         <!-- testing artifact versions -->
         <hamcrest.version>2.2</hamcrest.version>
-        <json.unit.version>2.38.0</json.unit.version>
+        <json.unit.version>3.2.2</json.unit.version>
 
         <!-- apache maven plugin versions (in alphabetical order) -->
         <maven.compiler.plugin.version>3.11.0</maven.compiler.plugin.version>
@@ -59,6 +59,7 @@
         <!-- dependencies for the generated code -->
         <!-- jackson-databind already present via quarkus-smallrye-openapi -->
         <dependency>
+            <!-- openapi-generator still needs @ApiModel/@ApiModelProperty -->
             <!-- couldn't find an option to generate openapi3/swagger2 annotations... -->
             <groupId>io.swagger</groupId>
             <artifactId>swagger-annotations</artifactId>

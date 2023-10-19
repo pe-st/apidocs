@@ -4,15 +4,19 @@
     <file url="file://$PROJECT_DIR$/.." charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../code-first-openapi-quarkus" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../code-first-openapi-quarkus/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../code-first-openapi-quarkus/src/main/kotlin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../code-first-openapi-quarkus/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../code-first-swagger" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../code-first-swagger/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../code-first-swagger/src/main/kotlin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../code-first-swagger/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../design-first-openapi-generator" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../design-first-openapi-generator/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../design-first-openapi-generator/src/main/kotlin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../design-first-openapi-generator/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../design-first-swagger-quarkus" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../design-first-swagger-quarkus/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../design-first-swagger-quarkus/src/main/kotlin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../design-first-swagger-quarkus/src/main/resources" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>

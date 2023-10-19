@@ -14,15 +14,15 @@
 
         <!-- The Java release (the 'de facto' Java major version number, e.g. 8 for Java 1.8, and 9 for Java 9), -->
         <!-- supported in the compiler plugin as `<release>` for JDK 9 and later, see also JEP223 -->
-        <java.release>11</java.release>
+        <java.release>17</java.release>
 
         <!-- artifact versions -->
-        <lombok.version>1.18.28</lombok.version>
-        <quarkus.version>3.2.3.Final</quarkus.version>
+        <lombok.version>1.18.30</lombok.version>
+        <quarkus.version>3.4.3</quarkus.version>
 
         <!-- testing artifact versions -->
         <hamcrest.version>2.2</hamcrest.version>
-        <json.unit.version>2.38.0</json.unit.version>
+        <json.unit.version>3.2.2</json.unit.version>
 
         <!-- apache maven plugin versions (in alphabetical order) -->
         <maven.compiler.plugin.version>3.11.0</maven.compiler.plugin.version>
@@ -58,6 +58,13 @@
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
             <scope>provided</scope>
+        </dependency>
+
+        <!-- for debugging the openapi quarkus extension -->
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-smallrye-openapi-deployment</artifactId>
+            <scope>test</scope>
         </dependency>
 
         <!-- Testing dependencies -->

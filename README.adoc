@@ -1,6 +1,6 @@
 = OpenAPI - code first or design first?
 
-image:https://github.com/pe-st/apidocs/actions/workflows/maven/badge.svg["Build Status"]
+image:https://github.com/pe-st/apidocs/actions/workflows/maven/badge.svg?branch=feature%2Fupdates["Build Status"]
 
 == Overview
 
@@ -17,7 +17,7 @@ Accompanying presentation at https://www.eclipsecon.org/europe2019[eclipsecon Eu
 https://www.eclipsecon.org/europe2019/sessions/microprofile-openapi-code-first-or-design-first[MicroProfile OpenAPI - code first or design first?]
 
 The examples use https://quarkus.io/[Quarkus] as server
-just because it not only support MicroProfile OpenAPI, but comes also with an integrated UI.
+just because it not only supports MicroProfile OpenAPI, but comes also with an integrated UI.
 But the examples should run with very few code changes in any MicroProfile compatible server.
 
 === Code First
