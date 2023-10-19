@@ -72,7 +72,7 @@ class OpenapiDocumentIT {
                 .assertThat().contentType(MediaType.APPLICATION_JSON)
                 .extract().response().asString();
 
-        assertThat(document, jsonEquals(expected));
+        assertThat("actual: " + document, document, jsonEquals(expected));
     }
 
     private String sortYaml(String yaml) throws IOException {

@@ -1,6 +1,0 @@
-language: java
-
-# this uses Ubuntu 18.04 (Bionic Beaver) as environment, with JDK openjdk11 and maven 3.6.0
-dist: bionic
-
-script: mvn verify

@@ -1,6 +1,6 @@
 = OpenAPI - code first or design first?
 
-image:https://travis-ci.org/pe-st/apidocs.svg?branch=master["Build Status", link="https://travis-ci.org/pe-st/apidocs"]
+image:https://github.com/pe-st/apidocs/actions/workflows/maven/badge.svg["Build Status"]
 
 == Overview
 

@@ -173,10 +173,10 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven.surefire.plugin.version}</version>
                 <configuration>
-                    <systemProperties>
+                    <systemPropertyVariables>
                         <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
                         <generated.path>${generated.path}</generated.path>
-                    </systemProperties>
+                    </systemPropertyVariables>
                     <includes>
                         <!-- include also *IT.java; although logically Integration Tests, Quarkus can execute them with surefire -->
                         <include>**/*Test.java</include>
