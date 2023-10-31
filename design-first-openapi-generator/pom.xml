@@ -18,7 +18,7 @@
 
         <!-- artifact versions -->
         <lombok.version>1.18.30</lombok.version>
-        <quarkus.version>3.4.3</quarkus.version>
+        <quarkus.version>3.5.0</quarkus.version>
         <swagger.version>1.6.12</swagger.version>
         <openapi-generator.plugin.version>7.0.1</openapi-generator.plugin.version>
 
@@ -28,7 +28,7 @@
 
         <!-- apache maven plugin versions (in alphabetical order) -->
         <maven.compiler.plugin.version>3.11.0</maven.compiler.plugin.version>
-        <maven.surefire.plugin.version>3.1.2</maven.surefire.plugin.version>
+        <maven.surefire.plugin.version>3.2.1</maven.surefire.plugin.version>
 
         <generated.path>${project.build.directory}/generated-sources/openapi</generated.path>
     </properties>
@@ -104,6 +104,13 @@
             <version>${json.unit.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- for debugging the openapi quarkus extension -->
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-smallrye-openapi-deployment</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -167,6 +174,13 @@
                 <configuration>
                     <!-- starting with Java 9 javac should be called with -release N -->
                     <release>${java.release}</release>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
                 </configuration>
             </plugin>
             <plugin>

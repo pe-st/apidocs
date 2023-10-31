@@ -118,8 +118,3 @@ components:
           type: string
         emvTags:
           $ref: '#/components/schemas/EmvTags'
-  securitySchemes:
-    SecurityScheme:
-      type: http
-      description: Authentication
-      scheme: basic

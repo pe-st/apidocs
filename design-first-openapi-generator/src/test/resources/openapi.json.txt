@@ -1,37 +1,35 @@
 {
-  "openapi": "3.0.3",
-  "info": {
-    "title": "txproc-design-first-openapi",
-    "version": "0.9"
+  "openapi" : "3.0.3",
+  "info" : {
+    "title" : "txproc-design-first-openapi",
+    "version" : "0.9"
   },
-  "servers": [
-    {
-      "url": "http://localhost:8080"
-    }
-  ],
-  "paths": {
-    "/api/txproc/pincheck": {
-      "post": {
-        "summary": "Check the pin",
-        "operationId": "pinCheck",
-        "requestBody": {
-          "description": "PIN Check Request Body",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PinCheckRequest"
+  "servers" : [ {
+    "url" : "http://localhost:8080"
+  } ],
+  "paths" : {
+    "/api/txproc/pincheck" : {
+      "post" : {
+        "summary" : "Check the pin",
+        "operationId" : "pinCheck",
+        "requestBody" : {
+          "description" : "PIN Check Request Body",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/PinCheckRequest"
               }
             }
           },
-          "required": true
+          "required" : true
         },
-        "responses": {
-          "default": {
-            "description": "PIN Check Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PinCheckResponse"
+        "responses" : {
+          "default" : {
+            "description" : "PIN Check Response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PinCheckResponse"
                 }
               }
             }
@@ -39,28 +37,28 @@
         }
       }
     },
-    "/api/txproc/purchase": {
-      "post": {
-        "summary": "Authorize a Purchase",
-        "operationId": "purchase",
-        "requestBody": {
-          "description": "Purchase Request Body",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PurchaseAuthRequest"
+    "/api/txproc/purchase" : {
+      "post" : {
+        "summary" : "Authorize a Purchase",
+        "operationId" : "purchase",
+        "requestBody" : {
+          "description" : "Purchase Request Body",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/PurchaseAuthRequest"
               }
             }
           },
-          "required": true
+          "required" : true
         },
-        "responses": {
-          "default": {
-            "description": "Purchase Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PurchaseAuthResponse"
+        "responses" : {
+          "default" : {
+            "description" : "Purchase Response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PurchaseAuthResponse"
                 }
               }
             }
@@ -69,117 +67,97 @@
       }
     }
   },
-  "components": {
-    "schemas": {
-      "EmvTags": {
-        "title": "EmvTags",
-        "description": "Collection of EMV tags",
-        "type": "object",
-        "properties": {
-          "84": {
-            "title": "Dedicated Filename",
-            "description": "The EMV AID as reported by ICC",
-            "type": "string"
+  "components" : {
+    "schemas" : {
+      "EmvTags" : {
+        "title" : "EmvTags",
+        "description" : "Collection of EMV tags",
+        "type" : "object",
+        "properties" : {
+          "84" : {
+            "title" : "Dedicated Filename",
+            "description" : "The EMV AID as reported by ICC",
+            "type" : "string"
           },
-          "9F1A": {
-            "description": "Terminal Country Code",
-            "type": "string"
+          "9F1A" : {
+            "description" : "Terminal Country Code",
+            "type" : "string"
           }
         }
       },
-      "Pan": {
-        "format": "string",
-        "title": "PAN (Primary Account Number)",
-        "description": "The number embossed on credit cards",
-        "type": "object"
+      "Pan" : {
+        "format" : "string",
+        "title" : "PAN (Primary Account Number)",
+        "description" : "The number embossed on credit cards",
+        "type" : "object"
       },
-      "PinCheckRequest": {
-        "description": "Request for checking a PIN",
-        "required": [
-          "pan",
-          "pinBlock",
-          "uuid"
-        ],
-        "type": "object",
-        "properties": {
-          "pan": {
-            "$ref": "#/components/schemas/Pan"
+      "PinCheckRequest" : {
+        "description" : "Request for checking a PIN",
+        "required" : [ "pan", "pinBlock", "uuid" ],
+        "type" : "object",
+        "properties" : {
+          "pan" : {
+            "$ref" : "#/components/schemas/Pan"
           },
-          "pinBlock": {
-            "description": "Encrypted binary data containing a PIN\n\nFieldcode: C003",
-            "type": "string"
+          "pinBlock" : {
+            "description" : "Encrypted binary data containing a PIN\n\nFieldcode: C003",
+            "type" : "string"
           },
-          "uuid": {
-            "format": "uuid",
-            "description": "Unique ID of the request",
-            "type": "string"
+          "uuid" : {
+            "format" : "uuid",
+            "description" : "Unique ID of the request",
+            "type" : "string"
           }
         }
       },
-      "PinCheckResponse": {
-        "description": "Tells if the PIN in the request was correct",
-        "type": "object",
-        "properties": {
-          "result": {
-            "description": "Result of the request",
-            "enum": [
-              "OK",
-              "WRONG"
-            ],
-            "type": "string"
+      "PinCheckResponse" : {
+        "description" : "Tells if the PIN in the request was correct",
+        "type" : "object",
+        "properties" : {
+          "result" : {
+            "description" : "Result of the request",
+            "enum" : [ "OK", "WRONG" ],
+            "type" : "string"
           },
-          "tries": {
-            "format": "int32",
-            "description": "Number of remaining tries",
-            "type": "integer"
+          "tries" : {
+            "format" : "int32",
+            "description" : "Number of remaining tries",
+            "type" : "integer"
           }
         }
       },
-      "PurchaseAuthRequest": {
-        "description": "Request for authorizing a Purchase",
-        "required": [
-          "pan",
-          "uuid"
-        ],
-        "type": "object",
-        "properties": {
-          "emvTags": {
-            "$ref": "#/components/schemas/EmvTags"
+      "PurchaseAuthRequest" : {
+        "description" : "Request for authorizing a Purchase",
+        "required" : [ "pan", "uuid" ],
+        "type" : "object",
+        "properties" : {
+          "emvTags" : {
+            "$ref" : "#/components/schemas/EmvTags"
           },
-          "pan": {
-            "$ref": "#/components/schemas/Pan"
+          "pan" : {
+            "$ref" : "#/components/schemas/Pan"
           },
-          "uuid": {
-            "format": "uuid",
-            "description": "Unique ID of the request",
-            "type": "string"
+          "uuid" : {
+            "format" : "uuid",
+            "description" : "Unique ID of the request",
+            "type" : "string"
           }
         }
       },
-      "PurchaseAuthResponse": {
-        "description": "Response to PurchaseAuthRequest",
-        "type": "object",
-        "properties": {
-          "approvalCode": {
-            "description": "Code referencing the successful authorization",
-            "type": "string"
+      "PurchaseAuthResponse" : {
+        "description" : "Response to PurchaseAuthRequest",
+        "type" : "object",
+        "properties" : {
+          "approvalCode" : {
+            "description" : "Code referencing the successful authorization",
+            "type" : "string"
           },
-          "result": {
-            "description": "Result of the request",
-            "enum": [
-              "OK",
-              "WRONG"
-            ],
-            "type": "string"
+          "result" : {
+            "description" : "Result of the request",
+            "enum" : [ "OK", "WRONG" ],
+            "type" : "string"
           }
         }
-      }
-    },
-    "securitySchemes": {
-      "SecurityScheme": {
-        "type": "http",
-        "description": "Authentication",
-        "scheme": "basic"
       }
     }
   }

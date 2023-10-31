@@ -91,7 +91,9 @@
         }
       },
       "Pan" : {
-        "$ref" : "#/components/schemas/Pan"
+        "title" : "PAN (Primary Account Number)",
+        "description" : "The number embossed on credit cards",
+        "type" : "string"
       },
       "PinCheckRequest" : {
         "description" : "Request for checking a PIN",
@@ -122,7 +124,7 @@
             "description" : "Result of the request",
             "type" : "string",
             "allOf" : [ {
-              "$ref" : "#/components/schemas/Code1"
+              "$ref" : "#/components/schemas/Code"
             } ]
           },
           "tries" : {
@@ -160,7 +162,7 @@
             "description" : "Result of the request",
             "type" : "string",
             "allOf" : [ {
-              "$ref" : "#/components/schemas/Code"
+              "$ref" : "#/components/schemas/Code1"
             } ]
           },
           "approvalCode" : {
@@ -173,13 +175,6 @@
         "format" : "uuid",
         "pattern" : "[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}",
         "type" : "string"
-      }
-    },
-    "securitySchemes" : {
-      "SecurityScheme" : {
-        "type" : "http",
-        "description" : "Authentication",
-        "scheme" : "basic"
       }
     }
   }

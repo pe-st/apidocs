@@ -1,32 +1,32 @@
 {
-  "openapi": "3.0.3",
-  "info": {
-    "title": "txproc-code-first-swagger",
-    "version": "0.9"
+  "openapi" : "3.0.3",
+  "info" : {
+    "title" : "txproc-code-first-swagger",
+    "version" : "0.9"
   },
-  "paths": {
-    "/txproc/pincheck": {
-      "post": {
-        "summary": "Check the pin",
-        "operationId": "pinCheck",
-        "requestBody": {
-          "description": "PIN Check Request Body",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PinCheckRequest"
+  "paths" : {
+    "/txproc/pincheck" : {
+      "post" : {
+        "summary" : "Check the pin",
+        "operationId" : "pinCheck",
+        "requestBody" : {
+          "description" : "PIN Check Request Body",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/PinCheckRequest"
               }
             }
           },
-          "required": true
+          "required" : true
         },
-        "responses": {
-          "default": {
-            "description": "PIN Check Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PinCheckResponse"
+        "responses" : {
+          "default" : {
+            "description" : "PIN Check Response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PinCheckResponse"
                 }
               }
             }
@@ -34,28 +34,28 @@
         }
       }
     },
-    "/txproc/purchase": {
-      "post": {
-        "summary": "Authorize a Purchase",
-        "operationId": "purchase",
-        "requestBody": {
-          "description": "Purchase Request Body",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PurchaseAuthRequest"
+    "/txproc/purchase" : {
+      "post" : {
+        "summary" : "Authorize a Purchase",
+        "operationId" : "purchase",
+        "requestBody" : {
+          "description" : "Purchase Request Body",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/PurchaseAuthRequest"
               }
             }
           },
-          "required": true
+          "required" : true
         },
-        "responses": {
-          "default": {
-            "description": "Purchase Response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PurchaseAuthResponse"
+        "responses" : {
+          "default" : {
+            "description" : "Purchase Response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PurchaseAuthResponse"
                 }
               }
             }
@@ -64,113 +64,93 @@
       }
     }
   },
-  "components": {
-    "schemas": {
-      "PinCheckResponse": {
-        "description": "Tells if the PIN in the request was correct",
-        "type": "object",
-        "properties": {
-          "result": {
-            "description": "Result of the request",
-            "enum": [
-              "OK",
-              "WRONG"
-            ],
-            "type": "string"
+  "components" : {
+    "schemas" : {
+      "PinCheckResponse" : {
+        "description" : "Tells if the PIN in the request was correct",
+        "type" : "object",
+        "properties" : {
+          "result" : {
+            "description" : "Result of the request",
+            "enum" : [ "OK", "WRONG" ],
+            "type" : "string"
           },
-          "tries": {
-            "format": "int32",
-            "description": "Number of remaining tries",
-            "type": "integer"
+          "tries" : {
+            "format" : "int32",
+            "description" : "Number of remaining tries",
+            "type" : "integer"
           }
         }
       },
-      "PinCheckRequest": {
-        "description": "Request for checking a PIN",
-        "required": [
-          "pan",
-          "pinBlock",
-          "uuid"
-        ],
-        "type": "object",
-        "properties": {
-          "uuid": {
-            "description": "Unique ID of the request",
-            "type": "string"
+      "PinCheckRequest" : {
+        "description" : "Request for checking a PIN",
+        "required" : [ "pan", "pinBlock", "uuid" ],
+        "type" : "object",
+        "properties" : {
+          "uuid" : {
+            "description" : "Unique ID of the request",
+            "type" : "string"
           },
-          "pan": {
-            "title": "PAN (Primary Account Number)",
-            "description": "The number embossed on credit cards",
-            "type": "string"
+          "pan" : {
+            "title" : "PAN (Primary Account Number)",
+            "description" : "The number embossed on credit cards",
+            "type" : "string"
           },
-          "pinBlock": {
-            "description": "Encrypted binary data containing a PIN\n\nFieldcode: C003",
-            "type": "string"
+          "pinBlock" : {
+            "description" : "Encrypted binary data containing a PIN\n\nFieldcode: C003",
+            "type" : "string"
           }
         }
       },
-      "PurchaseAuthResponse": {
-        "description": "Response to PurchaseAuthRequest",
-        "type": "object",
-        "properties": {
-          "result": {
-            "description": "Result of the request",
-            "enum": [
-              "OK",
-              "WRONG"
-            ],
-            "type": "string"
+      "PurchaseAuthResponse" : {
+        "description" : "Response to PurchaseAuthRequest",
+        "type" : "object",
+        "properties" : {
+          "result" : {
+            "description" : "Result of the request",
+            "enum" : [ "OK", "WRONG" ],
+            "type" : "string"
           },
-          "approvalCode": {
-            "description": "Code referencing the successful authorization",
-            "type": "string"
+          "approvalCode" : {
+            "description" : "Code referencing the successful authorization",
+            "type" : "string"
           }
         }
       },
-      "EmvTags": {
-        "title": "EmvTags",
-        "description": "Collection of EMV tags",
-        "type": "object",
-        "properties": {
-          "84": {
-            "title": "Dedicated Filename",
-            "description": "The EMV AID as reported by ICC",
-            "type": "string"
+      "EmvTags" : {
+        "title" : "EmvTags",
+        "description" : "Collection of EMV tags",
+        "type" : "object",
+        "properties" : {
+          "84" : {
+            "title" : "Dedicated Filename",
+            "description" : "The EMV AID as reported by ICC",
+            "type" : "string"
           },
-          "9F1A": {
-            "description": "Terminal Country Code",
-            "type": "string"
+          "9F1A" : {
+            "description" : "Terminal Country Code",
+            "type" : "string"
           }
         }
       },
-      "PurchaseAuthRequest": {
-        "description": "Request for authorizing a Purchase",
-        "required": [
-          "pan",
-          "uuid"
-        ],
-        "type": "object",
-        "properties": {
-          "uuid": {
-            "description": "Unique ID of the request",
-            "type": "string"
+      "PurchaseAuthRequest" : {
+        "description" : "Request for authorizing a Purchase",
+        "required" : [ "pan", "uuid" ],
+        "type" : "object",
+        "properties" : {
+          "uuid" : {
+            "description" : "Unique ID of the request",
+            "type" : "string"
           },
-          "pan": {
-            "title": "PAN (Primary Account Number)",
-            "description": "The number embossed on credit cards",
-            "type": "string"
+          "pan" : {
+            "title" : "PAN (Primary Account Number)",
+            "description" : "The number embossed on credit cards",
+            "type" : "string"
           },
-          "emvTags": {
-            "$ref": "#/components/schemas/EmvTags"
+          "emvTags" : {
+            "$ref" : "#/components/schemas/EmvTags"
           }
         }
-      }
-    },
-    "securitySchemes": {
-      "SecurityScheme": {
-        "type": "http",
-        "description": "Authentication",
-        "scheme": "basic"
       }
     }
   }

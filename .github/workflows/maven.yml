@@ -16,16 +16,18 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        java: [ '17', '21' ]
+    name: Build with Java ${{ matrix.Java }}
     steps:
     - uses: actions/checkout@v4
-    - name: Set up JDK 17
+    - name: Set up JDK
       uses: actions/setup-java@v3
       with:
-        java-version: '17'
         distribution: 'temurin'
+        java-version: ${{ matrix.java }}
         cache: maven
     - name: Build with Maven
       run: |
