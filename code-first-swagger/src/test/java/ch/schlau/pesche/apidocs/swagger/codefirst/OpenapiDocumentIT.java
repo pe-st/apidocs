@@ -44,8 +44,8 @@ class OpenapiDocumentIT {
     @Test
     void openapi_yaml() throws IOException {
 
-        String expected = loadResourceFile("openapi.yaml");
-        String expectedSorted = loadResourceFile("openapi-sorted.yaml");
+        String expected = loadResourceFile("openapi.yaml.txt");
+        String expectedSorted = loadResourceFile("openapi-sorted.yaml.txt");
 
         String document = when().get("/openapi")
                 .then()
@@ -64,7 +64,7 @@ class OpenapiDocumentIT {
     @Test
     void openapi_json() throws IOException {
 
-        String expected = loadResourceFile("openapi.json");
+        String expected = loadResourceFile("openapi.json.txt");
 
         String document = given().accept(MediaType.APPLICATION_JSON)
                 .when().get("/openapi")
