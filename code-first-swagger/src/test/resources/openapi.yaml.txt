@@ -66,6 +66,7 @@ components:
       properties:
         uuid:
           description: Unique ID of the request
+          format: uuid
           type: string
         pan:
           title: PAN (Primary Account Number)
@@ -111,6 +112,7 @@ components:
       properties:
         uuid:
           description: Unique ID of the request
+          format: uuid
           type: string
         pan:
           title: PAN (Primary Account Number)

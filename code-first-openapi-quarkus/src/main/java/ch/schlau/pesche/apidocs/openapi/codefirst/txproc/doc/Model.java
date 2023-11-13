@@ -11,7 +11,9 @@ public class Model {
 
     public static final String UUID = "Unique ID of the request";
 
-    public static final String PIN_BLOCK = "Encrypted binary data containing a PIN"
-            + "\n\nFieldcode: C003";
+    public static final String PIN_BLOCK = """
+            Encrypted binary data containing a PIN
+
+            Fieldcode: C003""";
 
 }

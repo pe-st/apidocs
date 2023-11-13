@@ -88,6 +88,7 @@
         "type" : "object",
         "properties" : {
           "uuid" : {
+            "format" : "uuid",
             "description" : "Unique ID of the request",
             "type" : "string"
           },
@@ -139,6 +140,7 @@
         "type" : "object",
         "properties" : {
           "uuid" : {
+            "format" : "uuid",
             "description" : "Unique ID of the request",
             "type" : "string"
           },

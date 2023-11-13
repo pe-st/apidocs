@@ -69,6 +69,7 @@ components:
           type: string
         uuid:
           description: Unique ID of the request
+          format: uuid
           type: string
       required:
       - pan
@@ -100,6 +101,7 @@ components:
           type: string
         uuid:
           description: Unique ID of the request
+          format: uuid
           type: string
       required:
       - pan
