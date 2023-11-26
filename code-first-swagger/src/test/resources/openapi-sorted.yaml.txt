@@ -4,7 +4,7 @@ info:
   title: txproc-code-first-swagger
   version: 0.9
 paths:
-  /txproc/pincheck:
+  /api/txproc/pincheck:
     post:
       operationId: pinCheck
       requestBody:
@@ -22,7 +22,9 @@ paths:
                 $ref: '#/components/schemas/PinCheckResponse'
           description: PIN Check Response
       summary: Check the pin
-  /txproc/purchase:
+      tags:
+      - Tx Proc
+  /api/txproc/purchase:
     post:
       operationId: purchase
       requestBody:
@@ -40,6 +42,8 @@ paths:
                 $ref: '#/components/schemas/PurchaseAuthResponse'
           description: Purchase Response
       summary: Authorize a Purchase
+      tags:
+      - Tx Proc
 components:
   schemas:
     EmvTags:

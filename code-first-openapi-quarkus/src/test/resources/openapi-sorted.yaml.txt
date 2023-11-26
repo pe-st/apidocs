@@ -6,6 +6,7 @@ info:
 paths:
   /api/txproc/pincheck:
     post:
+      operationId: pinCheck
       requestBody:
         content:
           application/json:
@@ -25,6 +26,7 @@ paths:
       - Tx Proc
   /api/txproc/purchase:
     post:
+      operationId: purchase
       requestBody:
         content:
           application/json:

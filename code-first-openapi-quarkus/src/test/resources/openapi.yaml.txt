@@ -9,6 +9,7 @@ paths:
       tags:
       - Tx Proc
       summary: Check the pin
+      operationId: pinCheck
       requestBody:
         description: PIN Check Request Body
         content:
@@ -28,6 +29,7 @@ paths:
       tags:
       - Tx Proc
       summary: Authorize a Purchase
+      operationId: purchase
       requestBody:
         description: Purchase Request Body
         content:

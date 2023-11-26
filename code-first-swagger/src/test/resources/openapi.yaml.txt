@@ -4,8 +4,10 @@ info:
   title: txproc-code-first-swagger
   version: "0.9"
 paths:
-  /txproc/pincheck:
+  /api/txproc/pincheck:
     post:
+      tags:
+      - Tx Proc
       summary: Check the pin
       operationId: pinCheck
       requestBody:
@@ -22,8 +24,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PinCheckResponse'
-  /txproc/purchase:
+  /api/txproc/purchase:
     post:
+      tags:
+      - Tx Proc
       summary: Authorize a Purchase
       operationId: purchase
       requestBody:
@@ -65,8 +69,8 @@ components:
       type: object
       properties:
         uuid:
-          description: Unique ID of the request
           format: uuid
+          description: Unique ID of the request
           type: string
         pan:
           title: PAN (Primary Account Number)
@@ -111,8 +115,8 @@ components:
       type: object
       properties:
         uuid:
-          description: Unique ID of the request
           format: uuid
+          description: Unique ID of the request
           type: string
         pan:
           title: PAN (Primary Account Number)

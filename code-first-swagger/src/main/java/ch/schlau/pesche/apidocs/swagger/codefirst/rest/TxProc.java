@@ -27,7 +27,8 @@ public class TxProc {
 
     @Path("/pincheck")
     @POST
-    @Operation(summary = "Check the pin")
+    @Operation(summary = "Check the pin",
+               tags = {"Tx Proc"})
     @ApiResponse(description = "PIN Check Response",
                  content = @Content(schema = @Schema(implementation = PinCheckResponse.class)))
     public PinCheckResponse pinCheck(
@@ -48,7 +49,8 @@ public class TxProc {
 
     @Path("/purchase")
     @POST
-    @Operation(summary = "Authorize a Purchase")
+    @Operation(summary = "Authorize a Purchase",
+               tags = {"Tx Proc"})
     @ApiResponse(description = "Purchase Response",
                  content = @Content(schema = @Schema(implementation = PurchaseAuthResponse.class)))
     public PurchaseAuthResponse purchase(

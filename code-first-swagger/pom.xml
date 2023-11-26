@@ -120,6 +120,7 @@
                         <package>ch.schlau.pesche.apidocs.swagger.codefirst</package>
                     </resourcePackages>
                     <prettyPrint>true</prettyPrint>
+                    <alwaysResolveAppPath>true</alwaysResolveAppPath>
                 </configuration>
                 <executions>
                     <execution>

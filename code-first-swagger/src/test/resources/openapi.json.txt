@@ -5,8 +5,9 @@
     "version" : "0.9"
   },
   "paths" : {
-    "/txproc/pincheck" : {
+    "/api/txproc/pincheck" : {
       "post" : {
+        "tags" : [ "Tx Proc" ],
         "summary" : "Check the pin",
         "operationId" : "pinCheck",
         "requestBody" : {
@@ -34,8 +35,9 @@
         }
       }
     },
-    "/txproc/purchase" : {
+    "/api/txproc/purchase" : {
       "post" : {
+        "tags" : [ "Tx Proc" ],
         "summary" : "Authorize a Purchase",
         "operationId" : "purchase",
         "requestBody" : {
