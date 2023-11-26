@@ -9,12 +9,13 @@ import lombok.Setter;
 @Setter
 public class PurchaseAuthResponse {
 
+    @Schema(description = "Result of the request")
     public enum Code {
         OK,
         WRONG
     }
 
-    @Schema(description = "Result of the request")
+    // the enum Code already carries a @Schema annotation
     private Code result;
 
     @Schema(description = "Code referencing the successful authorization")

@@ -45,11 +45,13 @@ paths:
 components:
   schemas:
     Code:
+      description: Result of the request
       enum:
       - OK
       - WRONG
       type: string
     Code1:
+      description: Result of the request
       enum:
       - OK
       - WRONG
@@ -95,10 +97,7 @@ components:
       description: Tells if the PIN in the request was correct
       properties:
         result:
-          allOf:
-          - $ref: '#/components/schemas/Code'
-          description: Result of the request
-          type: string
+          $ref: '#/components/schemas/Code'
         tries:
           description: Number of remaining tries
           format: int32
@@ -127,10 +126,7 @@ components:
           description: Code referencing the successful authorization
           type: string
         result:
-          allOf:
-          - $ref: '#/components/schemas/Code1'
-          description: Result of the request
-          type: string
+          $ref: '#/components/schemas/Code1'
       type: object
     UUID:
       format: uuid

@@ -10,13 +10,13 @@ import lombok.Setter;
 @Setter
 public class PinCheckResponse {
 
-    // can't put @Schema annotation on the enum for Quarkus
+    @Schema(description = "Result of the request")
     public enum Code {
         OK,
         WRONG
     }
 
-    @Schema(description = "Result of the request")
+    // the enum Code already carries a @Schema annotation
     private Code result;
 
     @Schema(description = "Number of remaining tries")

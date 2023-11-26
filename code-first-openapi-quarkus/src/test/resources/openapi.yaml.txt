@@ -45,11 +45,13 @@ paths:
 components:
   schemas:
     Code:
+      description: Result of the request
       enum:
       - OK
       - WRONG
       type: string
     Code1:
+      description: Result of the request
       enum:
       - OK
       - WRONG
@@ -96,10 +98,7 @@ components:
       type: object
       properties:
         result:
-          description: Result of the request
-          type: string
-          allOf:
-          - $ref: '#/components/schemas/Code'
+          $ref: '#/components/schemas/Code'
         tries:
           format: int32
           description: Number of remaining tries
@@ -125,10 +124,7 @@ components:
       type: object
       properties:
         result:
-          description: Result of the request
-          type: string
-          allOf:
-          - $ref: '#/components/schemas/Code1'
+          $ref: '#/components/schemas/Code1'
         approvalCode:
           description: Code referencing the successful authorization
           type: string
