@@ -17,9 +17,13 @@ class TxProcPurchaseIT {
         // @formatter:off
         given()
                 .header("Content-Type", MediaType.APPLICATION_JSON)
-                .body("{\"uuid\": \"aaaaaaaa-bbbb-cccc-dddd-012345678901\","
-                     +" \"pan\": \"4244333322221111\","
-                     +" \"emvTags\": { \"84\": \"A0000000041010\", \"9f1A\": \"250\" } }")
+                .body("""
+                    {
+                      "uuid": "aaaaaaaa-bbbb-cccc-dddd-012345678901",
+                      "pan": "4244333322221111",
+                      "emvTags": { "84": "A0000000041010", "9f1A": "250" }
+                    }
+                    """)
         .when()
                 .post("/api/txproc/purchase")
         .then()

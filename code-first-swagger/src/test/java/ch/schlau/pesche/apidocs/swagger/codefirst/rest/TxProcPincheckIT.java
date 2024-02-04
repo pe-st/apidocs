@@ -17,7 +17,12 @@ class TxProcPincheckIT {
         // @formatter:off
         given()
                 .header("Content-Type", MediaType.APPLICATION_JSON)
-                .body("{\"uuid\": \"aaaaaaaa-bbbb-cccc-dddd-012345678901\", \"pinBlock\": \"magic\"}")
+                .body("""
+                    {
+                      "uuid": "aaaaaaaa-bbbb-cccc-dddd-012345678901",
+                      "pinBlock": "magic"
+                    }
+                    """)
         .when()
                 .post("/api/txproc/pincheck")
         .then()
