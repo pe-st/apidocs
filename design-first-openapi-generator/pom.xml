@@ -18,7 +18,7 @@
 
         <!-- artifact versions -->
         <lombok.version>1.18.30</lombok.version>
-        <quarkus.version>3.7.1</quarkus.version>
+        <quarkus.version>3.8.1</quarkus.version>
         <swagger.version>1.6.13</swagger.version>
         <openapi-generator.plugin.version>7.2.0</openapi-generator.plugin.version>
 
@@ -48,8 +48,12 @@
     <dependencies>
         <!-- Jakarta EE and MP dependencies -->
         <dependency>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+        </dependency>
+        <dependency>
             <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-resteasy-jsonb</artifactId>
+            <artifactId>quarkus-resteasy-reactive-jsonb</artifactId>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>

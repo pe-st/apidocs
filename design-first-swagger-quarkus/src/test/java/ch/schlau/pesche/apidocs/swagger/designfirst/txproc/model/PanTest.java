@@ -1,6 +1,5 @@
 package ch.schlau.pesche.apidocs.swagger.designfirst.txproc.model;
 
-import static ch.schlau.pesche.apidocs.swagger.designfirst.rest.JsonConfiguration.JSONB;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -8,6 +7,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import jakarta.json.bind.Jsonb;
 
 import org.junit.jupiter.api.Test;
+
+import ch.schlau.pesche.apidocs.swagger.designfirst.rest.JsonConfiguration;
 
 class PanTest {
 
@@ -29,7 +30,7 @@ class PanTest {
     @Test
     void json_roundtrip() {
 
-        Jsonb jsonb = JSONB;
+        Jsonb jsonb = JsonConfiguration.createJsonb();
 
         Pan pan = new Pan("4444333322221111");
 
