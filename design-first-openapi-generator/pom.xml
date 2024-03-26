@@ -17,17 +17,16 @@
         <java.release>21</java.release>
 
         <!-- artifact versions -->
-        <lombok.version>1.18.30</lombok.version>
-        <quarkus.version>3.8.1</quarkus.version>
-        <swagger.version>1.6.13</swagger.version>
-        <openapi-generator.plugin.version>7.2.0</openapi-generator.plugin.version>
+        <lombok.version>1.18.32</lombok.version>
+        <quarkus.version>3.8.3</quarkus.version>
+        <openapi-generator.plugin.version>7.4.0</openapi-generator.plugin.version>
 
         <!-- testing artifact versions -->
         <hamcrest.version>2.2</hamcrest.version>
-        <json.unit.version>3.2.2</json.unit.version>
+        <json.unit.version>3.2.7</json.unit.version>
 
         <!-- apache maven plugin versions (in alphabetical order) -->
-        <maven.compiler.plugin.version>3.12.1</maven.compiler.plugin.version>
+        <maven.compiler.plugin.version>3.13.0</maven.compiler.plugin.version>
         <maven.surefire.plugin.version>3.2.5</maven.surefire.plugin.version>
 
         <generated.path>${project.build.directory}/generated-sources/openapi</generated.path>
@@ -62,13 +61,6 @@
 
         <!-- dependencies for the generated code -->
         <!-- jackson-databind already present via quarkus-smallrye-openapi -->
-        <dependency>
-            <!-- openapi-generator still needs @ApiModel/@ApiModelProperty -->
-            <!-- couldn't find an option to generate openapi3/swagger2 annotations... -->
-            <groupId>io.swagger</groupId>
-            <artifactId>swagger-annotations</artifactId>
-            <version>${swagger.version}</version>
-        </dependency>
 
         <!-- Application dependencies -->
         <dependency>
@@ -95,12 +87,6 @@
             <artifactId>rest-assured</artifactId>
             <!-- rest-assured.version managed by quarkus -->
             <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.hamcrest</groupId>
-                    <artifactId>*</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>net.javacrumbs.json-unit</groupId>
@@ -143,7 +129,7 @@
                                 <dateLibrary>java8</dateLibrary>
                                 <library>native</library>
                                 <useJakartaEe>true</useJakartaEe>
-                                <useBeanValidation>false</useBeanValidation>
+                                <useBeanValidation>true</useBeanValidation>
                                 <sourceFolder>.</sourceFolder>
                                 <modelPackage>ch.schlau.pesche.apidocs.openapi.designfirst.generated.model</modelPackage>
                             </configOptions>

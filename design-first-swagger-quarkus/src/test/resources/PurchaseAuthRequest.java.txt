@@ -20,6 +20,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.UUID;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 /**
  * Request for authorizing a Purchase
  */
@@ -45,6 +47,7 @@ public class PurchaseAuthRequest {
    * Get emvTags
    * @return emvTags
   **/
+  @Valid
   @Schema(description = "")
   public EmvTags getEmvTags() {
     return emvTags;
@@ -63,6 +66,8 @@ public class PurchaseAuthRequest {
    * Get pan
    * @return pan
   **/
+  @NotNull
+  @Valid
   @Schema(required = true, description = "")
   public ch.schlau.pesche.apidocs.swagger.designfirst.txproc.model.Pan getPan() {
     return pan;
@@ -81,6 +86,8 @@ public class PurchaseAuthRequest {
    * Unique ID of the request
    * @return uuid
   **/
+  @NotNull
+  @Valid
   @Schema(required = true, description = "Unique ID of the request")
   public UUID getUuid() {
     return uuid;

@@ -19,6 +19,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.UUID;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 /**
  * Request for checking a PIN
  */
@@ -44,6 +46,8 @@ public class PinCheckRequest {
    * Get pan
    * @return pan
   **/
+  @NotNull
+  @Valid
   @Schema(required = true, description = "")
   public ch.schlau.pesche.apidocs.swagger.designfirst.txproc.model.Pan getPan() {
     return pan;
@@ -62,6 +66,7 @@ public class PinCheckRequest {
    * Encrypted binary data containing a PIN  Fieldcode: C003
    * @return pinBlock
   **/
+  @NotNull
   @Schema(required = true, description = "Encrypted binary data containing a PIN  Fieldcode: C003")
   public String getPinBlock() {
     return pinBlock;
@@ -80,6 +85,8 @@ public class PinCheckRequest {
    * Unique ID of the request
    * @return uuid
   **/
+  @NotNull
+  @Valid
   @Schema(required = true, description = "Unique ID of the request")
   public UUID getUuid() {
     return uuid;

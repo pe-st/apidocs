@@ -25,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import java.util.UUID;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 
 /**
@@ -35,7 +37,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   PurchaseAuthRequest.JSON_PROPERTY_PAN,
   PurchaseAuthRequest.JSON_PROPERTY_UUID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class PurchaseAuthRequest {
   public static final String JSON_PROPERTY_EMV_TAGS = "emvTags";
   private EmvTags emvTags;
@@ -59,6 +61,8 @@ public class PurchaseAuthRequest {
    * @return emvTags
   **/
   @jakarta.annotation.Nullable
+  @Valid
+
   @JsonProperty(JSON_PROPERTY_EMV_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -84,6 +88,9 @@ public class PurchaseAuthRequest {
    * @return pan
   **/
   @jakarta.annotation.Nonnull
+  @NotNull
+  @Valid
+
   @JsonProperty(JSON_PROPERTY_PAN)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
@@ -109,6 +116,9 @@ public class PurchaseAuthRequest {
    * @return uuid
   **/
   @jakarta.annotation.Nonnull
+  @NotNull
+  @Valid
+
   @JsonProperty(JSON_PROPERTY_UUID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 

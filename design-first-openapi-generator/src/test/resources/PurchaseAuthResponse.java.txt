@@ -23,6 +23,8 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 
 /**
@@ -32,7 +34,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   PurchaseAuthResponse.JSON_PROPERTY_APPROVAL_CODE,
   PurchaseAuthResponse.JSON_PROPERTY_RESULT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class PurchaseAuthResponse {
   public static final String JSON_PROPERTY_APPROVAL_CODE = "approvalCode";
   private String approvalCode;
@@ -88,6 +90,7 @@ public class PurchaseAuthResponse {
    * @return approvalCode
   **/
   @jakarta.annotation.Nullable
+
   @JsonProperty(JSON_PROPERTY_APPROVAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -113,6 +116,7 @@ public class PurchaseAuthResponse {
    * @return result
   **/
   @jakarta.annotation.Nullable
+
   @JsonProperty(JSON_PROPERTY_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

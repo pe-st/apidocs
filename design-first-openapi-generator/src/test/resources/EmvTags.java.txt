@@ -23,6 +23,8 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import jakarta.validation.constraints.*;
+import jakarta.validation.Valid;
 
 
 /**
@@ -32,7 +34,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
   EmvTags.JSON_PROPERTY_84,
   EmvTags.JSON_PROPERTY_9_F1_A
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
 public class EmvTags {
   public static final String JSON_PROPERTY_84 = "84";
   private String _84;
@@ -53,6 +55,7 @@ public class EmvTags {
    * @return _84
   **/
   @jakarta.annotation.Nullable
+
   @JsonProperty(JSON_PROPERTY_84)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
@@ -78,6 +81,7 @@ public class EmvTags {
    * @return _9F1A
   **/
   @jakarta.annotation.Nullable
+
   @JsonProperty(JSON_PROPERTY_9_F1_A)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 

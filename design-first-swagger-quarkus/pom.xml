@@ -17,17 +17,17 @@
         <java.release>21</java.release>
 
         <!-- artifact versions -->
-        <lombok.version>1.18.30</lombok.version>
-        <quarkus.version>3.8.1</quarkus.version>
-        <swagger.version>2.2.20</swagger.version>
-        <swagger-codegen.plugin.version>3.0.52</swagger-codegen.plugin.version>
+        <lombok.version>1.18.32</lombok.version>
+        <quarkus.version>3.8.3</quarkus.version>
+        <swagger.version>2.2.21</swagger.version>
+        <swagger-codegen.plugin.version>3.0.54</swagger-codegen.plugin.version>
 
         <!-- testing artifact versions -->
         <hamcrest.version>2.2</hamcrest.version>
-        <json.unit.version>3.2.2</json.unit.version>
+        <json.unit.version>3.2.7</json.unit.version>
 
         <!-- apache maven plugin versions (in alphabetical order) -->
-        <maven.compiler.plugin.version>3.12.1</maven.compiler.plugin.version>
+        <maven.compiler.plugin.version>3.13.0</maven.compiler.plugin.version>
         <maven.surefire.plugin.version>3.2.5</maven.surefire.plugin.version>
 
         <generated.path>${project.build.directory}/generated-sources/swagger</generated.path>
@@ -93,12 +93,6 @@
             <artifactId>rest-assured</artifactId>
             <!-- rest-assured.version managed by quarkus -->
             <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.hamcrest</groupId>
-                    <artifactId>*</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>net.javacrumbs.json-unit</groupId>
@@ -138,14 +132,14 @@
                                 <java8>true</java8>
                                 <dateLibrary>java8</dateLibrary>
                                 <library>resteasy</library>
-                                <useBeanValidation>false</useBeanValidation>
+                                <jakarta>true</jakarta>
+                                <useBeanValidation>true</useBeanValidation>
                                 <sourceFolder>.</sourceFolder>
                                 <modelPackage>ch.schlau.pesche.apidocs.swagger.designfirst.generated.model</modelPackage>
                             </configOptions>
                             <additionalProperties>
                                 <!-- disable the @Generated annotation (with timestamp) in generated code, it makes it difficult to compare it -->
                                 <additionalProperty>hideGenerationTimestamp=true</additionalProperty>
-                                <additionalProperty>jakarta=true</additionalProperty>
                             </additionalProperties>
                             <importMappings>
                                 <importMapping>Pan=ch.schlau.pesche.apidocs.swagger.designfirst.txproc.model.Pan</importMapping>
