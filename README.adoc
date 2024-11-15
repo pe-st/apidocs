@@ -14,7 +14,7 @@ This repository contains different implementations of a simple service to demons
 between the design-first and code-first approach.
 
 Accompanying presentation at https://www.eclipsecon.org/europe2019[eclipsecon Europe 2019] :
-https://www.eclipsecon.org/europe2019/sessions/microprofile-openapi-code-first-or-design-first[MicroProfile OpenAPI - code first or design first?]
+https://www.youtube.com/watch?v=vnCuFk1Ayqs[MicroProfile OpenAPI - code first or design first?]
 
 The examples use https://quarkus.io/[Quarkus] as server
 just because it not only supports MicroProfile OpenAPI, but comes also with an integrated UI.
