@@ -9,7 +9,7 @@ import lombok.Setter;
 
 /**
  * PAN (Primary Account Number)
- *
+ * <p>
  * The number embossed on credit cards
  */
 @Getter

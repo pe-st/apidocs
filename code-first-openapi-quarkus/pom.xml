@@ -17,16 +17,16 @@
         <java.release>21</java.release>
 
         <!-- artifact versions -->
-        <lombok.version>1.18.32</lombok.version>
+        <lombok.version>1.18.36</lombok.version>
         <quarkus.version>3.8.3</quarkus.version>
 
         <!-- testing artifact versions -->
-        <hamcrest.version>2.2</hamcrest.version>
-        <json.unit.version>3.2.7</json.unit.version>
+        <hamcrest.version>3.0</hamcrest.version>
+        <json.unit.version>4.1.0</json.unit.version>
 
         <!-- apache maven plugin versions (in alphabetical order) -->
         <maven.compiler.plugin.version>3.13.0</maven.compiler.plugin.version>
-        <maven.surefire.plugin.version>3.2.5</maven.surefire.plugin.version>
+        <maven.surefire.plugin.version>3.5.2</maven.surefire.plugin.version>
     </properties>
 
     <dependencyManagement>

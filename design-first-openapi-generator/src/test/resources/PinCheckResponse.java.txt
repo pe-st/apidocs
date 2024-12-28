@@ -34,15 +34,15 @@ import jakarta.validation.Valid;
   PinCheckResponse.JSON_PROPERTY_RESULT,
   PinCheckResponse.JSON_PROPERTY_TRIES
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
 public class PinCheckResponse {
   /**
    * Result of the request
    */
   public enum ResultEnum {
-    OK("OK"),
+    OK(String.valueOf("OK")),
     
-    WRONG("WRONG");
+    WRONG(String.valueOf("WRONG"));
 
     private String value;
 
@@ -72,28 +72,29 @@ public class PinCheckResponse {
   }
 
   public static final String JSON_PROPERTY_RESULT = "result";
+  @jakarta.annotation.Nullable
   private ResultEnum result;
 
   public static final String JSON_PROPERTY_TRIES = "tries";
+  @jakarta.annotation.Nullable
   private Integer tries;
 
   public PinCheckResponse() { 
   }
 
-  public PinCheckResponse result(ResultEnum result) {
+  public PinCheckResponse result(@jakarta.annotation.Nullable ResultEnum result) {
     this.result = result;
     return this;
   }
 
-   /**
+  /**
    * Result of the request
    * @return result
-  **/
+   */
   @jakarta.annotation.Nullable
 
   @JsonProperty(JSON_PROPERTY_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ResultEnum getResult() {
     return result;
   }
@@ -101,25 +102,24 @@ public class PinCheckResponse {
 
   @JsonProperty(JSON_PROPERTY_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setResult(ResultEnum result) {
+  public void setResult(@jakarta.annotation.Nullable ResultEnum result) {
     this.result = result;
   }
 
 
-  public PinCheckResponse tries(Integer tries) {
+  public PinCheckResponse tries(@jakarta.annotation.Nullable Integer tries) {
     this.tries = tries;
     return this;
   }
 
-   /**
+  /**
    * Number of remaining tries
    * @return tries
-  **/
+   */
   @jakarta.annotation.Nullable
 
   @JsonProperty(JSON_PROPERTY_TRIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public Integer getTries() {
     return tries;
   }
@@ -127,7 +127,7 @@ public class PinCheckResponse {
 
   @JsonProperty(JSON_PROPERTY_TRIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTries(Integer tries) {
+  public void setTries(@jakarta.annotation.Nullable Integer tries) {
     this.tries = tries;
   }
 

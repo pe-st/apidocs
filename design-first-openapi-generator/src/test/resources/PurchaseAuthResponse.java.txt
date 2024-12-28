@@ -34,18 +34,19 @@ import jakarta.validation.Valid;
   PurchaseAuthResponse.JSON_PROPERTY_APPROVAL_CODE,
   PurchaseAuthResponse.JSON_PROPERTY_RESULT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
 public class PurchaseAuthResponse {
   public static final String JSON_PROPERTY_APPROVAL_CODE = "approvalCode";
+  @jakarta.annotation.Nullable
   private String approvalCode;
 
   /**
    * Result of the request
    */
   public enum ResultEnum {
-    OK("OK"),
+    OK(String.valueOf("OK")),
     
-    WRONG("WRONG");
+    WRONG(String.valueOf("WRONG"));
 
     private String value;
 
@@ -75,25 +76,25 @@ public class PurchaseAuthResponse {
   }
 
   public static final String JSON_PROPERTY_RESULT = "result";
+  @jakarta.annotation.Nullable
   private ResultEnum result;
 
   public PurchaseAuthResponse() { 
   }
 
-  public PurchaseAuthResponse approvalCode(String approvalCode) {
+  public PurchaseAuthResponse approvalCode(@jakarta.annotation.Nullable String approvalCode) {
     this.approvalCode = approvalCode;
     return this;
   }
 
-   /**
+  /**
    * Code referencing the successful authorization
    * @return approvalCode
-  **/
+   */
   @jakarta.annotation.Nullable
 
   @JsonProperty(JSON_PROPERTY_APPROVAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String getApprovalCode() {
     return approvalCode;
   }
@@ -101,25 +102,24 @@ public class PurchaseAuthResponse {
 
   @JsonProperty(JSON_PROPERTY_APPROVAL_CODE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setApprovalCode(String approvalCode) {
+  public void setApprovalCode(@jakarta.annotation.Nullable String approvalCode) {
     this.approvalCode = approvalCode;
   }
 
 
-  public PurchaseAuthResponse result(ResultEnum result) {
+  public PurchaseAuthResponse result(@jakarta.annotation.Nullable ResultEnum result) {
     this.result = result;
     return this;
   }
 
-   /**
+  /**
    * Result of the request
    * @return result
-  **/
+   */
   @jakarta.annotation.Nullable
 
   @JsonProperty(JSON_PROPERTY_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public ResultEnum getResult() {
     return result;
   }
@@ -127,7 +127,7 @@ public class PurchaseAuthResponse {
 
   @JsonProperty(JSON_PROPERTY_RESULT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setResult(ResultEnum result) {
+  public void setResult(@jakarta.annotation.Nullable ResultEnum result) {
     this.result = result;
   }
 

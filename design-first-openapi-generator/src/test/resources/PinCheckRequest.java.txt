@@ -36,36 +36,38 @@ import jakarta.validation.Valid;
   PinCheckRequest.JSON_PROPERTY_PIN_BLOCK,
   PinCheckRequest.JSON_PROPERTY_UUID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
 public class PinCheckRequest {
   public static final String JSON_PROPERTY_PAN = "pan";
+  @jakarta.annotation.Nonnull
   private ch.schlau.pesche.apidocs.openapi.designfirst.txproc.model.Pan pan;
 
   public static final String JSON_PROPERTY_PIN_BLOCK = "pinBlock";
+  @jakarta.annotation.Nonnull
   private String pinBlock;
 
   public static final String JSON_PROPERTY_UUID = "uuid";
+  @jakarta.annotation.Nonnull
   private UUID uuid;
 
   public PinCheckRequest() { 
   }
 
-  public PinCheckRequest pan(ch.schlau.pesche.apidocs.openapi.designfirst.txproc.model.Pan pan) {
+  public PinCheckRequest pan(@jakarta.annotation.Nonnull ch.schlau.pesche.apidocs.openapi.designfirst.txproc.model.Pan pan) {
     this.pan = pan;
     return this;
   }
 
-   /**
+  /**
    * Get pan
    * @return pan
-  **/
+   */
   @jakarta.annotation.Nonnull
   @NotNull
   @Valid
 
   @JsonProperty(JSON_PROPERTY_PAN)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public ch.schlau.pesche.apidocs.openapi.designfirst.txproc.model.Pan getPan() {
     return pan;
   }
@@ -73,26 +75,25 @@ public class PinCheckRequest {
 
   @JsonProperty(JSON_PROPERTY_PAN)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setPan(ch.schlau.pesche.apidocs.openapi.designfirst.txproc.model.Pan pan) {
+  public void setPan(@jakarta.annotation.Nonnull ch.schlau.pesche.apidocs.openapi.designfirst.txproc.model.Pan pan) {
     this.pan = pan;
   }
 
 
-  public PinCheckRequest pinBlock(String pinBlock) {
+  public PinCheckRequest pinBlock(@jakarta.annotation.Nonnull String pinBlock) {
     this.pinBlock = pinBlock;
     return this;
   }
 
-   /**
+  /**
    * Encrypted binary data containing a PIN  Fieldcode: C003
    * @return pinBlock
-  **/
+   */
   @jakarta.annotation.Nonnull
   @NotNull
 
   @JsonProperty(JSON_PROPERTY_PIN_BLOCK)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public String getPinBlock() {
     return pinBlock;
   }
@@ -100,27 +101,26 @@ public class PinCheckRequest {
 
   @JsonProperty(JSON_PROPERTY_PIN_BLOCK)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setPinBlock(String pinBlock) {
+  public void setPinBlock(@jakarta.annotation.Nonnull String pinBlock) {
     this.pinBlock = pinBlock;
   }
 
 
-  public PinCheckRequest uuid(UUID uuid) {
+  public PinCheckRequest uuid(@jakarta.annotation.Nonnull UUID uuid) {
     this.uuid = uuid;
     return this;
   }
 
-   /**
+  /**
    * Unique ID of the request
    * @return uuid
-  **/
+   */
   @jakarta.annotation.Nonnull
   @NotNull
   @Valid
 
   @JsonProperty(JSON_PROPERTY_UUID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public UUID getUuid() {
     return uuid;
   }
@@ -128,7 +128,7 @@ public class PinCheckRequest {
 
   @JsonProperty(JSON_PROPERTY_UUID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setUuid(UUID uuid) {
+  public void setUuid(@jakarta.annotation.Nonnull UUID uuid) {
     this.uuid = uuid;
   }
 

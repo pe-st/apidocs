@@ -5,8 +5,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.FileSystems;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 
 import org.apache.commons.io.IOUtils;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -20,7 +20,7 @@ import ch.schlau.pesche.apidocs.openapi.designfirst.generated.model.PurchaseAuth
 
 class GenerationTest {
 
-    private static final String FILE_SEPARATOR = System.getProperty("file.separator");
+    private static final String FILE_SEPARATOR = FileSystems.getDefault().getSeparator();
 
     @ParameterizedTest
     @ValueSource(classes = {
@@ -43,7 +43,7 @@ class GenerationTest {
         // set in maven pom.xml or the run configuration
         String directoryGenerated = System.getProperty("generated.path");
         String generatedSourcePath = clazz.getName().replace(".", FILE_SEPARATOR) + ".java";
-        Path path = Paths.get(directoryGenerated, generatedSourcePath);
+        Path path = Path.of(directoryGenerated, generatedSourcePath);
 
         return IOUtils.toString(path.toUri(), StandardCharsets.UTF_8);
     }

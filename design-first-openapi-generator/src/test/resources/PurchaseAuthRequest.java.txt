@@ -37,35 +37,37 @@ import jakarta.validation.Valid;
   PurchaseAuthRequest.JSON_PROPERTY_PAN,
   PurchaseAuthRequest.JSON_PROPERTY_UUID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
 public class PurchaseAuthRequest {
   public static final String JSON_PROPERTY_EMV_TAGS = "emvTags";
+  @jakarta.annotation.Nullable
   private EmvTags emvTags;
 
   public static final String JSON_PROPERTY_PAN = "pan";
+  @jakarta.annotation.Nonnull
   private ch.schlau.pesche.apidocs.openapi.designfirst.txproc.model.Pan pan;
 
   public static final String JSON_PROPERTY_UUID = "uuid";
+  @jakarta.annotation.Nonnull
   private UUID uuid;
 
   public PurchaseAuthRequest() { 
   }
 
-  public PurchaseAuthRequest emvTags(EmvTags emvTags) {
+  public PurchaseAuthRequest emvTags(@jakarta.annotation.Nullable EmvTags emvTags) {
     this.emvTags = emvTags;
     return this;
   }
 
-   /**
+  /**
    * Get emvTags
    * @return emvTags
-  **/
+   */
   @jakarta.annotation.Nullable
   @Valid
 
   @JsonProperty(JSON_PROPERTY_EMV_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public EmvTags getEmvTags() {
     return emvTags;
   }
@@ -73,27 +75,26 @@ public class PurchaseAuthRequest {
 
   @JsonProperty(JSON_PROPERTY_EMV_TAGS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEmvTags(EmvTags emvTags) {
+  public void setEmvTags(@jakarta.annotation.Nullable EmvTags emvTags) {
     this.emvTags = emvTags;
   }
 
 
-  public PurchaseAuthRequest pan(ch.schlau.pesche.apidocs.openapi.designfirst.txproc.model.Pan pan) {
+  public PurchaseAuthRequest pan(@jakarta.annotation.Nonnull ch.schlau.pesche.apidocs.openapi.designfirst.txproc.model.Pan pan) {
     this.pan = pan;
     return this;
   }
 
-   /**
+  /**
    * Get pan
    * @return pan
-  **/
+   */
   @jakarta.annotation.Nonnull
   @NotNull
   @Valid
 
   @JsonProperty(JSON_PROPERTY_PAN)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public ch.schlau.pesche.apidocs.openapi.designfirst.txproc.model.Pan getPan() {
     return pan;
   }
@@ -101,27 +102,26 @@ public class PurchaseAuthRequest {
 
   @JsonProperty(JSON_PROPERTY_PAN)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setPan(ch.schlau.pesche.apidocs.openapi.designfirst.txproc.model.Pan pan) {
+  public void setPan(@jakarta.annotation.Nonnull ch.schlau.pesche.apidocs.openapi.designfirst.txproc.model.Pan pan) {
     this.pan = pan;
   }
 
 
-  public PurchaseAuthRequest uuid(UUID uuid) {
+  public PurchaseAuthRequest uuid(@jakarta.annotation.Nonnull UUID uuid) {
     this.uuid = uuid;
     return this;
   }
 
-   /**
+  /**
    * Unique ID of the request
    * @return uuid
-  **/
+   */
   @jakarta.annotation.Nonnull
   @NotNull
   @Valid
 
   @JsonProperty(JSON_PROPERTY_UUID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
   public UUID getUuid() {
     return uuid;
   }
@@ -129,7 +129,7 @@ public class PurchaseAuthRequest {
 
   @JsonProperty(JSON_PROPERTY_UUID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setUuid(UUID uuid) {
+  public void setUuid(@jakarta.annotation.Nonnull UUID uuid) {
     this.uuid = uuid;
   }
 

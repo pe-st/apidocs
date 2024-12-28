@@ -34,31 +34,32 @@ import jakarta.validation.Valid;
   EmvTags.JSON_PROPERTY_84,
   EmvTags.JSON_PROPERTY_9_F1_A
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.4.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
 public class EmvTags {
   public static final String JSON_PROPERTY_84 = "84";
+  @jakarta.annotation.Nullable
   private String _84;
 
   public static final String JSON_PROPERTY_9_F1_A = "9F1A";
+  @jakarta.annotation.Nullable
   private String _9F1A;
 
   public EmvTags() { 
   }
 
-  public EmvTags _84(String _84) {
+  public EmvTags _84(@jakarta.annotation.Nullable String _84) {
     this._84 = _84;
     return this;
   }
 
-   /**
+  /**
    * The EMV AID as reported by ICC
    * @return _84
-  **/
+   */
   @jakarta.annotation.Nullable
 
   @JsonProperty(JSON_PROPERTY_84)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String get84() {
     return _84;
   }
@@ -66,25 +67,24 @@ public class EmvTags {
 
   @JsonProperty(JSON_PROPERTY_84)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void set84(String _84) {
+  public void set84(@jakarta.annotation.Nullable String _84) {
     this._84 = _84;
   }
 
 
-  public EmvTags _9F1A(String _9F1A) {
+  public EmvTags _9F1A(@jakarta.annotation.Nullable String _9F1A) {
     this._9F1A = _9F1A;
     return this;
   }
 
-   /**
+  /**
    * Terminal Country Code
    * @return _9F1A
-  **/
+   */
   @jakarta.annotation.Nullable
 
   @JsonProperty(JSON_PROPERTY_9_F1_A)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
   public String get9F1A() {
     return _9F1A;
   }
@@ -92,7 +92,7 @@ public class EmvTags {
 
   @JsonProperty(JSON_PROPERTY_9_F1_A)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void set9F1A(String _9F1A) {
+  public void set9F1A(@jakarta.annotation.Nullable String _9F1A) {
     this._9F1A = _9F1A;
   }
 
