@@ -18,7 +18,7 @@
 
         <!-- artifact versions -->
         <lombok.version>1.18.36</lombok.version>
-        <quarkus.version>3.8.3</quarkus.version>
+        <quarkus.version>3.15.2</quarkus.version>
         <swagger.version>2.2.27</swagger.version>
         <swagger-codegen.plugin.version>3.0.56</swagger-codegen.plugin.version>
 
@@ -53,7 +53,7 @@
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-resteasy-reactive-jsonb</artifactId>
+            <artifactId>quarkus-rest-jsonb</artifactId>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>

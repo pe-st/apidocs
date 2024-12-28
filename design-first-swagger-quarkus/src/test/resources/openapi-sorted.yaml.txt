@@ -13,7 +13,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PinCheckRequest'
+              $ref: "#/components/schemas/PinCheckRequest"
         description: PIN Check Request Body
         required: true
       responses:
@@ -21,7 +21,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PinCheckResponse'
+                $ref: "#/components/schemas/PinCheckResponse"
           description: PIN Check Response
       summary: Check the pin
   /api/txproc/purchase:
@@ -31,7 +31,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PurchaseAuthRequest'
+              $ref: "#/components/schemas/PurchaseAuthRequest"
         description: Purchase Request Body
         required: true
       responses:
@@ -39,7 +39,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PurchaseAuthResponse'
+                $ref: "#/components/schemas/PurchaseAuthResponse"
           description: Purchase Response
       summary: Authorize a Purchase
 components:
@@ -65,7 +65,7 @@ components:
       description: Request for checking a PIN
       properties:
         pan:
-          $ref: '#/components/schemas/Pan'
+          $ref: "#/components/schemas/Pan"
         pinBlock:
           description: |-
             Encrypted binary data containing a PIN
@@ -99,9 +99,9 @@ components:
       description: Request for authorizing a Purchase
       properties:
         emvTags:
-          $ref: '#/components/schemas/EmvTags'
+          $ref: "#/components/schemas/EmvTags"
         pan:
-          $ref: '#/components/schemas/Pan'
+          $ref: "#/components/schemas/Pan"
         uuid:
           description: Unique ID of the request
           format: uuid

@@ -15,7 +15,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PinCheckRequest'
+              $ref: "#/components/schemas/PinCheckRequest"
         required: true
       responses:
         default:
@@ -23,7 +23,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PinCheckResponse'
+                $ref: "#/components/schemas/PinCheckResponse"
   /api/txproc/purchase:
     post:
       tags:
@@ -35,7 +35,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PurchaseAuthRequest'
+              $ref: "#/components/schemas/PurchaseAuthRequest"
         required: true
       responses:
         default:
@@ -43,7 +43,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PurchaseAuthResponse'
+                $ref: "#/components/schemas/PurchaseAuthResponse"
 components:
   schemas:
     Code:
@@ -86,9 +86,9 @@ components:
           description: Unique ID of the request
           type: string
           allOf:
-          - $ref: '#/components/schemas/UUID'
+          - $ref: "#/components/schemas/UUID"
         pan:
-          $ref: '#/components/schemas/Pan'
+          $ref: "#/components/schemas/Pan"
         pinBlock:
           description: |-
             Encrypted binary data containing a PIN
@@ -100,7 +100,7 @@ components:
       type: object
       properties:
         result:
-          $ref: '#/components/schemas/Code'
+          $ref: "#/components/schemas/Code"
         tries:
           format: int32
           description: Number of remaining tries
@@ -116,17 +116,17 @@ components:
           description: Unique ID of the request
           type: string
           allOf:
-          - $ref: '#/components/schemas/UUID'
+          - $ref: "#/components/schemas/UUID"
         pan:
-          $ref: '#/components/schemas/Pan'
+          $ref: "#/components/schemas/Pan"
         emvTags:
-          $ref: '#/components/schemas/EmvTags'
+          $ref: "#/components/schemas/EmvTags"
     PurchaseAuthResponse:
       description: Response to PurchaseAuthRequest
       type: object
       properties:
         result:
-          $ref: '#/components/schemas/Code1'
+          $ref: "#/components/schemas/Code1"
         approvalCode:
           description: Code referencing the successful authorization
           type: string

@@ -11,7 +11,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PinCheckRequest'
+              $ref: "#/components/schemas/PinCheckRequest"
         description: PIN Check Request Body
         required: true
       responses:
@@ -19,7 +19,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PinCheckResponse'
+                $ref: "#/components/schemas/PinCheckResponse"
           description: PIN Check Response
       summary: Check the pin
       tags:
@@ -31,7 +31,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PurchaseAuthRequest'
+              $ref: "#/components/schemas/PurchaseAuthRequest"
         description: Purchase Request Body
         required: true
       responses:
@@ -39,7 +39,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PurchaseAuthResponse'
+                $ref: "#/components/schemas/PurchaseAuthResponse"
           description: Purchase Response
       summary: Authorize a Purchase
       tags:
@@ -98,7 +98,7 @@ components:
       description: Request for authorizing a Purchase
       properties:
         emvTags:
-          $ref: '#/components/schemas/EmvTags'
+          $ref: "#/components/schemas/EmvTags"
         pan:
           description: The number embossed on credit cards
           title: PAN (Primary Account Number)
