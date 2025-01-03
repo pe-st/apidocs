@@ -1,0 +1,117 @@
+
+package ch.schlau.pesche.apidocs.openapi.designfirst.generated.model.beans;
+
+import java.util.HashMap;
+import java.util.Map;
+import javax.annotation.processing.Generated;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyDescription;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonValue;
+
+
+/**
+ * Response to PurchaseAuthRequest
+ * 
+ */
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+    "approvalCode",
+    "result"
+})
+@Generated("jsonschema2pojo")
+public class PurchaseAuthResponse {
+
+    /**
+     * Code referencing the successful authorization
+     * 
+     */
+    @JsonProperty("approvalCode")
+    @JsonPropertyDescription("Code referencing the successful authorization")
+    private String approvalCode;
+    /**
+     * Result of the request
+     * 
+     */
+    @JsonProperty("result")
+    @JsonPropertyDescription("Result of the request")
+    private PurchaseAuthResponse.Result result;
+
+    /**
+     * Code referencing the successful authorization
+     * 
+     */
+    @JsonProperty("approvalCode")
+    public String getApprovalCode() {
+        return approvalCode;
+    }
+
+    /**
+     * Code referencing the successful authorization
+     * 
+     */
+    @JsonProperty("approvalCode")
+    public void setApprovalCode(String approvalCode) {
+        this.approvalCode = approvalCode;
+    }
+
+    /**
+     * Result of the request
+     * 
+     */
+    @JsonProperty("result")
+    public PurchaseAuthResponse.Result getResult() {
+        return result;
+    }
+
+    /**
+     * Result of the request
+     * 
+     */
+    @JsonProperty("result")
+    public void setResult(PurchaseAuthResponse.Result result) {
+        this.result = result;
+    }
+
+    public enum Result {
+
+        OK("OK"),
+        WRONG("WRONG");
+        private final String value;
+        private final static Map<String, PurchaseAuthResponse.Result> CONSTANTS = new HashMap<String, PurchaseAuthResponse.Result>();
+
+        static {
+            for (PurchaseAuthResponse.Result c: values()) {
+                CONSTANTS.put(c.value, c);
+            }
+        }
+
+        private Result(String value) {
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+
+        @JsonValue
+        public String value() {
+            return this.value;
+        }
+
+        @JsonCreator
+        public static PurchaseAuthResponse.Result fromValue(String value) {
+            PurchaseAuthResponse.Result constant = CONSTANTS.get(value);
+            if (constant == null) {
+                throw new IllegalArgumentException(value);
+            } else {
+                return constant;
+            }
+        }
+
+    }
+
+}

@@ -13,6 +13,7 @@
         <module>code-first-openapi-quarkus</module>
         <module>code-first-swagger</module>
         <module>design-first-openapi-generator</module>
+        <module>design-first-quarkiverse</module>
         <module>design-first-swagger-quarkus</module>
     </modules>
 

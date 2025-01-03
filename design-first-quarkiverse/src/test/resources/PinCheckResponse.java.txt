@@ -1,0 +1,117 @@
+
+package ch.schlau.pesche.apidocs.openapi.designfirst.generated.model.beans;
+
+import java.util.HashMap;
+import java.util.Map;
+import javax.annotation.processing.Generated;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyDescription;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonValue;
+
+
+/**
+ * Tells if the PIN in the request was correct
+ * 
+ */
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+    "result",
+    "tries"
+})
+@Generated("jsonschema2pojo")
+public class PinCheckResponse {
+
+    /**
+     * Result of the request
+     * 
+     */
+    @JsonProperty("result")
+    @JsonPropertyDescription("Result of the request")
+    private PinCheckResponse.Result result;
+    /**
+     * Number of remaining tries
+     * 
+     */
+    @JsonProperty("tries")
+    @JsonPropertyDescription("Number of remaining tries")
+    private Integer tries;
+
+    /**
+     * Result of the request
+     * 
+     */
+    @JsonProperty("result")
+    public PinCheckResponse.Result getResult() {
+        return result;
+    }
+
+    /**
+     * Result of the request
+     * 
+     */
+    @JsonProperty("result")
+    public void setResult(PinCheckResponse.Result result) {
+        this.result = result;
+    }
+
+    /**
+     * Number of remaining tries
+     * 
+     */
+    @JsonProperty("tries")
+    public Integer getTries() {
+        return tries;
+    }
+
+    /**
+     * Number of remaining tries
+     * 
+     */
+    @JsonProperty("tries")
+    public void setTries(Integer tries) {
+        this.tries = tries;
+    }
+
+    public enum Result {
+
+        OK("OK"),
+        WRONG("WRONG");
+        private final String value;
+        private final static Map<String, PinCheckResponse.Result> CONSTANTS = new HashMap<String, PinCheckResponse.Result>();
+
+        static {
+            for (PinCheckResponse.Result c: values()) {
+                CONSTANTS.put(c.value, c);
+            }
+        }
+
+        private Result(String value) {
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+
+        @JsonValue
+        public String value() {
+            return this.value;
+        }
+
+        @JsonCreator
+        public static PinCheckResponse.Result fromValue(String value) {
+            PinCheckResponse.Result constant = CONSTANTS.get(value);
+            if (constant == null) {
+                throw new IllegalArgumentException(value);
+            } else {
+                return constant;
+            }
+        }
+
+    }
+
+}
