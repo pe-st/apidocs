@@ -17,7 +17,7 @@ import ch.schlau.pesche.apidocs.openapi.designfirst.generated.model.beans.Purcha
 @Path("/txproc")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-public class TxProc {
+public class TxProc /*implements ApiResource*/ {
 
     @Path("/pincheck")
     @POST

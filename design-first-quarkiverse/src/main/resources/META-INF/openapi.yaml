@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  title: txproc-design-first-openapi
+  title: txproc-design-first-quarkiverse
   version: "0.9"
 servers:
 - url: http://localhost:8080
