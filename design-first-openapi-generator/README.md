@@ -5,7 +5,7 @@ This directory contains a simple service implemented
 - using the *design-first* approach to provide an OpenAPI document
 - running with [Quarkus](https://quarkus.io/) server (providing the
   MicroProfile [OpenAPI](https://quarkus.io/guides/openapi-swaggerui-guide)
-  endpoints), serving the static hand-written OpenAPI document that
+  endpoints), serving the static handwritten OpenAPI document that
   is also used to generate the POJOs of the service interface
 - the POJOs are generated using [OpenAPI Generator](https://openapi-generator.tech/)'s
   Maven [plugin](https://github.com/OpenAPITools/openapi-generator/blob/master/modules/openapi-generator-maven-plugin/)
