@@ -15,10 +15,12 @@
         <!-- The Java release (the 'de facto' Java major version number, e.g. 8 for Java 1.8, and 9 for Java 9), -->
         <!-- supported in the compiler plugin as `<release>` for JDK 9 and later, see also JEP223 -->
         <java.release>21</java.release>
+        <!-- the CLI quarkus update needs maven.compiler.release -->
+        <maven.compiler.release>${java.release}</maven.compiler.release>
 
         <!-- artifact versions -->
-        <lombok.version>1.18.36</lombok.version>
-        <quarkus.version>3.15.2</quarkus.version>
+        <lombok.version>1.18.38</lombok.version>
+        <quarkus.version>3.20.0</quarkus.version>
         <openapi-generator.plugin.version>7.10.0</openapi-generator.plugin.version>
 
         <!-- testing artifact versions -->
@@ -26,8 +28,8 @@
         <json.unit.version>4.1.0</json.unit.version>
 
         <!-- apache maven plugin versions (in alphabetical order) -->
-        <maven.compiler.plugin.version>3.13.0</maven.compiler.plugin.version>
-        <maven.surefire.plugin.version>3.5.2</maven.surefire.plugin.version>
+        <maven.compiler.plugin.version>3.14.0</maven.compiler.plugin.version>
+        <maven.surefire.plugin.version>3.5.3</maven.surefire.plugin.version>
 
         <generated.path>${project.build.directory}/generated-sources/openapi</generated.path>
     </properties>
@@ -35,7 +37,7 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>io.quarkus</groupId>
+                <groupId>io.quarkus.platform</groupId>
                 <artifactId>quarkus-bom</artifactId>
                 <version>${quarkus.version}</version>
                 <type>pom</type>
