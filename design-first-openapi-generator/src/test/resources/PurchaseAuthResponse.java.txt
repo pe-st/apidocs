@@ -34,7 +34,7 @@ import jakarta.validation.Valid;
   PurchaseAuthResponse.JSON_PROPERTY_APPROVAL_CODE,
   PurchaseAuthResponse.JSON_PROPERTY_RESULT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 public class PurchaseAuthResponse {
   public static final String JSON_PROPERTY_APPROVAL_CODE = "approvalCode";
   @jakarta.annotation.Nullable

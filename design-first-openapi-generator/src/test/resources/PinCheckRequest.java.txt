@@ -36,7 +36,7 @@ import jakarta.validation.Valid;
   PinCheckRequest.JSON_PROPERTY_PIN_BLOCK,
   PinCheckRequest.JSON_PROPERTY_UUID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 public class PinCheckRequest {
   public static final String JSON_PROPERTY_PAN = "pan";
   @jakarta.annotation.Nonnull

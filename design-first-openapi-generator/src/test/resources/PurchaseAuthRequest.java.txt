@@ -37,7 +37,7 @@ import jakarta.validation.Valid;
   PurchaseAuthRequest.JSON_PROPERTY_PAN,
   PurchaseAuthRequest.JSON_PROPERTY_UUID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.10.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 public class PurchaseAuthRequest {
   public static final String JSON_PROPERTY_EMV_TAGS = "emvTags";
   @jakarta.annotation.Nullable

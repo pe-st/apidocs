@@ -16,12 +16,18 @@
         <module>design-first-swagger-quarkus</module>
     </modules>
 
+    <properties>
+        <versions.plugin.version>2.18.0</versions.plugin.version>
+        <rewrite.plugin.version>6.6.1</rewrite.plugin.version>
+        <rewrite.migrate-java.version>3.7.0</rewrite.migrate-java.version>
+    </properties>
+
     <build>
         <plugins>
             <plugin>
                 <groupId>org.openrewrite.maven</groupId>
                 <artifactId>rewrite-maven-plugin</artifactId>
-                <version>5.47.2</version>
+                <version>${rewrite.plugin.version}</version>
                 <configuration>
                     <activeRecipes>
                         <recipe>org.openrewrite.java.migrate.UpgradeToJava21</recipe>
@@ -31,7 +37,7 @@
                     <dependency>
                         <groupId>org.openrewrite.recipe</groupId>
                         <artifactId>rewrite-migrate-java</artifactId>
-                        <version>2.31.0</version>
+                        <version>${rewrite.migrate-java.version}</version>
                     </dependency>
                 </dependencies>
             </plugin>

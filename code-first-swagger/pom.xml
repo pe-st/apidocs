@@ -21,7 +21,7 @@
         <!-- artifact versions -->
         <lombok.version>1.18.38</lombok.version>
         <quarkus.version>3.20.0</quarkus.version>
-        <swagger.version>2.2.29</swagger.version>
+        <swagger.version>2.2.30</swagger.version>
 
         <!-- testing artifact versions -->
         <hamcrest.version>3.0</hamcrest.version>
