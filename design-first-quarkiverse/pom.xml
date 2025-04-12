@@ -21,6 +21,7 @@
         <!-- artifact versions -->
         <lombok.version>1.18.38</lombok.version>
         <quarkus.version>3.20.0</quarkus.version>
+        <quarkus-openapi-generator.version>2.9.1-lts</quarkus-openapi-generator.version>
 
         <!-- testing artifact versions -->
         <hamcrest.version>3.0</hamcrest.version>
@@ -64,7 +65,7 @@
         <dependency>
             <groupId>io.quarkiverse.openapi.generator</groupId>
             <artifactId>quarkus-openapi-generator-server</artifactId>
-            <version>2.9.0-lts</version>
+            <version>${quarkus-openapi-generator.version}</version>
         </dependency>
 
         <!-- Application dependencies -->

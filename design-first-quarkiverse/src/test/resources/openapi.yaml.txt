@@ -12,11 +12,11 @@ paths:
       operationId: pinCheck
       requestBody:
         description: PIN Check Request Body
+        required: true
         content:
           application/json:
             schema:
               $ref: "#/components/schemas/PinCheckRequest"
-        required: true
       responses:
         default:
           description: PIN Check Response
@@ -30,11 +30,11 @@ paths:
       operationId: purchase
       requestBody:
         description: Purchase Request Body
+        required: true
         content:
           application/json:
             schema:
               $ref: "#/components/schemas/PurchaseAuthRequest"
-        required: true
       responses:
         default:
           description: Purchase Response
