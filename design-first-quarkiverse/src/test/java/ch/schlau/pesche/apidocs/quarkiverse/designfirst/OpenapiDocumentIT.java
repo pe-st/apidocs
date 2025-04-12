@@ -1,4 +1,4 @@
-package ch.schlau.pesche.apidocs.openapi.designfirst;
+package ch.schlau.pesche.apidocs.quarkiverse.designfirst;
 
 import static com.fasterxml.jackson.dataformat.yaml.YAMLGenerator.Feature.MINIMIZE_QUOTES;
 import static io.restassured.RestAssured.given;

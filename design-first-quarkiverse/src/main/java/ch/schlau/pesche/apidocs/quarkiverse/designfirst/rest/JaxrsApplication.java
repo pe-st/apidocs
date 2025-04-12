@@ -1,4 +1,4 @@
-package ch.schlau.pesche.apidocs.openapi.designfirst.rest;
+package ch.schlau.pesche.apidocs.quarkiverse.designfirst.rest;
 
 import jakarta.ws.rs.ApplicationPath;
 import jakarta.ws.rs.core.Application;

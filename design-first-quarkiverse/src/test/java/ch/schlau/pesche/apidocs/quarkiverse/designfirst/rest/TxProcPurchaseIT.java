@@ -1,4 +1,4 @@
-package ch.schlau.pesche.apidocs.openapi.designfirst.rest;
+package ch.schlau.pesche.apidocs.quarkiverse.designfirst.rest;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;

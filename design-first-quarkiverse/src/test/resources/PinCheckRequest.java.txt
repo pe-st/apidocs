@@ -1,5 +1,5 @@
 
-package ch.schlau.pesche.apidocs.openapi.designfirst.generated.model.beans;
+package ch.schlau.pesche.apidocs.quarkiverse.designfirst.generated.model.beans;
 
 import java.util.UUID;
 import javax.annotation.processing.Generated;

@@ -1,4 +1,4 @@
-package ch.schlau.pesche.apidocs.openapi.designfirst.rest;
+package ch.schlau.pesche.apidocs.quarkiverse.designfirst.rest;
 
 import java.util.Optional;
 
@@ -8,11 +8,11 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 
-import ch.schlau.pesche.apidocs.openapi.designfirst.generated.model.beans.EmvTags;
-import ch.schlau.pesche.apidocs.openapi.designfirst.generated.model.beans.PinCheckRequest;
-import ch.schlau.pesche.apidocs.openapi.designfirst.generated.model.beans.PinCheckResponse;
-import ch.schlau.pesche.apidocs.openapi.designfirst.generated.model.beans.PurchaseAuthRequest;
-import ch.schlau.pesche.apidocs.openapi.designfirst.generated.model.beans.PurchaseAuthResponse;
+import ch.schlau.pesche.apidocs.quarkiverse.designfirst.generated.model.beans.EmvTags;
+import ch.schlau.pesche.apidocs.quarkiverse.designfirst.generated.model.beans.PinCheckRequest;
+import ch.schlau.pesche.apidocs.quarkiverse.designfirst.generated.model.beans.PinCheckResponse;
+import ch.schlau.pesche.apidocs.quarkiverse.designfirst.generated.model.beans.PurchaseAuthRequest;
+import ch.schlau.pesche.apidocs.quarkiverse.designfirst.generated.model.beans.PurchaseAuthResponse;
 
 @Path("/txproc")
 @Consumes(MediaType.APPLICATION_JSON)

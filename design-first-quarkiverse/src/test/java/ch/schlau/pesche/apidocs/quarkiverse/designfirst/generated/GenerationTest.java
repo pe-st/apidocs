@@ -1,4 +1,4 @@
-package ch.schlau.pesche.apidocs.openapi.designfirst.generated;
+package ch.schlau.pesche.apidocs.quarkiverse.designfirst.generated;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -12,11 +12,11 @@ import org.apache.commons.io.IOUtils;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import ch.schlau.pesche.apidocs.openapi.designfirst.generated.model.beans.EmvTags;
-import ch.schlau.pesche.apidocs.openapi.designfirst.generated.model.beans.PinCheckRequest;
-import ch.schlau.pesche.apidocs.openapi.designfirst.generated.model.beans.PinCheckResponse;
-import ch.schlau.pesche.apidocs.openapi.designfirst.generated.model.beans.PurchaseAuthRequest;
-import ch.schlau.pesche.apidocs.openapi.designfirst.generated.model.beans.PurchaseAuthResponse;
+import ch.schlau.pesche.apidocs.quarkiverse.designfirst.generated.model.beans.EmvTags;
+import ch.schlau.pesche.apidocs.quarkiverse.designfirst.generated.model.beans.PinCheckRequest;
+import ch.schlau.pesche.apidocs.quarkiverse.designfirst.generated.model.beans.PinCheckResponse;
+import ch.schlau.pesche.apidocs.quarkiverse.designfirst.generated.model.beans.PurchaseAuthRequest;
+import ch.schlau.pesche.apidocs.quarkiverse.designfirst.generated.model.beans.PurchaseAuthResponse;
 
 class GenerationTest {
 
