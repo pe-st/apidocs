@@ -17,22 +17,25 @@
         <java.release>21</java.release>
         <!-- the CLI quarkus update needs maven.compiler.release -->
         <maven.compiler.release>${java.release}</maven.compiler.release>
+        <minimum-maven-version>3.6.3</minimum-maven-version>
 
         <!-- artifact versions -->
-        <lombok.version>1.18.38</lombok.version>
-        <quarkus.version>3.20.0</quarkus.version>
-        <swagger.version>2.2.30</swagger.version>
-        <!-- Don't use 3.0.57..3.0.68 because of https://github.com/swagger-api/swagger-codegen-generators/issues/1295 -->
+        <lombok.version>1.18.42</lombok.version>
+        <quarkus.version>3.20.3</quarkus.version>
+        <swagger.version>2.2.37</swagger.version>
+        <!-- Don't use 3.0.57..3.0.73 because of https://github.com/swagger-api/swagger-codegen-generators/issues/1295 -->
         <!-- (still not fixed for non-spring apps, see https://github.com/swagger-api/swagger-codegen-generators/pull/1308) -->
         <swagger-codegen.plugin.version>3.0.56</swagger-codegen.plugin.version>
 
         <!-- testing artifact versions -->
         <hamcrest.version>3.0</hamcrest.version>
-        <json.unit.version>4.1.0</json.unit.version>
+        <json.unit.version>4.1.1</json.unit.version>
 
         <!-- apache maven plugin versions (in alphabetical order) -->
-        <maven.compiler.plugin.version>3.14.0</maven.compiler.plugin.version>
-        <maven.surefire.plugin.version>3.5.3</maven.surefire.plugin.version>
+        <maven.compiler.plugin.version>3.14.1</maven.compiler.plugin.version>
+        <maven.enforcer.plugin.version>3.6.1</maven.enforcer.plugin.version>
+        <maven.surefire.plugin.version>3.5.4</maven.surefire.plugin.version>
+        <versions.plugin.version>2.19.1</versions.plugin.version>
 
         <generated.path>${project.build.directory}/generated-sources/swagger</generated.path>
     </properties>
@@ -194,6 +197,70 @@
                         <include>**/*Test.java</include>
                         <include>**/*IT.java</include>
                     </includes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>${maven.enforcer.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <requireMavenVersion>
+                                    <version>${minimum-maven-version}</version>
+                                </requireMavenVersion>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>${versions.plugin.version}</version>
+                <configuration>
+                    <dependencyExcludes>
+                        <!-- exclude dependencies in this POM managed by Quarkus -->
+                        <dependencyExclude>io.rest-assured:rest-assured</dependencyExclude>
+                        <dependencyExclude>jakarta.validation:jakarta.validation-api</dependencyExclude>
+                    </dependencyExcludes>
+                    <ruleSet>
+                        <!-- see https://www.mojohaus.org/versions/versions-maven-plugin/version-rules.html -->
+                        <ignoreVersions>
+                            <ignoreVersion>
+                                <!-- ignore all versions with a build number or qualifier -->
+                                <type>regex</type>
+                                <version>\d+\.\d+(\.\d+)?-.*</version>
+                            </ignoreVersion>
+                        </ignoreVersions>
+                        <rules>
+                            <rule>
+                                <!-- update Quarkus versions manually -->
+                                <groupId>io.quarkus</groupId>
+                                <ignoreVersions>
+                                    <ignoreVersion>
+                                        <type>regex</type>
+                                        <version>.*</version>
+                                    </ignoreVersion>
+                                </ignoreVersions>
+                            </rule>
+                            <rule>
+                                <groupId>io.swagger.codegen.v3</groupId>
+                                <artifactId>swagger-codegen-maven-plugin</artifactId>
+                                <ignoreVersions>
+                                    <!-- 3.0.57+ are broken: https://github.com/swagger-api/swagger-codegen-generators/issues/1295 -->
+                                    <ignoreVersion>
+                                        <type>regex</type>
+                                        <version>3\.0\.(5[7-9]|6[0-9]|7[0-3])</version>
+                                    </ignoreVersion>
+                                </ignoreVersions>
+                            </rule>
+                        </rules>
+                    </ruleSet>
                 </configuration>
             </plugin>
         </plugins>

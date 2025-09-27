@@ -17,9 +17,10 @@
     </modules>
 
     <properties>
-        <versions.plugin.version>2.18.0</versions.plugin.version>
-        <rewrite.plugin.version>6.6.1</rewrite.plugin.version>
-        <rewrite.migrate-java.version>3.7.0</rewrite.migrate-java.version>
+        <minimum-maven-version>3.6.3</minimum-maven-version>
+        <maven.enforcer.plugin.version>3.6.1</maven.enforcer.plugin.version>
+        <rewrite.plugin.version>6.19.0</rewrite.plugin.version>
+        <rewrite.migrate-java.version>3.18.0</rewrite.migrate-java.version>
     </properties>
 
     <build>
@@ -40,6 +41,25 @@
                         <version>${rewrite.migrate-java.version}</version>
                     </dependency>
                 </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>${maven.enforcer.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <requireMavenVersion>
+                                    <version>${minimum-maven-version}</version>
+                                </requireMavenVersion>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
