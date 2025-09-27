@@ -34,3 +34,4 @@ hs_err_pid*
 
 audit.log
 quarkus.log
+.quarkus/

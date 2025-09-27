@@ -21,7 +21,7 @@
 
         <!-- artifact versions -->
         <lombok.version>1.18.42</lombok.version>
-        <quarkus.version>3.20.3</quarkus.version>
+        <quarkus.version>3.27.0</quarkus.version>
         <swagger.version>2.2.37</swagger.version>
         <!-- Don't use 3.0.57..3.0.73 because of https://github.com/swagger-api/swagger-codegen-generators/issues/1295 -->
         <!-- (still not fixed for non-spring apps, see https://github.com/swagger-api/swagger-codegen-generators/pull/1308) -->

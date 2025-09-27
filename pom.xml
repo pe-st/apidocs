@@ -21,17 +21,20 @@
         <maven.enforcer.plugin.version>3.6.1</maven.enforcer.plugin.version>
         <rewrite.plugin.version>6.19.0</rewrite.plugin.version>
         <rewrite.migrate-java.version>3.18.0</rewrite.migrate-java.version>
+        <rewrite.third-party.version>0.28.0</rewrite.third-party.version>
     </properties>
 
     <build>
         <plugins>
             <plugin>
+                <!-- run it with `mvn org.openrewrite.maven:rewrite-maven-plugin:run -pl '!.'` -->
                 <groupId>org.openrewrite.maven</groupId>
                 <artifactId>rewrite-maven-plugin</artifactId>
                 <version>${rewrite.plugin.version}</version>
                 <configuration>
                     <activeRecipes>
                         <recipe>org.openrewrite.java.migrate.UpgradeToJava21</recipe>
+                        <recipe>org.openrewrite.quarkus.MigrateToQuarkus_v3_26_0</recipe>
                     </activeRecipes>
                 </configuration>
                 <dependencies>
@@ -39,6 +42,11 @@
                         <groupId>org.openrewrite.recipe</groupId>
                         <artifactId>rewrite-migrate-java</artifactId>
                         <version>${rewrite.migrate-java.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.openrewrite.recipe</groupId>
+                        <artifactId>rewrite-third-party</artifactId>
+                        <version>${rewrite.third-party.version}</version>
                     </dependency>
                 </dependencies>
             </plugin>
