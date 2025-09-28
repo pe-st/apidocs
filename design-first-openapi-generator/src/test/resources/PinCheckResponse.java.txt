@@ -16,6 +16,7 @@ package ch.schlau.pesche.apidocs.openapi.designfirst.generated.model;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.Locale;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -34,7 +35,7 @@ import jakarta.validation.Valid;
   PinCheckResponse.JSON_PROPERTY_RESULT,
   PinCheckResponse.JSON_PROPERTY_TRIES
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.15.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.16.0")
 public class PinCheckResponse {
   /**
    * Result of the request
@@ -93,14 +94,14 @@ public class PinCheckResponse {
    */
   @jakarta.annotation.Nullable
 
-  @JsonProperty(JSON_PROPERTY_RESULT)
+  @JsonProperty(value = JSON_PROPERTY_RESULT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public ResultEnum getResult() {
     return result;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RESULT)
+  @JsonProperty(value = JSON_PROPERTY_RESULT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setResult(@jakarta.annotation.Nullable ResultEnum result) {
     this.result = result;
@@ -118,14 +119,14 @@ public class PinCheckResponse {
    */
   @jakarta.annotation.Nullable
 
-  @JsonProperty(JSON_PROPERTY_TRIES)
+  @JsonProperty(value = JSON_PROPERTY_TRIES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public Integer getTries() {
     return tries;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TRIES)
+  @JsonProperty(value = JSON_PROPERTY_TRIES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTries(@jakarta.annotation.Nullable Integer tries) {
     this.tries = tries;

@@ -16,6 +16,7 @@ package ch.schlau.pesche.apidocs.openapi.designfirst.generated.model;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.Locale;
 import ch.schlau.pesche.apidocs.openapi.designfirst.generated.model.EmvTags;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -37,7 +38,7 @@ import jakarta.validation.Valid;
   PurchaseAuthRequest.JSON_PROPERTY_PAN,
   PurchaseAuthRequest.JSON_PROPERTY_UUID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.15.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.16.0")
 public class PurchaseAuthRequest {
   public static final String JSON_PROPERTY_EMV_TAGS = "emvTags";
   @jakarta.annotation.Nullable
@@ -66,14 +67,14 @@ public class PurchaseAuthRequest {
   @jakarta.annotation.Nullable
   @Valid
 
-  @JsonProperty(JSON_PROPERTY_EMV_TAGS)
+  @JsonProperty(value = JSON_PROPERTY_EMV_TAGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public EmvTags getEmvTags() {
     return emvTags;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EMV_TAGS)
+  @JsonProperty(value = JSON_PROPERTY_EMV_TAGS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmvTags(@jakarta.annotation.Nullable EmvTags emvTags) {
     this.emvTags = emvTags;
@@ -93,14 +94,14 @@ public class PurchaseAuthRequest {
   @NotNull
   @Valid
 
-  @JsonProperty(JSON_PROPERTY_PAN)
+  @JsonProperty(value = JSON_PROPERTY_PAN, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public ch.schlau.pesche.apidocs.openapi.designfirst.txproc.model.Pan getPan() {
     return pan;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PAN)
+  @JsonProperty(value = JSON_PROPERTY_PAN, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPan(@jakarta.annotation.Nonnull ch.schlau.pesche.apidocs.openapi.designfirst.txproc.model.Pan pan) {
     this.pan = pan;
@@ -120,14 +121,14 @@ public class PurchaseAuthRequest {
   @NotNull
   @Valid
 
-  @JsonProperty(JSON_PROPERTY_UUID)
+  @JsonProperty(value = JSON_PROPERTY_UUID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public UUID getUuid() {
     return uuid;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_UUID)
+  @JsonProperty(value = JSON_PROPERTY_UUID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUuid(@jakarta.annotation.Nonnull UUID uuid) {
     this.uuid = uuid;

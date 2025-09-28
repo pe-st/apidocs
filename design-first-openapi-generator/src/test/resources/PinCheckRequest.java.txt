@@ -16,6 +16,7 @@ package ch.schlau.pesche.apidocs.openapi.designfirst.generated.model;
 import java.util.Objects;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.Locale;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -36,7 +37,7 @@ import jakarta.validation.Valid;
   PinCheckRequest.JSON_PROPERTY_PIN_BLOCK,
   PinCheckRequest.JSON_PROPERTY_UUID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.15.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.16.0")
 public class PinCheckRequest {
   public static final String JSON_PROPERTY_PAN = "pan";
   @jakarta.annotation.Nonnull
@@ -66,14 +67,14 @@ public class PinCheckRequest {
   @NotNull
   @Valid
 
-  @JsonProperty(JSON_PROPERTY_PAN)
+  @JsonProperty(value = JSON_PROPERTY_PAN, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public ch.schlau.pesche.apidocs.openapi.designfirst.txproc.model.Pan getPan() {
     return pan;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PAN)
+  @JsonProperty(value = JSON_PROPERTY_PAN, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPan(@jakarta.annotation.Nonnull ch.schlau.pesche.apidocs.openapi.designfirst.txproc.model.Pan pan) {
     this.pan = pan;
@@ -92,14 +93,14 @@ public class PinCheckRequest {
   @jakarta.annotation.Nonnull
   @NotNull
 
-  @JsonProperty(JSON_PROPERTY_PIN_BLOCK)
+  @JsonProperty(value = JSON_PROPERTY_PIN_BLOCK, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public String getPinBlock() {
     return pinBlock;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PIN_BLOCK)
+  @JsonProperty(value = JSON_PROPERTY_PIN_BLOCK, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPinBlock(@jakarta.annotation.Nonnull String pinBlock) {
     this.pinBlock = pinBlock;
@@ -119,14 +120,14 @@ public class PinCheckRequest {
   @NotNull
   @Valid
 
-  @JsonProperty(JSON_PROPERTY_UUID)
+  @JsonProperty(value = JSON_PROPERTY_UUID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public UUID getUuid() {
     return uuid;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_UUID)
+  @JsonProperty(value = JSON_PROPERTY_UUID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setUuid(@jakarta.annotation.Nonnull UUID uuid) {
     this.uuid = uuid;
