@@ -14,7 +14,7 @@
 
         <!-- The Java release (the 'de facto' Java major version number, e.g. 8 for Java 1.8, and 9 for Java 9), -->
         <!-- supported in the compiler plugin as `<release>` for JDK 9 and later, see also JEP223 -->
-        <java.release>21</java.release>
+        <java.release>25</java.release>
         <!-- the CLI quarkus update needs maven.compiler.release -->
         <maven.compiler.release>${java.release}</maven.compiler.release>
         <minimum-maven-version>3.6.3</minimum-maven-version>
