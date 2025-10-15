@@ -7,6 +7,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 
 
 /**
@@ -30,6 +32,7 @@ public class PurchaseAuthRequest {
      */
     @JsonProperty("emvTags")
     @JsonPropertyDescription("Collection of EMV tags")
+    @Valid
     private EmvTags emvTags;
     /**
      * PAN (Primary Account Number)
@@ -40,6 +43,7 @@ public class PurchaseAuthRequest {
      */
     @JsonProperty("pan")
     @JsonPropertyDescription("The number embossed on credit cards")
+    @NotNull
     private String pan;
     /**
      * Unique ID of the request
@@ -48,6 +52,7 @@ public class PurchaseAuthRequest {
      */
     @JsonProperty("uuid")
     @JsonPropertyDescription("Unique ID of the request")
+    @NotNull
     private UUID uuid;
 
     /**

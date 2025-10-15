@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import jakarta.validation.constraints.NotNull;
 
 
 /**
@@ -31,6 +32,7 @@ public class PinCheckRequest {
      */
     @JsonProperty("pan")
     @JsonPropertyDescription("The number embossed on credit cards")
+    @NotNull
     private String pan;
     /**
      * Encrypted binary data containing a PIN
@@ -41,6 +43,7 @@ public class PinCheckRequest {
      */
     @JsonProperty("pinBlock")
     @JsonPropertyDescription("Encrypted binary data containing a PIN\n\nFieldcode: C003")
+    @NotNull
     private String pinBlock;
     /**
      * Unique ID of the request
@@ -49,6 +52,7 @@ public class PinCheckRequest {
      */
     @JsonProperty("uuid")
     @JsonPropertyDescription("Unique ID of the request")
+    @NotNull
     private UUID uuid;
 
     /**
