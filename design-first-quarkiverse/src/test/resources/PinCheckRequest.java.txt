@@ -1,0 +1,126 @@
+
+package ch.schlau.pesche.apidocs.quarkiverse.designfirst.generated.model.beans;
+
+import java.util.UUID;
+import javax.annotation.processing.Generated;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyDescription;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import jakarta.validation.constraints.NotNull;
+
+
+/**
+ * Request for checking a PIN
+ * 
+ */
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+    "pan",
+    "pinBlock",
+    "uuid"
+})
+@Generated("jsonschema2pojo")
+public class PinCheckRequest {
+
+    /**
+     * PAN (Primary Account Number)
+     * <p>
+     * The number embossed on credit cards
+     * (Required)
+     * 
+     */
+    @JsonProperty("pan")
+    @JsonPropertyDescription("The number embossed on credit cards")
+    @NotNull
+    private String pan;
+    /**
+     * Encrypted binary data containing a PIN
+     * 
+     * Fieldcode: C003
+     * (Required)
+     * 
+     */
+    @JsonProperty("pinBlock")
+    @JsonPropertyDescription("Encrypted binary data containing a PIN\n\nFieldcode: C003")
+    @NotNull
+    private String pinBlock;
+    /**
+     * Unique ID of the request
+     * (Required)
+     * 
+     */
+    @JsonProperty("uuid")
+    @JsonPropertyDescription("Unique ID of the request")
+    @NotNull
+    private UUID uuid;
+
+    /**
+     * PAN (Primary Account Number)
+     * <p>
+     * The number embossed on credit cards
+     * (Required)
+     * 
+     */
+    @JsonProperty("pan")
+    public String getPan() {
+        return pan;
+    }
+
+    /**
+     * PAN (Primary Account Number)
+     * <p>
+     * The number embossed on credit cards
+     * (Required)
+     * 
+     */
+    @JsonProperty("pan")
+    public void setPan(String pan) {
+        this.pan = pan;
+    }
+
+    /**
+     * Encrypted binary data containing a PIN
+     * 
+     * Fieldcode: C003
+     * (Required)
+     * 
+     */
+    @JsonProperty("pinBlock")
+    public String getPinBlock() {
+        return pinBlock;
+    }
+
+    /**
+     * Encrypted binary data containing a PIN
+     * 
+     * Fieldcode: C003
+     * (Required)
+     * 
+     */
+    @JsonProperty("pinBlock")
+    public void setPinBlock(String pinBlock) {
+        this.pinBlock = pinBlock;
+    }
+
+    /**
+     * Unique ID of the request
+     * (Required)
+     * 
+     */
+    @JsonProperty("uuid")
+    public UUID getUuid() {
+        return uuid;
+    }
+
+    /**
+     * Unique ID of the request
+     * (Required)
+     * 
+     */
+    @JsonProperty("uuid")
+    public void setUuid(UUID uuid) {
+        this.uuid = uuid;
+    }
+
+}

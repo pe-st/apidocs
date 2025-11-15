@@ -1,0 +1,124 @@
+
+package ch.schlau.pesche.apidocs.quarkiverse.designfirst.generated.model.beans;
+
+import java.util.UUID;
+import javax.annotation.processing.Generated;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyDescription;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+
+
+/**
+ * Request for authorizing a Purchase
+ * 
+ */
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+    "emvTags",
+    "pan",
+    "uuid"
+})
+@Generated("jsonschema2pojo")
+public class PurchaseAuthRequest {
+
+    /**
+     * EmvTags
+     * <p>
+     * Collection of EMV tags
+     * 
+     */
+    @JsonProperty("emvTags")
+    @JsonPropertyDescription("Collection of EMV tags")
+    @Valid
+    private EmvTags emvTags;
+    /**
+     * PAN (Primary Account Number)
+     * <p>
+     * The number embossed on credit cards
+     * (Required)
+     * 
+     */
+    @JsonProperty("pan")
+    @JsonPropertyDescription("The number embossed on credit cards")
+    @NotNull
+    private String pan;
+    /**
+     * Unique ID of the request
+     * (Required)
+     * 
+     */
+    @JsonProperty("uuid")
+    @JsonPropertyDescription("Unique ID of the request")
+    @NotNull
+    private UUID uuid;
+
+    /**
+     * EmvTags
+     * <p>
+     * Collection of EMV tags
+     * 
+     */
+    @JsonProperty("emvTags")
+    public EmvTags getEmvTags() {
+        return emvTags;
+    }
+
+    /**
+     * EmvTags
+     * <p>
+     * Collection of EMV tags
+     * 
+     */
+    @JsonProperty("emvTags")
+    public void setEmvTags(EmvTags emvTags) {
+        this.emvTags = emvTags;
+    }
+
+    /**
+     * PAN (Primary Account Number)
+     * <p>
+     * The number embossed on credit cards
+     * (Required)
+     * 
+     */
+    @JsonProperty("pan")
+    public String getPan() {
+        return pan;
+    }
+
+    /**
+     * PAN (Primary Account Number)
+     * <p>
+     * The number embossed on credit cards
+     * (Required)
+     * 
+     */
+    @JsonProperty("pan")
+    public void setPan(String pan) {
+        this.pan = pan;
+    }
+
+    /**
+     * Unique ID of the request
+     * (Required)
+     * 
+     */
+    @JsonProperty("uuid")
+    public UUID getUuid() {
+        return uuid;
+    }
+
+    /**
+     * Unique ID of the request
+     * (Required)
+     * 
+     */
+    @JsonProperty("uuid")
+    public void setUuid(UUID uuid) {
+        this.uuid = uuid;
+    }
+
+}

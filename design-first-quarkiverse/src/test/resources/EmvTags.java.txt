@@ -1,0 +1,82 @@
+
+package ch.schlau.pesche.apidocs.quarkiverse.designfirst.generated.model.beans;
+
+import javax.annotation.processing.Generated;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyDescription;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+
+/**
+ * EmvTags
+ * <p>
+ * Collection of EMV tags
+ * 
+ */
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+    "84",
+    "9F1A"
+})
+@Generated("jsonschema2pojo")
+public class EmvTags {
+
+    /**
+     * Dedicated Filename
+     * <p>
+     * The EMV AID as reported by ICC
+     * 
+     */
+    @JsonProperty("84")
+    @JsonPropertyDescription("The EMV AID as reported by ICC")
+    private String _84;
+    /**
+     * Terminal Country Code
+     * 
+     */
+    @JsonProperty("9F1A")
+    @JsonPropertyDescription("Terminal Country Code")
+    private String _9f1a;
+
+    /**
+     * Dedicated Filename
+     * <p>
+     * The EMV AID as reported by ICC
+     * 
+     */
+    @JsonProperty("84")
+    public String get84() {
+        return _84;
+    }
+
+    /**
+     * Dedicated Filename
+     * <p>
+     * The EMV AID as reported by ICC
+     * 
+     */
+    @JsonProperty("84")
+    public void set84(String _84) {
+        this._84 = _84;
+    }
+
+    /**
+     * Terminal Country Code
+     * 
+     */
+    @JsonProperty("9F1A")
+    public String get9f1a() {
+        return _9f1a;
+    }
+
+    /**
+     * Terminal Country Code
+     * 
+     */
+    @JsonProperty("9F1A")
+    public void set9f1a(String _9f1a) {
+        this._9f1a = _9f1a;
+    }
+
+}

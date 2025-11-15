@@ -18,6 +18,7 @@
         <module name="code-first-swagger" />
         <module name="code-first-openapi-quarkus" />
         <module name="design-first-openapi-generator" />
+        <module name="design-first-quarkiverse" />
         <module name="design-first-swagger-quarkus" />
       </profile>
     </annotationProcessing>
