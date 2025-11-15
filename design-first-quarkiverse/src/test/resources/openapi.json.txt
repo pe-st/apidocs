@@ -24,7 +24,7 @@
           "required" : true
         },
         "responses" : {
-          "default" : {
+          200 : {
             "description" : "PIN Check Response",
             "content" : {
               "application/json" : {
@@ -53,7 +53,7 @@
           "required" : true
         },
         "responses" : {
-          "default" : {
+          200 : {
             "description" : "Purchase Response",
             "content" : {
               "application/json" : {

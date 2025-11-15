@@ -17,7 +17,7 @@ paths:
             schema:
               $ref: '#/components/schemas/PinCheckRequest'
       responses:
-        default:
+        200:
           description: PIN Check Response
           content:
             application/json:
@@ -35,7 +35,7 @@ paths:
             schema:
               $ref: '#/components/schemas/PurchaseAuthRequest'
       responses:
-        default:
+        200:
           description: Purchase Response
           content:
             application/json:

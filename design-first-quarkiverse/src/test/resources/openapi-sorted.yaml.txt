@@ -17,7 +17,7 @@ paths:
         description: PIN Check Request Body
         required: true
       responses:
-        default:
+        "200":
           content:
             application/json:
               schema:
@@ -35,7 +35,7 @@ paths:
         description: Purchase Request Body
         required: true
       responses:
-        default:
+        "200":
           content:
             application/json:
               schema:
