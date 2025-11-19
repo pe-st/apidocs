@@ -22,14 +22,14 @@
         <!-- artifact versions -->
         <lombok.version>1.18.42</lombok.version>
         <quarkus.version>3.27.0</quarkus.version>
-        <swagger.version>2.2.39</swagger.version>
+        <swagger.version>2.2.40</swagger.version>
         <!-- Don't use 3.0.57..3.0.75 because of https://github.com/swagger-api/swagger-codegen-generators/issues/1295 -->
         <!-- (still not fixed for non-spring apps, see https://github.com/swagger-api/swagger-codegen-generators/pull/1308) -->
         <swagger-codegen.plugin.version>3.0.56</swagger-codegen.plugin.version>
 
         <!-- testing artifact versions -->
         <hamcrest.version>3.0</hamcrest.version>
-        <json.unit.version>5.0.0</json.unit.version>
+        <json.unit.version>5.1.0</json.unit.version>
 
         <!-- apache maven plugin versions (in alphabetical order) -->
         <maven.compiler.plugin.version>3.14.1</maven.compiler.plugin.version>
